@@ -52,14 +52,14 @@ public class Enemy : MonoBehaviour
             Destroy(this.gameObject);     
         }
 
-        if(other.gameObject.CompareTag("Player"))
-        {
+        //if(other.gameObject.CompareTag("Player"))
+        //{
            
             
            
-            other.gameObject.SendMessage("EnemyCollide");
+            //other.gameObject.SendMessage("EnemyCollide");
             
 
-        }
+        //}
     }
 }

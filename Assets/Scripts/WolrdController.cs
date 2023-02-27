@@ -5,6 +5,7 @@ using UnityEngine;
 public class WolrdController : MonoBehaviour
 {
     public GameObject destroy;
+    public GameObject player;
     // Start is called before the first frame update
     void Start()
     {
@@ -18,5 +19,16 @@ public class WolrdController : MonoBehaviour
         {
             Destroy(destroy);
         }
+
+        if( Input.GetButtonDown("Ouch"))
+        {
+            player.gameObject.SendMessage("EnemyCollide");
+        }
+
+         if( Input.GetButtonDown("Win"))
+        {
+            player.gameObject.SendMessage("Win");
+        }
+
     }
 }

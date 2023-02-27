@@ -9,6 +9,23 @@ public class Room : MonoBehaviour
     public GameObject Entrance;
     public GameObject Exit;
 
+
+
+    void Start()
+    {
+        Entrance.gameObject.SetActive(false);
+        Exit.gameObject.SetActive(false);
+    }
+
+
+    public void RoomLock()
+    {
+        Entrance.gameObject.SetActive(true);
+        Exit.gameObject.SetActive(true);
+    }
+    
+    
+    
     public void RoomClear()
     {
         enemies= enemies-1;
@@ -18,4 +35,14 @@ public class Room : MonoBehaviour
             Exit.gameObject.SetActive(false);
         }
     }
+
+     void Update()
+    {
+        if(enemies<=0)
+        {
+            Entrance.gameObject.SetActive(false);
+            Exit.gameObject.SetActive(false);
+        }
+    }
+
 }
