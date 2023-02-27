@@ -24,7 +24,11 @@ public class Enemy : MonoBehaviour
     {
         
         if(other.gameObject.CompareTag("Fire"))
-        { 
+        {
+
+            print("took damage");
+
+
             Destroy(other.gameObject);
 
             health = health -1;
@@ -51,15 +55,5 @@ public class Enemy : MonoBehaviour
         { 
             Destroy(this.gameObject);     
         }
-
-        //if(other.gameObject.CompareTag("Player"))
-        //{
-           
-            
-           
-            //other.gameObject.SendMessage("EnemyCollide");
-            
-
-        //}
     }
 }

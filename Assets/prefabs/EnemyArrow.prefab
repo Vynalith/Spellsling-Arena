@@ -12,9 +12,9 @@ GameObject:
   - component: {fileID: 3628118895417289681}
   - component: {fileID: 1119964054294063096}
   - component: {fileID: -3875558306488366197}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: EnemyArrow
-  m_TagString: Untagged
+  m_TagString: EnemyProjectile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -106,7 +106,7 @@ GameObject:
   - component: {fileID: 2088713740955180426}
   - component: {fileID: 7936557168826153075}
   - component: {fileID: 7023553376187238932}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}

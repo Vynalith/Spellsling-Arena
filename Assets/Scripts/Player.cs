@@ -18,13 +18,11 @@ public class Player : MonoBehaviour
     public GameObject damage;
     public Camera camera;
     public Animator animator;
-
     public GameObject Shooter;
 
     //public Animation lightningAttack;
-   
+    private Vector3 flashback;
    public int element;
-
    private bool Playing;
 
     // Start is called before the first frame update
@@ -81,6 +79,8 @@ public class Player : MonoBehaviour
        
         //}
         }
+        flashback = this.transform.position;
+        //print(flashback);
     }
 
     void FixedUpdate()
@@ -94,22 +94,69 @@ public class Player : MonoBehaviour
         Vector2 lookDir = mousePos - rb.position;
         float angle = Mathf.Atan2(lookDir.y, lookDir.x) * Mathf.Rad2Deg - 90f;
         rb2.rotation = angle;
+        
         }
         
     }
 
-    public void EnemyCollide()
+    public void OnTriggerEnter2D(Collider2D other)
+
     {
-        health=health-1; 
-        GameObject explo = Instantiate(damage, this.transform.position, Quaternion.identity);
-        Destroy(explo, 1f);
-        if(health <= 0)
+        if (other.gameObject.CompareTag("Enemy"))
         {
-            Playing=false;
-            Shooter.gameObject.SendMessage("Death");
-            animator.Play("DEATH");
+            print("Moving from ");
+            print(this.transform.position);
+            print(" to ");
+            print(flashback);
+            this.transform.position = flashback;
+            print("Collision");
+            print("Collision");
+            print("Collision");
+            print("Collision");
+            print("Collision");
+            print("Collision");
+            print("Collision");
+            print("Collision");
+            print("Collision");
+            print("Collision");
+            print("Collision");
+            print("Collision");
+            print("Collision");
+            print("Collision");
+            print("Collision");
+            print("Collision");
+            print("Collision");
+            print("Collision");
+            print("Collision");
+            health -= 1;
+            if (health <= 0)
+            {
+                Playing = false;
+                Shooter.gameObject.SendMessage("Death");
+                animator.Play("DEATH");
+            }
+
+            //this.transform.position -= this.transform.position - other.transform.position;
+        }
+        else if (other.gameObject.CompareTag("EnemyProjectile"))
+        {
+            print("hit");
+            health -= 1;
+            print(health);
+            if (health <= 0)
+            {
+                Playing = false;
+                Shooter.gameObject.SendMessage("Death");
+                animator.Play("DEATH");
+            }
+            Destroy(other.gameObject);
+        }
+        else
+        {
+            print("fuck");
         }
     }
+
 
     public void LightningAttacks()
     {

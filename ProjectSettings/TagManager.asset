@@ -6,11 +6,14 @@ TagManager:
   tags:
   - Fire
   - FILLERTEXT
+  - Enemy
+  - EnemyProjectile
+  - Wall
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Enemy
   - Water
   - UI
   - 
