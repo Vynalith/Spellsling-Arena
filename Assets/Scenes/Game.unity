@@ -256,11 +256,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5c0a8e214fc02ee46a58fa306f089b1f, type: 3}
---- !u!1 &386486460 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1974370995060080427, guid: 40d2c21b65ebb884687e3586004b7f44, type: 3}
-  m_PrefabInstance: {fileID: 393847016}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &393847016
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -441,6 +436,11 @@ MonoBehaviour:
   m_CameraActivatedEvent:
     m_PersistentCalls:
       m_Calls: []
+--- !u!1 &546058078 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7328191871882828756, guid: c56a86fafc38c664ab7dabff07e22886, type: 3}
+  m_PrefabInstance: {fileID: 1996457658544162226}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &630749748
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1068,7 +1068,7 @@ PrefabInstance:
     - target: {fileID: 5141005941146492582, guid: 84706210821d83f4c9b2bdd02df4c440, type: 3}
       propertyPath: CurrentRoom
       value: 
-      objectReference: {fileID: 386486460}
+      objectReference: {fileID: 546058078}
     - target: {fileID: 6145601598086864364, guid: 84706210821d83f4c9b2bdd02df4c440, type: 3}
       propertyPath: m_Name
       value: Enemy (1)
@@ -1889,26 +1889,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 3157455241052497559, guid: 84706210821d83f4c9b2bdd02df4c440, type: 3}
-      propertyPath: m_Size.x
-      value: 0.7624463
-      objectReference: {fileID: 0}
-    - target: {fileID: 3157455241052497559, guid: 84706210821d83f4c9b2bdd02df4c440, type: 3}
-      propertyPath: m_Size.y
-      value: 0.738961
-      objectReference: {fileID: 0}
-    - target: {fileID: 3157455241052497559, guid: 84706210821d83f4c9b2bdd02df4c440, type: 3}
-      propertyPath: m_Offset.x
-      value: -0.0019565225
-      objectReference: {fileID: 0}
-    - target: {fileID: 3157455241052497559, guid: 84706210821d83f4c9b2bdd02df4c440, type: 3}
-      propertyPath: m_Offset.y
-      value: -0.018315747
-      objectReference: {fileID: 0}
-    - target: {fileID: 3157455241052497559, guid: 84706210821d83f4c9b2bdd02df4c440, type: 3}
-      propertyPath: m_IsTrigger
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 3351230689322249506, guid: 84706210821d83f4c9b2bdd02df4c440, type: 3}
       propertyPath: m_RootOrder
       value: 15
@@ -1954,17 +1934,9 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5141005941146492582, guid: 84706210821d83f4c9b2bdd02df4c440, type: 3}
-      propertyPath: Hurter
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 5141005941146492582, guid: 84706210821d83f4c9b2bdd02df4c440, type: 3}
       propertyPath: CurrentRoom
       value: 
       objectReference: {fileID: 1829745741}
-    - target: {fileID: 5712441032561133463, guid: 84706210821d83f4c9b2bdd02df4c440, type: 3}
-      propertyPath: m_BodyType
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 6145601598086864364, guid: 84706210821d83f4c9b2bdd02df4c440, type: 3}
       propertyPath: m_Name
       value: Enemy
