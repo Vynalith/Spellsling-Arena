@@ -96,9 +96,10 @@ GameObject:
   - component: {fileID: 5712441032561133463}
   - component: {fileID: 3157455241052497559}
   - component: {fileID: 5141005941146492582}
+  - component: {fileID: -2864628036698114607}
   m_Layer: 0
   m_Name: Enemy
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -154,7 +155,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.0038419366, y: -0.010455042}
+  m_Offset: {x: -0.0019565225, y: -0.018315747}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -165,7 +166,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.59156597, y: 0.57890624}
+  m_Size: {x: 0.7624463, y: 0.738961}
   m_EdgeRadius: 0
 --- !u!114 &5141005941146492582
 MonoBehaviour:
@@ -182,6 +183,28 @@ MonoBehaviour:
   health: 3
   damage: {fileID: 8132685761496276164, guid: eba20271973d5164cbc490afcdb27fa1, type: 3}
   CurrentRoom: {fileID: 0}
+--- !u!195 &-2864628036698114607
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6145601598086864364}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.5
+  m_Speed: 3.5
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 2
+  m_BaseOffset: 0
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
 --- !u!1 &6806351428547671414
 GameObject:
   m_ObjectHideFlags: 0

@@ -180,10 +180,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 2
-  damage: {fileID: 0}
-  CurrentRoom: {fileID: 0}
+  damage: {fileID: 8132685761496276164, guid: eba20271973d5164cbc490afcdb27fa1, type: 3}
+  CurrentRoom: {fileID: 7328191871882828756, guid: a8cd769bf44691d4a9d100123b6583c4, type: 3}
   cooldown: 1000
-  Projectile: {fileID: 0}
+  Projectile: {fileID: 7717531246457936126, guid: 0c0394cfaf22c81458ff7aac8bcb0580, type: 3}
   shotForce: 20
   sightDistance: 7
 --- !u!1001 &2990858761537721621

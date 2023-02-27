@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Fire
   - FILLERTEXT
+  - Enemy
   layers:
   - Default
   - TransparentFX

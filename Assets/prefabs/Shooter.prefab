@@ -51,10 +51,11 @@ MonoBehaviour:
   player: {fileID: 8001152008552254305, guid: 35f461400a6084e4e99a7708be87385b, type: 3}
   ShooterThing: {fileID: 7071107082077862991}
   firemagic: {fileID: 7717531246457936126, guid: 9f6c990093a164b4e89329b08ee6f171, type: 3}
-  lightningmagic: {fileID: 7717531246457936126, guid: 542b3d4709fdbcb49a61d9620ad9e718, type: 3}
+  lightningmagic: {fileID: 7717531246457936126, guid: ce62d16a518dd6b40a47304115d83508, type: 3}
   icemagic: {fileID: 7717531246457936126, guid: 5780fa5a77205c743a498aca801ea4f1, type: 3}
   earthmagic: {fileID: 7717531246457936126, guid: 41e1f856dc903d64b937b9f00f8f040b, type: 3}
   Aim: {fileID: 0}
+  Playing: 0
   shotForce: 10
 --- !u!50 &5675359736586977518
 Rigidbody2D:
@@ -84,7 +85,7 @@ BoxCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6298780189008791904}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0

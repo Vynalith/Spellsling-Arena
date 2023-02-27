@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class WolrdController : MonoBehaviour
+public class WorldController : MonoBehaviour
 {
     public GameObject destroy;
     public GameObject player;
