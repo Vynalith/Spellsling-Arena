@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 4994749233274700449}
   m_Layer: 0
   m_Name: Earth Column
-  m_TagString: Untagged
+  m_TagString: EarthWall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

@@ -885,6 +885,10 @@ PrefabInstance:
       propertyPath: CurrentRoom
       value: 
       objectReference: {fileID: 17435698}
+    - target: {fileID: 1662747029934039832, guid: 1e522d5d46ef84042a3a8753f03e87af, type: 3}
+      propertyPath: sightDistance
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 2545526390708886331, guid: 1e522d5d46ef84042a3a8753f03e87af, type: 3}
       propertyPath: ShooterThing
       value: 
@@ -895,7 +899,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4148577300589945279, guid: 1e522d5d46ef84042a3a8753f03e87af, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.63
+      value: -4.53
       objectReference: {fileID: 0}
     - target: {fileID: 4148577300589945279, guid: 1e522d5d46ef84042a3a8753f03e87af, type: 3}
       propertyPath: m_LocalPosition.y
@@ -960,6 +964,10 @@ PrefabInstance:
     - target: {fileID: 9144674522747706485, guid: 1e522d5d46ef84042a3a8753f03e87af, type: 3}
       propertyPath: m_Layer
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 9144674522747706485, guid: 1e522d5d46ef84042a3a8753f03e87af, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9144674522747706485, guid: 1e522d5d46ef84042a3a8753f03e87af, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -1102,11 +1110,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3351230689322249506, guid: 84706210821d83f4c9b2bdd02df4c440, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 5.0449753
+      value: -1.77
       objectReference: {fileID: 0}
     - target: {fileID: 3351230689322249506, guid: 84706210821d83f4c9b2bdd02df4c440, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -28.100006
+      value: -27.66
       objectReference: {fileID: 0}
     - target: {fileID: 3351230689322249506, guid: 84706210821d83f4c9b2bdd02df4c440, type: 3}
       propertyPath: m_LocalPosition.z

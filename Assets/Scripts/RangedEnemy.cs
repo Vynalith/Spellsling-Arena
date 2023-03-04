@@ -27,8 +27,8 @@ public class RangedEnemy : MonoBehaviour
     void Start()
     {
         cooldownCount = 0;
-        //target = GameObject.Find("Player");
-        target = GameObject.Find("Shooter");
+        target = GameObject.Find("Player");
+        //target = GameObject.Find("Shooter");
         layerMask = ~layerMask;
     }
 
