@@ -96,7 +96,7 @@ GameObject:
   - component: {fileID: 5712441032561133463}
   - component: {fileID: 3157455241052497559}
   - component: {fileID: 7552109419764340720}
-  - component: {fileID: 6890138114143325554}
+  - component: {fileID: 46087608286091634}
   - component: {fileID: 7231115085660920640}
   - component: {fileID: 4785176133773844487}
   m_Layer: 0
@@ -184,10 +184,10 @@ MonoBehaviour:
   player: {fileID: 0}
   speed: 4
   rotationSpeed: 0
-  rigidbody: {fileID: 5712441032561133463}
+  rigidbody: {fileID: 0}
   sprite: {fileID: 0}
   anchor: {fileID: 0}
---- !u!114 &6890138114143325554
+--- !u!114 &46087608286091634
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -196,10 +196,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 6145601598086864364}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 66195e25832ea0a4e96751e209b101b3, type: 3}
+  m_Script: {fileID: 11500000, guid: e8bbc6caee9907c43bc4afada0fd6721, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerAwarenessDistance: 5
+  playerAwarenessDistance: 0
   player: {fileID: 0}
 --- !u!114 &7231115085660920640
 MonoBehaviour:
@@ -214,12 +214,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 1
-  damage: {fileID: 8132685761496276164, guid: eba20271973d5164cbc490afcdb27fa1, type: 3}
+  damage: {fileID: 0}
   CurrentRoom: {fileID: 0}
   animator: {fileID: 4785176133773844487}
 --- !u!95 &4785176133773844487
 Animator:
-  serializedVersion: 5
+  serializedVersion: 4
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -236,4 +236,4 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
+  m_KeepAnimatorControllerStateOnDisable: 0

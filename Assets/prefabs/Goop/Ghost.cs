@@ -59,7 +59,7 @@ public class Ghost : MonoBehaviour
             
             animator.Play("GoopAttack");
             
-            other.gameObject.SendMessage("EnemyCollide");
+            //other.gameObject.SendMessage("EnemyCollide");
             
 
         }

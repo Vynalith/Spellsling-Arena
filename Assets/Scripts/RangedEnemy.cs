@@ -27,7 +27,8 @@ public class RangedEnemy : MonoBehaviour
     void Start()
     {
         cooldownCount = 0;
-        target = GameObject.Find("Player");
+        //target = GameObject.Find("Player");
+        target = GameObject.Find("Shooter");
         layerMask = ~layerMask;
     }
 
@@ -107,15 +108,16 @@ public class RangedEnemy : MonoBehaviour
                 CurrentRoom.gameObject.SendMessage("RoomClear");
             }
         }
-        if (other.gameObject.CompareTag("FILLERTEXT"))
+        if (other.gameObject.CompareTag("Earth"))
         {
 
-
-            health = health - 10;
+            Destroy(other.gameObject);
+            health = health - 3;
 
             if (health <= 0)
             {
                 Destroy(this.gameObject);
+                CurrentRoom.gameObject.SendMessage("RoomClear");
 
             }
         }

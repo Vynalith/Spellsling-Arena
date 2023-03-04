@@ -104,7 +104,7 @@ public class Player : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Enemy"))
         {
-            print("Moving from ");
+           /* print("Moving from ");
             print(this.transform.position);
             print(" to ");
             print(flashback);
@@ -127,8 +127,31 @@ public class Player : MonoBehaviour
             print("Collision");
             print("Collision");
             print("Collision");
-            print("Collision");
+            print("Collision"); */
             health -= 1;
+
+            if(health >= 1)
+            {
+                if(element == 1)
+                {
+                    animator.Play("LightningDamage");
+                }
+                if(element == 2)
+                {
+                    animator.Play("FireDamage");
+                }
+                 if(element == 3)
+                {
+                    animator.Play("IceDamage");
+                }
+                 if(element == 4)
+                {
+                    animator.Play("EarthDamage");
+                }
+            }
+
+
+
             if (health <= 0)
             {
                 Playing = false;
@@ -142,7 +165,29 @@ public class Player : MonoBehaviour
         {
             print("hit");
             health -= 1;
-            print(health);
+
+             if(health >= 1)
+            {
+                if(element == 1)
+                {
+                    animator.Play("LightningDamage");
+                }
+                if(element == 2)
+                {
+                    animator.Play("FireDamage");
+                }
+                  if(element == 3)
+                {
+                    animator.Play("IceDamage");
+                }
+                 if(element == 4)
+                {
+                    animator.Play("EarthDamage");
+                }
+            }
+
+
+            //print(health);
             if (health <= 0)
             {
                 Playing = false;

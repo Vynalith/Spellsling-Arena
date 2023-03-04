@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 1119964054294063096}
   m_Layer: 0
   m_Name: earth
-  m_TagString: Fire
+  m_TagString: Earth
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

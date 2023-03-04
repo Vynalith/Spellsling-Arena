@@ -9,6 +9,7 @@ TagManager:
   - Enemy
   - EnemyProjectile
   - Wall
+  - Earth
   layers:
   - Default
   - TransparentFX
@@ -18,7 +19,7 @@ TagManager:
   - UI
   - 
   - 
-  - 
+  - Post Processing
   - 
   - 
   - 
