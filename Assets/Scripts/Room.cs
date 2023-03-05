@@ -32,18 +32,22 @@ public class Room : MonoBehaviour
         enemies= enemies-1;
         if(enemies<=0)
         {
+            
+
+
+
             Entrance.gameObject.SetActive(false);
             Exit.gameObject.SetActive(false);
         }
     }
 
-     void Update()
+     /* void Update()
     {
         if(enemies<=0)
         {
             Entrance.gameObject.SetActive(false);
             Exit.gameObject.SetActive(false);
         }
-    }
+    } */
 
 }
