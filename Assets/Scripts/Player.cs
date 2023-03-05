@@ -14,12 +14,11 @@ public class Player : MonoBehaviour
 
     public Rigidbody2D rb;
     public Rigidbody2D rb2;
-    //public GameObject fireBallPrefab;
     public GameObject damage;
-    public Camera camera;
+    public Camera Camera;
     public Animator animator;
 
-    public GameObject Shooter;
+    public GameObject EnemyShooter;
 
     //public Animation lightningAttack;
    
@@ -44,7 +43,7 @@ public class Player : MonoBehaviour
         movement.x = Input.GetAxisRaw("Horizontal");
         movement.y = Input.GetAxisRaw("Vertical");
 
-        mousePos = camera.ScreenToWorldPoint(Input.mousePosition);
+        mousePos = GetComponent<Camera>().ScreenToWorldPoint(Input.mousePosition);
 
         animator.SetFloat("Horizontal", movement.x);
         animator.SetFloat("Vertical", movement.y);
@@ -101,7 +100,7 @@ public class Player : MonoBehaviour
     public void EnemyCollide()
     {
         health=health-1; 
-        GameObject explo = Instantiate(damage, this.transform.position, Quaternion.identity);
+        //GameObject explo = Instantiate(damage, this.transform.position, Quaternion.identity);
         Destroy(explo, 1f);
         if(health <= 0)
         {

@@ -56,7 +56,7 @@ MonoBehaviour:
   damage: {fileID: 8132685761496276164, guid: eba20271973d5164cbc490afcdb27fa1, type: 3}
   camera: {fileID: 0}
   animator: {fileID: 7206089271398854939}
-  Shooter: {fileID: 0}
+  Shooter: {fileID: 7888857158418860944, guid: e3706d6d8267c3644821eb8d2c61a4a4, type: 3}
   element: 0
 --- !u!61 &8001152008552254317
 BoxCollider2D:
