@@ -14,16 +14,15 @@ public class Player : MonoBehaviour
 
     public Rigidbody2D rb;
     public Rigidbody2D rb2;
+    //public GameObject fireBallPrefab;
     public GameObject damage;
-    public Camera Camera;
+    public Camera camera;
     public Animator animator;
-
-    public GameObject EnemyShooter;
+    public GameObject Shooter;
 
     //public Animation lightningAttack;
-   
+    private Vector3 flashback;
    public int element;
-
    private bool Playing;
 
     // Start is called before the first frame update
@@ -43,7 +42,7 @@ public class Player : MonoBehaviour
         movement.x = Input.GetAxisRaw("Horizontal");
         movement.y = Input.GetAxisRaw("Vertical");
 
-        mousePos = GetComponent<Camera>().ScreenToWorldPoint(Input.mousePosition);
+        mousePos = camera.ScreenToWorldPoint(Input.mousePosition);
 
         animator.SetFloat("Horizontal", movement.x);
         animator.SetFloat("Vertical", movement.y);
@@ -80,6 +79,8 @@ public class Player : MonoBehaviour
        
         //}
         }
+        flashback = this.transform.position;
+        //print(flashback);
     }
 
     void FixedUpdate()
@@ -93,22 +94,114 @@ public class Player : MonoBehaviour
         Vector2 lookDir = mousePos - rb.position;
         float angle = Mathf.Atan2(lookDir.y, lookDir.x) * Mathf.Rad2Deg - 90f;
         rb2.rotation = angle;
+        
         }
         
     }
 
-    public void EnemyCollide()
+    public void OnTriggerEnter2D(Collider2D other)
+
     {
-        health=health-1; 
-        //GameObject explo = Instantiate(damage, this.transform.position, Quaternion.identity);
-        Destroy(explo, 1f);
-        if(health <= 0)
+        if (other.gameObject.CompareTag("Enemy"))
         {
-            Playing=false;
-            Shooter.gameObject.SendMessage("Death");
-            animator.Play("DEATH");
+           /* print("Moving from ");
+            print(this.transform.position);
+            print(" to ");
+            print(flashback);
+            this.transform.position = flashback;
+            print("Collision");
+            print("Collision");
+            print("Collision");
+            print("Collision");
+            print("Collision");
+            print("Collision");
+            print("Collision");
+            print("Collision");
+            print("Collision");
+            print("Collision");
+            print("Collision");
+            print("Collision");
+            print("Collision");
+            print("Collision");
+            print("Collision");
+            print("Collision");
+            print("Collision");
+            print("Collision");
+            print("Collision"); */
+            health -= 1;
+
+            if(health >= 1)
+            {
+                if(element == 1)
+                {
+                    animator.Play("LightningDamage");
+                }
+                if(element == 2)
+                {
+                    animator.Play("FireDamage");
+                }
+                 if(element == 3)
+                {
+                    animator.Play("IceDamage");
+                }
+                 if(element == 4)
+                {
+                    animator.Play("EarthDamage");
+                }
+            }
+
+
+
+            if (health <= 0)
+            {
+                Playing = false;
+                Shooter.gameObject.SendMessage("Death");
+                animator.Play("DEATH");
+            }
+
+            //this.transform.position -= this.transform.position - other.transform.position;
+        }
+        else if (other.gameObject.CompareTag("EnemyProjectile"))
+        {
+            print("hit");
+            health -= 1;
+
+             if(health >= 1)
+            {
+                if(element == 1)
+                {
+                    animator.Play("LightningDamage");
+                }
+                if(element == 2)
+                {
+                    animator.Play("FireDamage");
+                }
+                  if(element == 3)
+                {
+                    animator.Play("IceDamage");
+                }
+                 if(element == 4)
+                {
+                    animator.Play("EarthDamage");
+                }
+            }
+
+
+            //print(health);
+            if (health <= 0)
+            {
+                Playing = false;
+                Shooter.gameObject.SendMessage("Death");
+                animator.Play("DEATH");
+            }
+            Destroy(other.gameObject);
+        }
+        else
+        {
+            print("fuck");
         }
     }
+
 
     public void LightningAttacks()
     {

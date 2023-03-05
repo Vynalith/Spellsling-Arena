@@ -50,7 +50,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 5
-  health: 5
+  health: 25
   rb: {fileID: 8001152008552254306}
   rb2: {fileID: 3336717448431595310}
   damage: {fileID: 8132685761496276164, guid: eba20271973d5164cbc490afcdb27fa1, type: 3}
@@ -184,6 +184,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8001152008552254307}
     m_Modifications:
+    - target: {fileID: 1276628979712531455, guid: 2d8b5e246f7860a409b148aabb7ee686, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1309865792572959141, guid: 2d8b5e246f7860a409b148aabb7ee686, type: 3}
       propertyPath: player
       value: 
@@ -195,6 +199,14 @@ PrefabInstance:
     - target: {fileID: 7071107082077862991, guid: 2d8b5e246f7860a409b148aabb7ee686, type: 3}
       propertyPath: m_RootOrder
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7071107082077862991, guid: 2d8b5e246f7860a409b148aabb7ee686, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7071107082077862991, guid: 2d8b5e246f7860a409b148aabb7ee686, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7071107082077862991, guid: 2d8b5e246f7860a409b148aabb7ee686, type: 3}
       propertyPath: m_LocalPosition.x

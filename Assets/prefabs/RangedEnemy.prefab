@@ -98,7 +98,7 @@ GameObject:
   - component: {fileID: 1662747029934039832}
   m_Layer: 3
   m_Name: RangedEnemy
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -180,11 +180,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 2
-  damage: {fileID: 8132685761496276164, guid: eba20271973d5164cbc490afcdb27fa1, type: 3}
-  CurrentRoom: {fileID: 7328191871882828756, guid: a8cd769bf44691d4a9d100123b6583c4, type: 3}
+  damage: {fileID: 0}
+  CurrentRoom: {fileID: 0}
+  shooter: {fileID: 6298780189008791904, guid: ae5858ca106a3c84e97354c1b08e3d26, type: 3}
   cooldown: 1000
-  Projectile: {fileID: 7717531246457936126, guid: 0c0394cfaf22c81458ff7aac8bcb0580, type: 3}
+  Projectile: {fileID: 0}
   shotForce: 20
+  TF2Coconut: {fileID: 0}
   sightDistance: 7
 --- !u!1001 &2990858761537721621
 PrefabInstance:
@@ -193,6 +195,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4148577300589945279}
     m_Modifications:
+    - target: {fileID: -8443636935715992018, guid: ae5858ca106a3c84e97354c1b08e3d26, type: 3}
+      propertyPath: re
+      value: 
+      objectReference: {fileID: 4781366548102336881}
     - target: {fileID: 6298780189008791904, guid: ae5858ca106a3c84e97354c1b08e3d26, type: 3}
       propertyPath: m_Name
       value: EnemyShooter

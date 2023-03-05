@@ -7,16 +7,19 @@ TagManager:
   - Fire
   - FILLERTEXT
   - Enemy
+  - EnemyProjectile
+  - Wall
+  - Earth
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Enemy
   - Water
   - UI
   - 
   - 
-  - 
+  - Post Processing
   - 
   - 
   - 

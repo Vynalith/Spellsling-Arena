@@ -24,7 +24,11 @@ public class Enemy : MonoBehaviour
     {
         
         if(other.gameObject.CompareTag("Fire"))
-        { 
+        {
+
+            print("took damage");
+
+
             Destroy(other.gameObject);
 
             health = health -1;
@@ -36,30 +40,22 @@ public class Enemy : MonoBehaviour
                     CurrentRoom.gameObject.SendMessage("RoomClear");
                 }
         }
-        if(other.gameObject.CompareTag("FILLERTEXT"))
-        { 
-            
+            if (other.gameObject.CompareTag("Earth"))
+                {
 
-            health = health -10;
-            
-            if(health <= 0)
-                {  Destroy(this.gameObject);
-                    
+                    Destroy(other.gameObject);
+                    health = health - 3;
+
+                    if (health <= 0)
+                    {
+                        Destroy(this.gameObject);
+                        CurrentRoom.gameObject.SendMessage("RoomClear");
+
+                    }
                 }
-        }
         if(other.gameObject.CompareTag("FILLERTEXT"))
         { 
             Destroy(this.gameObject);     
         }
-
-        //if(other.gameObject.CompareTag("Player"))
-        //{
-           
-            
-           
-            //other.gameObject.SendMessage("EnemyCollide");
-            
-
-        //}
     }
 }

@@ -11,7 +11,6 @@ public class RangedEnemy : MonoBehaviour
     private float cooldownCount;
     public GameObject Projectile;
     public float shotForce = 20f;
-    //public Transform TF2Coconut;
 
     private Vector3 start;
     private Vector3 direction;
@@ -20,17 +19,17 @@ public class RangedEnemy : MonoBehaviour
     private Collider2D finalDetected;
     private RaycastHit hit;
     private int layerMask = 1 << 3;
-    
 
-    //private bool sightLine;
+    private Vector3 shootAngle;
+
 
     // Start is called before the first frame update
     void Start()
     {
         cooldownCount = 0;
         target = GameObject.Find("Player");
+        //target = GameObject.Find("Shooter");
         layerMask = ~layerMask;
-        //finalDetected = GameObject.Find("Wall").GetComponent<Collider2D>();
     }
 
     // Update is called once per frame
@@ -41,27 +40,39 @@ public class RangedEnemy : MonoBehaviour
         direction = (target.transform.position - start).normalized;
         Debug.DrawRay(start, direction * sightDistance);
 
-        if(SightTest() == target.GetComponent<Collider2D>())
+        if (SightTest() == target.GetComponent<Collider2D>())
         {
-            if(cooldownCount >= cooldown)
+            if (cooldownCount >= cooldown)
             {
-                print("Shoot!");
+                
                 Shoot();
                 cooldownCount = 0;
             }
         }
         finalDetected = null;
+        shootAngle = (start - target.transform.position).normalized;
+        shootAngle.y *= -1;
 
     }
+
 
     public void Shoot()
     {
-        //figure out how to add directional force
         GameObject arrow = Instantiate(Projectile, start, this.transform.rotation);
         Rigidbody2D rb = arrow.GetComponent<Rigidbody2D>();
-        rb.AddForce(start * (shotForce * -1));
+        if (direction.x < 0)
+        {
+            rb.AddForce(direction * shotForce * 25);
+        }
+        else
+        {
+            rb.AddForce(direction * shotForce * 15);
+        }
+
     }
-    
+
+
+
     public Collider2D SightTest()
     {
         RaycastHit2D sightTest = Physics2D.Raycast(start, direction, sightDistance, layerMask);
@@ -73,59 +84,46 @@ public class RangedEnemy : MonoBehaviour
                 //Debug.Log("Rigidbody collider is: " + sightTest.collider);
             }
             finalDetected = sightTest.collider;
-            //print(finalDetected);
         }
         return finalDetected;
     }
-    
-    
 
-    public void enemyShoot()
+
+
+
+
+    public void OnTriggerEnter2D(Collider2D other)
     {
-
-    }
-
-    public void OnTriggerEnter2D( Collider2D other)
-    {
-        
-        /*if(other.gameObject.CompareTag("Fire"))
-        { 
+        if (other.gameObject.CompareTag("Fire"))
+        {
             Destroy(other.gameObject);
 
-            health = health -1;
+            health = health - 1;
             GameObject explo = Instantiate(damage, this.transform.position, Quaternion.identity);
             Destroy(explo, 1f);
-            
-            if(health <= 0)
-                {  Destroy(this.gameObject);
-                    CurrentRoom.gameObject.SendMessage("RoomClear");
-                }
-        }
-        if(other.gameObject.CompareTag("FILLERTEXT"))
-        { 
-            
 
-            health = health -10;
-            
-            if(health <= 0)
-                {  Destroy(this.gameObject);
-                    
-                }
+            if (health <= 0)
+            {
+                Destroy(this.gameObject);
+                CurrentRoom.gameObject.SendMessage("RoomClear");
+            }
         }
-        if(other.gameObject.CompareTag("FILLERTEXT"))
-        { 
-            Destroy(this.gameObject);     
-        }
-
-        if(other.gameObject.CompareTag("Player"))
+        if (other.gameObject.CompareTag("Earth"))
         {
-           
-            
-           
-            other.gameObject.SendMessage("EnemyCollide");
-            
 
+            Destroy(other.gameObject);
+            health = health - 3;
+
+            if (health <= 0)
+            {
+                Destroy(this.gameObject);
+                CurrentRoom.gameObject.SendMessage("RoomClear");
+
+            }
         }
-        */
+        if (other.gameObject.CompareTag("FILLERTEXT"))
+        {
+            Destroy(this.gameObject);
+        }
     }
 }

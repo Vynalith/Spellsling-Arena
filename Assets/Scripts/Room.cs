@@ -28,6 +28,7 @@ public class Room : MonoBehaviour
     
     public void RoomClear()
     {
+        //print ("enemy down");
         enemies= enemies-1;
         if(enemies<=0)
         {
