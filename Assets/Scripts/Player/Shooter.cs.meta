@@ -1,0 +1,23 @@
+fileFormatVersion: 2
+guid: 4a01a3c81b8deb34ea3771122e5b6632
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - rb: {instanceID: 0}
+  - player: {instanceID: 0}
+  - ShooterThing: {instanceID: 0}
+  - firemagic: {instanceID: 0}
+  - lightningmagic: {instanceID: 0}
+  - icemagic: {instanceID: 0}
+  - earthmagic: {instanceID: 0}
+  - firemagic2: {instanceID: 0}
+  - lightningmagic2: {instanceID: 0}
+  - icemagic2: {fileID: 527753290388433841, guid: 9dfe4c13b4e9f8c458c7bcab075e079c, type: 3}
+  - earthmagic2: {instanceID: 0}
+  - Aim: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
