@@ -8,7 +8,8 @@ public class Room : MonoBehaviour
     public int enemies;
     public GameObject Entrance;
     public GameObject Exit;
-
+    private int count;
+    private int countdown;
 
 
     void Start()
@@ -41,13 +42,9 @@ public class Room : MonoBehaviour
         }
     }
 
-     /* void Update()
+      void Update()
     {
-        if(enemies<=0)
-        {
-            Entrance.gameObject.SetActive(false);
-            Exit.gameObject.SetActive(false);
-        }
-    } */
+        
+    } 
 
 }

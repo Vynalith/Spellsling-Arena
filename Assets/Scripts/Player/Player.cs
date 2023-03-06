@@ -24,8 +24,11 @@ public class Player : MonoBehaviour
     private Vector3 flashback;
    public int element;
    private bool Playing;
+    
+    public GameObject gameUI;
 
-    public bool inPuddle;
+
+
 
     // Start is called before the first frame update
     void Start()
@@ -33,7 +36,6 @@ public class Player : MonoBehaviour
         Playing=true;
         element = 1;
         animator.SetInteger("element", element);
-        inPuddle = false;
     }
 
     // Update is called once per frame
@@ -54,22 +56,27 @@ public class Player : MonoBehaviour
         
         if( Input.GetButtonDown("lightning"))
         {
+            gameUI.SendMessage("ActiveElement", 1);
+            
             element = 1;
             animator.SetInteger("element", element);
         }
         
         if( Input.GetButtonDown("fire"))
         {
+            gameUI.SendMessage("ActiveElement", 2);
             element = 2;
             animator.SetInteger("element", element);
         }
         if( Input.GetButtonDown("ice"))
         {
+            gameUI.SendMessage("ActiveElement", 3);
             element = 3;
             animator.SetInteger("element", element);
         }
          if( Input.GetButtonDown("earth"))
         {
+            gameUI.SendMessage("ActiveElement", 4);
             element = 4;
             animator.SetInteger("element", element);
         }
