@@ -89,7 +89,16 @@ public class RangedEnemy : MonoBehaviour
     }
 
 
+    public void HurtMe(int damage)
+    {
+        health -= damage;
+        if (health <= 0)
+        {
+            Destroy(this.gameObject);
+            CurrentRoom.gameObject.SendMessage("RoomClear");
 
+        }
+    }
 
 
     public void OnTriggerEnter2D(Collider2D other)
@@ -97,33 +106,22 @@ public class RangedEnemy : MonoBehaviour
         if (other.gameObject.CompareTag("Fire"))
         {
             Destroy(other.gameObject);
-
-            health = health - 1;
             GameObject explo = Instantiate(damage, this.transform.position, Quaternion.identity);
             Destroy(explo, 1f);
-
-            if (health <= 0)
-            {
-                Destroy(this.gameObject);
-                CurrentRoom.gameObject.SendMessage("RoomClear");
-            }
         }
         if (other.gameObject.CompareTag("Earth"))
         {
-
             Destroy(other.gameObject);
-            health = health - 3;
-
-            if (health <= 0)
-            {
-                Destroy(this.gameObject);
-                CurrentRoom.gameObject.SendMessage("RoomClear");
-
-            }
         }
-        if (other.gameObject.CompareTag("FILLERTEXT"))
+        if (other.gameObject.CompareTag("Lightning"))
         {
-            Destroy(this.gameObject);
+            Destroy(other.gameObject);
         }
+        if (other.gameObject.CompareTag("Ice"))
+        {
+            //maybe do something like this.addforce(this.transform.position - other.transform.position) to push away from player?
+            Destroy(other.gameObject);
+        }
+        
     }
 }

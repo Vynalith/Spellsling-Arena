@@ -197,5 +197,12 @@ public class Shooter : MonoBehaviour
         Rigidbody2D rb = bullet2.GetComponent<Rigidbody2D>();
         rb.AddForce(ShooterThing.up * shotForce, ForceMode2D.Impulse);
     }
+
+
+    public void PuddleHurtMe(int damage)
+    {
+        //stupid puddle sends to this instead of player
+        player.SendMessage("HurtMe", 1);
+    }
 }
 

@@ -25,12 +25,15 @@ public class Player : MonoBehaviour
    public int element;
    private bool Playing;
 
+    public bool inPuddle;
+
     // Start is called before the first frame update
     void Start()
     {
         Playing=true;
         element = 1;
         animator.SetInteger("element", element);
+        inPuddle = false;
     }
 
     // Update is called once per frame
@@ -104,67 +107,11 @@ public class Player : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Enemy"))
         {
-           /* print("Moving from ");
-            print(this.transform.position);
-            print(" to ");
-            print(flashback);
-            this.transform.position = flashback;
-            print("Collision");
-            print("Collision");
-            print("Collision");
-            print("Collision");
-            print("Collision");
-            print("Collision");
-            print("Collision");
-            print("Collision");
-            print("Collision");
-            print("Collision");
-            print("Collision");
-            print("Collision");
-            print("Collision");
-            print("Collision");
-            print("Collision");
-            print("Collision");
-            print("Collision");
-            print("Collision");
-            print("Collision"); */
-            health -= 1;
-
-            if(health >= 1)
-            {
-                if(element == 1)
-                {
-                    animator.Play("LightningDamage");
-                }
-                if(element == 2)
-                {
-                    animator.Play("FireDamage");
-                }
-                 if(element == 3)
-                {
-                    animator.Play("IceDamage");
-                }
-                 if(element == 4)
-                {
-                    animator.Play("EarthDamage");
-                }
-            }
-
-
-
-            if (health <= 0)
-            {
-                Playing = false;
-                Shooter.gameObject.SendMessage("Death");
-                animator.Play("DEATH");
-            }
-
+            HurtMe(1);
             //this.transform.position -= this.transform.position - other.transform.position;
         }
         else if (other.gameObject.CompareTag("EnemyProjectile"))
         {
-            print("hit");
-            health -= 1;
 
              if(health >= 1)
             {
@@ -188,20 +135,41 @@ public class Player : MonoBehaviour
 
 
             //print(health);
-            if (health <= 0)
-            {
-                Playing = false;
-                Shooter.gameObject.SendMessage("Death");
-                animator.Play("DEATH");
-            }
             Destroy(other.gameObject);
         }
-        else
-        {
-            print("fuck");
-        }
+        
     }
 
+
+    private void HurtMe(int damage)
+    {
+        health -= damage;
+        if (health <= 0)
+        {
+            Playing = false;
+            Shooter.gameObject.SendMessage("Death");
+            animator.Play("DEATH");
+        }
+        else if (health >= 1)
+        {
+            if (element == 1)
+            {
+                animator.Play("LightningDamage");
+            }
+            if (element == 2)
+            {
+                animator.Play("FireDamage");
+            }
+            if (element == 3)
+            {
+                animator.Play("IceDamage");
+            }
+            if (element == 4)
+            {
+                animator.Play("EarthDamage");
+            }
+        }
+    }
 
     public void LightningAttacks()
     {

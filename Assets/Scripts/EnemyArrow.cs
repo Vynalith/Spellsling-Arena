@@ -17,7 +17,7 @@ public class EnemyArrow : MonoBehaviour
     {
         //print(other.GetComponent<Collider2D>());
         //make if statement to delete this if other is a wall
-        if(other.gameObject.CompareTag("IceWall") || other.gameObject.CompareTag("IceWall"))
+        if(other.gameObject.CompareTag("IceWall") || other.gameObject.CompareTag("EarthWall") || other.gameObject.CompareTag("Wall"))
         {
             Destroy(this.gameObject);
         }

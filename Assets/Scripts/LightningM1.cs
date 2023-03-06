@@ -14,4 +14,18 @@ public class LightningM1 : MonoBehaviour
         Destroy(this.gameObject, 2f);
     }
 
+    public void OnTriggerEnter2D(Collider2D other)
+    {
+        //print(other.GetComponent<Collider2D>());
+        //make if statement to delete this if other is a wall
+        if (other.gameObject.CompareTag("IceWall") || other.gameObject.CompareTag("EarthWall") || other.gameObject.CompareTag("Wall"))
+        {
+            Destroy(this.gameObject);
+        }
+        if (other.gameObject.CompareTag("Enemy"))
+        {
+            //calls HurtMe function, second argument is the damage value
+            other.gameObject.SendMessage("HurtMe", 1);
+        }
+    }
 }

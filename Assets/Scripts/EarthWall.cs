@@ -4,10 +4,13 @@ using UnityEngine;
 
 public class EarthWall : MonoBehaviour
 {
+
+    public GameObject shatter;
+    public float lifeTime = 4f;
     // Start is called before the first frame update
     void Start()
     {
-        Destroy(this.gameObject, 4f);
+        Destroy(this.gameObject, lifeTime);
     }
 
     // Update is called once per frame
@@ -24,8 +27,10 @@ public class EarthWall : MonoBehaviour
         }
             if (other.gameObject.CompareTag("Earth"))
                 {
-
+                    GameObject explo = Instantiate(shatter, this.transform.position, Quaternion.identity);
+                    Destroy(explo, 1f);
                     Destroy(other.gameObject);
+                    Destroy(this.gameObject);
                    
                 }
         if(other.gameObject.CompareTag("FILLERTEXT"))
