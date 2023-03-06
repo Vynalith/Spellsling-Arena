@@ -16,6 +16,7 @@ public class Hydra : MonoBehaviour
     private Vector3 start;
     private Vector3 direction;
     private GameObject target;
+    private GameObject target2;
     public float sightDistance = 10;
     private Collider2D finalDetected;
     private RaycastHit hit;
@@ -31,7 +32,7 @@ public class Hydra : MonoBehaviour
     {
         cooldownCount = 0;
         target = GameObject.Find("Player");
-        //target = GameObject.Find("Shooter");
+        target2 = GameObject.Find("Shooter");
         layerMask = ~layerMask;
     }
 
@@ -43,7 +44,7 @@ public class Hydra : MonoBehaviour
         direction = (target.transform.position - start).normalized;
         Debug.DrawRay(start, direction * sightDistance);
 
-        if (SightTest() == target.GetComponent<Collider2D>())
+        if (SightTest() == target.GetComponent<Collider2D>() || SightTest() == target2.GetComponent<Collider2D>())
         {
             if (cooldownCount >= cooldown)
             {

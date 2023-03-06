@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 7691489004392043239}
   - component: {fileID: 3628118895417289681}
   - component: {fileID: 1119964054294063096}
-  - component: {fileID: 42494972067296395}
+  - component: {fileID: 3584381669043039474}
   m_Layer: 0
   m_Name: HydraLightning
   m_TagString: Enemy
@@ -82,7 +82,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &42494972067296395
+--- !u!114 &3584381669043039474
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -91,7 +91,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 7717531246457936126}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2b73ebaa87cc2e747a53aa8f6d4c0790, type: 3}
+  m_Script: {fileID: 11500000, guid: 7bbb75ebbcbf4494ea747f24cd75c1db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   shootSpeed: 100

@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 7691489004392043239}
   - component: {fileID: 3628118895417289681}
   - component: {fileID: 1119964054294063096}
-  - component: {fileID: 7486510855677991704}
+  - component: {fileID: 631882868981922056}
   m_Layer: 0
   m_Name: HydraIce
   m_TagString: Enemy
@@ -82,7 +82,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &7486510855677991704
+--- !u!114 &631882868981922056
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -91,7 +91,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 7717531246457936126}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b7e54fce4e8e8ee498a69eb01b9aa0e4, type: 3}
+  m_Script: {fileID: 11500000, guid: 7bbb75ebbcbf4494ea747f24cd75c1db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   shootSpeed: 100

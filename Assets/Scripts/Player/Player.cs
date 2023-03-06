@@ -148,6 +148,14 @@ public class Player : MonoBehaviour
     }
 
 
+    public void Heal()
+    {
+        if(health < 5)
+        {
+            health = health+1;
+        }
+    }
+
     private void HurtMe(int damage)
     {
         health -= damage;

@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7691489004392043239}
   - component: {fileID: 3628118895417289681}
-  - component: {fileID: 6424649679249641663}
+  - component: {fileID: 8399808483262656874}
   - component: {fileID: 1119964054294063096}
   m_Layer: 0
   m_Name: HydraEarth
@@ -61,7 +61,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.162157, y: 1.1621569}
   m_EdgeRadius: 0
---- !u!114 &6424649679249641663
+--- !u!114 &8399808483262656874
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -70,7 +70,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 7717531246457936126}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 977df6e83ef1f6a4e8c598fba8ad366b, type: 3}
+  m_Script: {fileID: 11500000, guid: 7bbb75ebbcbf4494ea747f24cd75c1db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   shootSpeed: 100
