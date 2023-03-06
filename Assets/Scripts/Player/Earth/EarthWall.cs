@@ -10,6 +10,7 @@ public class EarthWall : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        GetComponent<AudioSource>().Play();
         Destroy(this.gameObject, lifeTime);
     }
 
