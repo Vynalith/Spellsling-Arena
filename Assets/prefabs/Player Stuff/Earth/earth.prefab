@@ -94,7 +94,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 61991fd94666b2247b9a52659ed46df0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shootSpeed: 100
+  shootSpeed: 10
 --- !u!1 &8859832405749133967
 GameObject:
   m_ObjectHideFlags: 0
