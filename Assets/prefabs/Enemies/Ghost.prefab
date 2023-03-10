@@ -202,7 +202,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerAwarenessDistance: 6
-  player: {fileID: 1411162528100142274}
+  player: {fileID: 0}
 --- !u!114 &4401286057854046243
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -215,12 +215,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3337f9c90910ef94e8c58882e2d41277, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 1411162528100142274}
+  player: {fileID: 0}
   speed: 4
   rotationSpeed: 100
   rigidbody: {fileID: 8237691214348740215}
   sprite: {fileID: 420259783094343584}
-  anchor: {fileID: 8001152008552254305, guid: 35f461400a6084e4e99a7708be87385b, type: 3}
+  anchor: {fileID: 0}
 --- !u!114 &4401286057854046240
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -235,5 +235,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 1
   damage: {fileID: 8132685761496276164, guid: eba20271973d5164cbc490afcdb27fa1, type: 3}
-  CurrentRoom: {fileID: 1974370995060080427, guid: 40d2c21b65ebb884687e3586004b7f44, type: 3}
+  CurrentRoom: {fileID: 0}
   animator: {fileID: 9186461495464329703}
