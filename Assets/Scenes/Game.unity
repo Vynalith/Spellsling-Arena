@@ -2600,7 +2600,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 368254031953725984, guid: 62e4af580c8083d4cbc3795f8910f72b, type: 3}
       propertyPath: cooldown
-      value: 0
+      value: 1000
       objectReference: {fileID: 0}
     - target: {fileID: 368254031953725984, guid: 62e4af580c8083d4cbc3795f8910f72b, type: 3}
       propertyPath: Projectile.Array.size
