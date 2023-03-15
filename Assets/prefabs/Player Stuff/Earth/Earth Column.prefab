@@ -12,8 +12,8 @@ GameObject:
   - component: {fileID: 355336718767978613}
   - component: {fileID: 9043375547777502297}
   - component: {fileID: 4994749233274700449}
-  - component: {fileID: -6502734545984656737}
   - component: {fileID: 6650632798405609187}
+  - component: {fileID: 2096459743786500905}
   m_Layer: 0
   m_Name: Earth Column
   m_TagString: EarthWall
@@ -135,20 +135,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &-6502734545984656737
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7514194266979678846}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 92093b3ff466da744b5513f5a7796043, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  shatter: {fileID: 2260554970745162690, guid: e2f1e460a4cd0df47b2678872bcc9233, type: 3}
-  lifeTime: 4
 --- !u!95 &6650632798405609187
 Animator:
   serializedVersion: 4
@@ -169,3 +155,17 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &2096459743786500905
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7514194266979678846}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 92093b3ff466da744b5513f5a7796043, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shatter: {fileID: 2260554970745162690, guid: e2f1e460a4cd0df47b2678872bcc9233, type: 3}
+  lifeTime: 4

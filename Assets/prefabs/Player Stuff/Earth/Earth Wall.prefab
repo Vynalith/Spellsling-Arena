@@ -96,6 +96,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 92093b3ff466da744b5513f5a7796043, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  shatter: {fileID: 2260554970745162690, guid: e2f1e460a4cd0df47b2678872bcc9233, type: 3}
+  lifeTime: 4
 --- !u!1001 &2902830280317159819
 PrefabInstance:
   m_ObjectHideFlags: 0

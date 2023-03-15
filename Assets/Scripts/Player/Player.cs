@@ -27,6 +27,12 @@ public class Player : MonoBehaviour
     
     public GameObject gameUI;
 
+    //for SFX timing and looping
+    public AudioSource song1Intro;
+    public AudioSource song1Loop;
+    private float timer;
+    private float songCount = 13.35f;
+    private int song1Change = 0;
 
 
 
@@ -91,6 +97,27 @@ public class Player : MonoBehaviour
         }
         flashback = this.transform.position;
         //print(flashback);
+        print(timer);
+        
+
+        if (timer >= songCount && song1Change == 0)
+        {
+            
+            song1Change = 1;
+        }
+        else if(song1Change == 0 && timer < songCount)
+        {
+            timer+= Time.deltaTime;
+        }
+
+        if (song1Change == 1)
+        {
+            print("true");
+            song1Intro.Stop();
+            song1Loop.Play();
+            song1Change = 2;
+        }
+
     }
 
     void FixedUpdate()
