@@ -47,7 +47,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 871037897855673761}
-  m_BodyType: 0
+  m_BodyType: 2
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
@@ -103,8 +103,8 @@ MonoBehaviour:
   CurrentRoom: {fileID: 0}
   cooldown: 2000
   Projectile:
-  - {fileID: 4238966175713179051, guid: e57aa92abb0f23247894043be6f1c36d, type: 3}
   - {fileID: 7717531246457936126, guid: c04b705ba74b181478b0f90972175907, type: 3}
+  - {fileID: 4238966175713179051, guid: e57aa92abb0f23247894043be6f1c36d, type: 3}
   - {fileID: 7717531246457936126, guid: 2f8f56e7a7bd04547a1d4783e3e9d1bf, type: 3}
   - {fileID: 7717531246457936126, guid: 50b7c040c18acc342ac574f694dbc97a, type: 3}
   attack: []
@@ -130,6 +130,12 @@ MonoBehaviour:
   Projectile: {fileID: 4238966175713179051, guid: e57aa92abb0f23247894043be6f1c36d, type: 3}
   shotForce: 20
   sightDistance: 12
+  shootAngle: {x: 0, y: 0, z: 0}
+  animator: {fileID: 0}
+  heartOrNo: 0
+  heart: {fileID: 0}
+  Horizontal: 0
+  Vertical: 0
 --- !u!95 &8200437591980419255
 Animator:
   serializedVersion: 4
