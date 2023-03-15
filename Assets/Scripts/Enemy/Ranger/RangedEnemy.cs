@@ -20,8 +20,16 @@ public class RangedEnemy : MonoBehaviour
     private RaycastHit hit;
     private int layerMask = 1 << 3;
 
-    private Vector3 shootAngle;
+    public Vector3 shootAngle;
 
+    public Animator animator;
+
+
+    public int heartOrNo;
+    public GameObject heart;
+
+    public float Horizontal;
+    public float Vertical;
 
     // Start is called before the first frame update
     void Start()
@@ -44,7 +52,6 @@ public class RangedEnemy : MonoBehaviour
         {
             if (cooldownCount >= cooldown)
             {
-                
                 Shoot();
                 cooldownCount = 0;
             }
@@ -53,12 +60,20 @@ public class RangedEnemy : MonoBehaviour
         shootAngle = (start - target.transform.position).normalized;
         shootAngle.y *= -1;
 
+        animator.SetFloat("Horizontal", shootAngle.x);
+        animator.SetFloat("Vertical", shootAngle.y);
+        Horizontal = shootAngle.x;
+        Vertical = shootAngle.y;
+
     }
 
 
     public void Shoot()
     {
+        //animator.Play("ArcherRightShoot");
+
         GameObject arrow = Instantiate(Projectile, start, this.transform.rotation);
+
         Rigidbody2D rb = arrow.GetComponent<Rigidbody2D>();
         if (direction.x < 0)
         {
@@ -68,7 +83,7 @@ public class RangedEnemy : MonoBehaviour
         {
             rb.AddForce(direction * shotForce * 15);
         }
-
+    
     }
 
 
@@ -94,8 +109,21 @@ public class RangedEnemy : MonoBehaviour
         health -= damage;
         if (health <= 0)
         {
+            int heartOrNo = Random.Range(0,4);
+
+            print(heartOrNo);
+            //Instantiate (heart, this.transform.position, Quaternion.identity);
+
+            if(heartOrNo >= 2)
+                {
+                    Instantiate (heart, this.transform.position, Quaternion.identity);
+                }
+
+
             Destroy(this.gameObject);
             CurrentRoom.gameObject.SendMessage("RoomClear");
+
+
 
         }
     }

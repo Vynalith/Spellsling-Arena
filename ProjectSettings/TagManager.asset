@@ -10,12 +10,6 @@ TagManager:
   - EnemyProjectile
   - Wall
   - Earth
-  - Lightning
-  - Ice
-  - IceWall
-  - Puddle
-  - EarthWall
-  - StartLvl
   layers:
   - Default
   - TransparentFX
