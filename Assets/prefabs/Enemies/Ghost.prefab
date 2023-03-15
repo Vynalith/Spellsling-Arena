@@ -237,3 +237,4 @@ MonoBehaviour:
   damage: {fileID: 8132685761496276164, guid: eba20271973d5164cbc490afcdb27fa1, type: 3}
   CurrentRoom: {fileID: 0}
   animator: {fileID: 9186461495464329703}
+  heart: {fileID: 818842114129691388, guid: 9c0c6f3e70182d44d9c070d32c1213f5, type: 3}

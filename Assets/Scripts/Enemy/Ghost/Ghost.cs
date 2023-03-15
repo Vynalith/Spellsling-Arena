@@ -8,6 +8,8 @@ public class Ghost : MonoBehaviour
     public GameObject damage;
     public GameObject CurrentRoom;
     public Animator animator;
+
+    public GameObject heart;
    
     // Start is called before the first frame update
     void Start()
@@ -27,6 +29,13 @@ public class Ghost : MonoBehaviour
         health -= damage;
         if (health <= 0)
         {
+            int heartOrNo = Random.Range(0,4);
+
+            if(heartOrNo >= 2)
+                {
+                    Instantiate (heart, this.transform.position, Quaternion.identity);
+                }
+
             Destroy(this.gameObject);
             CurrentRoom.gameObject.SendMessage("RoomClear");
         }

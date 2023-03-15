@@ -119,6 +119,7 @@ public class Player : MonoBehaviour
         }
         else if (other.gameObject.CompareTag("EnemyProjectile"))
         {
+            health = health-1;
 
              if(health >= 1)
             {
