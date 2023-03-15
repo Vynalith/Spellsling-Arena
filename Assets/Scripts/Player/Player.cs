@@ -97,7 +97,7 @@ public class Player : MonoBehaviour
         }
         flashback = this.transform.position;
         //print(flashback);
-        print(timer);
+        
         
 
         if (timer >= songCount && song1Change == 0)
@@ -112,7 +112,7 @@ public class Player : MonoBehaviour
 
         if (song1Change == 1)
         {
-            print("true");
+            
             song1Intro.Stop();
             song1Loop.Play();
             song1Change = 2;
