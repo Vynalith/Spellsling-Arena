@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 84437787914014470}
   - component: {fileID: 84437787914014471}
   - component: {fileID: 84437787914014468}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Walls
   m_TagString: Wall
   m_Icon: {fileID: 0}
@@ -2806,6 +2806,7 @@ MonoBehaviour:
   enemies: 0
   Entrance: {fileID: 5899307707642376505}
   Exit: {fileID: 3687640434009632700}
+  enter: 0
 --- !u!1 &2938835156552280946
 GameObject:
   m_ObjectHideFlags: 0
@@ -2878,6 +2879,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Room: {fileID: 1974370995060080427}
+  enter: 0
 --- !u!1001 &498492278603454176
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2885,6 +2887,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6962717883838351406}
     m_Modifications:
+    - target: {fileID: 537465379495977986, guid: d1553d8c37a3ff146bab505e54041860, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 6284083940040710608, guid: d1553d8c37a3ff146bab505e54041860, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 6284083940040710611, guid: d1553d8c37a3ff146bab505e54041860, type: 3}
       propertyPath: m_FlipY
       value: 1
@@ -2938,6 +2948,10 @@ PrefabInstance:
       value: Door (1)
       objectReference: {fileID: 0}
     - target: {fileID: 6284083940895516633, guid: d1553d8c37a3ff146bab505e54041860, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 6284083940895516633, guid: d1553d8c37a3ff146bab505e54041860, type: 3}
       propertyPath: m_TagString
       value: Wall
       objectReference: {fileID: 0}
@@ -2960,6 +2974,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6962717883838351406}
     m_Modifications:
+    - target: {fileID: 537465379495977986, guid: d1553d8c37a3ff146bab505e54041860, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 6284083940040710608, guid: d1553d8c37a3ff146bab505e54041860, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 6284083940895516632, guid: d1553d8c37a3ff146bab505e54041860, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -3007,6 +3029,10 @@ PrefabInstance:
     - target: {fileID: 6284083940895516633, guid: d1553d8c37a3ff146bab505e54041860, type: 3}
       propertyPath: m_Name
       value: Door
+      objectReference: {fileID: 0}
+    - target: {fileID: 6284083940895516633, guid: d1553d8c37a3ff146bab505e54041860, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 6284083940895516633, guid: d1553d8c37a3ff146bab505e54041860, type: 3}
       propertyPath: m_TagString

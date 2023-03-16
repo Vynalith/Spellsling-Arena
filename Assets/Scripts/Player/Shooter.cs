@@ -79,7 +79,7 @@ public class Shooter : MonoBehaviour
 
             Projectile2 = lightningmagic2;
 
-            shotForce = 40f;
+            shotForce = 20f;
            
         }
         if( Input.GetButtonDown("fire"))
@@ -144,34 +144,45 @@ public class Shooter : MonoBehaviour
 
     void Shoot()
     {
-        if(lightning == true)
+        GameObject bullet = Instantiate(Projectile, Aim.transform.position, ShooterThing.rotation);
+
+        if (lightning == true)
         {
             player.gameObject.SendMessage("LightningAttacks");
+            Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
+            rb.AddForce(ShooterThing.up * shotForce, ForceMode2D.Impulse);
         }
 
         if(fire == true)
         {
             player.gameObject.SendMessage("FireAttacks");
+            Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
+            rb.AddForce(ShooterThing.up * shotForce, ForceMode2D.Impulse);
         }
 
         if(ice == true)
         {
             player.gameObject.SendMessage("IceAttacks");
+            Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
+            rb.AddForce(ShooterThing.up * shotForce, ForceMode2D.Impulse);
         }
 
         if(earth == true)
         {
             player.gameObject.SendMessage("EarthAttacks");
+            Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
+            rb.AddForce(ShooterThing.up * shotForce, ForceMode2D.Impulse);
         }
         
 
-        GameObject bullet = Instantiate(Projectile, Aim.transform.position, ShooterThing.rotation);
-        Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
-        rb.AddForce(ShooterThing.up * shotForce, ForceMode2D.Impulse);
+        
+        
     }
 
     void Shoot2()
     {
+        GameObject bullet2 = Instantiate(Projectile2, Aim.transform.position, ShooterThing.rotation);
+        
         if(lightning == true)
         {
             player.gameObject.SendMessage("LightningAttacks");
@@ -180,6 +191,8 @@ public class Shooter : MonoBehaviour
         if(fire == true)
         {
             player.gameObject.SendMessage("FireAttacks");
+            Rigidbody2D rb = bullet2.GetComponent<Rigidbody2D>();
+            rb.AddForce(ShooterThing.up * shotForce, ForceMode2D.Impulse);
         }
 
         if(ice == true)
@@ -193,9 +206,8 @@ public class Shooter : MonoBehaviour
         }
         
 
-        GameObject bullet2 = Instantiate(Projectile2, Aim.transform.position, ShooterThing.rotation);
-        Rigidbody2D rb = bullet2.GetComponent<Rigidbody2D>();
-        rb.AddForce(ShooterThing.up * shotForce, ForceMode2D.Impulse);
+        
+        
     }
 
 

@@ -10,6 +10,12 @@ TagManager:
   - EnemyProjectile
   - Wall
   - Earth
+  - Lightning
+  - Ice
+  - IceWall
+  - Puddle
+  - EarthWall
+  - BigLightning
   layers:
   - Default
   - TransparentFX
@@ -17,10 +23,10 @@ TagManager:
   - Enemy
   - Water
   - UI
-  - 
-  - 
+  - Wall
+  - Lightning
   - Post Processing
-  - 
+  - Player
   - 
   - 
   - 
