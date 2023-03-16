@@ -26,6 +26,8 @@ public class Hydra : MonoBehaviour
 
     public Animator animator;
 
+    public Transform anchor;
+
 
     // Start is called before the first frame update
     void Start()
@@ -83,6 +85,9 @@ public class Hydra : MonoBehaviour
 
 
         GameObject arrow = Instantiate(Projectile[RandomNum], start, this.transform.rotation);
+
+        arrow.transform.rotation = anchor.transform.rotation;
+
         Rigidbody2D rb = arrow.GetComponent<Rigidbody2D>();
         if (direction.x < 0)
         {

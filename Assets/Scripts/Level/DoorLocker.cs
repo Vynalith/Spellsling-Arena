@@ -5,9 +5,11 @@ using UnityEngine;
 public class DoorLocker : MonoBehaviour
 {
     public GameObject Room;
+    public int enter;
     // Start is called before the first frame update
     void Start()
     {
+        enter=0;
         
     }
 
@@ -19,10 +21,13 @@ public class DoorLocker : MonoBehaviour
 
     public void OnTriggerExit2D( Collider2D other)
     {
-        if (other.gameObject.CompareTag("Player"))
+        if(enter < 1)
         {
+            if (other.gameObject.CompareTag("Player"))
+            {
 
-            Room.gameObject.SendMessage("RoomLock");
+                Room.gameObject.SendMessage("RoomLock");
+            }
         }
     }
 }

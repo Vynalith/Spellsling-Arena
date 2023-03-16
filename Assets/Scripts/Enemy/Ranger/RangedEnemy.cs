@@ -107,6 +107,7 @@ public class RangedEnemy : MonoBehaviour
 
     public void HurtMe(int damage)
     {
+        print("ranger ow");
         health -= damage;
         if (health <= 0)
         {
