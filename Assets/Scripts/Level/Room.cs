@@ -11,18 +11,24 @@ public class Room : MonoBehaviour
     private int count;
     private int countdown;
 
+     public int enter;
 
     void Start()
     {
         Entrance.gameObject.SetActive(false);
         Exit.gameObject.SetActive(false);
+        enter= 0;
     }
 
 
     public void RoomLock()
     {
+        if(enter < 1)
+        {
         Entrance.gameObject.SetActive(true);
         Exit.gameObject.SetActive(true);
+        enter = enter+1;
+        }
     }
     
     
