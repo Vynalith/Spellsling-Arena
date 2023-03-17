@@ -20,7 +20,7 @@ public class Heart : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            other.gameObject.SendMessage("Heal");
+            other.gameObject.SendMessage("Heal", SendMessageOptions.DontRequireReceiver);
 
             Destroy(this.gameObject);
         }
