@@ -201,8 +201,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b026fa31229b6348a5000376856b838, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerAwarenessDistance: 10
-  player: {fileID: 0}
 --- !u!114 &4401286057854046243
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -216,11 +214,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
-  speed: 4
-  rotationSpeed: 100
-  rigidbody: {fileID: 8237691214348740215}
-  sprite: {fileID: 420259783094343584}
-  anchor: {fileID: 8001152008552254305, guid: 35f461400a6084e4e99a7708be87385b, type: 3}
 --- !u!114 &4401286057854046240
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -238,3 +231,11 @@ MonoBehaviour:
   CurrentRoom: {fileID: 0}
   animator: {fileID: 9186461495464329703}
   heart: {fileID: 818842114129691388, guid: 9c0c6f3e70182d44d9c070d32c1213f5, type: 3}
+  playerAwarenessDistance: 0
+  player: {fileID: 0}
+  dumbplayer: {fileID: 0}
+  speed: 0
+  rotationSpeed: 0
+  rigidbody: {fileID: 0}
+  sprite: {fileID: 420259783094343584}
+  anchor: {fileID: 0}

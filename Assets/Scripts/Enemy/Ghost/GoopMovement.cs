@@ -6,7 +6,7 @@ public class GoopMovement : MonoBehaviour
 {
 public Transform player;
 
-
+    /*
 
     [SerializeField]
     private float speed;
@@ -75,4 +75,5 @@ public Transform player;
             GetComponent<Rigidbody2D>().velocity = transform.up*speed;
         }
     }
+    */
 }
