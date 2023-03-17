@@ -28,6 +28,8 @@ public class Hydra : MonoBehaviour
 
     public Transform anchor;
 
+    public GameObject WIN;
+
 
     // Start is called before the first frame update
     void Start()
@@ -134,6 +136,7 @@ public class Hydra : MonoBehaviour
             if (health <= 0)
             {
                 Destroy(this.gameObject);
+                Instantiate(WIN, this.transform.position, Quaternion.identity);
                 CurrentRoom.gameObject.SendMessage("RoomClear");
             }
         }
@@ -155,4 +158,5 @@ public class Hydra : MonoBehaviour
             Destroy(this.gameObject);
         }
     }
+
 }

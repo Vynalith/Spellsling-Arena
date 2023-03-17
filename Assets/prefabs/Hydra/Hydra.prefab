@@ -111,6 +111,8 @@ MonoBehaviour:
   shotForce: 20
   sightDistance: 12
   animator: {fileID: 8200437591980419255}
+  anchor: {fileID: 0}
+  WIN: {fileID: 5281848734733506458, guid: 0e0194ceb75a90841a2c4447a3097862, type: 3}
 --- !u!114 &6439897111911307208
 MonoBehaviour:
   m_ObjectHideFlags: 0
