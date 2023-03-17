@@ -11,7 +11,17 @@ public class PlayerAware : MonoBehaviour
     private float playerAwarenessDistance;
 
     public Transform player;
+    private GameObject playertarget;
+    private Vector3 stupid;
     // Start is called before the first frame update
+
+    void start()
+    {
+        playertarget = GameObject.Find("Aim");
+        player = playertarget.transform;
+    }
+
+
     private void Awake()
     {
         //player = FindObjectOfType<GameObject>().Transform;
