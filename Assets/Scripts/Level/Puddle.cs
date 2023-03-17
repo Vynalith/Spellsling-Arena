@@ -74,7 +74,7 @@ public class Puddle : MonoBehaviour
                 if (enemypuddlecount % 1000 == 0 && enemypuddlecount != 0)
                 {   
                     print(zappyboi.tag);
-                    zappyboi.SendMessage("HurtMe", 1);
+                    zappyboi.SendMessage("HurtMe",SendMessageOptions.DontRequireReceiver);
                 }
             }
         }

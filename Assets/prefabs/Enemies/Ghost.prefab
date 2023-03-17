@@ -202,7 +202,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerAwarenessDistance: 6
-  player: {fileID: 0}
+  player: {fileID: 8001152008552254307, guid: 35f461400a6084e4e99a7708be87385b, type: 3}
 --- !u!114 &4401286057854046243
 MonoBehaviour:
   m_ObjectHideFlags: 0

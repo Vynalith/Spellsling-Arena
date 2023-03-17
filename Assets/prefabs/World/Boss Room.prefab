@@ -7965,7 +7965,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemies: 2
   Entrance: {fileID: 5899307707642376505}
-  Exit: {fileID: 0}
+  Exit: {fileID: 5899307707642376505}
+  enter: 0
 --- !u!1 &2938835156552280946
 GameObject:
   m_ObjectHideFlags: 0
@@ -8038,6 +8039,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Room: {fileID: 1974370995060080427}
+  enter: 0
 --- !u!1001 &498492278603454176
 PrefabInstance:
   m_ObjectHideFlags: 0

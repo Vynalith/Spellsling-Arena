@@ -184,11 +184,12 @@ MonoBehaviour:
   damage: {fileID: 0}
   CurrentRoom: {fileID: 0}
   cooldown: 1000
-  Projectile: {fileID: 0}
+  Projectile: {fileID: 7717531246457936126, guid: 0c0394cfaf22c81458ff7aac8bcb0580, type: 3}
   shotForce: 20
   sightDistance: 7
   shootAngle: {x: 0, y: 0, z: 0}
   animator: {fileID: 4287943340580815684}
+  heartOrNo: 0
   heart: {fileID: 818842114129691388, guid: 9c0c6f3e70182d44d9c070d32c1213f5, type: 3}
   Horizontal: 0
   Vertical: 0

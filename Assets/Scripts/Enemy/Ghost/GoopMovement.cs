@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class GoopMovement : MonoBehaviour
 {
-public Transform player;
+public GameObject player;
 
 
 
@@ -20,7 +20,15 @@ public Transform player;
 
     public GameObject sprite;
     public GameObject anchor;
+
+
     // Start is called before the first frame update
+
+    void Start()
+    {
+        anchor = GameObject.Find("Player");
+    }
+
     void Awake()
     {
        rigidbody = GetComponent<Rigidbody2D>();
