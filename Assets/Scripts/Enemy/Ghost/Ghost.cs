@@ -169,7 +169,7 @@ public class Ghost : MonoBehaviour
 
     private void UpdateTargetDirection()
     {
-        print("UpdateTargetDirection");
+        //print("UpdateTargetDirection");
         if (AwareOfPlayer)
         {
             targetdirection = DirectionToPlayer;
@@ -178,16 +178,16 @@ public class Ghost : MonoBehaviour
         {
             targetdirection = Vector2.zero;
         }
-        print("target direction = " + targetdirection);
+        //print("target direction = " + targetdirection);
 
     }
 
     private void RotateTowardsTarget()
     {
-        print("RotateTowardsTarget");
+        //print("RotateTowardsTarget");
         if (targetdirection == Vector2.zero)
         {
-            print("targetdirection == Vector2.zero");
+            //print("targetdirection == Vector2.zero");
             return;
         }
 
@@ -199,10 +199,10 @@ public class Ghost : MonoBehaviour
 
     private void SetVelocity()
     {
-        print("SetVelocity");
+        //print("SetVelocity");
         if (targetdirection == Vector2.zero)
         {
-            print("no direction");
+            //print("no direction");
             this.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
             
         }
@@ -210,11 +210,11 @@ public class Ghost : MonoBehaviour
         {
             this.GetComponent<Rigidbody2D>().velocity = transform.up * speed;
             //this.GetComponent<Rigidbody2D>().AddForce(transform.up * speed);
-            print("transform.up = " + this.transform.up);
-            print("transform.up = " + transform.up);
-            print("speed = " + speed);
-            print("velocty = " + this.GetComponent<Rigidbody2D>().velocity);
-            print("velocty should be = " + transform.up * speed);
+            //print("transform.up = " + this.transform.up);
+            //print("transform.up = " + transform.up);
+            //print("speed = " + speed);
+           // print("velocty = " + this.GetComponent<Rigidbody2D>().velocity);
+            //print("velocty should be = " + transform.up * speed);
         }
     }
 }

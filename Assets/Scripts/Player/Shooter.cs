@@ -181,15 +181,16 @@ public class Shooter : MonoBehaviour
 
     void Shoot2()
     {
-        GameObject bullet2 = Instantiate(Projectile2, Aim.transform.position, ShooterThing.rotation);
         
         if(lightning == true)
         {
+            GameObject bullet2 = Instantiate(Projectile2, Aim.transform.position, ShooterThing.rotation);
             player.gameObject.SendMessage("LightningAttacks");
         }
 
         if(fire == true)
         {
+            GameObject bullet2 = Instantiate(Projectile2, Aim.transform.position, ShooterThing.rotation);
             player.gameObject.SendMessage("FireAttacks");
             Rigidbody2D rb = bullet2.GetComponent<Rigidbody2D>();
             rb.AddForce(ShooterThing.up * shotForce, ForceMode2D.Impulse);
@@ -197,11 +198,13 @@ public class Shooter : MonoBehaviour
 
         if(ice == true)
         {
+            GameObject bullet2 = Instantiate(Projectile2, Aim.transform.position, ShooterThing.rotation);
             player.gameObject.SendMessage("IceAttacks");
         }
 
         if(earth == true)
         {
+            GameObject bullet2 = Instantiate(Projectile2, Aim.transform.position, ShooterThing.rotation);
             player.gameObject.SendMessage("EarthAttacks");
         }
         
