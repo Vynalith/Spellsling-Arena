@@ -9,11 +9,15 @@ public class IceColumnScript : MonoBehaviour
     public GameObject melt;
     public GameObject puddle;
     public float iceLifetime = 2f;
+    private Rigidbody2D body;
+    private Vector3 vel;
+    private float speed;
 
 
     // Start is called before the first frame update
     void Start()
     {
+        body = this.GetComponent<Rigidbody2D>();
         GetComponent<AudioSource>().Play();
         Destroy(this.gameObject, iceLifetime);
     }
@@ -21,7 +25,13 @@ public class IceColumnScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        vel = body.velocity;
+        speed = vel.magnitude;
+        //print(speed);
+        if(speed > 1)
+        {
+            print(speed);
+        }
     }
 
     public void OnTriggerEnter2D( Collider2D other)
@@ -37,11 +47,21 @@ public class IceColumnScript : MonoBehaviour
                 {
                     Instantiate(shatter, this.transform.position, this.transform.rotation);
                     Destroy(this.gameObject);
+                    Destroy(other.gameObject);
                    
                 }
-        if(other.gameObject.CompareTag("FILLERTEXT"))
+        if(other.gameObject.CompareTag("Enemy"))
         { 
-            Destroy(this.gameObject);     
+            if(speed > 5)
+            {
+                print("hit 3");
+                other.gameObject.SendMessage("HurtMe", 3);
+            }
+            else if(speed >= 1)
+            {
+                print("hit 1");
+                other.gameObject.SendMessage("HurtMe", 1);
+            }
         }
     }
     }

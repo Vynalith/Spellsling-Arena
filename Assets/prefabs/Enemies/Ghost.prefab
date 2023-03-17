@@ -201,7 +201,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b026fa31229b6348a5000376856b838, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerAwarenessDistance: 6
+  playerAwarenessDistance: 10
   player: {fileID: 0}
 --- !u!114 &4401286057854046243
 MonoBehaviour:
@@ -220,7 +220,7 @@ MonoBehaviour:
   rotationSpeed: 100
   rigidbody: {fileID: 8237691214348740215}
   sprite: {fileID: 420259783094343584}
-  anchor: {fileID: 0}
+  anchor: {fileID: 8001152008552254305, guid: 35f461400a6084e4e99a7708be87385b, type: 3}
 --- !u!114 &4401286057854046240
 MonoBehaviour:
   m_ObjectHideFlags: 0

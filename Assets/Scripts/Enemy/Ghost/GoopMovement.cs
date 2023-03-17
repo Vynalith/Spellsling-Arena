@@ -20,6 +20,11 @@ public Transform player;
 
     public GameObject sprite;
     public GameObject anchor;
+
+    void Start()
+    {
+        anchor = GameObject.Find("EnemyAnchor");
+    }
     // Start is called before the first frame update
     void Awake()
     {
