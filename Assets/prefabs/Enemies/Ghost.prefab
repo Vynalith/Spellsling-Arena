@@ -231,11 +231,10 @@ MonoBehaviour:
   CurrentRoom: {fileID: 0}
   animator: {fileID: 9186461495464329703}
   heart: {fileID: 818842114129691388, guid: 9c0c6f3e70182d44d9c070d32c1213f5, type: 3}
-  playerAwarenessDistance: 0
+  playerAwarenessDistance: 6
   player: {fileID: 0}
   dumbplayer: {fileID: 0}
   speed: 0
-  rotationSpeed: 0
   rigidbody: {fileID: 0}
   sprite: {fileID: 420259783094343584}
   anchor: {fileID: 0}

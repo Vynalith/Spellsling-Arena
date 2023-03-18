@@ -19,7 +19,7 @@ public class Ghost : MonoBehaviour
     public bool AwareOfPlayer { get; private set; }
     public Vector2 DirectionToPlayer { get; private set; }
     [SerializeField]
-    private float playerAwarenessDistance;
+    public float playerAwarenessDistance;
     private GameObject playertarget;
 
     /////////////////////////////////////////////
@@ -76,16 +76,18 @@ public class Ghost : MonoBehaviour
         DirectionToPlayer = enemyToPlayerVector;
 
         //print(enemyToPlayerVector);
-        //print(enemyToPlayerVector.magnitude);
+        print(enemyToPlayerVector.magnitude);
+        
         
 
-        if (enemyToPlayerVector.magnitude >= playerAwarenessDistance)
+        if (enemyToPlayerVector.magnitude <= playerAwarenessDistance)
         {
-            //print("Found player");
+            print("Found player");
             AwareOfPlayer = true;
         }
         else
         {
+            print("Lost player");
             AwareOfPlayer = false;
         }
     }
