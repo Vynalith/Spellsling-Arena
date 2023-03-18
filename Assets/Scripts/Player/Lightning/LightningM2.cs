@@ -32,7 +32,7 @@ public class LightningM2 : MonoBehaviour
         //target = GameObject.Find("RangedEnemy");
         //target2 = GameObject.Find("Enemy");
         //layerMask = ~layerMask;
-        GetComponent<AudioSource>().Play();
+        //GetComponent<AudioSource>().Play();
         Destroy(this.gameObject, 1f);
 
         //code for raycast, ignore

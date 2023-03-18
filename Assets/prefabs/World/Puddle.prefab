@@ -195,7 +195,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isElectrified: 0
   particle: {fileID: 1084556181532477028, guid: 63f83ab153354b94ea75d099a17687c2, type: 3}
-  newIce: {fileID: 7890268209323212713}
+  newIce: {fileID: 2239148033757502921, guid: 56c71d3cd71431d499d8bc177af4f239, type: 3}
   player: {fileID: 8001152008552254305, guid: 35f461400a6084e4e99a7708be87385b, type: 3}
 --- !u!70 &-1352185316940683013
 CapsuleCollider2D:
@@ -211,5 +211,5 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
-  m_Size: {x: 0.5, y: 0.5}
+  m_Size: {x: 0.4, y: 0.4}
   m_Direction: 0

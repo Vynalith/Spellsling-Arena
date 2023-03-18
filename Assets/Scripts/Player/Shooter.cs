@@ -38,6 +38,20 @@ public class Shooter : MonoBehaviour
 
     public float shotForce = 20f;
     public float shotForce2 = 20f;
+
+
+    //magic SFX
+    public AudioSource IceM1;
+    //public AudioSource IceM2;
+    public AudioSource FireM1;
+    public AudioSource FireM2;
+    public AudioSource LightningM1;
+    //public AudioSource LightningM2;
+    public AudioSource EarthM1;
+    //public AudioSource EarthM2;
+
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -125,7 +139,7 @@ public class Shooter : MonoBehaviour
         //attack
         if( Input.GetButtonDown("Fire2"))
         {
-            print ("M1");
+            //print ("M1");
              if(Playing==true)
             {
                 Shoot();
@@ -134,7 +148,7 @@ public class Shooter : MonoBehaviour
 
             if( Input.GetButtonDown("M2"))
         {
-            print ("M2");
+            //print ("M2");
              if(Playing==true)
             {
                 Shoot2();
@@ -148,6 +162,7 @@ public class Shooter : MonoBehaviour
 
         if (lightning == true)
         {
+            LightningM1.Play();
             player.gameObject.SendMessage("LightningAttacks");
             Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
             rb.AddForce(ShooterThing.up * shotForce, ForceMode2D.Impulse);
@@ -155,6 +170,7 @@ public class Shooter : MonoBehaviour
 
         if(fire == true)
         {
+            FireM1.Play();
             player.gameObject.SendMessage("FireAttacks");
             Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
             rb.AddForce(ShooterThing.up * shotForce, ForceMode2D.Impulse);
@@ -162,6 +178,7 @@ public class Shooter : MonoBehaviour
 
         if(ice == true)
         {
+            IceM1.Play();
             player.gameObject.SendMessage("IceAttacks");
             Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
             rb.AddForce(ShooterThing.up * shotForce, ForceMode2D.Impulse);
@@ -169,6 +186,7 @@ public class Shooter : MonoBehaviour
 
         if(earth == true)
         {
+            EarthM1.Play();
             player.gameObject.SendMessage("EarthAttacks");
             Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
             rb.AddForce(ShooterThing.up * shotForce, ForceMode2D.Impulse);
@@ -184,12 +202,14 @@ public class Shooter : MonoBehaviour
         
         if(lightning == true)
         {
+            //LightningM2.Play();
             GameObject bullet2 = Instantiate(Projectile2, Aim.transform.position, ShooterThing.rotation);
             player.gameObject.SendMessage("LightningAttacks");
         }
 
         if(fire == true)
         {
+            FireM2.Play();
             GameObject bullet2 = Instantiate(Projectile2, Aim.transform.position, ShooterThing.rotation);
             player.gameObject.SendMessage("FireAttacks");
             Rigidbody2D rb = bullet2.GetComponent<Rigidbody2D>();
@@ -198,12 +218,14 @@ public class Shooter : MonoBehaviour
 
         if(ice == true)
         {
+            //IceM2.Play();
             GameObject bullet2 = Instantiate(Projectile2, Aim.transform.position, ShooterThing.rotation);
             player.gameObject.SendMessage("IceAttacks");
         }
 
         if(earth == true)
         {
+            //EarthM2.Play();
             GameObject bullet2 = Instantiate(Projectile2, Aim.transform.position, ShooterThing.rotation);
             player.gameObject.SendMessage("EarthAttacks");
         }

@@ -14,7 +14,7 @@ public class EarthM1 : MonoBehaviour
         spoop = GameObject.Find("Ghost Spectra");
         Rigidbody2D r2d = this.GetComponent<Rigidbody2D>();
         r2d.AddForce(new Vector2(shootSpeed,10f));
-        GetComponent<AudioSource>().Play();
+        //GetComponent<AudioSource>().Play();
         Destroy(this.gameObject, .4f);
     }
 

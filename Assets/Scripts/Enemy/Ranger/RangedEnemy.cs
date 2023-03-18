@@ -32,6 +32,8 @@ public class RangedEnemy : MonoBehaviour
     public float Horizontal;
     public float Vertical;
 
+    private float stupidspeed;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -150,8 +152,34 @@ public class RangedEnemy : MonoBehaviour
         if (other.gameObject.CompareTag("Ice"))
         {
             //maybe do something like this.addforce(this.transform.position - other.transform.position) to push away from player?
-            Destroy(other.gameObject);
+            //Destroy(other.gameObject);
         }
         
     }
+    /*
+    public void RecieveSpeed(float speed)
+    {
+        //why do I have to do this weird roundabout way of getting speed?
+        //this is dumb
+        stupidspeed = speed;
+    }
+    
+    public void OnCollisionEnter(Collision other)
+    {
+        
+
+        if (other.gameObject.CompareTag("IceWall"))
+        {
+            other.gameObject.SendMessage("GetSpeed");
+            if(stupidspeed > 3)
+            {
+                HurtMe(3);
+            }
+            else if(stupidspeed >= 1)
+            {
+                HurtMe(1);
+            }
+        }
+    }
+    */
 }

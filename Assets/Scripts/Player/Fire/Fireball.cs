@@ -10,7 +10,7 @@ public class Fireball : MonoBehaviour
     {
         Rigidbody2D r2d = this.GetComponent<Rigidbody2D>();
         r2d.AddForce(new Vector2(shootSpeed,0f));
-        GetComponent<AudioSource>().Play();
+        //GetComponent<AudioSource>().Play();
         Destroy(this.gameObject, 2f);
     }
 

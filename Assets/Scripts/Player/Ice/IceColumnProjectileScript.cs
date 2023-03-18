@@ -2,25 +2,25 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class IceColumnScript : MonoBehaviour
+public class IceColumnProjectileScript : MonoBehaviour
 {
 
-    public GameObject shatter;
-    public GameObject melt;
-    public GameObject puddle;
+    //public GameObject shatter;
+    //public GameObject melt;
+    //public GameObject puddle;
     public float iceLifetime = 2f;
     private Rigidbody2D body;
     private Vector3 vel;
     private float speed;
 
-    private GameObject stupidreciever;
+    //private GameObject stupidreciever;
 
     // Start is called before the first frame update
     void Start()
     {
-        stupidreciever = GameObject.Find("RangedEnemy");
+        //stupidreciever = GameObject.Find("RangedEnemy");
         body = this.GetComponent<Rigidbody2D>();
-        GetComponent<AudioSource>().Play();
+        //GetComponent<AudioSource>().Play();
         Destroy(this.gameObject, iceLifetime);
     }
 
@@ -29,6 +29,10 @@ public class IceColumnScript : MonoBehaviour
     {
         vel = body.velocity;
         speed = vel.magnitude;
+        this.transform.position = transform.parent.transform.position;
+
+
+
         //print(speed);
         if(speed > 1)
         {
@@ -41,30 +45,22 @@ public class IceColumnScript : MonoBehaviour
         stupidreciever.SendMessage("RecieveSpeed", speed);
     }
     */
-
     public void OnTriggerEnter2D( Collider2D other)
     {
         if(other.gameObject.CompareTag("Fire"))
         {
-            Instantiate(puddle, this.transform.position, this.transform.rotation);
-            GameObject steam = Instantiate(melt, this.transform.position, melt.transform.rotation);
-            Destroy(steam, 3f);
+            //Instantiate(puddle, this.transform.position, this.transform.rotation);
+            //GameObject steam = Instantiate(melt, this.transform.position, melt.transform.rotation);
+            //Destroy(steam, 3f);
             Destroy(this.gameObject);
         }
         if (other.gameObject.CompareTag("Earth"))
         {
-            Instantiate(shatter, this.transform.position, this.transform.rotation);
+            //Instantiate(shatter, this.transform.position, this.transform.rotation);
             Destroy(this.gameObject);
-            Destroy(other.gameObject);
+            //Destroy(other.gameObject);
 
         }
-
-    }
-    /*
-    public void OnCollisionEnter(Collision other)
-    {
-
-        print("Collide");
         if (other.gameObject.CompareTag("Enemy"))
         {
             if (speed > 5)
@@ -78,7 +74,7 @@ public class IceColumnScript : MonoBehaviour
                 other.gameObject.SendMessage("HurtMe", 1);
             }
         }
+
     }
-    */
 }
 
