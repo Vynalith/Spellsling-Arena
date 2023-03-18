@@ -10,7 +10,7 @@ public GameObject[] rooms;
     // Start is called before the first frame update
     void Start()
     {
-         int RandomRoom = Random.Range(0,0);
+         int RandomRoom = Random.Range(0,5);
 
         Instantiate(rooms[RandomRoom], this.transform.position, Quaternion.identity);
     }

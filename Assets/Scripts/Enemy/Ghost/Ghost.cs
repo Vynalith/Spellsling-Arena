@@ -76,18 +76,18 @@ public class Ghost : MonoBehaviour
         DirectionToPlayer = enemyToPlayerVector;
 
         //print(enemyToPlayerVector);
-        print(enemyToPlayerVector.magnitude);
+        //print(enemyToPlayerVector.magnitude);
         
         
 
         if (enemyToPlayerVector.magnitude <= playerAwarenessDistance)
         {
-            print("Found player");
+            //print("Found player");
             AwareOfPlayer = true;
         }
         else
         {
-            print("Lost player");
+            //print("Lost player");
             AwareOfPlayer = false;
         }
     }

@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 1592504705805811674}
   - component: {fileID: 8254698572465594074}
   - component: {fileID: 368254031953725984}
-  - component: {fileID: 6439897111911307208}
   - component: {fileID: 8200437591980419255}
   - component: {fileID: 5782221383200268867}
   m_Layer: 3
@@ -113,31 +112,6 @@ MonoBehaviour:
   animator: {fileID: 8200437591980419255}
   anchor: {fileID: 0}
   WIN: {fileID: 5281848734733506458, guid: 0e0194ceb75a90841a2c4447a3097862, type: 3}
---- !u!114 &6439897111911307208
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 871037897855673761}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bc0b828ea9e80c44b92c365ac8dabc8a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  health: 10
-  damage: {fileID: 8132685761496276164, guid: eba20271973d5164cbc490afcdb27fa1, type: 3}
-  CurrentRoom: {fileID: 0}
-  cooldown: 2000
-  Projectile: {fileID: 4238966175713179051, guid: e57aa92abb0f23247894043be6f1c36d, type: 3}
-  shotForce: 20
-  sightDistance: 12
-  shootAngle: {x: 0, y: 0, z: 0}
-  animator: {fileID: 0}
-  heartOrNo: 0
-  heart: {fileID: 0}
-  Horizontal: 0
-  Vertical: 0
 --- !u!95 &8200437591980419255
 Animator:
   serializedVersion: 4
