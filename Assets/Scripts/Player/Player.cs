@@ -35,7 +35,7 @@ public class Player : MonoBehaviour
     private int song1Change = 0;
 
 
-
+    public GameObject UI;
 
 
 
@@ -45,6 +45,8 @@ public class Player : MonoBehaviour
         Playing=true;
         element = 1;
         animator.SetInteger("element", element);
+
+        UI = GameObject.Find("PlayerUI");
     }
 
     // Update is called once per frame
@@ -184,6 +186,8 @@ public class Player : MonoBehaviour
         if(health < 5)
         {
             health = health+1;
+            UI.SendMessage("Heal",1);
+
         }
     }
 
@@ -195,24 +199,29 @@ public class Player : MonoBehaviour
             Playing = false;
             Shooter.gameObject.SendMessage("Death");
             animator.Play("DEATH");
+            UI.SendMessage("Hurt",1);
         }
         else if (health >= 1)
         {
             if (element == 1)
             {
                 animator.Play("LightningDamage");
+                 UI.SendMessage("Hurt",1);
             }
             if (element == 2)
             {
                 animator.Play("FireDamage");
+                 UI.SendMessage("Hurt",1);
             }
             if (element == 3)
             {
                 animator.Play("IceDamage");
+                 UI.SendMessage("Hurt",1);
             }
             if (element == 4)
             {
                 animator.Play("EarthDamage");
+                 UI.SendMessage("Hurt",1);
             }
         }
     }
