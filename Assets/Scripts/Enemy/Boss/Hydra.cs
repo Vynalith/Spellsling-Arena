@@ -5,7 +5,7 @@ using UnityEngine;
 public class Hydra : MonoBehaviour
 {
     public int health;
-    public GameObject damage;
+    //public GameObject damage;
     public GameObject CurrentRoom;
     public float cooldown;
     private float cooldownCount;
@@ -30,6 +30,8 @@ public class Hydra : MonoBehaviour
 
     public GameObject WIN;
 
+    private int damage;
+
 
     // Start is called before the first frame update
     void Start()
@@ -38,6 +40,8 @@ public class Hydra : MonoBehaviour
         target = GameObject.Find("Player");
         target2 = GameObject.Find("Shooter");
         layerMask = ~layerMask;
+
+        damage = 1;
     }
 
     // Update is called once per frame
@@ -129,34 +133,46 @@ public class Hydra : MonoBehaviour
         {
             Destroy(other.gameObject);
 
-            health = health - 1;
-            GameObject explo = Instantiate(damage, this.transform.position, Quaternion.identity);
-            Destroy(explo, 1f);
+            damage = 1;
+            HurtMe();
+            //GameObject explo = Instantiate(damage, this.transform.position, Quaternion.identity);
+            //Destroy(explo, 1f);
 
-            if (health <= 0)
-            {
-                Destroy(this.gameObject);
-                Instantiate(WIN, this.transform.position, Quaternion.identity);
-                CurrentRoom.gameObject.SendMessage("RoomClear");
-            }
+         
         }
         if (other.gameObject.CompareTag("Earth"))
         {
 
             Destroy(other.gameObject);
-            health = health - 3;
+            damage = 3;
+            HurtMe();
 
-            if (health <= 0)
+        }
+        if (other.gameObject.CompareTag("Lightning"))
+        {
+            Destroy(other.gameObject);
+            damage = 1;
+            HurtMe();
+        }
+        if (other.gameObject.CompareTag("BigLightning"))
+        {
+            Destroy(other.gameObject);
+            damage = 3;
+            HurtMe();
+        }
+    }
+
+    void HurtMe()
+    {
+        health = health - damage;
+
+        if (health <= 0)
             {
                 Destroy(this.gameObject);
+                Instantiate(WIN, this.transform.position, Quaternion.identity);
                 CurrentRoom.gameObject.SendMessage("RoomClear");
-
             }
-        }
-        if (other.gameObject.CompareTag("FILLERTEXT"))
-        {
-            Destroy(this.gameObject);
-        }
+        damage = 1;
     }
 
 }
