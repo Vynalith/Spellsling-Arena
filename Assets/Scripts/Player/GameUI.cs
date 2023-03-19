@@ -56,6 +56,7 @@ public class GameUI : MonoBehaviour
     {
         if(health == 5)
         {
+            print("Health 5, = " + health);
             health1of5.gameObject.SetActive(true);
             health2of5.gameObject.SetActive(true);
             health3of5.gameObject.SetActive(true);
@@ -64,6 +65,7 @@ public class GameUI : MonoBehaviour
         }
         if(health == 4)
         {
+            print("Health 4, = " + health);
             health1of5.gameObject.SetActive(false);
             health2of5.gameObject.SetActive(true);
             health3of5.gameObject.SetActive(true);
@@ -72,6 +74,7 @@ public class GameUI : MonoBehaviour
         }
         if(health == 3)
         {
+            print("Health 3, = " + health);
             health1of5.gameObject.SetActive(false);
             health2of5.gameObject.SetActive(false);
             health3of5.gameObject.SetActive(true);
@@ -80,6 +83,8 @@ public class GameUI : MonoBehaviour
         }
         if(health == 2)
         {
+            print("Health 2, = " + health);
+
             health1of5.gameObject.SetActive(false);
             health2of5.gameObject.SetActive(false);
             health3of5.gameObject.SetActive(false);
@@ -88,6 +93,8 @@ public class GameUI : MonoBehaviour
         }
         if(health == 1)
         {
+            print("Health 1, = " + health);
+
             health1of5.gameObject.SetActive(false);
             health2of5.gameObject.SetActive(false);
             health3of5.gameObject.SetActive(false);
@@ -96,6 +103,8 @@ public class GameUI : MonoBehaviour
         }
         if(health == 0)
         {
+            print("Health 0, = " + health);
+
             health1of5.gameObject.SetActive(false);
             health2of5.gameObject.SetActive(false);
             health3of5.gameObject.SetActive(false);
@@ -198,9 +207,10 @@ public class GameUI : MonoBehaviour
         }
     }
 
-    void Hurt()
+    void Hurt(int damage)
     {
-        health = health-1;
+        print("taking damage");
+        health -= damage;
     }
     void Heal()
     {

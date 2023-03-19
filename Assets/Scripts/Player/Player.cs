@@ -147,12 +147,13 @@ public class Player : MonoBehaviour
         if (other.gameObject.CompareTag("Enemy"))
         {
             HurtMe(1);
+            //gameUI.SendMessage("Hurt", 1);
             //this.transform.position -= this.transform.position - other.transform.position;
         }
         else if (other.gameObject.CompareTag("EnemyProjectile"))
         {
-            health = health-1;
-
+            HurtMe(1);  
+            //gameUI.SendMessage("Hurt", 1);
              if(health >= 1)
             {
                 if(element == 1)
@@ -186,7 +187,7 @@ public class Player : MonoBehaviour
         if(health < 5)
         {
             health = health+1;
-            UI.SendMessage("Heal",1);
+            UI.SendMessage("Heal", SendMessageOptions.DontRequireReceiver);
 
         }
     }
@@ -199,7 +200,7 @@ public class Player : MonoBehaviour
             Playing = false;
             Shooter.gameObject.SendMessage("Death");
             animator.Play("DEATH");
-            UI.SendMessage("Hurt",1);
+            UI.SendMessage("Hurt", 1);
         }
         else if (health >= 1)
         {
