@@ -21,5 +21,7 @@ public class EnemyArrow : MonoBehaviour
         {
             Destroy(this.gameObject);
         }
+
+        
     }
     }

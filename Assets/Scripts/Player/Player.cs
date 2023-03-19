@@ -182,7 +182,7 @@ public class Player : MonoBehaviour
     }
 
 
-    public void Heal()
+     void Heal()
     {
         if(health < 5)
         {

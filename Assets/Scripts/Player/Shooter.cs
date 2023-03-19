@@ -95,6 +95,7 @@ public class Shooter : MonoBehaviour
     public void Win()
     {
         Playing=false;
+        Aim.gameObject.SetActive(false);
     }
     // Update is called once per frame
     void Update()
