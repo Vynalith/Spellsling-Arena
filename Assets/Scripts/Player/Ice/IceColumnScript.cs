@@ -60,8 +60,8 @@ public class IceColumnScript : MonoBehaviour
         }
 
     }
-    /*
-    public void OnCollisionEnter(Collision other)
+    
+    public void OnCollisionEnter2D(Collision2D other)
     {
 
         print("Collide");
@@ -79,6 +79,6 @@ public class IceColumnScript : MonoBehaviour
             }
         }
     }
-    */
+    
 }
 
