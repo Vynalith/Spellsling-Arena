@@ -30,13 +30,20 @@ public class Player : MonoBehaviour
     //for SFX timing and looping
     public AudioSource song1Intro;
     public AudioSource song1Loop;
+    public AudioSource bossSongIntro;
+    public AudioSource bossSongLoop;
     private float timer;
+    private float bossTimer;
     private float songCount = 13.35f;
+    private float bossSongCount = 8.15f;
     private int song1Change = 0;
-
+    private int bossSongChange = 0;
+    private bool bossSongStarted;
+    public AudioSource winSong;
 
     public GameObject UI;
 
+    
 
 
     // Start is called before the first frame update
@@ -123,6 +130,43 @@ public class Player : MonoBehaviour
             song1Change = 2;
         }
 
+        if (bossSongStarted)
+        {
+            if (bossTimer >= bossSongCount && bossSongChange == 0)
+            {
+
+                bossSongChange = 1;
+            }
+            else if (bossSongChange == 0 && bossTimer < bossSongCount)
+            {
+                bossTimer += Time.deltaTime;
+            }
+
+            if (bossSongChange == 1)
+            {
+
+                bossSongIntro.Stop();
+                bossSongLoop.Play();
+                bossSongChange = 2;
+            }
+        }
+
+        
+
+
+    }
+
+    void StartBossMusic()
+    {
+        song1Loop.Stop();
+        bossSongIntro.Play();
+        bossSongStarted = true;
+    }
+
+    void PlayWinSong()
+    {
+        bossSongLoop.Stop();
+        winSong.Play();
     }
 
     void FixedUpdate()

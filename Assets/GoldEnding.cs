@@ -21,7 +21,8 @@ public class GoldEnding : MonoBehaviour
         if (other.gameObject.CompareTag("Player"))
         {
             Destroy(this.gameObject);
-            other.gameObject.SendMessage("Win");
+            other.gameObject.SendMessage("Win", SendMessageOptions.DontRequireReceiver);
+            other.gameObject.SendMessage("PlayWinSong", SendMessageOptions.DontRequireReceiver);
         }
     }
 }
