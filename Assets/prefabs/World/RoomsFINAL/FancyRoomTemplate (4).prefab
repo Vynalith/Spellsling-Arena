@@ -2809,6 +2809,10 @@ MonoBehaviour:
   enemies: 3
   Entrance: {fileID: 6827147262396090310}
   Exit: {fileID: 4345210811579095363}
+  Enemies:
+  - {fileID: 7439235301673221252}
+  - {fileID: 7439235302978692846}
+  - {fileID: 4952459814096387242}
   enter: 0
 --- !u!1 &2857741053289782669
 GameObject:
@@ -3041,11 +3045,20 @@ PrefabInstance:
       propertyPath: m_Name
       value: Ghost (8)
       objectReference: {fileID: 0}
+    - target: {fileID: 7520187080668527628, guid: 97905fd01aea8e94bbe288ba7bd9af53, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 97905fd01aea8e94bbe288ba7bd9af53, type: 3}
 --- !u!4 &2086608698023466528 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1411162528100142274, guid: 97905fd01aea8e94bbe288ba7bd9af53, type: 3}
+  m_PrefabInstance: {fileID: 1108003540496653026}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &7439235302978692846 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7520187080668527628, guid: 97905fd01aea8e94bbe288ba7bd9af53, type: 3}
   m_PrefabInstance: {fileID: 1108003540496653026}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1108003541216333161
@@ -3119,11 +3132,20 @@ PrefabInstance:
       propertyPath: m_Name
       value: Ghost Spectra
       objectReference: {fileID: 0}
+    - target: {fileID: 5465892957826560451, guid: 0f08183b57ca0a44c9ef146ddf4cef86, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0f08183b57ca0a44c9ef146ddf4cef86, type: 3}
 --- !u!4 &4571942452585712740 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3464013815735468301, guid: 0f08183b57ca0a44c9ef146ddf4cef86, type: 3}
+  m_PrefabInstance: {fileID: 1108003541216333161}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &4952459814096387242 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5465892957826560451, guid: 0f08183b57ca0a44c9ef146ddf4cef86, type: 3}
   m_PrefabInstance: {fileID: 1108003541216333161}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1108003542481600648
@@ -3197,11 +3219,20 @@ PrefabInstance:
       propertyPath: m_Name
       value: Ghost (9)
       objectReference: {fileID: 0}
+    - target: {fileID: 7520187080668527628, guid: 97905fd01aea8e94bbe288ba7bd9af53, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 97905fd01aea8e94bbe288ba7bd9af53, type: 3}
 --- !u!4 &2086608698188090442 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1411162528100142274, guid: 97905fd01aea8e94bbe288ba7bd9af53, type: 3}
+  m_PrefabInstance: {fileID: 1108003542481600648}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &7439235301673221252 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7520187080668527628, guid: 97905fd01aea8e94bbe288ba7bd9af53, type: 3}
   m_PrefabInstance: {fileID: 1108003542481600648}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &7744158614030106266

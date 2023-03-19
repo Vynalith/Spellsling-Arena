@@ -10,6 +10,7 @@ public class Room : MonoBehaviour
     public GameObject Exit;
     private int count;
     private int countdown;
+    public GameObject[] Enemies;
 
      public int enter;
 
@@ -28,6 +29,12 @@ public class Room : MonoBehaviour
         Entrance.gameObject.SetActive(true);
         Exit.gameObject.SetActive(true);
         enter = enter+1;
+
+            for(int i = 0; i < Enemies.Length; i++)
+            {
+                Enemies[i].SetActive(true);
+            }
+
         }
     }
     
