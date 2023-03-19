@@ -22,6 +22,24 @@ public class GameUI : MonoBehaviour
     public Image iceSelect;
     public Image earthSelect;
 
+    private float iceCooldown;
+    private float fireCooldown;
+    private float earthCooldown;
+    private float lightningCooldown;
+
+    private float iceTime;
+    private float fireTime;
+    private float earthTime;
+    private float lightningTime;
+
+    private bool iceSent;
+    private bool fireSent;
+    private bool earthSent;
+    private bool lightningSent;
+
+    private GameObject Shooter;
+    private bool stupidStart = true;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -30,7 +48,7 @@ public class GameUI : MonoBehaviour
         iceSelect.gameObject.SetActive(false);
         earthSelect.gameObject.SetActive(false);
 
-        
+        Shooter = GameObject.Find("Shooter");
     }
 
     // Update is called once per frame
@@ -84,6 +102,68 @@ public class GameUI : MonoBehaviour
             health4of5.gameObject.SetActive(false);
             health5of5.gameObject.SetActive(false);
         }
+
+        if(iceTime < iceCooldown)
+        {
+            iceSent = false;
+            //print(iceTime / iceCooldown);
+            Ice.fillAmount = (iceTime / iceCooldown);
+            iceTime += Time.deltaTime;
+        }
+        else if(iceTime >= iceCooldown && iceSent == false)
+        {
+            iceSent = true;
+            Shooter.SendMessage("IceEnable", SendMessageOptions.DontRequireReceiver);
+        }
+        if(fireTime < fireCooldown)
+        {
+            fireSent = false;
+            //print(fireTime / fireCooldown);
+            Fire.fillAmount = (fireTime / fireCooldown);
+            fireTime += Time.deltaTime;
+        }
+        else if(fireTime >= fireCooldown && fireSent == false)
+        {
+            fireSent = true;
+            Shooter.SendMessage("FireEnable", SendMessageOptions.DontRequireReceiver);
+        }
+        if(earthTime < earthCooldown)
+        {
+            earthSent = false;
+            //print(earthTime / earthCooldown);
+            Earth.fillAmount = (earthTime / earthCooldown);
+            earthTime += Time.deltaTime;
+        }
+        else if(earthTime >= earthCooldown && earthSent == false)
+        {
+            earthSent = true;
+            Shooter.SendMessage("EarthEnable", SendMessageOptions.DontRequireReceiver);
+        }
+        if (lightningTime < lightningCooldown)
+        {
+            lightningSent = false;
+            //print(iceTime / iceCooldown);
+            Lightning.fillAmount = (lightningTime / lightningCooldown);
+            lightningTime += Time.deltaTime;
+        }
+        else if (lightningTime >= lightningCooldown && lightningSent == false)
+        {
+            lightningSent = true;
+            Shooter.SendMessage("LightningEnable", SendMessageOptions.DontRequireReceiver);
+        }
+
+
+
+        if (stupidStart)
+        {
+            Shooter.SendMessage("LightningReady", SendMessageOptions.DontRequireReceiver);
+            Shooter.SendMessage("EarthReady", SendMessageOptions.DontRequireReceiver);
+            Shooter.SendMessage("FireReady", SendMessageOptions.DontRequireReceiver);
+            Shooter.SendMessage("IceReady", SendMessageOptions.DontRequireReceiver);
+            stupidStart = false;
+        }
+
+
     }
 
     public void ActiveElement(int index)
@@ -127,4 +207,29 @@ public class GameUI : MonoBehaviour
         health = health + 1;
     }
     
+    void IceCooldown(float cooldown)
+    {
+        iceCooldown = Time.deltaTime + cooldown;
+        iceTime = Time.deltaTime;
+    }
+    
+    void FireCooldown(float cooldown)
+    {
+        fireCooldown = Time.deltaTime + cooldown;
+        fireTime = Time.deltaTime;
+    }
+    
+    void EarthCooldown(float cooldown)
+    {
+        earthCooldown = Time.deltaTime + cooldown;
+        earthTime = Time.deltaTime;
+    }
+    
+    void LightningCooldown(float cooldown)
+    {
+        lightningCooldown = Time.deltaTime + cooldown;
+        lightningTime = Time.deltaTime;
+    }
+
+
 }

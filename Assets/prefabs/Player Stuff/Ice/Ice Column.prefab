@@ -179,7 +179,7 @@ MonoBehaviour:
   shatter: {fileID: 2637488249602587703, guid: 43d7823989598414c91c31122c332fd4, type: 3}
   melt: {fileID: 6901960009197579387, guid: a55955ed658d3ce47a3ae91e167355a0, type: 3}
   puddle: {fileID: 7890268209323212713, guid: c6562956ca28b614eac0a74d4d6f8dbb, type: 3}
-  iceLifetime: 5
+  iceLifetime: 7
 --- !u!82 &-5966787381647316405
 AudioSource:
   m_ObjectHideFlags: 0
