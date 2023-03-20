@@ -1,6 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+
+
 
 public class Player : MonoBehaviour
 {
@@ -32,7 +35,7 @@ public class Player : MonoBehaviour
     public AudioSource song1Loop;
     public AudioSource bossSongIntro;
     public AudioSource bossSongLoop;
-    private float timer;
+    public float timer;
     private float bossTimer;
     private float songCount = 13.35f;
     private float bossSongCount = 8.15f;
@@ -44,7 +47,10 @@ public class Player : MonoBehaviour
     public GameObject UI;
 
     
-
+        public float Deadtimer;
+        public bool isDead;
+        public float countdown;
+        public GameObject Reset;
 
     // Start is called before the first frame update
     void Start()
@@ -54,6 +60,7 @@ public class Player : MonoBehaviour
         animator.SetInteger("element", element);
 
         UI = GameObject.Find("PlayerUI");
+        isDead = false;
     }
 
     // Update is called once per frame
@@ -151,6 +158,16 @@ public class Player : MonoBehaviour
             }
         }
 
+        if(isDead == true)
+        {
+            Deadtimer += Time.deltaTime;
+        }
+
+        if(Deadtimer>=countdown)
+        {
+            Reset.SendMessage("LoadScene", "Game");
+        }
+
         
 
 
@@ -242,9 +259,11 @@ public class Player : MonoBehaviour
         if (health <= 0)
         {
             Playing = false;
+            isDead = true;
             Shooter.gameObject.SendMessage("Death");
             animator.Play("DEATH");
             UI.SendMessage("Hurt", 1);
+    
         }
         else if (health >= 1)
         {
@@ -305,4 +324,9 @@ public class Player : MonoBehaviour
         Shooter.gameObject.SendMessage("Win");
         animator.Play("WIN!");
    }
+
+   public void LoadScene(string sceneName)
+    {
+        SceneManager.LoadScene("Game");
+    }
 }
