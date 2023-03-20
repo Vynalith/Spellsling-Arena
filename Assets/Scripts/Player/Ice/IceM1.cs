@@ -43,5 +43,9 @@ public class IceM1 : MonoBehaviour
             nerd.AddForce(aim * 10f, ForceMode2D.Impulse);
             Destroy(this.gameObject);
         }
+        if(other.gameObject.CompareTag("Wall") || other.gameObject.CompareTag("EarthWall"))
+        {
+            Destroy(this.gameObject);
+        }
     }
 }
