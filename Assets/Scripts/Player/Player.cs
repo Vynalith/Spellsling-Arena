@@ -47,10 +47,10 @@ public class Player : MonoBehaviour
     public GameObject UI;
 
     
-        public float Deadtimer;
-        public bool isDead;
-        public float countdown;
-        public GameObject Reset;
+    public float Deadtimer;
+    public bool isDead;
+    public float countdown;
+    public GameObject Reset;
 
     // Start is called before the first frame update
     void Start()
@@ -165,7 +165,7 @@ public class Player : MonoBehaviour
 
         if(Deadtimer>=countdown)
         {
-            Reset.SendMessage("LoadScene", "Game");
+            Reset.SendMessage("LoadScene", "Menu");
         }
 
         
