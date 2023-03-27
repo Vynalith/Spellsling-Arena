@@ -327,6 +327,6 @@ public class Player : MonoBehaviour
 
    public void LoadScene(string sceneName)
     {
-        SceneManager.LoadScene("Game");
+        SceneManager.LoadScene("Menu");
     }
 }
