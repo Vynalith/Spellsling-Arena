@@ -4749,6 +4749,10 @@ PrefabInstance:
       value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 5942471702129177336, guid: edad4f7f3630b36438caf1db142c2787, type: 3}
+      propertyPath: cooldown
+      value: 200
+      objectReference: {fileID: 0}
+    - target: {fileID: 5942471702129177336, guid: edad4f7f3630b36438caf1db142c2787, type: 3}
       propertyPath: shotForce
       value: 30
       objectReference: {fileID: 0}
