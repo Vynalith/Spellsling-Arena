@@ -66,6 +66,9 @@ public class Shooter : MonoBehaviour
 
 
 
+    public GameObject needsAimed;
+    private Vector2 shooterthingpos;
+
 
     // Start is called before the first frame update
     void Start()
@@ -214,6 +217,29 @@ public class Shooter : MonoBehaviour
         earthReady = true;
     }
 
+    /*
+    public void GetAim(GameObject other)
+    {
+        other.SendMessage("GetAim", ShooterThing.up);
+    }
+    */
+
+    public void GetAim(GameObject other)
+    {
+        shooterthingpos = ShooterThing.up;
+        print("get aim");
+        print("shooter" + ShooterThing.up);
+        print("shooter" + shooterthingpos);
+        //needsAimed = GameObject.Find("Fireball");
+        //print(needsAimed);
+        other.SendMessage("GetAim", shooterthingpos);
+        //needsAimed.SendMessage("fuckme", SendMessageOptions.DontRequireReceiver);
+    }
+
+
+
+
+
 
     void Shoot()
     {
@@ -223,7 +249,8 @@ public class Shooter : MonoBehaviour
         {
             if (lightningReady)
             {
-            lightningCooldown = .5f;
+                shotForce = 20f;
+            lightningCooldown = 1f;
             GameObject bullet = Instantiate(Projectile, Aim.transform.position, ShooterThing.rotation);
             LightningM1.Play();
             player.gameObject.SendMessage("LightningAttacks");
@@ -244,9 +271,10 @@ public class Shooter : MonoBehaviour
         {
             if (fireReady)
             {
+                shotForce = 5f;
                 GameObject bullet = Instantiate(Projectile, Aim.transform.position, ShooterThing.rotation);
                 fireReady = false;
-                fireCooldown = .5f;
+                fireCooldown = 1.5f;
                 gameUI.SendMessage("FireCooldown", fireCooldown);
                 FireM1.Play();
                 player.gameObject.SendMessage("FireAttacks");
@@ -261,6 +289,7 @@ public class Shooter : MonoBehaviour
         {
             if (iceReady)
             {
+                shotForce = 15f;
                 GameObject bullet = Instantiate(Projectile, Aim.transform.position, ShooterThing.rotation);
                 iceReady = false;
                 iceCooldown = .5f;
@@ -278,9 +307,10 @@ public class Shooter : MonoBehaviour
         {
             if (earthReady)
             {
+                shotForce = 10f;
                 GameObject bullet = Instantiate(Projectile, Aim.transform.position, ShooterThing.rotation);
                 earthReady = false;
-                earthCooldown = .75f;
+                earthCooldown = 1.5f;
                 gameUI.SendMessage("EarthCooldown", earthCooldown);
                 EarthM1.Play();
                 player.gameObject.SendMessage("EarthAttacks");
@@ -304,7 +334,7 @@ public class Shooter : MonoBehaviour
             if (lightningReady)
             {
                 lightningReady = false;
-                lightningCooldown = 2f;
+                lightningCooldown = 3f;
                 gameUI.SendMessage("LightningCooldown", lightningCooldown);
                 //LightningM2.Play();
                 GameObject bullet2 = Instantiate(Projectile2, Aim.transform.position, ShooterThing.rotation);
@@ -318,7 +348,7 @@ public class Shooter : MonoBehaviour
             if (fireReady)
             {
                 fireReady = false;
-                fireCooldown = 2f;
+                fireCooldown = 3f;
                 gameUI.SendMessage("FireCooldown", fireCooldown);
                 FireM2.Play();
                 GameObject bullet2 = Instantiate(Projectile2, Aim.transform.position, ShooterThing.rotation);
@@ -334,7 +364,7 @@ public class Shooter : MonoBehaviour
             if (iceReady)
             {
                 iceReady = false;
-                iceCooldown = 3f;
+                iceCooldown = 4f;
                 gameUI.SendMessage("IceCooldown", iceCooldown);
                 //IceM2.Play();
                 GameObject bullet2 = Instantiate(Projectile2, Aim.transform.position, ShooterThing.rotation);

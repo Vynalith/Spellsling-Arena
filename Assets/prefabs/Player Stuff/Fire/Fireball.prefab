@@ -77,6 +77,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shootSpeed: 100
+  isBig: 0
+  grow: 0
+  timer: 0
+  bigPush: 0
 --- !u!50 &1119964054294063096
 Rigidbody2D:
   serializedVersion: 4
