@@ -119,8 +119,9 @@ public class GameUI : MonoBehaviour
             Ice.fillAmount = (iceTime / iceCooldown);
             iceTime += Time.deltaTime;
         }
-        else if(iceTime >= iceCooldown && iceSent == false)
+        else if(iceTime > iceCooldown && iceSent == false)
         {
+            Ice.fillAmount = 1;
             iceSent = true;
             Shooter.SendMessage("IceEnable", SendMessageOptions.DontRequireReceiver);
         }
@@ -131,20 +132,22 @@ public class GameUI : MonoBehaviour
             Fire.fillAmount = (fireTime / fireCooldown);
             fireTime += Time.deltaTime;
         }
-        else if(fireTime >= fireCooldown && fireSent == false)
+        else if(fireTime > fireCooldown && fireSent == false)
         {
+            Fire.fillAmount = 1;
             fireSent = true;
             Shooter.SendMessage("FireEnable", SendMessageOptions.DontRequireReceiver);
         }
-        if(earthTime < earthCooldown)
+        if(earthTime < earthCooldown +.01f)
         {
             earthSent = false;
             //print(earthTime / earthCooldown);
             Earth.fillAmount = (earthTime / earthCooldown);
             earthTime += Time.deltaTime;
         }
-        else if(earthTime >= earthCooldown && earthSent == false)
+        else if(earthTime > earthCooldown +.01f && earthSent == false)
         {
+            Earth.fillAmount = 1;
             earthSent = true;
             Shooter.SendMessage("EarthEnable", SendMessageOptions.DontRequireReceiver);
         }
@@ -155,8 +158,9 @@ public class GameUI : MonoBehaviour
             Lightning.fillAmount = (lightningTime / lightningCooldown);
             lightningTime += Time.deltaTime;
         }
-        else if (lightningTime >= lightningCooldown && lightningSent == false)
+        else if (lightningTime > lightningCooldown && lightningSent == false)
         {
+            Lightning.fillAmount = 1;
             lightningSent = true;
             Shooter.SendMessage("LightningEnable", SendMessageOptions.DontRequireReceiver);
         }
