@@ -16,6 +16,7 @@ TagManager:
   - Puddle
   - EarthWall
   - BigLightning
+  - BigFire
   layers:
   - Default
   - TransparentFX

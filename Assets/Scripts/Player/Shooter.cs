@@ -347,6 +347,7 @@ public class Shooter : MonoBehaviour
         {
             if (fireReady)
             {
+                shotForce = 5f;
                 fireReady = false;
                 fireCooldown = 3f;
                 gameUI.SendMessage("FireCooldown", fireCooldown);

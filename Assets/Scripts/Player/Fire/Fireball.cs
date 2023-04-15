@@ -13,6 +13,7 @@ public class Fireball : MonoBehaviour
     Rigidbody2D r2d;
     public Vector2 direction;
     public bool Aimed;
+    private GameObject fireE;
 
 
     void Start()
@@ -77,6 +78,12 @@ public class Fireball : MonoBehaviour
             bigPush = true;
             
         }
+    }
+
+    public void FireEnemyGetSize(GameObject other)
+    {
+        other.SendMessage("SetFireballSize", isBig);
+        //why do I have to do this stupid workaround to get what I want
     }
 
 
