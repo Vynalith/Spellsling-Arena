@@ -54,7 +54,7 @@ MonoBehaviour:
   lightningmagic: {fileID: 7717531246457936126, guid: ce62d16a518dd6b40a47304115d83508, type: 3}
   icemagic: {fileID: 7717531246457936126, guid: 5780fa5a77205c743a498aca801ea4f1, type: 3}
   earthmagic: {fileID: 7717531246457936126, guid: 41e1f856dc903d64b937b9f00f8f040b, type: 3}
-  firemagic2: {fileID: 4238966175713179051, guid: e57aa92abb0f23247894043be6f1c36d, type: 3}
+  firemagic2: {fileID: 4238966175713179051, guid: b18c195b40612944283d483dc21694f7, type: 3}
   lightningmagic2: {fileID: 7717531246457936126, guid: ce62d16a518dd6b40a47304115d83508, type: 3}
   icemagic2: {fileID: 527753290388433841, guid: 9dfe4c13b4e9f8c458c7bcab075e079c, type: 3}
   earthmagic2: {fileID: 7717531246457936126, guid: 41e1f856dc903d64b937b9f00f8f040b, type: 3}
@@ -62,6 +62,13 @@ MonoBehaviour:
   Playing: 0
   shotForce: 10
   shotForce2: 20
+  IceM1: {fileID: 0}
+  FireM1: {fileID: 0}
+  FireM2: {fileID: 0}
+  LightningM1: {fileID: 0}
+  EarthM1: {fileID: 0}
+  gameUI: {fileID: 0}
+  needsAimed: {fileID: 0}
 --- !u!50 &5675359736586977518
 Rigidbody2D:
   serializedVersion: 4
