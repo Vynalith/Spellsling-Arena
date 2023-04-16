@@ -61,7 +61,7 @@ public class IceColumnProjectileScript : MonoBehaviour
             //Destroy(other.gameObject);
 
         }
-        if (other.gameObject.CompareTag("Enemy"))
+        if (other.gameObject.CompareTag("Enemy") && !other.gameObject.CompareTag("FILLERTEXT"))
         {
             if (speed > 5)
             {

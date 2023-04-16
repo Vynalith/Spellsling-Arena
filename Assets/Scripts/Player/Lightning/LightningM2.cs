@@ -95,7 +95,7 @@ public class LightningM2 : MonoBehaviour
                     else if (hitList[x].gameObject.CompareTag("Enemy") && hitWall == false)
                     {
                         //print("hit");
-                        hitList[x].gameObject.SendMessage("HurtMe", 3);
+                        hitList[x].gameObject.SendMessage("LightningHurtMe", 2);
                     }
                 }
                 
@@ -121,7 +121,7 @@ public class LightningM2 : MonoBehaviour
                 print("adding wall");
                 hitList.Add(other.gameObject);
             }
-            if (other.gameObject.CompareTag("Enemy"))
+            if (other.gameObject.CompareTag("Enemy") && !other.gameObject.CompareTag("FILLERTEXT"))
             {
                 print("adding " + other.gameObject);
                 hitList.Add(other.gameObject);

@@ -56,36 +56,55 @@ public class FireEnemy : MonoBehaviour
     //stupid method to get whether fireball is big or not
     public void GetFireSize()
     {
-        fire.SendMessage("FireEnemyGetSize", SendMessageOptions.DontRequireReceiver);
-
+        //print("Fire size called");
+        fire.SendMessage("FireEnemyGetSize", this.gameObject);
     }
 
     //part 2 of stupid method
     public void SetFireballSize(bool othersize)
     {
+        //print("Fire size set");
         isFireballBig = othersize;
     }
 
 
 
 
-
-
-    public void HealMe(int toHeal)
-    {
-        health += toHeal;
-        
-        if(health > maxhealth)
-        {
-            print(health - maxhealth);
-            this.gameObject.transform.localScale += new Vector3((float)((health - maxhealth)*.05), (float)((health - maxhealth)*.05), 0f);
-        }
-    }
-
+    ////////////////////////////////////
+    ///Damage Methods
+    ////////////////////////////////////
     public void HurtMe(int ouchie)
     {
         health -= ouchie;
     }
+    
+    public void LightningHurtMe(int ouchie)
+    {
+        health -= ouchie;
+    }
+    
+    public void FireHurtMe(int yummy)
+    {
+        health += yummy;
+        
+        if(health > maxhealth)
+        {
+            this.gameObject.transform.localScale += new Vector3((float)((health - maxhealth)*.05), (float)((health - maxhealth)*.05), 0f);
+        }
+    }
+    
+    public void IceHurtMe(int ouchie)
+    {
+        health -= ouchie;
+    }
+    
+    public void EarthHurtMe(int ouchie)
+    {
+        health -= ouchie;
+    }
+
+    
+
 
 
     public void OnTriggerEnter2D(Collider2D other)
@@ -115,14 +134,14 @@ public class FireEnemy : MonoBehaviour
 
         if (other.gameObject.CompareTag("Fire"))
         {
+            fire = other.gameObject;
+            //print("Fire detected");
             GetFireSize();
-            if (fire)
+            //print("is fire big = " + isFireballBig);
+            if (isFireballBig == false)
             {
-                HealMe(2);
-            }
-            else
-            {
-                HealMe(1);
+                //print("small");
+                FireHurtMe(1);
             }
             Destroy(other.gameObject);
         }
@@ -130,25 +149,25 @@ public class FireEnemy : MonoBehaviour
         if (other.gameObject.CompareTag("BigFire"))
         {
             Destroy(other.gameObject);
-            HealMe(4);
+            //FireHurtMe(4);
         }
 
         if (other.gameObject.CompareTag("Lightning"))
         {
             Destroy(other.gameObject);
-            HurtMe(1);
+            //LightningHurtMe(1);
         }
         
         if (other.gameObject.CompareTag("Lightning"))
         {
             Destroy(other.gameObject);
-            HurtMe(1);
+            //LightningHurtMe(1);
         }
 
         if (other.gameObject.CompareTag("Earth"))
         {
             print("hurt");
-            HurtMe(3);
+            //HurtMe(3);
             this.gameObject.transform.localScale -= new Vector3(.35f, .35f, 0f);
         }
     }

@@ -31,14 +31,11 @@ public class Fireball : MonoBehaviour
 
     public void GetAim(Vector2 other)
     {
-        print("other" + other);
+        //print("other" + other);
         direction = other;
     }
 
-    public void fuckme()
-    {
-        print("fuck");
-    }
+
 
 
 
@@ -65,8 +62,8 @@ public class Fireball : MonoBehaviour
 
         if (bigPush == false && timer >= .4f)
         {
-            print("big");
-            print("direction " + direction);
+            //print("big");
+            //print("direction " + direction);
             isBig = true;
             for(int i = 0; i <= 15; i++)
             {
@@ -82,6 +79,7 @@ public class Fireball : MonoBehaviour
 
     public void FireEnemyGetSize(GameObject other)
     {
+        //print(isBig);
         other.SendMessage("SetFireballSize", isBig);
         //why do I have to do this stupid workaround to get what I want
     }
@@ -96,12 +94,12 @@ public class Fireball : MonoBehaviour
         {
             Destroy(this.gameObject);
         }
-        if (other.gameObject.CompareTag("Enemy"))
+        if (other.gameObject.CompareTag("Enemy") && !other.gameObject.CompareTag("FILLERTEXT"))
         {
             //calls HurtMe function, second argument is the damage value
             if (isBig)
             {
-                other.gameObject.SendMessage("HurtMe", 2);
+                other.gameObject.SendMessage("FireHurtMe", 2);
             }
             
         }

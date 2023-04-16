@@ -227,9 +227,9 @@ public class Shooter : MonoBehaviour
     public void GetAim(GameObject other)
     {
         shooterthingpos = ShooterThing.up;
-        print("get aim");
-        print("shooter" + ShooterThing.up);
-        print("shooter" + shooterthingpos);
+        //print("get aim");
+        //print("shooter" + ShooterThing.up);
+        //print("shooter" + shooterthingpos);
         //needsAimed = GameObject.Find("Fireball");
         //print(needsAimed);
         other.SendMessage("GetAim", shooterthingpos);

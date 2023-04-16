@@ -22,10 +22,10 @@ public class LightningM1 : MonoBehaviour
         {
             Destroy(this.gameObject);
         }
-        if (other.gameObject.CompareTag("Enemy"))
+        if (other.gameObject.CompareTag("Enemy") && !other.gameObject.CompareTag("FILLERTEXT"))
         {
             //calls HurtMe function, second argument is the damage value
-            other.gameObject.SendMessage("HurtMe", 1);
+            other.gameObject.SendMessage("LightningHurtMe", 1);
         }
     }
 }

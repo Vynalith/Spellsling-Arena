@@ -26,12 +26,12 @@ public class EarthM1 : MonoBehaviour
         {
             //Destroy(this.gameObject);
         }
-        if (other.gameObject.CompareTag("Enemy"))
+        if (other.gameObject.CompareTag("Enemy") && !other.gameObject.CompareTag("FILLERTEXT"))
         {
                             //calls HurtMe function, second argument is the damage value
             if(other.gameObject != spook || other.gameObject != spoop)
             {
-                other.gameObject.SendMessage("HurtMe", 3);
+                other.gameObject.SendMessage("EarthHurtMe", 3);
 
             }
         }

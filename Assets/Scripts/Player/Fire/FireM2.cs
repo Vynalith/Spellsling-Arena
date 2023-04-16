@@ -26,7 +26,7 @@ public class FireM2 : MonoBehaviour
         if (other.gameObject.CompareTag("Enemy"))
         {
             //calls HurtMe function, second argument is the damage value
-            other.gameObject.SendMessage("HurtMe", 2);
+            other.gameObject.SendMessage("FireHurtMe", 3);
         }
     }
 }
