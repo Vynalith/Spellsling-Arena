@@ -89,7 +89,9 @@ public class RangedEnemy : MonoBehaviour
     
     }
 
-
+    /////////////////////////////////////////////////////
+    ///Sight test
+    /////////////////////////////////////////////////////
 
     public Collider2D SightTest()
     {
@@ -107,9 +109,12 @@ public class RangedEnemy : MonoBehaviour
     }
 
 
+    ///////////////////////////////////////////////
+    ///Damage check
+    ///////////////////////////////////////////////
+
     public void HurtMe(int damage)
     {
-        print("ranger ow");
         health -= damage;
         if (health <= 0)
         {
@@ -123,16 +128,103 @@ public class RangedEnemy : MonoBehaviour
                     Instantiate (heart, this.transform.position, Quaternion.identity);
                 }
 
-
             Destroy(this.gameObject);
             CurrentRoom.gameObject.SendMessage("RoomClear");
-
-
-
         }
     }
 
 
+    public void LightningHurtMe(int ouchie)
+    {
+        health -= ouchie;
+
+        if (health <= 0)
+        {
+            int heartOrNo = Random.Range(0, 4);
+
+            print(heartOrNo);
+            //Instantiate (heart, this.transform.position, Quaternion.identity);
+
+            if (heartOrNo >= 2)
+            {
+                Instantiate(heart, this.transform.position, Quaternion.identity);
+            }
+
+            Destroy(this.gameObject);
+            CurrentRoom.gameObject.SendMessage("RoomClear");
+        }
+    }
+
+    public void FireHurtMe(int ouchie)
+    {
+        health -= ouchie;
+
+        if (health <= 0)
+        {
+            int heartOrNo = Random.Range(0, 4);
+
+            print(heartOrNo);
+            //Instantiate (heart, this.transform.position, Quaternion.identity);
+
+            if (heartOrNo >= 2)
+            {
+                Instantiate(heart, this.transform.position, Quaternion.identity);
+            }
+
+            Destroy(this.gameObject);
+            CurrentRoom.gameObject.SendMessage("RoomClear");
+        }
+    }
+
+    public void IceHurtMe(int ouchie)
+    {
+        health -= ouchie;
+
+        if (health <= 0)
+        {
+            int heartOrNo = Random.Range(0, 4);
+
+            print(heartOrNo);
+            //Instantiate (heart, this.transform.position, Quaternion.identity);
+
+            if (heartOrNo >= 2)
+            {
+                Instantiate(heart, this.transform.position, Quaternion.identity);
+            }
+
+            Destroy(this.gameObject);
+            CurrentRoom.gameObject.SendMessage("RoomClear");
+        }
+    }
+
+    public void EarthHurtMe(int ouchie)
+    {
+        health -= ouchie;
+
+        if (health <= 0)
+        {
+            int heartOrNo = Random.Range(0, 4);
+
+            print(heartOrNo);
+            //Instantiate (heart, this.transform.position, Quaternion.identity);
+
+            if (heartOrNo >= 2)
+            {
+                Instantiate(heart, this.transform.position, Quaternion.identity);
+            }
+
+            Destroy(this.gameObject);
+            CurrentRoom.gameObject.SendMessage("RoomClear");
+        }
+    }
+
+
+
+
+
+    ///////////////////////////////
+    ///Collider stuff
+    ///////////////////////////////
     public void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.CompareTag("Fire"))

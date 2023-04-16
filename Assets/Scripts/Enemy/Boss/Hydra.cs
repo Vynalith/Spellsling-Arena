@@ -133,8 +133,8 @@ public class Hydra : MonoBehaviour
         {
             Destroy(other.gameObject);
 
-            damage = 1;
-            HurtMe();
+            //damage = 1;
+            //HurtMe();
             //GameObject explo = Instantiate(damage, this.transform.position, Quaternion.identity);
             //Destroy(explo, 1f);
 
@@ -144,35 +144,86 @@ public class Hydra : MonoBehaviour
         {
 
             Destroy(other.gameObject);
-            damage = 3;
-            HurtMe();
+            //damage = 3;
+            //HurtMe();
 
         }
         if (other.gameObject.CompareTag("Lightning"))
         {
             Destroy(other.gameObject);
-            damage = 1;
-            HurtMe();
+            //damage = 1;
+            //HurtMe();
         }
         if (other.gameObject.CompareTag("BigLightning"))
         {
             Destroy(other.gameObject);
-            damage = 3;
-            HurtMe();
+            //damage = 3;
+            //HurtMe();
+        }
+    }
+    
+    ///////////////////////////////////////////////
+    ///Damage check
+    ///////////////////////////////////////////////
+
+    public void HurtMe(int damage)
+    {
+        health -= damage;
+        if (health <= 0)
+        {
+            Instantiate(WIN, this.transform.position, Quaternion.identity);
+            Destroy(this.gameObject);
+            CurrentRoom.gameObject.SendMessage("RoomClear");
         }
     }
 
-    void HurtMe()
+
+    public void LightningHurtMe(int ouchie)
     {
-        health = health - damage;
+        health -= ouchie;
 
         if (health <= 0)
-            {
-                Destroy(this.gameObject);
-                Instantiate(WIN, this.transform.position, Quaternion.identity);
-                CurrentRoom.gameObject.SendMessage("RoomClear");
-            }
-        damage = 1;
+        {
+            Instantiate(WIN, this.transform.position, Quaternion.identity);
+            Destroy(this.gameObject);
+            CurrentRoom.gameObject.SendMessage("RoomClear");
+        }
+    }
+
+    public void FireHurtMe(int ouchie)
+    {
+        health -= ouchie;
+
+        if (health <= 0)
+        {
+            Instantiate(WIN, this.transform.position, Quaternion.identity);
+            Destroy(this.gameObject);
+            CurrentRoom.gameObject.SendMessage("RoomClear");
+        }
+    }
+
+    public void IceHurtMe(int ouchie)
+    {
+        health -= ouchie;
+
+        if (health <= 0)
+        {
+            Instantiate(WIN, this.transform.position, Quaternion.identity);
+            Destroy(this.gameObject);
+            CurrentRoom.gameObject.SendMessage("RoomClear");
+        }
+    }
+
+    public void EarthHurtMe(int ouchie)
+    {
+        health -= ouchie;
+
+        if (health <= 0)
+        {
+            Instantiate(WIN, this.transform.position, Quaternion.identity);
+            Destroy(this.gameObject);
+            CurrentRoom.gameObject.SendMessage("RoomClear");
+        }
     }
 
 }

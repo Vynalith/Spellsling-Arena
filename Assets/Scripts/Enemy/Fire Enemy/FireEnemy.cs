@@ -29,6 +29,12 @@ public class FireEnemy : MonoBehaviour
     public GameObject fire;
     public bool isFireballBig;
 
+    //Room
+    public GameObject CurrentRoom;
+    public GameObject heart;
+
+
+
 
     /////////////////////////////
     //End of Variable Declaration
@@ -68,42 +74,126 @@ public class FireEnemy : MonoBehaviour
     }
 
 
-
+    
+           
 
     ////////////////////////////////////
     ///Damage Methods
     ////////////////////////////////////
-    public void HurtMe(int ouchie)
+    public void HurtMe(int damage)
     {
-        health -= ouchie;
+        health -= damage;
+        if (health <= 0)
+        {
+            int heartOrNo = Random.Range(0, 4);
+
+            print(heartOrNo);
+            //Instantiate (heart, this.transform.position, Quaternion.identity);
+
+            if (heartOrNo >= 2)
+            {
+                Instantiate(heart, this.transform.position, Quaternion.identity);
+            }
+
+            Destroy(this.gameObject);
+            CurrentRoom.gameObject.SendMessage("RoomClear");
+        }
     }
-    
+
+
     public void LightningHurtMe(int ouchie)
     {
         health -= ouchie;
-    }
-    
-    public void FireHurtMe(int yummy)
-    {
-        health += yummy;
-        
-        if(health > maxhealth)
+
+        if (health <= 0)
         {
-            this.gameObject.transform.localScale += new Vector3((float)((health - maxhealth)*.05), (float)((health - maxhealth)*.05), 0f);
+            int heartOrNo = Random.Range(0, 4);
+
+            print(heartOrNo);
+            //Instantiate (heart, this.transform.position, Quaternion.identity);
+
+            if (heartOrNo >= 2)
+            {
+                Instantiate(heart, this.transform.position, Quaternion.identity);
+            }
+
+            Destroy(this.gameObject);
+            CurrentRoom.gameObject.SendMessage("RoomClear");
         }
     }
-    
+
+    public void FireHurtMe(int ouchie)
+    {
+        health += ouchie;
+
+
+        if (health > maxhealth)
+        {
+            this.gameObject.transform.localScale += new Vector3((float)((health - maxhealth) * .05), (float)((health - maxhealth) * .05), 0f);
+        }
+
+
+        if (health <= 0)
+        {
+            int heartOrNo = Random.Range(0, 4);
+
+            print(heartOrNo);
+            //Instantiate (heart, this.transform.position, Quaternion.identity);
+
+            if (heartOrNo >= 2)
+            {
+                Instantiate(heart, this.transform.position, Quaternion.identity);
+            }
+
+            Destroy(this.gameObject);
+            CurrentRoom.gameObject.SendMessage("RoomClear");
+        }
+    }
+
     public void IceHurtMe(int ouchie)
     {
         health -= ouchie;
+
+        if (health <= 0)
+        {
+            int heartOrNo = Random.Range(0, 4);
+
+            print(heartOrNo);
+            //Instantiate (heart, this.transform.position, Quaternion.identity);
+
+            if (heartOrNo >= 2)
+            {
+                Instantiate(heart, this.transform.position, Quaternion.identity);
+            }
+
+            Destroy(this.gameObject);
+            CurrentRoom.gameObject.SendMessage("RoomClear");
+        }
     }
-    
+
     public void EarthHurtMe(int ouchie)
     {
         health -= ouchie;
+
+        if (health <= 0)
+        {
+            int heartOrNo = Random.Range(0, 4);
+
+            print(heartOrNo);
+            //Instantiate (heart, this.transform.position, Quaternion.identity);
+
+            if (heartOrNo >= 2)
+            {
+                Instantiate(heart, this.transform.position, Quaternion.identity);
+            }
+
+            Destroy(this.gameObject);
+            CurrentRoom.gameObject.SendMessage("RoomClear");
+        }
     }
 
-    
+
+
 
 
 

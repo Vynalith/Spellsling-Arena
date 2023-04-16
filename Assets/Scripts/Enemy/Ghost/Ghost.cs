@@ -93,17 +93,108 @@ public class Ghost : MonoBehaviour
     }
 
 
+    ///////////////////////////////////////////////
+    ///Damage check
+    ///////////////////////////////////////////////
+
     public void HurtMe(int damage)
     {
         health -= damage;
         if (health <= 0)
         {
-            int heartOrNo = Random.Range(0,4);
+            int heartOrNo = Random.Range(0, 4);
 
-            if(heartOrNo >= 2)
-                {
-                    Instantiate (heart, this.transform.position, Quaternion.identity);
-                }
+            print(heartOrNo);
+            //Instantiate (heart, this.transform.position, Quaternion.identity);
+
+            if (heartOrNo >= 2)
+            {
+                Instantiate(heart, this.transform.position, Quaternion.identity);
+            }
+
+            Destroy(this.gameObject);
+            CurrentRoom.gameObject.SendMessage("RoomClear");
+        }
+    }
+
+
+    public void LightningHurtMe(int ouchie)
+    {
+        health -= ouchie + 1;
+
+        if (health <= 0)
+        {
+            int heartOrNo = Random.Range(0, 4);
+
+            print(heartOrNo);
+            //Instantiate (heart, this.transform.position, Quaternion.identity);
+
+            if (heartOrNo >= 2)
+            {
+                Instantiate(heart, this.transform.position, Quaternion.identity);
+            }
+
+            Destroy(this.gameObject);
+            CurrentRoom.gameObject.SendMessage("RoomClear");
+        }
+    }
+
+    public void FireHurtMe(int ouchie)
+    {
+        health -= ouchie;
+
+        if (health <= 0)
+        {
+            int heartOrNo = Random.Range(0, 4);
+
+            print(heartOrNo);
+            //Instantiate (heart, this.transform.position, Quaternion.identity);
+
+            if (heartOrNo >= 2)
+            {
+                Instantiate(heart, this.transform.position, Quaternion.identity);
+            }
+
+            Destroy(this.gameObject);
+            CurrentRoom.gameObject.SendMessage("RoomClear");
+        }
+    }
+
+    public void IceHurtMe(int ouchie)
+    {
+        health -= ouchie;
+
+        if (health <= 0)
+        {
+            int heartOrNo = Random.Range(0, 4);
+
+            print(heartOrNo);
+            //Instantiate (heart, this.transform.position, Quaternion.identity);
+
+            if (heartOrNo >= 2)
+            {
+                Instantiate(heart, this.transform.position, Quaternion.identity);
+            }
+
+            Destroy(this.gameObject);
+            CurrentRoom.gameObject.SendMessage("RoomClear");
+        }
+    }
+
+    public void EarthHurtMe(int ouchie)
+    {
+
+        if (health <= 0)
+        {
+            int heartOrNo = Random.Range(0, 4);
+
+            print(heartOrNo);
+            //Instantiate (heart, this.transform.position, Quaternion.identity);
+
+            if (heartOrNo >= 2)
+            {
+                Instantiate(heart, this.transform.position, Quaternion.identity);
+            }
 
             Destroy(this.gameObject);
             CurrentRoom.gameObject.SendMessage("RoomClear");
@@ -124,20 +215,15 @@ public class Ghost : MonoBehaviour
         }
         if(other.gameObject.CompareTag("FILLERTEXT"))
         { 
-            
-
-            health = health -10;
-            
+                        
             if(health <= 0)
-                {  Destroy(this.gameObject);
-                    
+                {  
+                    Destroy(this.gameObject);   
                 }
         }
         if(other.gameObject.CompareTag("Earth"))
         {
-            //offsets the health lost through earth attack and lets it pass through ghost
-            //basically makes ghost immune to earth
-            health += 3;
+
         }
         if(other.gameObject.CompareTag("Lightning"))
         {

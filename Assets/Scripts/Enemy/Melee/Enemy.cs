@@ -7,6 +7,7 @@ public class Enemy : MonoBehaviour
     public int health;
     public GameObject damage;
     public GameObject CurrentRoom;
+    public GameObject heart;
    
     // Start is called before the first frame update
     void Start()
@@ -20,14 +21,112 @@ public class Enemy : MonoBehaviour
         
     }
 
+    ///////////////////////////////////////////////
+    ///Damage check
+    ///////////////////////////////////////////////
+
     public void HurtMe(int damage)
     {
         health -= damage;
         if (health <= 0)
         {
+            int heartOrNo = Random.Range(0, 4);
+
+            print(heartOrNo);
+            //Instantiate (heart, this.transform.position, Quaternion.identity);
+
+            if (heartOrNo >= 2)
+            {
+                Instantiate(heart, this.transform.position, Quaternion.identity);
+            }
+
             Destroy(this.gameObject);
             CurrentRoom.gameObject.SendMessage("RoomClear");
+        }
+    }
 
+
+    public void LightningHurtMe(int ouchie)
+    {
+        health -= ouchie;
+
+        if (health <= 0)
+        {
+            int heartOrNo = Random.Range(0, 4);
+
+            print(heartOrNo);
+            //Instantiate (heart, this.transform.position, Quaternion.identity);
+
+            if (heartOrNo >= 2)
+            {
+                Instantiate(heart, this.transform.position, Quaternion.identity);
+            }
+
+            Destroy(this.gameObject);
+            CurrentRoom.gameObject.SendMessage("RoomClear");
+        }
+    }
+
+    public void FireHurtMe(int ouchie)
+    {
+        health -= ouchie;
+
+        if (health <= 0)
+        {
+            int heartOrNo = Random.Range(0, 4);
+
+            print(heartOrNo);
+            //Instantiate (heart, this.transform.position, Quaternion.identity);
+
+            if (heartOrNo >= 2)
+            {
+                Instantiate(heart, this.transform.position, Quaternion.identity);
+            }
+
+            Destroy(this.gameObject);
+            CurrentRoom.gameObject.SendMessage("RoomClear");
+        }
+    }
+
+    public void IceHurtMe(int ouchie)
+    {
+        health -= ouchie;
+
+        if (health <= 0)
+        {
+            int heartOrNo = Random.Range(0, 4);
+
+            print(heartOrNo);
+            //Instantiate (heart, this.transform.position, Quaternion.identity);
+
+            if (heartOrNo >= 2)
+            {
+                Instantiate(heart, this.transform.position, Quaternion.identity);
+            }
+
+            Destroy(this.gameObject);
+            CurrentRoom.gameObject.SendMessage("RoomClear");
+        }
+    }
+
+    public void EarthHurtMe(int ouchie)
+    {
+        health -= ouchie;
+
+        if (health <= 0)
+        {
+            int heartOrNo = Random.Range(0, 4);
+
+            print(heartOrNo);
+            //Instantiate (heart, this.transform.position, Quaternion.identity);
+
+            if (heartOrNo >= 2)
+            {
+                Instantiate(heart, this.transform.position, Quaternion.identity);
+            }
+
+            Destroy(this.gameObject);
+            CurrentRoom.gameObject.SendMessage("RoomClear");
         }
     }
 
