@@ -2,13 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RangedEnemy : MonoBehaviour
+public class IceEnemy : MonoBehaviour
 {
+
+    /*
+
     public int health;
-    public GameObject damage;
     public GameObject CurrentRoom;
-    public float cooldown;
-    private float cooldownCount;
+    public float wallcooldown;
+    public float windcooldown;
+    private float wallcooldownCount;
+    private float windcooldownCount;
     public GameObject Projectile;
     public float shotForce = 20f;
 
@@ -23,21 +27,18 @@ public class RangedEnemy : MonoBehaviour
 
     public Vector3 shootAngle;
 
-    public Animator animator;
-
-
     public int heartOrNo;
     public GameObject heart;
 
     public float Horizontal;
     public float Vertical;
 
-    private float stupidspeed;
 
     // Start is called before the first frame update
     void Start()
     {
-        cooldownCount = 0;
+        windcooldownCount = 0;
+        wallcooldownCount = 0;
         target = GameObject.Find("Player");
         target2 = GameObject.Find("Shooter");
         layerMask = ~layerMask;
@@ -47,12 +48,16 @@ public class RangedEnemy : MonoBehaviour
     void Update()
     {
         start = this.transform.position;
-        cooldownCount++;
+        windcooldownCount++;
+        wallcooldownCount++;
         direction = (target.transform.position - start).normalized;
         Debug.DrawRay(start, direction * sightDistance);
 
         if (SightTest() == target.GetComponent<Collider2D>() || SightTest() == target2.GetComponent<Collider2D>())
         {
+
+            //john lemon field of view
+
             if (cooldownCount >= cooldown)
             {
                 Shoot();
@@ -71,6 +76,15 @@ public class RangedEnemy : MonoBehaviour
     }
 
 
+
+
+
+
+    /////////////////////////////////////////////////////
+    ///Shooting Method
+    /////////////////////////////////////////////////////
+
+
     public void Shoot()
     {
         //animator.Play("ArcherRightShoot");
@@ -86,8 +100,11 @@ public class RangedEnemy : MonoBehaviour
         {
             rb.AddForce(direction * shotForce * 15);
         }
-    
+
     }
+
+
+
 
     /////////////////////////////////////////////////////
     ///Sight test
@@ -107,7 +124,25 @@ public class RangedEnemy : MonoBehaviour
         }
         return finalDetected;
     }
+    /*
+    public void ProjectileSightTest()
+    {
+        RaycastHit2D sightTest = Physics2D.Raycast(start, direction, sightDistance, layerMask);
+        if (sightTest.collider != null)
+        {
+            if (sightTest.collider.gameObject != gameObject)
+            {
+                projectileDetected = null;
+                //Debug.Log("Rigidbody collider is: " + sightTest.collider);
+            }
+            projectileDetected = sightTest.collider;
+        }
+        //return finalDetected;
+    }
+    */
 
+
+    /*
 
     ///////////////////////////////////////////////
     ///Damage check
@@ -118,15 +153,15 @@ public class RangedEnemy : MonoBehaviour
         health -= damage;
         if (health <= 0)
         {
-            int heartOrNo = Random.Range(0,4);
+            int heartOrNo = Random.Range(0, 4);
 
             print(heartOrNo);
             //Instantiate (heart, this.transform.position, Quaternion.identity);
 
-            if(heartOrNo >= 2)
-                {
-                    Instantiate (heart, this.transform.position, Quaternion.identity);
-                }
+            if (heartOrNo >= 2)
+            {
+                Instantiate(heart, this.transform.position, Quaternion.identity);
+            }
 
             Destroy(this.gameObject);
             CurrentRoom.gameObject.SendMessage("RoomClear");
@@ -218,10 +253,6 @@ public class RangedEnemy : MonoBehaviour
         }
     }
 
-
-
-
-
     ///////////////////////////////
     ///Collider stuff
     ///////////////////////////////
@@ -245,32 +276,8 @@ public class RangedEnemy : MonoBehaviour
         {
 
         }
-        
-    }
-    /*
-    public void RecieveSpeed(float speed)
-    {
-        //why do I have to do this weird roundabout way of getting speed?
-        //this is dumb
-        stupidspeed = speed;
-    }
-    
-    public void OnCollisionEnter(Collision other)
-    {
-        
 
-        if (other.gameObject.CompareTag("IceWall"))
-        {
-            other.gameObject.SendMessage("GetSpeed");
-            if(stupidspeed > 3)
-            {
-                HurtMe(3);
-            }
-            else if(stupidspeed >= 1)
-            {
-                HurtMe(1);
-            }
-        }
     }
+
     */
 }
