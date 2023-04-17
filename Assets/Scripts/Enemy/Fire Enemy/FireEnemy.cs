@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class FireEnemy : MonoBehaviour
 {
+    SpriteRenderer SpriteRenderer;
     //Instantiated stuff
     public GameObject puddle;
     public GameObject steam;
