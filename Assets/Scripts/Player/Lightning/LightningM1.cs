@@ -25,7 +25,7 @@ public class LightningM1 : MonoBehaviour
         if (other.gameObject.CompareTag("Enemy") && !other.gameObject.CompareTag("FILLERTEXT"))
         {
             //calls HurtMe function, second argument is the damage value
-            other.gameObject.SendMessage("LightningHurtMe", 1);
+            other.gameObject.SendMessage("LightningHurtMe", 1, SendMessageOptions.RequireReceiver);
         }
     }
 }

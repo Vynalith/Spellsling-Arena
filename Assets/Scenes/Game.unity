@@ -7173,6 +7173,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5499729737152142294, guid: 595c7dd2a6714094eb391851989ced1d, type: 3}
+      propertyPath: m_Size.x
+      value: 0.5982269
+      objectReference: {fileID: 0}
+    - target: {fileID: 5499729737152142294, guid: 595c7dd2a6714094eb391851989ced1d, type: 3}
+      propertyPath: m_Size.y
+      value: 0.5982268
+      objectReference: {fileID: 0}
+    - target: {fileID: 5499729737152142294, guid: 595c7dd2a6714094eb391851989ced1d, type: 3}
+      propertyPath: m_Offset.x
+      value: -0.012960613
+      objectReference: {fileID: 0}
+    - target: {fileID: 5499729737152142294, guid: 595c7dd2a6714094eb391851989ced1d, type: 3}
+      propertyPath: m_Offset.y
+      value: 0.019440636
+      objectReference: {fileID: 0}
     - target: {fileID: 5499729737152142297, guid: 595c7dd2a6714094eb391851989ced1d, type: 3}
       propertyPath: m_TagString
       value: FILLERTEXT
@@ -7221,6 +7237,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5499729738158277234, guid: 595c7dd2a6714094eb391851989ced1d, type: 3}
+      propertyPath: m_Constraints
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 5499729738158277237, guid: 595c7dd2a6714094eb391851989ced1d, type: 3}
       propertyPath: m_Name
       value: FireEnemy
@@ -7256,7 +7276,7 @@ PrefabInstance:
       objectReference: {fileID: 1073359904}
     - target: {fileID: 8001152008552254304, guid: 35f461400a6084e4e99a7708be87385b, type: 3}
       propertyPath: health
-      value: 500
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 8001152008552254304, guid: 35f461400a6084e4e99a7708be87385b, type: 3}
       propertyPath: Shooter

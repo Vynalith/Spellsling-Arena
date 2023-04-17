@@ -2806,6 +2806,7 @@ MonoBehaviour:
   enemies: 0
   Entrance: {fileID: 5899307707642376505}
   Exit: {fileID: 3687640434009632700}
+  Enemies: []
   enter: 0
 --- !u!1 &2938835156552280946
 GameObject:
@@ -2955,6 +2956,22 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Wall
       objectReference: {fileID: 0}
+    - target: {fileID: 9143264374473475254, guid: d1553d8c37a3ff146bab505e54041860, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 27.776255
+      objectReference: {fileID: 0}
+    - target: {fileID: 9143264374473475254, guid: d1553d8c37a3ff146bab505e54041860, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 23.894999
+      objectReference: {fileID: 0}
+    - target: {fileID: 9143264374473475254, guid: d1553d8c37a3ff146bab505e54041860, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.7575
+      objectReference: {fileID: 0}
+    - target: {fileID: 9143264374473475254, guid: d1553d8c37a3ff146bab505e54041860, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 7.9977
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d1553d8c37a3ff146bab505e54041860, type: 3}
 --- !u!4 &5899307707642376504 stripped
@@ -3037,6 +3054,22 @@ PrefabInstance:
     - target: {fileID: 6284083940895516633, guid: d1553d8c37a3ff146bab505e54041860, type: 3}
       propertyPath: m_TagString
       value: Wall
+      objectReference: {fileID: 0}
+    - target: {fileID: 9143264374473475254, guid: d1553d8c37a3ff146bab505e54041860, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 28.462639
+      objectReference: {fileID: 0}
+    - target: {fileID: 9143264374473475254, guid: d1553d8c37a3ff146bab505e54041860, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 22.751999
+      objectReference: {fileID: 0}
+    - target: {fileID: 9143264374473475254, guid: d1553d8c37a3ff146bab505e54041860, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.6225
+      objectReference: {fileID: 0}
+    - target: {fileID: 9143264374473475254, guid: d1553d8c37a3ff146bab505e54041860, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 7.426
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d1553d8c37a3ff146bab505e54041860, type: 3}
