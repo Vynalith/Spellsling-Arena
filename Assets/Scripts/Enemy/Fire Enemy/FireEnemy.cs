@@ -129,7 +129,11 @@ public class FireEnemy : MonoBehaviour
 
         if (health > maxhealth)
         {
-            this.gameObject.transform.localScale += new Vector3((float)((health - maxhealth) * .05), (float)((health - maxhealth) * .05), 0f);
+            if (this.gameObject.transform.localScale.x <= (2f))
+            {
+                this.gameObject.transform.localScale += new Vector3((float)((health - maxhealth) * .05), (float)((health - maxhealth) * .05), 0f);
+
+            }
         }
 
 
