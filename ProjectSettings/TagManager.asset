@@ -17,6 +17,9 @@ TagManager:
   - EarthWall
   - BigLightning
   - BigFire
+  - SceneLoader
+  - HealthPowerUp
+  - WorldController
   layers:
   - Default
   - TransparentFX
