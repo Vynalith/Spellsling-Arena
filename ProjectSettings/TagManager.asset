@@ -20,6 +20,12 @@ TagManager:
   - SceneLoader
   - HealthPowerUp
   - WorldController
+  - BossLvl
+  - HydraBoss
+  - HydraTrigger
+  - YouWin
+  - EventSystem
+  - GameManager
   layers:
   - Default
   - TransparentFX
