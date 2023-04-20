@@ -4,6 +4,16 @@ using UnityEngine;
 
 public class FireEnemy : MonoBehaviour
 {
+    public Vector3 userDirection = Vector3.one;
+    public float movespeed = 1;
+    public float MoveTimer;
+    public bool flaring = false;
+    public Animator animator;
+    public float flaretime;
+    public int RandomX;
+    public int RandomY;
+
+
     SpriteRenderer SpriteRenderer;
     //Instantiated stuff
     public GameObject puddle;
@@ -53,9 +63,54 @@ public class FireEnemy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        transform.Translate(userDirection * movespeed * Time.deltaTime);
+
         if(health <= 0)
         {
             Destroy(this.gameObject);
+        }
+        MoveTimer += Time.deltaTime;
+
+        if(MoveTimer >= 3)
+        {
+            MoveTimer = 0;
+            movespeed = 0;
+            
+            userDirection.x = 0;
+            userDirection.y = 0;
+            
+            
+            flaring = true;
+            animator.Play("Flare up");
+        }
+
+        if(flaring == true)
+        {
+            flaretime += Time.deltaTime;
+            if(flaretime >=1)
+            {
+                flaretime = 0;
+                //int RandomX = Random.Range(-1,1);
+                //int RandomY = Random.Range(-1,1);
+                randomize();
+                userDirection.x= RandomX;
+                userDirection.y= RandomY;
+                movespeed = 1;
+                flaring = false;
+            }
+        }
+
+
+        
+        
+    }
+    public void randomize()
+    {
+         RandomX = Random.Range(-1,3);
+         RandomY = Random.Range(-1,3);
+        if(RandomX ==0 && RandomY == 0)
+        {
+            randomize();
         }
     }
 
