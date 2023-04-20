@@ -322,7 +322,24 @@ public class Player : MonoBehaviour
     {
         Playing = false;
         Shooter.gameObject.SendMessage("Win");
-        animator.Play("WIN!");
+
+        if(element == 1)
+        {
+            animator.Play("WIN! Lightning"); 
+        }
+        if(element == 2)
+        {
+            animator.Play("FireWIN"); 
+        }
+        if(element == 4)
+        {
+            animator.Play("EarthWIN"); 
+        }
+        if(element == 3)
+        {
+            animator.Play("IceWIN"); 
+        }
+       
    }
 
    public void LoadScene(string sceneName)
