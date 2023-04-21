@@ -64,6 +64,8 @@ public class FireEnemy : MonoBehaviour
     void Update()
     {
         transform.Translate(userDirection * movespeed * Time.deltaTime);
+        
+       
 
         if(health <= 0)
         {
@@ -106,8 +108,11 @@ public class FireEnemy : MonoBehaviour
     }
     public void randomize()
     {
-         RandomX = Random.Range(-1,3);
-         RandomY = Random.Range(-1,3);
+         RandomX = Random.Range(-1,1);
+         RandomY = Random.Range(-1,1);
+        animator.SetInteger("movementX", RandomX);
+        animator.SetInteger("movementY", RandomY);
+         
         if(RandomX ==0 && RandomY == 0)
         {
             randomize();
