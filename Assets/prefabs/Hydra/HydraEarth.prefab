@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 7772050405341579576}
   m_Layer: 0
   m_Name: HydraEarth
-  m_TagString: Enemy
+  m_TagString: EnemyEarth
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

@@ -26,7 +26,7 @@ public class EarthWall : MonoBehaviour
         {
             Destroy(other.gameObject);
         }
-            if (other.gameObject.CompareTag("Earth"))
+            if (other.gameObject.CompareTag("Earth") || other.gameObject.CompareTag("EnemyEarth"))
                 {
                     GameObject explo = Instantiate(shatter, this.transform.position, Quaternion.identity);
                     Destroy(explo, 1f);

@@ -26,6 +26,10 @@ TagManager:
   - YouWin
   - EventSystem
   - GameManager
+  - EnemyFire
+  - EnemyIce
+  - EnemyEarth
+  - EnemyLightning
   layers:
   - Default
   - TransparentFX
@@ -38,9 +42,9 @@ TagManager:
   - Post Processing
   - Player
   - IgnorePlayer
-  - 
-  - 
-  - 
+  - Ice
+  - Fire
+  - Earth
   - 
   - 
   - 

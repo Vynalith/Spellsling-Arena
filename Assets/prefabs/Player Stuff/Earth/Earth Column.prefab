@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 4994749233274700449}
   - component: {fileID: 6650632798405609187}
   - component: {fileID: 2096459743786500905}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Earth Column
   m_TagString: EarthWall
   m_Icon: {fileID: 0}

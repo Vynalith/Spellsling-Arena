@@ -93,7 +93,7 @@ public class GameUI : MonoBehaviour
         }
         if(health == 1)
         {
-            //print("Health 1, = " + health);
+           // print("Health 1, = " + health);
 
             health1of5.gameObject.SetActive(false);
             health2of5.gameObject.SetActive(false);
@@ -101,7 +101,7 @@ public class GameUI : MonoBehaviour
             health4of5.gameObject.SetActive(false);
             health5of5.gameObject.SetActive(true);
         }
-        if(health == 0)
+        if(health <= 0)
         {
             //print("Health 0, = " + health);
 

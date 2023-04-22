@@ -19,4 +19,16 @@ public class HydraFire : MonoBehaviour
     {
         
     }
+
+
+    public void OnTriggerEnter2D (Collider2D other)
+    {
+        if (other.gameObject.CompareTag("Player"))
+        {
+            other.gameObject.SendMessage("HurtMe", 2);
+        }
+    }
+
+
+
 }

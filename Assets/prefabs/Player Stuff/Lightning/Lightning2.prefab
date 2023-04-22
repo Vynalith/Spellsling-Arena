@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 2791323167548562758}
   - component: {fileID: -2472650969998341074}
   - component: {fileID: 3310241709028207467}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Lightning2
   m_TagString: Lightning
   m_Icon: {fileID: 0}
@@ -276,7 +276,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2088713740955180426}
   - component: {fileID: 7936557168826153075}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}

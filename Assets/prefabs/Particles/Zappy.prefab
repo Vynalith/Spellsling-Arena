@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 1394669835363253094}
   - component: {fileID: 7332141510406277368}
   - component: {fileID: 2181477374014058657}
+  - component: {fileID: -4150194081251535042}
   m_Layer: 0
   m_Name: Zappy
   m_TagString: Untagged
@@ -4909,3 +4910,15 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &-4150194081251535042
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1084556181532477028}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6fd1c23d6a6f7814693dcdca5182f88b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

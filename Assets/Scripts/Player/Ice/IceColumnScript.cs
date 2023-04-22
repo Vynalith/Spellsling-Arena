@@ -44,18 +44,19 @@ public class IceColumnScript : MonoBehaviour
 
     public void OnTriggerEnter2D( Collider2D other)
     {
-        if(other.gameObject.CompareTag("Fire"))
+        if(other.gameObject.CompareTag("Fire") || other.gameObject.CompareTag("EnemyFire"))
         {
             Instantiate(puddle, this.transform.position, this.transform.rotation);
             GameObject steam = Instantiate(melt, this.transform.position, melt.transform.rotation);
             Destroy(steam, 3f);
+            this.gameObject.SendMessageUpwards("ColumnDestroyed", SendMessageOptions.DontRequireReceiver);
             Destroy(this.gameObject);
         }
-        if (other.gameObject.CompareTag("Earth"))
+        if (other.gameObject.CompareTag("Earth") || other.gameObject.CompareTag("EnemyEarth"))
         {
             Instantiate(shatter, this.transform.position, this.transform.rotation);
+            this.gameObject.SendMessageUpwards("ColumnDestroyed", SendMessageOptions.DontRequireReceiver);
             Destroy(this.gameObject);
-            Destroy(other.gameObject);
 
         }
 

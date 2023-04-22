@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 2260554970745162556}
   - component: {fileID: 2260554970745162557}
   - component: {fileID: 8674893242533322511}
+  - component: {fileID: 8477344951847273331}
   m_Layer: 0
   m_Name: RockShatter
   m_TagString: Untagged
@@ -4909,3 +4910,15 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &8477344951847273331
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2260554970745162690}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6fd1c23d6a6f7814693dcdca5182f88b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

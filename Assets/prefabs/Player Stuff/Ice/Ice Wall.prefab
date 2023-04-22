@@ -11,7 +11,8 @@ GameObject:
   - component: {fileID: 4580382227900111859}
   - component: {fileID: -8640859786646873460}
   - component: {fileID: 7798685085038472007}
-  m_Layer: 0
+  - component: {fileID: -2613071158386985757}
+  m_Layer: 11
   m_Name: Ice Wall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -83,6 +84,19 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.55, y: 0.76}
   m_EdgeRadius: 0
+--- !u!114 &-2613071158386985757
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5061983369167087630}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1df610c5f0724e64f8e755250bda4ff7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  columns: 0
 --- !u!1001 &3747082632102973950
 PrefabInstance:
   m_ObjectHideFlags: 0

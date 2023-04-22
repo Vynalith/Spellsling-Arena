@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 2239148033757502920}
   - component: {fileID: -5966787381647316405}
   - component: {fileID: 3446577479384220490}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Ice Column
   m_TagString: IceWall
   m_Icon: {fileID: 0}
@@ -309,7 +309,7 @@ GameObject:
   - component: {fileID: 4901955182321275208}
   - component: {fileID: 6550188318248797399}
   - component: {fileID: 5964611886250458491}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Projectile
   m_TagString: IceWall
   m_Icon: {fileID: 0}

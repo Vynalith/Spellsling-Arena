@@ -262,7 +262,7 @@ public class Player : MonoBehaviour
             isDead = true;
             Shooter.gameObject.SendMessage("Death");
             animator.Play("DEATH");
-            UI.SendMessage("Hurt", 1);
+            UI.SendMessage("Hurt", damage);
     
         }
         else if (health >= 1)
@@ -270,22 +270,22 @@ public class Player : MonoBehaviour
             if (element == 1)
             {
                 animator.Play("LightningDamage");
-                 UI.SendMessage("Hurt",1);
+                 UI.SendMessage("Hurt",damage);
             }
             if (element == 2)
             {
                 animator.Play("FireDamage");
-                 UI.SendMessage("Hurt",1);
+                 UI.SendMessage("Hurt",damage);
             }
             if (element == 3)
             {
                 animator.Play("IceDamage");
-                 UI.SendMessage("Hurt",1);
+                 UI.SendMessage("Hurt",damage);
             }
             if (element == 4)
             {
                 animator.Play("EarthDamage");
-                 UI.SendMessage("Hurt",1);
+                 UI.SendMessage("Hurt",damage);
             }
         }
     }

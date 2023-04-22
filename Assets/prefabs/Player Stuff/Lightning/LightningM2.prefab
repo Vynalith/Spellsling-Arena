@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 4258126507181450021}
   m_Layer: 0
   m_Name: DamagePart
-  m_TagString: Untagged
+  m_TagString: BigLightning
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

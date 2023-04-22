@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 7798685085038472007}
   - component: {fileID: 6599454935899216129}
   - component: {fileID: -2284235062833739515}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Earth Wall
   m_TagString: EarthWall
   m_Icon: {fileID: 0}
@@ -206,6 +206,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Earth Column (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 7514194266979678846, guid: 9baad35282e9fed44aafe1fe814fc1fd, type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
     - target: {fileID: 8568435398001374308, guid: 9baad35282e9fed44aafe1fe814fc1fd, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -268,6 +272,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Earth Column (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 7514194266979678846, guid: 9baad35282e9fed44aafe1fe814fc1fd, type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
     - target: {fileID: 8568435398001374308, guid: 9baad35282e9fed44aafe1fe814fc1fd, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -329,6 +337,10 @@ PrefabInstance:
     - target: {fileID: 7514194266979678846, guid: 9baad35282e9fed44aafe1fe814fc1fd, type: 3}
       propertyPath: m_Name
       value: Earth Column
+      objectReference: {fileID: 0}
+    - target: {fileID: 7514194266979678846, guid: 9baad35282e9fed44aafe1fe814fc1fd, type: 3}
+      propertyPath: m_Layer
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 8568435398001374308, guid: 9baad35282e9fed44aafe1fe814fc1fd, type: 3}
       propertyPath: m_RootOrder

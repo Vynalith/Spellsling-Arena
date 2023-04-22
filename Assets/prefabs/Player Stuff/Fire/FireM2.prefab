@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3877761570725698424}
   - component: {fileID: 3035082566630791593}
   - component: {fileID: 2915446700736075302}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: FireM2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -101,7 +101,7 @@ GameObject:
   - component: {fileID: 1026682988516765026}
   - component: {fileID: 5339268237138661438}
   - component: {fileID: 5045738991022538262}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Circle
   m_TagString: BigFire
   m_Icon: {fileID: 0}
@@ -212,7 +212,7 @@ GameObject:
   - component: {fileID: 4059925422200598238}
   - component: {fileID: 4131520545675858527}
   - component: {fileID: 2689095645381911330}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Circle (1)
   m_TagString: BigFire
   m_Icon: {fileID: 0}

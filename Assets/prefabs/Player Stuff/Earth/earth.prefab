@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 1119964054294063096}
   - component: {fileID: -1590017724418079536}
   - component: {fileID: 6879256908113044313}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: earth
   m_TagString: Earth
   m_Icon: {fileID: 0}
@@ -202,7 +202,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2088713740955180426}
   - component: {fileID: 7936557168826153075}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}

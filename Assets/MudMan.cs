@@ -19,7 +19,7 @@ public class MudMan : MonoBehaviour
     public float sightDistance = 10;
     private Collider2D finalDetected;
     private RaycastHit hit;
-    private int layerMask = 1 << 3;
+    private int layerMask = 1 << 3 | 1 << 7 | 1 << 11 | 1 << 12 | 1 << 13;
 
     public Vector3 shootAngle;
 
@@ -33,6 +33,8 @@ public class MudMan : MonoBehaviour
     public float Vertical;
 
     private float stupidspeed;
+
+    public GameObject collider;
 
     // Start is called before the first frame update
     void Start()
@@ -53,7 +55,7 @@ public class MudMan : MonoBehaviour
 
         if (SightTest() == target.GetComponent<Collider2D>() || SightTest() == target2.GetComponent<Collider2D>())
         {
-            
+            collider.SetActive(true);
             animator.Play("MudRise");
             animator.SetBool("Awake", true);
             
@@ -66,6 +68,7 @@ public class MudMan : MonoBehaviour
             }
         }
         else{
+             collider.SetActive(false);
              animator.SetBool("Awake", false);
         }
         finalDetected = null;
@@ -89,7 +92,7 @@ public class MudMan : MonoBehaviour
         Rigidbody2D rb = arrow.GetComponent<Rigidbody2D>();
         if (direction.x < 0)
         {
-            rb.AddForce(direction * shotForce * 25);
+            rb.AddForce(direction * shotForce * 15);
         }
         else
         {
@@ -143,9 +146,9 @@ public class MudMan : MonoBehaviour
     }
 
 
-    /*public void LightningHurtMe(int ouchie)
+    public void LightningHurtMe(int ouchie)
     {
-        health -= ouchie;
+        health -= ouchie - 1;
 
         if (health <= 0)
         {
@@ -162,7 +165,7 @@ public class MudMan : MonoBehaviour
             Destroy(this.gameObject);
             CurrentRoom.gameObject.SendMessage("RoomClear");
         }
-    }*/
+    }
 
     public void FireHurtMe(int ouchie)
     {
@@ -227,33 +230,4 @@ public class MudMan : MonoBehaviour
         }
     }
 
-
-
-
-
-    ///////////////////////////////
-    ///Collider stuff
-    ///////////////////////////////
-    public void OnTriggerEnter2D(Collider2D other)
-    {
-        if (other.gameObject.CompareTag("Fire"))
-        {
-            Destroy(other.gameObject);
-            //GameObject explo = Instantiate(damage, this.transform.position, Quaternion.identity);
-            //Destroy(explo, 1f);
-        }
-        if (other.gameObject.CompareTag("Earth"))
-        {
-            Destroy(other.gameObject);
-        }
-        if (other.gameObject.CompareTag("Lightning"))
-        {
-            Destroy(other.gameObject);
-        }
-        if (other.gameObject.CompareTag("Ice"))
-        {
-
-        }
-        
-    }
 }

@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 7486510855677991704}
   - component: {fileID: 4344885686525768821}
   - component: {fileID: 4940571725170743045}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Ice
   m_TagString: Ice
   m_Icon: {fileID: 0}
@@ -179,7 +179,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2088713740955180426}
   - component: {fileID: 7936557168826153075}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}

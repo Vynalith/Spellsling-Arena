@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 631882868981922056}
   m_Layer: 0
   m_Name: HydraIce
-  m_TagString: Enemy
+  m_TagString: EnemyIce
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
