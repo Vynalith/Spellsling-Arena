@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: -1205659067550026754}
   m_Layer: 0
   m_Name: MudShot
-  m_TagString: Earth
+  m_TagString: EnemyEarth
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
