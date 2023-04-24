@@ -26,7 +26,8 @@ public class Hydra : MonoBehaviour
 
     public Animator animator;
 
-    public Transform anchor;
+    //public Transform anchor;
+    public GameObject anchor;
 
     public GameObject WIN;
 
@@ -40,7 +41,7 @@ public class Hydra : MonoBehaviour
         target = GameObject.Find("Player");
         target2 = GameObject.Find("Shooter");
         layerMask = ~layerMask;
-
+        anchor = GameObject.Find("EnemyAnchor");
         damage = 1;
     }
 
@@ -93,6 +94,7 @@ public class Hydra : MonoBehaviour
         GameObject arrow = Instantiate(Projectile[RandomNum], start, this.transform.rotation);
 
         arrow.transform.rotation = anchor.transform.rotation;
+        print("Hydra firing at " + direction);
 
         Rigidbody2D rb = arrow.GetComponent<Rigidbody2D>();
         if (direction.x < 0)
@@ -129,7 +131,7 @@ public class Hydra : MonoBehaviour
 
     public void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject.CompareTag("Fire"))
+        if (other.gameObject.CompareTag("Fire") || other.gameObject.CompareTag("BigFire"))
         {
             Destroy(other.gameObject);
 
@@ -156,7 +158,7 @@ public class Hydra : MonoBehaviour
         }
         if (other.gameObject.CompareTag("BigLightning"))
         {
-            Destroy(other.gameObject);
+            //Destroy(other.gameObject);
             //damage = 3;
             //HurtMe();
         }

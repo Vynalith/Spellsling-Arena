@@ -31,12 +31,14 @@ public class Puddle : MonoBehaviour
     {
         if (isElectrified &! zappersSpawned)
         {
+            print("is electrified and zappers is not spawned");
             zappersSpawned = true;
             zappers = Instantiate(particle, this.transform.position, this.transform.rotation);
         }
 
         if (isElectrified == false && zappersSpawned)
         {
+            print("is not electrified and zappers spawned");
             zappersSpawned = false;
             Destroy(zappers);
         }
@@ -82,7 +84,7 @@ public class Puddle : MonoBehaviour
 
     public void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject.CompareTag("Lightning"))
+        if (other.gameObject.CompareTag("Lightning") || other.gameObject.CompareTag("BigLightning") || other.gameObject.CompareTag("EnemyLightning"))
         {
             
             if(isElectrified == false)
