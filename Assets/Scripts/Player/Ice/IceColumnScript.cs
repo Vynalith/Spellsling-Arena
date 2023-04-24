@@ -44,7 +44,7 @@ public class IceColumnScript : MonoBehaviour
 
     public void OnTriggerEnter2D( Collider2D other)
     {
-        if(other.gameObject.CompareTag("Fire") || other.gameObject.CompareTag("EnemyFire"))
+        if(other.gameObject.CompareTag("Fire") || other.gameObject.CompareTag("EnemyFire") || other.gameObject.CompareTag("BigFire"))
         {
             Instantiate(puddle, this.transform.position, this.transform.rotation);
             GameObject steam = Instantiate(melt, this.transform.position, melt.transform.rotation);

@@ -116,7 +116,7 @@ public class Puddle : MonoBehaviour
             {
                 enemypuddlecount = 1;
                 zappyboi = other.gameObject;
-                other.gameObject.SendMessage("HurtMe", 1);
+                other.gameObject.SendMessage("LightningHurtMe", 1);
             }
         }
         if (other.gameObject.CompareTag("Player"))
