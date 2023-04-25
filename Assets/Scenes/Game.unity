@@ -4988,6 +4988,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3747540154373617351, guid: 0599e0d751c4a884b86948b6c44819dd, type: 3}
+      propertyPath: Entrance
+      value: 
+      objectReference: {fileID: 1267274166}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0599e0d751c4a884b86948b6c44819dd, type: 3}
 --- !u!1001 &1195622197
@@ -5286,6 +5290,11 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &1267274166 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4345210811579095363, guid: 0599e0d751c4a884b86948b6c44819dd, type: 3}
+  m_PrefabInstance: {fileID: 1191152848}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1312256931
 GameObject:
   m_ObjectHideFlags: 0
@@ -6392,6 +6401,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 727327039819847106, guid: 87c11573fb790284085136a72b94cd67, type: 3}
+      propertyPath: animator
+      value: 
+      objectReference: {fileID: 1883316194}
+    - target: {fileID: 727327039819847106, guid: 87c11573fb790284085136a72b94cd67, type: 3}
+      propertyPath: Projectile
+      value: 
+      objectReference: {fileID: 2973646001600191778, guid: 79ba8a27158e6c046a8382a4ac698c3f, type: 3}
     - target: {fileID: 4953360847668526624, guid: 87c11573fb790284085136a72b94cd67, type: 3}
       propertyPath: m_Name
       value: Statue
@@ -6904,6 +6921,31 @@ MonoBehaviour:
   Exit: {fileID: 822967202}
   Enemies: []
   enter: 0
+--- !u!1 &1883316188 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4953360847668526624, guid: 87c11573fb790284085136a72b94cd67, type: 3}
+  m_PrefabInstance: {fileID: 1690272064}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &1883316194
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1883316188}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: e130d40fe2473184d907f82bff4e6ce9, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1001 &1910144143
 PrefabInstance:
   m_ObjectHideFlags: 0

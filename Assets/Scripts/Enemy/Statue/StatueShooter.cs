@@ -10,6 +10,7 @@ public class StatueShooter : MonoBehaviour
     public float shotForce = 20f;
     public bool playerInRange;
     public GameObject aimer;
+    public Animator animator;
 
     //2 is down, 4 is left, 6 is right, 8 is up
     public int direction;
@@ -25,12 +26,17 @@ public class StatueShooter : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (cooldownCount >= cooldown)
+        if(playerInRange=true)
         {
+           if (cooldownCount >= cooldown)
+                {
+                    //animator.Play("StatueDownSHOOT");
 
-            Shoot();
-            cooldownCount = 0;
+                    Shoot();
+                    cooldownCount = 0;
+                } 
         }
+        
     }
 
 
@@ -53,6 +59,8 @@ public class StatueShooter : MonoBehaviour
 
     public void Shoot()
     {
+        animator.Play("StatueDownSHOOT");
+
         GameObject arrow = Instantiate(Projectile, this.transform.position, this.transform.rotation);
         Rigidbody2D rb = arrow.GetComponent<Rigidbody2D>();
         rb.AddForce(aimer.transform.position * shotForce * 25f);

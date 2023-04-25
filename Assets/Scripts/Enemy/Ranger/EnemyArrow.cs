@@ -11,7 +11,7 @@ public class EnemyArrow : MonoBehaviour
         Rigidbody2D r2d = this.GetComponent<Rigidbody2D>();
         r2d.AddForce(new Vector2(shootSpeed,0f));
         GetComponent<AudioSource>().Play();
-        Destroy(this.gameObject, 2f);
+        Destroy(this.gameObject, 4f);
     }
     public void OnTriggerEnter2D(Collider2D other)
     {
