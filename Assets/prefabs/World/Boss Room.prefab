@@ -7924,7 +7924,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1874100303743661271}
-  - component: {fileID: 4278847027462963256}
+  - component: {fileID: 2917532862661531965}
   m_Layer: 0
   m_Name: Boss Room
   m_TagString: Untagged
@@ -7951,7 +7951,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &4278847027462963256
+--- !u!114 &2917532862661531965
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -7960,12 +7960,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 1974370995060080427}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b4dc9a625e904504ebdf69af2bfaed5d, type: 3}
+  m_Script: {fileID: 11500000, guid: 4904609b173596e4c8653814258a708a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemies: 2
+  enemies: 1
   Entrance: {fileID: 5899307707642376505}
   Exit: {fileID: 5899307707642376505}
+  Enemies:
+  - {fileID: 6592469179739823481}
   enter: 0
 --- !u!1 &2938835156552280946
 GameObject:
@@ -8183,5 +8185,10 @@ PrefabInstance:
 --- !u!4 &2356861807812980151 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8637599261601420655, guid: 62e4af580c8083d4cbc3795f8910f72b, type: 3}
+  m_PrefabInstance: {fileID: 6299317138847791320}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &6592469179739823481 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 871037897855673761, guid: 62e4af580c8083d4cbc3795f8910f72b, type: 3}
   m_PrefabInstance: {fileID: 6299317138847791320}
   m_PrefabAsset: {fileID: 0}
