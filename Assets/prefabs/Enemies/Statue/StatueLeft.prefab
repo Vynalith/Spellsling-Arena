@@ -41,10 +41,10 @@ GameObject:
   m_Component:
   - component: {fileID: 4953360847668526627}
   - component: {fileID: 6455527692166410171}
-  - component: {fileID: 727327039819847106}
   - component: {fileID: 7933244116091125278}
   - component: {fileID: 5528584689672397729}
   - component: {fileID: 2665666513518645193}
+  - component: {fileID: 5064776977212984367}
   m_Layer: 0
   m_Name: StatueLeft
   m_TagString: Untagged
@@ -120,24 +120,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &727327039819847106
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4953360847668526624}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6b9896e076e23d441b88445d71bd1792, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  cooldown: 5
-  Projectile: {fileID: 2973646001600191778, guid: 79ba8a27158e6c046a8382a4ac698c3f, type: 3}
-  shotForce: 20
-  playerInRange: 0
-  aimer: {fileID: 3896307558406374088}
-  animator: {fileID: 2665666513518645193}
 --- !u!61 &7933244116091125278
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -210,3 +192,22 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &5064776977212984367
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4953360847668526624}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e7b6a253a8faad4eb2b03e4289035ec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cooldown: 3
+  cooldownCount: 0
+  Projectile: {fileID: 2973646001600191778, guid: 79ba8a27158e6c046a8382a4ac698c3f, type: 3}
+  shotForce: 20
+  playerInRange: 0
+  aimer: {fileID: 3896307558406374088}
+  animator: {fileID: 2665666513518645193}

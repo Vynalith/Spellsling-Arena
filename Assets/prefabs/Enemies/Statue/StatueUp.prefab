@@ -24,7 +24,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3896307558406374088}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -2.322, z: 0}
+  m_LocalPosition: {x: 0, y: 2.322, z: 0}
   m_LocalScale: {x: 0.4, y: 0.4, z: 0.4}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -46,7 +46,7 @@ GameObject:
   - component: {fileID: 5528584689672397729}
   - component: {fileID: 2665666513518645193}
   m_Layer: 0
-  m_Name: StatueDown 1
+  m_Name: StatueUp
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -133,12 +133,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cooldown: 5
+  cooldownCount: 0
   Projectile: {fileID: 2973646001600191778, guid: 79ba8a27158e6c046a8382a4ac698c3f, type: 3}
   shotForce: 20
   playerInRange: 0
   aimer: {fileID: 3896307558406374088}
   animator: {fileID: 2665666513518645193}
-  direction: 0
 --- !u!61 &7933244116091125278
 BoxCollider2D:
   m_ObjectHideFlags: 0
