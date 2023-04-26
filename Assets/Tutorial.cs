@@ -16,6 +16,7 @@ public class Tutorial : MonoBehaviour
     public GameObject tutscreen1;
     public GameObject tutscreen2;
     public GameObject tutscreen3;
+    public GameObject tutscreen4;
 
     // Start is called before the first frame update
     void Start()
@@ -35,7 +36,7 @@ public class Tutorial : MonoBehaviour
             move=false;
             //print("yay");
             userDirection.x=0;
-            animator.Play("DuckTalk");
+            //animator.Play("DuckTalk");
             
         }
         if(move=true)
@@ -45,6 +46,7 @@ public class Tutorial : MonoBehaviour
         if(time >= 4f && time < 5f)
         {
             tutscreen1.SetActive(true);
+            animator.Play("DuckTalk");
         }
 
         if(allowinput=true)
@@ -53,6 +55,11 @@ public class Tutorial : MonoBehaviour
             {
                 tutorialNum+=1;
             }
+
+             if( Input.GetButtonDown("M2"))
+             {
+                tutorialNum = 20;
+             }
 
         }
 
@@ -72,7 +79,16 @@ public class Tutorial : MonoBehaviour
             tutscreen3.SetActive(true);
         }
 
+          if(tutorialNum == 3)
+        {
+            tutscreen3.SetActive(false);
+            tutscreen4.SetActive(true);
+        }
 
+        if(tutorialNum ==20)
+        {
+            animator.Play("DuckOw");
+        }
 
     }
 }
