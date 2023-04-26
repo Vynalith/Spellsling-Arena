@@ -6521,12 +6521,20 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1883316194}
     - target: {fileID: 727327039819847106, guid: 87c11573fb790284085136a72b94cd67, type: 3}
+      propertyPath: cooldown
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 727327039819847106, guid: 87c11573fb790284085136a72b94cd67, type: 3}
       propertyPath: Projectile
       value: 
       objectReference: {fileID: 2973646001600191778, guid: 79ba8a27158e6c046a8382a4ac698c3f, type: 3}
     - target: {fileID: 4953360847668526624, guid: 87c11573fb790284085136a72b94cd67, type: 3}
       propertyPath: m_Name
       value: Statue
+      objectReference: {fileID: 0}
+    - target: {fileID: 4953360847668526624, guid: 87c11573fb790284085136a72b94cd67, type: 3}
+      propertyPath: m_TagString
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 4953360847668526627, guid: 87c11573fb790284085136a72b94cd67, type: 3}
       propertyPath: m_RootOrder
@@ -6570,6 +6578,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4953360847668526627, guid: 87c11573fb790284085136a72b94cd67, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7933244116091125278, guid: 87c11573fb790284085136a72b94cd67, type: 3}
+      propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
