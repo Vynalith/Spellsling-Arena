@@ -372,4 +372,4 @@ MonoBehaviour:
   fire: {fileID: 0}
   isFireballBig: 0
   CurrentRoom: {fileID: 0}
-  heart: {fileID: 0}
+  heart: {fileID: 818842114129691388, guid: 9c0c6f3e70182d44d9c070d32c1213f5, type: 3}
