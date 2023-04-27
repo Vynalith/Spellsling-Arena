@@ -193,7 +193,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.77, y: 0.77}
   m_EdgeRadius: 0
 --- !u!1 &5499729737440258678
 GameObject:
@@ -367,6 +367,8 @@ MonoBehaviour:
   timer: 0
   looking: {x: 0, y: 0, z: 0}
   isMoving: 0
+  readyToMove: 0
+  movement: {x: 0, y: 0, z: 0}
   fire: {fileID: 0}
   isFireballBig: 0
   CurrentRoom: {fileID: 0}

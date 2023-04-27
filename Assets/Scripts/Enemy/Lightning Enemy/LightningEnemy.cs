@@ -81,7 +81,7 @@ public class LightningEnemy : MonoBehaviour
             }
             nextWaypoint = Waypoints[currentWaypoint];
             nextwaypointstring = "" + nextWaypoint;
-            print(nextwaypointstring);
+            //print(nextwaypointstring);
 
             //Vector3 targetDirection = (nextWaypoint.transform.position - lastWaypoint.transform.position).normalized;
             //Vector3 newDirection = Vector3.RotateTowards()
@@ -91,7 +91,7 @@ public class LightningEnemy : MonoBehaviour
 
             if (!isMoving)
             {
-                print("Now moving towards " + (nextWaypoint.transform.position - lastWaypoint.transform.position));
+                //print("Now moving towards " + (nextWaypoint.transform.position - lastWaypoint.transform.position));
                 isMoving = true;
                 newDirection = (nextWaypoint.transform.position - lastWaypoint.transform.position);
                 //newDirection = (nextWaypoint.transform.position - lastWaypoint.transform.position);
@@ -121,11 +121,11 @@ public class LightningEnemy : MonoBehaviour
 
     public void CoilChecker(GameObject other)
     {
-        print(other);
-        print(nextwaypointstring);
+       // print(other);
+       // print(nextwaypointstring);
         if (other == nextWaypoint)
         {
-            print("Next waypoint confirmed");
+            //print("Next waypoint confirmed");
             isMoving = false;
             rb.AddForce(-newDirection * moveSpeed, ForceMode2D.Impulse);
             this.transform.position = nextWaypoint.transform.position;
@@ -141,7 +141,7 @@ public class LightningEnemy : MonoBehaviour
         {
             int heartOrNo = Random.Range(0, 4);
 
-            print(heartOrNo);
+            //print(heartOrNo);
             //Instantiate (heart, this.transform.position, Quaternion.identity);
 
             if (heartOrNo >= 2)
@@ -163,7 +163,7 @@ public class LightningEnemy : MonoBehaviour
         {
             int heartOrNo = Random.Range(0, 4);
 
-            print(heartOrNo);
+            //print(heartOrNo);
             //Instantiate (heart, this.transform.position, Quaternion.identity);
 
             if (heartOrNo >= 2)
@@ -186,7 +186,7 @@ public class LightningEnemy : MonoBehaviour
         {
             int heartOrNo = Random.Range(0, 4);
 
-            print(heartOrNo);
+           //print(heartOrNo);
             //Instantiate (heart, this.transform.position, Quaternion.identity);
 
             if (heartOrNo >= 2)
@@ -207,7 +207,7 @@ public class LightningEnemy : MonoBehaviour
         {
             int heartOrNo = Random.Range(0, 4);
 
-            print(heartOrNo);
+            //print(heartOrNo);
             //Instantiate (heart, this.transform.position, Quaternion.identity);
 
             if (heartOrNo >= 2)
@@ -228,7 +228,7 @@ public class LightningEnemy : MonoBehaviour
         {
             int heartOrNo = Random.Range(0, 4);
 
-            print(heartOrNo);
+            //print(heartOrNo);
             //Instantiate (heart, this.transform.position, Quaternion.identity);
 
             if (heartOrNo >= 2)
