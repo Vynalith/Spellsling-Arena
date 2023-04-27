@@ -73,7 +73,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+  m_Sprite: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -81,7 +81,7 @@ SpriteRenderer:
   m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1 &5499729737152142297
@@ -349,6 +349,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b71cc07422ec6f346919fb863423051c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  userDirection: {x: 1, y: 1, z: 1}
+  movespeed: 1
+  MoveTimer: 0
+  flaring: 0
+  animator: {fileID: 0}
+  flaretime: 0
+  RandomX: 0
+  RandomY: 0
   puddle: {fileID: 7890268209323212713, guid: c6562956ca28b614eac0a74d4d6f8dbb, type: 3}
   steam: {fileID: 6901960009197579387, guid: a55955ed658d3ce47a3ae91e167355a0, type: 3}
   health: 0

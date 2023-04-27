@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &1732380362865667401
+--- !u!1 &7833213599204536814
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,38 +8,64 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 1732380362865667402}
-  - component: {fileID: 1732380362865667403}
-  - component: {fileID: 1732380362865667400}
+  - component: {fileID: 7833213599204536800}
+  - component: {fileID: 7833213599204536815}
+  - component: {fileID: 2869117807946805799}
   m_Layer: 0
-  m_Name: Placer
+  m_Name: LightningEnemyWaypoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &1732380362865667402
+--- !u!4 &7833213599204536800
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1732380362865667401}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_GameObject: {fileID: 7833213599204536814}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -3.9600003, y: 2.56, z: 3.31}
+  m_LocalScale: {x: 2, y: 2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &1732380362865667403
+--- !u!61 &7833213599204536815
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7833213599204536814}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.0064299107, y: -0.25076467}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.96, y: 0.96}
+    newSize: {x: 0.96, y: 0.96}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.31843472, y: 0.49847066}
+  m_EdgeRadius: 0
+--- !u!212 &2869117807946805799
 SpriteRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1732380362865667401}
+  m_GameObject: {fileID: 7833213599204536814}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -74,39 +100,14 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 334b0c5a2da656f4a9d2fe6b658cfd68, type: 3}
-  m_Color: {r: 1, g: 0, b: 0.8116398, a: 1}
+  m_Sprite: {fileID: 21300000, guid: 2ff038e4c39164940a2409e7b12597d8, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.48, y: 0.48}
+  m_Size: {x: 0.96, y: 0.96}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &1732380362865667400
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1732380362865667401}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 77cc1356c95ad6a4ca007c4c3b4a8bf0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  rooms:
-  - {fileID: 1442898645396146644, guid: 832f9e1f78764af41b17ed45b614ca08, type: 3}
-  - {fileID: 6853273241159016350, guid: de81a21183c778044860d805f01fc32a, type: 3}
-  - {fileID: 6177138623080561504, guid: 5c860a7f78a0bf142aef8a681aef90f6, type: 3}
-  - {fileID: 522328962196121558, guid: 102f9f100c429f64d9845c6a5f5df6ff, type: 3}
-  - {fileID: 3736599655244838224, guid: f86c0cc85228c49428eb24844eedc029, type: 3}
-  - {fileID: 3736599655244838224, guid: 09f35cea09bd1dc4abe619207452926e, type: 3}
-  bossRoom: {fileID: 1974370995060080427, guid: edad4f7f3630b36438caf1db142c2787, type: 3}
-  original: {x: 0, y: 0, z: 0}
-  offset: {x: 0, y: 0, z: 0}
-  finalposition: {fileID: 0}
-  roomCount: 0
-  ui: {fileID: 8667177277088110711, guid: e38ef1901acd3dd41867a957932a6304, type: 3}

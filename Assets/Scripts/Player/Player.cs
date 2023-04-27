@@ -182,6 +182,9 @@ public class Player : MonoBehaviour
 
     void PlayWinSong()
     {
+        song1Intro.Stop();
+        song1Loop.Stop();
+        bossSongIntro.Stop();
         bossSongLoop.Stop();
         winSong.Play();
     }
