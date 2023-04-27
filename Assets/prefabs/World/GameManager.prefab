@@ -44,3 +44,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e28b5900140ca1046b725b8c45314fc6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  roomCount: 0
+  currentPlacer: {fileID: 0}
+  combination: 
+  offsetTotal: {x: 0, y: 0, z: 0}
+  lightningLevel1: {x: 0, y: 9.55, z: 0}

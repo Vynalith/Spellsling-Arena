@@ -15,7 +15,9 @@ public class GameManager : MonoBehaviour
 
 
     //offsets declared here because unity is stupid
-    public Vector3 lightningLevel1 = new Vector3(0f, 18.17f, 0f);
+    //public Vector3 lightningLevel1 = new Vector3(0f, 18.17f, 0f);
+    //public Vector3 lightningLevel1 = new Vector3(0f, 9.55f, 0f);
+    public Vector3 lightningLevel1;
 
     // Start is called before the first frame update
     void Start()
@@ -34,9 +36,9 @@ public class GameManager : MonoBehaviour
             {
                 needsOffset = true;
                 whichOffset = 1;
-                print("Random Room = 6 Bool is true");
+                print("Random Room = 5 Bool is true");
                 print("Lightning level offset = " + lightningLevel1);
-                currentPlacer.SendMessage("GetOffset", offsetTotal);
+                //currentPlacer.SendMessage("GetOffset", offsetTotal);
                 print("Offset total = " + offsetTotal);
 
             }
