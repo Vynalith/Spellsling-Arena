@@ -44,7 +44,7 @@ GameObject:
   - component: {fileID: 727327039819847106}
   - component: {fileID: 7933244116091125278}
   - component: {fileID: 5528584689672397729}
-  - component: {fileID: 2665666513518645193}
+  - component: {fileID: 1883316194}
   m_Layer: 0
   m_Name: StatueDown
   m_TagString: Untagged
@@ -132,13 +132,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b9896e076e23d441b88445d71bd1792, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cooldown: 5
+  cooldown: 3
+  cooldownCount: 0
   Projectile: {fileID: 2973646001600191778, guid: 79ba8a27158e6c046a8382a4ac698c3f, type: 3}
   shotForce: 20
   playerInRange: 0
   aimer: {fileID: 3896307558406374088}
-  animator: {fileID: 2665666513518645193}
-  direction: 0
+  animator: {fileID: 1883316194}
 --- !u!61 &7933244116091125278
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -146,7 +146,7 @@ BoxCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4953360847668526624}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
@@ -191,7 +191,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.59, y: 2.5}
   m_EdgeRadius: 0
---- !u!95 &2665666513518645193
+--- !u!95 &1883316194
 Animator:
   serializedVersion: 4
   m_ObjectHideFlags: 0
@@ -201,7 +201,7 @@ Animator:
   m_GameObject: {fileID: 4953360847668526624}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: e130d40fe2473184d907f82bff4e6ce9, type: 2}
+  m_Controller: {fileID: 9100000, guid: 3970e1f1ca1f0974baa7f8b9b2c4a088, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
