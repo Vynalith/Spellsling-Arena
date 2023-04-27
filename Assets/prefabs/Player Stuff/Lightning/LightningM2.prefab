@@ -181,6 +181,7 @@ GameObject:
   - component: {fileID: -2472650969998341074}
   - component: {fileID: 3310241709028207467}
   - component: {fileID: 8820128568205026148}
+  - component: {fileID: 5352701297553837361}
   m_Layer: 7
   m_Name: LightningM2
   m_TagString: BigLightning
@@ -391,6 +392,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e8a2a4c412c6bf43b0afd868c02a67c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!95 &5352701297553837361
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7717531246457936126}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: bd2fe899aac4e9a428f9c01e622bfa32, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &8859832405749133967
 GameObject:
   m_ObjectHideFlags: 0
