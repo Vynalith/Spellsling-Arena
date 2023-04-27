@@ -119,7 +119,7 @@ MonoBehaviour:
   CurrentRoom: {fileID: 0}
   heart: {fileID: 818842114129691388, guid: 9c0c6f3e70182d44d9c070d32c1213f5, type: 3}
   isMoving: 0
-  moveSpeed: 20
+  moveSpeed: 2
   newDirection: {x: 0, y: 0, z: 0}
   rb: {fileID: 1843329696247205708}
   nextwaypointstring: 
