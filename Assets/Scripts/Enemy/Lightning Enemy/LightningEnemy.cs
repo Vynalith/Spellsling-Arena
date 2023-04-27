@@ -157,7 +157,16 @@ public class LightningEnemy : MonoBehaviour
 
     public void LightningHurtMe(int ouchie)
     {
-        health += ouchie;
+        if (health < maxhealth)
+        {
+            health += ouchie;
+            if(health < maxhealth)
+            {
+                health = maxhealth;
+            }
+        }
+
+        moveSpeed += (float)ouchie / 10;
 
         if (health <= 0)
         {

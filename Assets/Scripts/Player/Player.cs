@@ -44,7 +44,7 @@ public class Player : MonoBehaviour
     private bool bossSongStarted;
     public AudioSource winSong;
 
-    public GameObject UI;
+    //public GameObject UI;
 
     
     public float Deadtimer;
@@ -59,7 +59,7 @@ public class Player : MonoBehaviour
         element = 1;
         animator.SetInteger("element", element);
 
-        UI = GameObject.Find("PlayerUI");
+        //UI = GameObject.Find("PlayerUI");
         isDead = false;
     }
 
@@ -251,7 +251,7 @@ public class Player : MonoBehaviour
         if(health < 5)
         {
             health = health+1;
-            UI.SendMessage("Heal", SendMessageOptions.DontRequireReceiver);
+            gameUI.SendMessage("Heal", SendMessageOptions.DontRequireReceiver);
 
         }
     }
@@ -265,7 +265,7 @@ public class Player : MonoBehaviour
             isDead = true;
             Shooter.gameObject.SendMessage("Death");
             animator.Play("DEATH");
-            UI.SendMessage("Hurt", damage);
+            gameUI.SendMessage("Hurt", damage);
     
         }
         else if (health >= 1)
@@ -273,22 +273,22 @@ public class Player : MonoBehaviour
             if (element == 1)
             {
                 animator.Play("LightningDamage");
-                 UI.SendMessage("Hurt",damage);
+                 gameUI.SendMessage("Hurt",damage);
             }
             if (element == 2)
             {
                 animator.Play("FireDamage");
-                 UI.SendMessage("Hurt",damage);
+                 gameUI.SendMessage("Hurt",damage);
             }
             if (element == 3)
             {
                 animator.Play("IceDamage");
-                 UI.SendMessage("Hurt",damage);
+                 gameUI.SendMessage("Hurt",damage);
             }
             if (element == 4)
             {
                 animator.Play("EarthDamage");
-                 UI.SendMessage("Hurt",damage);
+                 gameUI.SendMessage("Hurt",damage);
             }
         }
     }
