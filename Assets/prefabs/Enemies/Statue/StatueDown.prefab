@@ -135,10 +135,14 @@ MonoBehaviour:
   cooldown: 3
   cooldownCount: 0
   Projectile: {fileID: 2973646001600191778, guid: 79ba8a27158e6c046a8382a4ac698c3f, type: 3}
-  shotForce: 20
+  shotForce: 10
   playerInRange: 0
   aimer: {fileID: 3896307558406374088}
   animator: {fileID: 1883316194}
+  animTimer: 0
+  startAnim: 0
+  currentRoom: {fileID: 0}
+  roomClear: 0
 --- !u!61 &7933244116091125278
 BoxCollider2D:
   m_ObjectHideFlags: 0
