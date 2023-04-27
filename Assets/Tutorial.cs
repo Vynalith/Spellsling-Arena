@@ -10,6 +10,7 @@ public class Tutorial : MonoBehaviour
     public bool move;
 
     public bool allowinput;
+    public GameObject inputTUT;
 
     public Animator animator;
     public int tutorialNum;
@@ -46,6 +47,7 @@ public class Tutorial : MonoBehaviour
         if(time >= 4f && time < 5f)
         {
             tutscreen1.SetActive(true);
+            inputTUT.SetActive(true);
             animator.Play("DuckTalk");
         }
 
@@ -58,7 +60,11 @@ public class Tutorial : MonoBehaviour
 
              if( Input.GetButtonDown("M2"))
              {
-                tutorialNum = 20;
+                if(time> 4f)
+                {
+                   tutorialNum = 20; 
+                }
+                
              }
 
         }
@@ -88,6 +94,10 @@ public class Tutorial : MonoBehaviour
         if(tutorialNum ==20)
         {
             animator.Play("DuckOw");
+            tutscreen1.SetActive(false);
+            tutscreen2.SetActive(false);
+            tutscreen3.SetActive(false);
+            tutscreen4.SetActive(false);
         }
 
     }
