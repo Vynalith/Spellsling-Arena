@@ -11,6 +11,7 @@ public class Room : MonoBehaviour
     private int count;
     private int countdown;
     public GameObject[] Enemies;
+    public GameObject[] Statues;
 
      public int enter;
 
@@ -19,6 +20,7 @@ public class Room : MonoBehaviour
         Entrance.gameObject.SetActive(false);
         Exit.gameObject.SetActive(false);
         enter= 0;
+        enemies = Enemies.Length;
     }
 
 
@@ -43,10 +45,13 @@ public class Room : MonoBehaviour
     public void RoomClear()
     {
         //print ("enemy down");
-        enemies= enemies-1;
+        enemies = enemies-1;
         if(enemies<=0)
         {
-            
+            for (int i = 0; i < Statues.Length; i++)
+            {
+                Statues[i].gameObject.SendMessage("RoomClear", SendMessageOptions.DontRequireReceiver);
+            }
 
 
 

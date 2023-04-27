@@ -8,7 +8,16 @@ public class GameManager : MonoBehaviour
     public int roomCount;
     public GameObject currentPlacer;
     public string combination;
-    
+    //public Vector3[] Offsets;
+    public Vector3 offsetTotal;
+    private bool needsOffset;
+    private int whichOffset;
+
+
+    //offsets declared here because unity is stupid
+    //public Vector3 lightningLevel1 = new Vector3(0f, 18.17f, 0f);
+    //public Vector3 lightningLevel1 = new Vector3(0f, 9.55f, 0f);
+    public Vector3 lightningLevel1;
 
     // Start is called before the first frame update
     void Start()
@@ -21,19 +30,44 @@ public class GameManager : MonoBehaviour
             currentPlacer = GameObject.Find(combination);
             print("Current Placer = " + currentPlacer);
             //print("Combination = " + combination);
-            int RandomRoom = Random.Range(0, 5);
-
-
-            if(i < 6)
+            int RandomRoom = Random.Range(0, 6);
+            print("Random Room = " + RandomRoom);
+            if(RandomRoom == 5)
             {
+                needsOffset = true;
+                whichOffset = 1;
+                print("Random Room = 5 Bool is true");
+                print("Lightning level offset = " + lightningLevel1);
+                //currentPlacer.SendMessage("GetOffset", offsetTotal);
+                print("Offset total = " + offsetTotal);
+
+            }
+            if (i < 6)
+            {
+                //currentPlacer.SendMessage("GetOffset", offsetTotal);
+                currentPlacer.SendMessage("SetPosition", offsetTotal);
                 currentPlacer.SendMessage("CreateRoom", RandomRoom);
+
             }
             else
             {
+                currentPlacer.SendMessage("SetPosition", offsetTotal);
                 currentPlacer.SendMessage("CreateBossRoom", SendMessageOptions.DontRequireReceiver);
             }
 
-        }
+            if (needsOffset)
+            {
+                switch (whichOffset)
+                {
+                    case 1:
+                        offsetTotal += lightningLevel1;
+                        needsOffset = false;
+                        whichOffset = 0;
+                        break;
+                }
+
+                }
+            }
 
 
 

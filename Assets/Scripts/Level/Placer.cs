@@ -75,22 +75,29 @@ public class Placer : MonoBehaviour
 
     public void CreateRoom(int randomRoom)
     {
-        original = this.transform.position;
-        print(original);
+        original = this.transform.position + offset;
+        print(this.gameObject + "Placing Room at " + original);
         Instantiate(rooms[randomRoom], (original), Quaternion.identity);
     }
 
 
     public void CreateBossRoom()
     {
-        original = this.transform.position;
-        Instantiate(bossRoom, original + offset, Quaternion.identity);
+        original = this.transform.position + offset;
+        Instantiate(bossRoom, original, Quaternion.identity);
     }
 
 
     public void GetOffset(Vector3 newOffset)
     {
         offset += newOffset;
+    }
+
+    public void SetPosition(Vector3 Offset)
+    {
+        this.transform.position += Offset;
+        print(this.gameObject + "Setting Position to " + this.transform.position);
+
     }
 
 

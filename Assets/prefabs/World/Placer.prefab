@@ -98,7 +98,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rooms:
-  - {fileID: 1974370995060080427, guid: 40d2c21b65ebb884687e3586004b7f44, type: 3}
+  - {fileID: 1442898645396146644, guid: 832f9e1f78764af41b17ed45b614ca08, type: 3}
+  - {fileID: 6853273241159016350, guid: de81a21183c778044860d805f01fc32a, type: 3}
+  - {fileID: 6177138623080561504, guid: 5c860a7f78a0bf142aef8a681aef90f6, type: 3}
+  - {fileID: 522328962196121558, guid: 102f9f100c429f64d9845c6a5f5df6ff, type: 3}
+  - {fileID: 3736599655244838224, guid: f86c0cc85228c49428eb24844eedc029, type: 3}
+  - {fileID: 3736599655244838224, guid: 09f35cea09bd1dc4abe619207452926e, type: 3}
   bossRoom: {fileID: 1974370995060080427, guid: edad4f7f3630b36438caf1db142c2787, type: 3}
   original: {x: 0, y: 0, z: 0}
   offset: {x: 0, y: 0, z: 0}

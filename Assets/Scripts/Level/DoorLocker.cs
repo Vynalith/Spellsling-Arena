@@ -27,6 +27,7 @@ public class DoorLocker : MonoBehaviour
             {
 
                 Room.gameObject.SendMessage("RoomLock");
+                
             }
         }
     }
