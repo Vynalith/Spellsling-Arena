@@ -44,7 +44,7 @@ public class FireEnemy : MonoBehaviour
     public GameObject CurrentRoom;
     public GameObject heart;
 
-
+    //private Transform Death = (0f,0f,0f);
 
 
     /////////////////////////////
@@ -64,10 +64,10 @@ public class FireEnemy : MonoBehaviour
     void Update()
     {
         transform.Translate(userDirection * movespeed * Time.deltaTime);
-        
-       
 
-        if(health <= 0)
+        //this.transform.localscale.x <= 0
+
+        if (health <= 0)
         {
             Destroy(this.gameObject);
         }
@@ -284,6 +284,14 @@ public class FireEnemy : MonoBehaviour
             Instantiate(steam, other.transform.position, steam.transform.rotation);
             Destroy(other.gameObject);
             HurtMe(1);
+            this.gameObject.transform.localScale -= new Vector3(.15f, .15f, 0f);
+        }
+        
+        if (other.gameObject.CompareTag("Puddle"))
+        {
+            Instantiate(steam, other.transform.position, steam.transform.rotation);
+            Destroy(other.gameObject);
+            HurtMe(2);
             this.gameObject.transform.localScale -= new Vector3(.15f, .15f, 0f);
         }
 
