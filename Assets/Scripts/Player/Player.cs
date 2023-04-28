@@ -11,6 +11,7 @@ public class Player : MonoBehaviour
     //private Rigidbody2D r2d;
     public float speed;
     public int health;
+    public int maxHealth;
 
     Vector2 movement;
     Vector2 mousePos;
@@ -58,7 +59,7 @@ public class Player : MonoBehaviour
         Playing=true;
         element = 1;
         animator.SetInteger("element", element);
-
+        health = 3;
         //UI = GameObject.Find("PlayerUI");
         isDead = false;
     }

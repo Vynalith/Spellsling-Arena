@@ -29,6 +29,9 @@ public class Tutorial : MonoBehaviour
     public AudioSource quackDie;
 
     public GameObject sceneLoader;
+    public GameObject zap;
+    public GameObject duckHunt;
+    //public Transform duckHuntDog;
 
     // Start is called before the first frame update
     void Start()
@@ -80,12 +83,20 @@ public class Tutorial : MonoBehaviour
             {
                 tutorialNum+=1;
                 nextQuack = true;
+                if(tutorialNum > 3)
+                {
+                    Instantiate(zap, duckHunt.transform.position, duckHunt.transform.rotation);
+                    tutorialNum = 20;
+                    isScreaming = false;
+                    skipTimer = timer + 1.25f;
+                }
             }
 
              if( Input.GetButtonDown("M2"))
              {
                 if(timer > 4f && isScreaming)
                 {
+                    Instantiate(zap, duckHunt.transform.position, duckHunt.transform.rotation);
                     skipTimer = timer + 1.25f;
                     isScreaming = false;
                    tutorialNum = 20; 
@@ -154,4 +165,12 @@ public class Tutorial : MonoBehaviour
         }
 
     }
+
+
+    public void MoveAim()
+    {
+        //duckHunt.transform.position = duckHunt.transform.position.down();
+    }
+
+
 }
