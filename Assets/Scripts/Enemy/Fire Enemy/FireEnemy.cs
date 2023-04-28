@@ -68,6 +68,7 @@ public class FireEnemy : MonoBehaviour
     void Update()
     {
 
+
         if (readyToMove)
         {
             movement = userDirection;
@@ -123,6 +124,20 @@ public class FireEnemy : MonoBehaviour
             Destroy(this.gameObject);
         }
 
+        ResetZ();
+
+
+    }
+
+    public void ResetZ()
+    {
+        if (this.transform.position.z > 10 || this.transform.position.z < -10)
+        {
+            Transform getbackstupid = this.transform;
+            Vector3 unityisdumb = new Vector3(getbackstupid.position.x, getbackstupid.position.y, 0f);
+            getbackstupid.position = unityisdumb;
+            this.transform.position = getbackstupid.position;
+        }
     }
 
     public void randomize()
