@@ -327,7 +327,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1732380362865667400, guid: 5c0a8e214fc02ee46a58fa306f089b1f, type: 3}
       propertyPath: rooms.Array.size
-      value: 6
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 1732380362865667400, guid: 5c0a8e214fc02ee46a58fa306f089b1f, type: 3}
       propertyPath: rooms.Array.data[0]
@@ -353,6 +353,14 @@ PrefabInstance:
       propertyPath: rooms.Array.data[5]
       value: 
       objectReference: {fileID: 3736599655244838224, guid: 09f35cea09bd1dc4abe619207452926e, type: 3}
+    - target: {fileID: 1732380362865667400, guid: 5c0a8e214fc02ee46a58fa306f089b1f, type: 3}
+      propertyPath: rooms.Array.data[6]
+      value: 
+      objectReference: {fileID: 1974370995060080427, guid: b93efb012e4fdac4280766c58ee58be7, type: 3}
+    - target: {fileID: 1732380362865667400, guid: 5c0a8e214fc02ee46a58fa306f089b1f, type: 3}
+      propertyPath: rooms.Array.data[7]
+      value: 
+      objectReference: {fileID: 1974370995060080427, guid: acd51cb331f8e7d4384d668ca94a8e8e, type: 3}
     - target: {fileID: 1732380362865667401, guid: 5c0a8e214fc02ee46a58fa306f089b1f, type: 3}
       propertyPath: m_Name
       value: Placer (2)
@@ -838,7 +846,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 24
+  m_RootOrder: 25
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &390097191
 GameObject:
@@ -972,7 +980,7 @@ Transform:
   - {fileID: 7864581}
   - {fileID: 805384289}
   m_Father: {fileID: 0}
-  m_RootOrder: 26
+  m_RootOrder: 27
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &426695296
 GameObject:
@@ -1665,7 +1673,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 28
+  m_RootOrder: 29
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &646886835
 PrefabInstance:
@@ -2415,7 +2423,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 7833213599204536800, guid: 8f50e6072587fc146952c8c8e63c014d, type: 3}
       propertyPath: m_RootOrder
-      value: 27
+      value: 26
       objectReference: {fileID: 0}
     - target: {fileID: 7833213599204536800, guid: 8f50e6072587fc146952c8c8e63c014d, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3929,7 +3937,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1732380362865667400, guid: 5c0a8e214fc02ee46a58fa306f089b1f, type: 3}
       propertyPath: rooms.Array.size
-      value: 6
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 1732380362865667400, guid: 5c0a8e214fc02ee46a58fa306f089b1f, type: 3}
       propertyPath: rooms.Array.data[0]
@@ -3955,6 +3963,14 @@ PrefabInstance:
       propertyPath: rooms.Array.data[5]
       value: 
       objectReference: {fileID: 3736599655244838224, guid: 09f35cea09bd1dc4abe619207452926e, type: 3}
+    - target: {fileID: 1732380362865667400, guid: 5c0a8e214fc02ee46a58fa306f089b1f, type: 3}
+      propertyPath: rooms.Array.data[6]
+      value: 
+      objectReference: {fileID: 1974370995060080427, guid: b93efb012e4fdac4280766c58ee58be7, type: 3}
+    - target: {fileID: 1732380362865667400, guid: 5c0a8e214fc02ee46a58fa306f089b1f, type: 3}
+      propertyPath: rooms.Array.data[7]
+      value: 
+      objectReference: {fileID: 1974370995060080427, guid: acd51cb331f8e7d4384d668ca94a8e8e, type: 3}
     - target: {fileID: 1732380362865667401, guid: 5c0a8e214fc02ee46a58fa306f089b1f, type: 3}
       propertyPath: m_Name
       value: Placer (6)
@@ -4551,7 +4567,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1732380362865667400, guid: 5c0a8e214fc02ee46a58fa306f089b1f, type: 3}
       propertyPath: rooms.Array.size
-      value: 6
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 1732380362865667400, guid: 5c0a8e214fc02ee46a58fa306f089b1f, type: 3}
       propertyPath: rooms.Array.data[0]
@@ -4577,6 +4593,14 @@ PrefabInstance:
       propertyPath: rooms.Array.data[5]
       value: 
       objectReference: {fileID: 3736599655244838224, guid: 09f35cea09bd1dc4abe619207452926e, type: 3}
+    - target: {fileID: 1732380362865667400, guid: 5c0a8e214fc02ee46a58fa306f089b1f, type: 3}
+      propertyPath: rooms.Array.data[6]
+      value: 
+      objectReference: {fileID: 1974370995060080427, guid: b93efb012e4fdac4280766c58ee58be7, type: 3}
+    - target: {fileID: 1732380362865667400, guid: 5c0a8e214fc02ee46a58fa306f089b1f, type: 3}
+      propertyPath: rooms.Array.data[7]
+      value: 
+      objectReference: {fileID: 1974370995060080427, guid: acd51cb331f8e7d4384d668ca94a8e8e, type: 3}
     - target: {fileID: 1732380362865667401, guid: 5c0a8e214fc02ee46a58fa306f089b1f, type: 3}
       propertyPath: m_Name
       value: Placer (3)
@@ -5893,7 +5917,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 7833213599204536800, guid: 8f50e6072587fc146952c8c8e63c014d, type: 3}
       propertyPath: m_RootOrder
-      value: 29
+      value: 28
       objectReference: {fileID: 0}
     - target: {fileID: 7833213599204536800, guid: 8f50e6072587fc146952c8c8e63c014d, type: 3}
       propertyPath: m_LocalPosition.x
@@ -6074,7 +6098,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1732380362865667400, guid: 5c0a8e214fc02ee46a58fa306f089b1f, type: 3}
       propertyPath: rooms.Array.size
-      value: 6
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 1732380362865667400, guid: 5c0a8e214fc02ee46a58fa306f089b1f, type: 3}
       propertyPath: rooms.Array.data[0]
@@ -6100,6 +6124,14 @@ PrefabInstance:
       propertyPath: rooms.Array.data[5]
       value: 
       objectReference: {fileID: 3736599655244838224, guid: 09f35cea09bd1dc4abe619207452926e, type: 3}
+    - target: {fileID: 1732380362865667400, guid: 5c0a8e214fc02ee46a58fa306f089b1f, type: 3}
+      propertyPath: rooms.Array.data[6]
+      value: 
+      objectReference: {fileID: 1974370995060080427, guid: b93efb012e4fdac4280766c58ee58be7, type: 3}
+    - target: {fileID: 1732380362865667400, guid: 5c0a8e214fc02ee46a58fa306f089b1f, type: 3}
+      propertyPath: rooms.Array.data[7]
+      value: 
+      objectReference: {fileID: 1974370995060080427, guid: acd51cb331f8e7d4384d668ca94a8e8e, type: 3}
     - target: {fileID: 1732380362865667401, guid: 5c0a8e214fc02ee46a58fa306f089b1f, type: 3}
       propertyPath: m_Name
       value: Placer (4)
@@ -6159,7 +6191,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1732380362865667400, guid: 5c0a8e214fc02ee46a58fa306f089b1f, type: 3}
       propertyPath: rooms.Array.size
-      value: 6
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 1732380362865667400, guid: 5c0a8e214fc02ee46a58fa306f089b1f, type: 3}
       propertyPath: rooms.Array.data[0]
@@ -6185,6 +6217,14 @@ PrefabInstance:
       propertyPath: rooms.Array.data[5]
       value: 
       objectReference: {fileID: 3736599655244838224, guid: 09f35cea09bd1dc4abe619207452926e, type: 3}
+    - target: {fileID: 1732380362865667400, guid: 5c0a8e214fc02ee46a58fa306f089b1f, type: 3}
+      propertyPath: rooms.Array.data[6]
+      value: 
+      objectReference: {fileID: 1974370995060080427, guid: b93efb012e4fdac4280766c58ee58be7, type: 3}
+    - target: {fileID: 1732380362865667400, guid: 5c0a8e214fc02ee46a58fa306f089b1f, type: 3}
+      propertyPath: rooms.Array.data[7]
+      value: 
+      objectReference: {fileID: 1974370995060080427, guid: acd51cb331f8e7d4384d668ca94a8e8e, type: 3}
     - target: {fileID: 1732380362865667401, guid: 5c0a8e214fc02ee46a58fa306f089b1f, type: 3}
       propertyPath: m_Name
       value: Placer (5)
@@ -6697,7 +6737,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1732380362865667400, guid: 5c0a8e214fc02ee46a58fa306f089b1f, type: 3}
       propertyPath: rooms.Array.size
-      value: 6
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 1732380362865667400, guid: 5c0a8e214fc02ee46a58fa306f089b1f, type: 3}
       propertyPath: rooms.Array.data[0]
@@ -6723,6 +6763,14 @@ PrefabInstance:
       propertyPath: rooms.Array.data[5]
       value: 
       objectReference: {fileID: 3736599655244838224, guid: 09f35cea09bd1dc4abe619207452926e, type: 3}
+    - target: {fileID: 1732380362865667400, guid: 5c0a8e214fc02ee46a58fa306f089b1f, type: 3}
+      propertyPath: rooms.Array.data[6]
+      value: 
+      objectReference: {fileID: 1974370995060080427, guid: b93efb012e4fdac4280766c58ee58be7, type: 3}
+    - target: {fileID: 1732380362865667400, guid: 5c0a8e214fc02ee46a58fa306f089b1f, type: 3}
+      propertyPath: rooms.Array.data[7]
+      value: 
+      objectReference: {fileID: 1974370995060080427, guid: acd51cb331f8e7d4384d668ca94a8e8e, type: 3}
     - target: {fileID: 1732380362865667401, guid: 5c0a8e214fc02ee46a58fa306f089b1f, type: 3}
       propertyPath: m_Name
       value: Placer (1)
@@ -7062,7 +7110,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1732380362865667400, guid: 5c0a8e214fc02ee46a58fa306f089b1f, type: 3}
       propertyPath: rooms.Array.size
-      value: 6
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 1732380362865667400, guid: 5c0a8e214fc02ee46a58fa306f089b1f, type: 3}
       propertyPath: rooms.Array.data[0]
@@ -7088,6 +7136,14 @@ PrefabInstance:
       propertyPath: rooms.Array.data[5]
       value: 
       objectReference: {fileID: 3736599655244838224, guid: 09f35cea09bd1dc4abe619207452926e, type: 3}
+    - target: {fileID: 1732380362865667400, guid: 5c0a8e214fc02ee46a58fa306f089b1f, type: 3}
+      propertyPath: rooms.Array.data[6]
+      value: 
+      objectReference: {fileID: 1974370995060080427, guid: b93efb012e4fdac4280766c58ee58be7, type: 3}
+    - target: {fileID: 1732380362865667400, guid: 5c0a8e214fc02ee46a58fa306f089b1f, type: 3}
+      propertyPath: rooms.Array.data[7]
+      value: 
+      objectReference: {fileID: 1974370995060080427, guid: acd51cb331f8e7d4384d668ca94a8e8e, type: 3}
     - target: {fileID: 1732380362865667401, guid: 5c0a8e214fc02ee46a58fa306f089b1f, type: 3}
       propertyPath: m_Name
       value: Placer
@@ -7274,7 +7330,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 7833213599204536800, guid: 8f50e6072587fc146952c8c8e63c014d, type: 3}
       propertyPath: m_RootOrder
-      value: 25
+      value: 24
       objectReference: {fileID: 0}
     - target: {fileID: 7833213599204536800, guid: 8f50e6072587fc146952c8c8e63c014d, type: 3}
       propertyPath: m_LocalPosition.x
