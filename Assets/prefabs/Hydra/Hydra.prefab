@@ -111,6 +111,7 @@ MonoBehaviour:
   animator: {fileID: 8200437591980419255}
   anchor: {fileID: 0}
   WIN: {fileID: 5281848734733506458, guid: 0e0194ceb75a90841a2c4447a3097862, type: 3}
+  damageEffect: {fileID: 2260554970745162690, guid: 573194a35637bd54ebc5d2223fe235b9, type: 3}
 --- !u!95 &8200437591980419255
 Animator:
   serializedVersion: 4

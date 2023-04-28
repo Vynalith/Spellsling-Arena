@@ -20,6 +20,7 @@ public class LightningEnemy : MonoBehaviour
     public int maxhealth;
     public GameObject CurrentRoom;
     public GameObject heart;
+    public GameObject damageEffect;
 
     //movement stuff
     public bool isMoving;
@@ -137,6 +138,9 @@ public class LightningEnemy : MonoBehaviour
     public void HurtMe(int damage)
     {
         health -= damage;
+        Instantiate(damageEffect, this.transform.position, this.transform.rotation);
+
+
         if (health <= 0)
         {
             int heartOrNo = Random.Range(0, 4);
@@ -168,7 +172,6 @@ public class LightningEnemy : MonoBehaviour
         if (!isMoving)
         {
             moveSpeed += (float)ouchie * .25f;
-
         }
 
         if (health <= 0)
@@ -191,6 +194,7 @@ public class LightningEnemy : MonoBehaviour
     public void FireHurtMe(int ouchie)
     {
         health -= ouchie;
+        Instantiate(damageEffect, this.transform.position, this.transform.rotation);
 
 
 
@@ -214,6 +218,7 @@ public class LightningEnemy : MonoBehaviour
     public void IceHurtMe(int ouchie)
     {
         health -= ouchie;
+        Instantiate(damageEffect, this.transform.position, this.transform.rotation);
 
         if (health <= 0)
         {
@@ -235,6 +240,7 @@ public class LightningEnemy : MonoBehaviour
     public void EarthHurtMe(int ouchie)
     {
         health -= ouchie;
+        Instantiate(damageEffect, this.transform.position, this.transform.rotation);
 
         if (health <= 0)
         {

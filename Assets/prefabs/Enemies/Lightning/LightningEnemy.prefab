@@ -118,6 +118,7 @@ MonoBehaviour:
   maxhealth: 4
   CurrentRoom: {fileID: 0}
   heart: {fileID: 818842114129691388, guid: 9c0c6f3e70182d44d9c070d32c1213f5, type: 3}
+  damageEffect: {fileID: 2260554970745162690, guid: 573194a35637bd54ebc5d2223fe235b9, type: 3}
   isMoving: 0
   moveSpeed: 2
   newDirection: {x: 0, y: 0, z: 0}

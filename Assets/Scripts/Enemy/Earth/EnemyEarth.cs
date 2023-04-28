@@ -9,6 +9,14 @@ public class EnemyEarth : MonoBehaviour
     public GameObject iceshatter;
     public GameObject fss;
     public GameObject zappy;
+    public GameObject damageEffect;
+
+
+    public int health;
+    public int maxhealth;
+    public GameObject CurrentRoom;
+    public GameObject heart;
+
 
     void Start()
     {
@@ -16,6 +24,7 @@ public class EnemyEarth : MonoBehaviour
         r2d.AddForce(new Vector2(shootSpeed,10f));
         //GetComponent<AudioSource>().Play();
         Destroy(this.gameObject, .4f);
+        health = maxhealth;
     }
 
     public void OnTriggerEnter2D (Collider2D other)
@@ -51,4 +60,72 @@ public class EnemyEarth : MonoBehaviour
             Destroy(this.gameObject);
         }
     }
+
+
+    public void HurtMe(int damage)
+    {
+        Instantiate(damageEffect, this.transform.position, this.transform.rotation);
+
+        health -= damage;
+        if (health <= 0)
+        {
+            //Instantiate(WIN, this.transform.position, Quaternion.identity);
+            Destroy(this.gameObject);
+            CurrentRoom.gameObject.SendMessage("RoomClear");
+        }
+    }
+
+
+    public void LightningHurtMe(int ouchie)
+    {
+        health -= ouchie;
+        Instantiate(damageEffect, this.transform.position, this.transform.rotation);
+
+        if (health <= 0)
+        {
+            //Instantiate(WIN, this.transform.position, Quaternion.identity);
+            Destroy(this.gameObject);
+            CurrentRoom.gameObject.SendMessage("RoomClear");
+        }
+    }
+
+    public void FireHurtMe(int ouchie)
+    {
+        health -= ouchie;
+        Instantiate(damageEffect, this.transform.position, this.transform.rotation);
+
+        if (health <= 0)
+        {
+            //Instantiate(WIN, this.transform.position, Quaternion.identity);
+            Destroy(this.gameObject);
+            CurrentRoom.gameObject.SendMessage("RoomClear");
+        }
+    }
+
+    public void IceHurtMe(int ouchie)
+    {
+        health -= ouchie;
+        Instantiate(damageEffect, this.transform.position, this.transform.rotation);
+
+        if (health <= 0)
+        {
+            //Instantiate(WIN, this.transform.position, Quaternion.identity);
+            Destroy(this.gameObject);
+            CurrentRoom.gameObject.SendMessage("RoomClear");
+        }
+    }
+
+    public void EarthHurtMe(int ouchie)
+    {
+        health -= ouchie;
+        Instantiate(damageEffect, this.transform.position, this.transform.rotation);
+
+        if (health <= 0)
+        {
+            //Instantiate(WIN, this.transform.position, Quaternion.identity);
+            Destroy(this.gameObject);
+            CurrentRoom.gameObject.SendMessage("RoomClear");
+        }
+    }
+
 }
