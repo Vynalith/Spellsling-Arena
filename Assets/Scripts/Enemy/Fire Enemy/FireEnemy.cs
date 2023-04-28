@@ -73,13 +73,26 @@ public class FireEnemy : MonoBehaviour
         {
             movespeed = 1;
             movement = userDirection;
-            movement.x = (.1f+movement.x/1);
-            movement.y = (.1f+ movement.y/1);
+            movement.x = (movement.x/1);
+            movement.y = ( movement.y/1);
 
             //transform.Translate(userDirection * movespeed * Time.deltaTime);
             transform.Translate(movement * movespeed * Time.deltaTime);
             isMoving = true;
              animator.SetBool("IsMoving", true);
+
+             if(Mathf.Abs(RandomX)>Mathf.Abs(RandomY))
+             {
+                animator.SetInteger("Direction", 1);
+                print("move X");
+             }
+             if(Mathf.Abs(RandomY)>Mathf.Abs(RandomX))
+             {
+                animator.SetInteger("Direction", 2);
+                print("move Y");
+             }
+
+
             MoveTimer += Time.deltaTime;
         }
 
