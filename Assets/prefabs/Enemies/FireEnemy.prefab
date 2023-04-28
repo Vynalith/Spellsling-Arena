@@ -350,7 +350,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b71cc07422ec6f346919fb863423051c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  userDirection: {x: 1, y: 1, z: 1}
+  userDirection: {x: 0, y: 0, z: 0}
   movespeed: 2
   MoveTimer: 0
   flaring: 0

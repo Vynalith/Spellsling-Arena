@@ -79,6 +79,7 @@ public class FireEnemy : MonoBehaviour
             //transform.Translate(userDirection * movespeed * Time.deltaTime);
             transform.Translate(movement * movespeed * Time.deltaTime);
             isMoving = true;
+             animator.SetBool("IsMoving", true);
             MoveTimer += Time.deltaTime;
         }
 
@@ -86,6 +87,7 @@ public class FireEnemy : MonoBehaviour
         {
             readyToMove = false;
             isMoving = false;
+            animator.SetBool("IsMoving", false);
             MoveTimer = 0;
             movespeed = 0;
             
@@ -316,6 +318,7 @@ public class FireEnemy : MonoBehaviour
         {
             isLooking = true;
             isMoving = false;
+            animator.SetBool("IsMoving", false);
         }
 
         if (other.gameObject.CompareTag("IceWall"))
