@@ -71,9 +71,10 @@ public class FireEnemy : MonoBehaviour
 
         if (readyToMove)
         {
+            movespeed = 1;
             movement = userDirection;
-            movement.x = (1 / movement.x);
-            movement.y = (1 / movement.y);
+            movement.x = (.1f+movement.x/1);
+            movement.y = (.1f+ movement.y/1);
 
             //transform.Translate(userDirection * movespeed * Time.deltaTime);
             transform.Translate(movement * movespeed * Time.deltaTime);
@@ -81,12 +82,12 @@ public class FireEnemy : MonoBehaviour
             MoveTimer += Time.deltaTime;
         }
 
-        if(MoveTimer >= 1.5f)
+        if(MoveTimer >= 1f)
         {
             readyToMove = false;
             isMoving = false;
             MoveTimer = 0;
-            //movespeed = 0;
+            movespeed = 0;
             
             userDirection.x = 0;
             userDirection.y = 0;
@@ -98,8 +99,10 @@ public class FireEnemy : MonoBehaviour
 
         if(flaring)
         {
+            print("Flaring");
+            
             flaretime += Time.deltaTime;
-            if(flaretime >= .5f)
+            if(flaretime >= 1f)
             {
                 flaretime = 0f;
                 //int RandomX = Random.Range(-1,1);
@@ -143,12 +146,12 @@ public class FireEnemy : MonoBehaviour
     public void randomize()
     {
         
-        RandomX = Random.Range(-10,10);
-        RandomY = Random.Range(-10,10);
+        RandomX = Random.Range(-2,2);
+        RandomY = Random.Range(-2,2);
 
         //these two cause it to stop moving for some reason
-        //animator.SetInteger("movementX", RandomX);
-        //animator.SetInteger("movementY", RandomY);
+        animator.SetInteger("movementX", RandomX);
+        animator.SetInteger("movementY", RandomY);
          
         if(RandomX == 0 && RandomY == 0)
         {

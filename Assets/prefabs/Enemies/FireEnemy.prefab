@@ -240,6 +240,7 @@ GameObject:
   - component: {fileID: 5499729738158277232}
   - component: {fileID: 5499729738158277235}
   - component: {fileID: 5499729738158277236}
+  - component: {fileID: 591118936305307080}
   m_Layer: 0
   m_Name: FireEnemy
   m_TagString: Enemy
@@ -353,7 +354,7 @@ MonoBehaviour:
   movespeed: 2
   MoveTimer: 0
   flaring: 0
-  animator: {fileID: 0}
+  animator: {fileID: 591118936305307080}
   flaretime: 0
   RandomX: 0
   RandomY: 0
@@ -374,3 +375,23 @@ MonoBehaviour:
   CurrentRoom: {fileID: 0}
   heart: {fileID: 818842114129691388, guid: 9c0c6f3e70182d44d9c070d32c1213f5, type: 3}
   currentScale: {fileID: 0}
+--- !u!95 &591118936305307080
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5499729738158277237}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 5c74ef261d9f34747a9ad11c90475c7a, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
