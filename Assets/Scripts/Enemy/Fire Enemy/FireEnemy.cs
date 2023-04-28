@@ -47,7 +47,7 @@ public class FireEnemy : MonoBehaviour
     public GameObject heart;
 
     //private Transform Death = (0f,0f,0f);
-
+    public Transform currentScale;
 
     /////////////////////////////
     //End of Variable Declaration
@@ -116,8 +116,9 @@ public class FireEnemy : MonoBehaviour
 
 
         //this.transform.localscale.x <= 0
-
-        if (health <= 0)
+        currentScale = this.transform;
+        print(currentScale.localScale.x);
+        if (health <= 0 || currentScale.localScale.x <= 0)
         {
             Destroy(this.gameObject);
         }
