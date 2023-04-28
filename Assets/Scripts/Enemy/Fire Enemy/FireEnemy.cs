@@ -242,7 +242,7 @@ public class FireEnemy : MonoBehaviour
     {
         health -= ouchie;
 
-        if (health <= 0)
+        if (health <= 0 || currentScale.localScale.x <= .5f)
         {
             int heartOrNo = Random.Range(0, 4);
 
@@ -263,7 +263,7 @@ public class FireEnemy : MonoBehaviour
     {
         health -= ouchie;
 
-        if (health <= 0)
+        if (health <= 0 || currentScale.localScale.x <= .5f)
         {
             int heartOrNo = Random.Range(0, 4);
 
