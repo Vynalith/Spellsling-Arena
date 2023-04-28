@@ -165,8 +165,11 @@ public class LightningEnemy : MonoBehaviour
                 health = maxhealth;
             }
         }
+        if (!isMoving)
+        {
+            moveSpeed += (float)ouchie * .25f;
 
-        moveSpeed += (float)ouchie / 10;
+        }
 
         if (health <= 0)
         {
