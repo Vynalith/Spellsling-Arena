@@ -97,7 +97,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shatter: {fileID: 2260554970745162690, guid: e2f1e460a4cd0df47b2678872bcc9233, type: 3}
-  lifeTime: 25
+  lifeTime: 9999
 --- !u!1001 &2902830280317159819
 PrefabInstance:
   m_ObjectHideFlags: 0
