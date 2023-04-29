@@ -8148,6 +8148,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Earth Wall (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 5061983369167087630, guid: d818aa889e4fa244da914d4d82782dbf, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d818aa889e4fa244da914d4d82782dbf, type: 3}
 --- !u!4 &4121977495297725482 stripped
@@ -8347,6 +8351,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Earth Wall (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 5061983369167087630, guid: d818aa889e4fa244da914d4d82782dbf, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d818aa889e4fa244da914d4d82782dbf, type: 3}
 --- !u!4 &1939624160071798440 stripped
@@ -8416,6 +8424,10 @@ PrefabInstance:
     - target: {fileID: 5061983369167087630, guid: d96948f3ef2a7ac40b099ee46f437594, type: 3}
       propertyPath: m_Name
       value: Ice Wall (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5061983369167087630, guid: d96948f3ef2a7ac40b099ee46f437594, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6769293188608201787, guid: d96948f3ef2a7ac40b099ee46f437594, type: 3}
       propertyPath: m_Enabled
@@ -8491,6 +8503,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Ice Wall (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 5061983369167087630, guid: d96948f3ef2a7ac40b099ee46f437594, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6769293188608201787, guid: d96948f3ef2a7ac40b099ee46f437594, type: 3}
       propertyPath: m_Enabled
       value: 0
@@ -8565,6 +8581,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Ice Wall
       objectReference: {fileID: 0}
+    - target: {fileID: 5061983369167087630, guid: d96948f3ef2a7ac40b099ee46f437594, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6769293188608201787, guid: d96948f3ef2a7ac40b099ee46f437594, type: 3}
       propertyPath: m_Enabled
       value: 0
@@ -8589,7 +8609,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 368254031953725984, guid: 62e4af580c8083d4cbc3795f8910f72b, type: 3}
       propertyPath: cooldown
-      value: 1500
+      value: 200
       objectReference: {fileID: 0}
     - target: {fileID: 368254031953725984, guid: 62e4af580c8083d4cbc3795f8910f72b, type: 3}
       propertyPath: CurrentRoom
@@ -8834,6 +8854,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Earth Wall (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 5061983369167087630, guid: d818aa889e4fa244da914d4d82782dbf, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d818aa889e4fa244da914d4d82782dbf, type: 3}
 --- !u!4 &5791525047089717969 stripped
@@ -8957,6 +8981,10 @@ PrefabInstance:
     - target: {fileID: 5061983369167087630, guid: d818aa889e4fa244da914d4d82782dbf, type: 3}
       propertyPath: m_Name
       value: Earth Wall
+      objectReference: {fileID: 0}
+    - target: {fileID: 5061983369167087630, guid: d818aa889e4fa244da914d4d82782dbf, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d818aa889e4fa244da914d4d82782dbf, type: 3}

@@ -4936,9 +4936,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1944370736364473555, guid: 40d2c21b65ebb884687e3586004b7f44, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 38.780346
+      objectReference: {fileID: 0}
     - target: {fileID: 1974370995060080427, guid: 40d2c21b65ebb884687e3586004b7f44, type: 3}
       propertyPath: m_Name
       value: FancyRoomTemplate (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3429381053180206884, guid: 40d2c21b65ebb884687e3586004b7f44, type: 3}
+      propertyPath: m_SortingOrder
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 3687640434009632701, guid: 40d2c21b65ebb884687e3586004b7f44, type: 3}
       propertyPath: m_LocalPosition.y
@@ -4964,6 +4972,18 @@ PrefabInstance:
       propertyPath: Enemies.Array.data[2]
       value: 
       objectReference: {fileID: 4753000428131434319}
+    - target: {fileID: 5576643332563485089, guid: 40d2c21b65ebb884687e3586004b7f44, type: 3}
+      propertyPath: m_SortingOrder
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 8649275885013619286, guid: 40d2c21b65ebb884687e3586004b7f44, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 37.845146
+      objectReference: {fileID: 0}
+    - target: {fileID: 8649275885013619286, guid: 40d2c21b65ebb884687e3586004b7f44, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.80644
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 40d2c21b65ebb884687e3586004b7f44, type: 3}
 --- !u!1 &3660653606129913973 stripped

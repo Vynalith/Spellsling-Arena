@@ -27,6 +27,7 @@ public class Tutorial : MonoBehaviour
     public bool isScreaming;
     public AudioSource[] quacks;
     public AudioSource quackDie;
+    public AudioSource quackSong;
 
     public GameObject sceneLoader;
     public GameObject zap;
@@ -89,6 +90,8 @@ public class Tutorial : MonoBehaviour
                     tutorialNum = 20;
                     isScreaming = false;
                     skipTimer = timer + 1.25f;
+                    quackSong.Stop();
+
                 }
             }
 
@@ -99,7 +102,8 @@ public class Tutorial : MonoBehaviour
                     Instantiate(zap, duckHunt.transform.position, duckHunt.transform.rotation);
                     skipTimer = timer + 1.25f;
                     isScreaming = false;
-                   tutorialNum = 20; 
+                   tutorialNum = 20;
+                    quackSong.Stop();
                 }
                 
              }

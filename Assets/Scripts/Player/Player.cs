@@ -59,7 +59,7 @@ public class Player : MonoBehaviour
         Playing=true;
         element = 1;
         animator.SetInteger("element", element);
-        health = 3;
+        health = maxHealth - 2;
         //UI = GameObject.Find("PlayerUI");
         isDead = false;
     }

@@ -2897,6 +2897,8 @@ MonoBehaviour:
   - {fileID: 443388838848946130}
   - {fileID: 443388838727834641}
   - {fileID: 443388839458956855}
+  Statues: []
+  Other: []
   enter: 0
 --- !u!1 &7833236702652042183
 GameObject:
@@ -2982,6 +2984,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 6
       objectReference: {fileID: 0}
+    - target: {fileID: 5444631525747349313, guid: d1553d8c37a3ff146bab505e54041860, type: 3}
+      propertyPath: m_SortingOrder
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 6284083940040710608, guid: d1553d8c37a3ff146bab505e54041860, type: 3}
       propertyPath: m_Layer
       value: 6
@@ -3042,6 +3048,14 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Wall
       objectReference: {fileID: 0}
+    - target: {fileID: 9143264374473475254, guid: d1553d8c37a3ff146bab505e54041860, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 37.325485
+      objectReference: {fileID: 0}
+    - target: {fileID: 9143264374473475254, guid: d1553d8c37a3ff146bab505e54041860, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.14456
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d1553d8c37a3ff146bab505e54041860, type: 3}
 --- !u!4 &8597592869132832520 stripped
@@ -3064,6 +3078,10 @@ PrefabInstance:
     - target: {fileID: 537465379495977986, guid: d1553d8c37a3ff146bab505e54041860, type: 3}
       propertyPath: m_Layer
       value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 5444631525747349313, guid: d1553d8c37a3ff146bab505e54041860, type: 3}
+      propertyPath: m_SortingOrder
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 6284083940040710608, guid: d1553d8c37a3ff146bab505e54041860, type: 3}
       propertyPath: m_Layer
@@ -3128,6 +3146,14 @@ PrefabInstance:
     - target: {fileID: 6284083940895516633, guid: d1553d8c37a3ff146bab505e54041860, type: 3}
       propertyPath: m_TagString
       value: Wall
+      objectReference: {fileID: 0}
+    - target: {fileID: 9143264374473475254, guid: d1553d8c37a3ff146bab505e54041860, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 37.325485
+      objectReference: {fileID: 0}
+    - target: {fileID: 9143264374473475254, guid: d1553d8c37a3ff146bab505e54041860, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.14455
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d1553d8c37a3ff146bab505e54041860, type: 3}

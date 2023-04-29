@@ -13,6 +13,7 @@ public class Room : MonoBehaviour
     public GameObject[] Enemies;
     public GameObject[] Statues;
 
+
      public int enter;
 
     void Start()
@@ -36,7 +37,6 @@ public class Room : MonoBehaviour
             {
                 Enemies[i].SetActive(true);
             }
-
         }
     }
     
