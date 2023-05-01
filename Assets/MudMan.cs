@@ -33,8 +33,7 @@ public class MudMan : MonoBehaviour
     public float Vertical;
 
     private float stupidspeed;
-
-    public GameObject collider;
+    private Collider2D Collider;
 
     // Start is called before the first frame update
     void Start()
@@ -55,7 +54,7 @@ public class MudMan : MonoBehaviour
 
         if (SightTest() == target.GetComponent<Collider2D>() || SightTest() == target2.GetComponent<Collider2D>())
         {
-            collider.SetActive(true);
+            Collider2D.SetActive(true);
             animator.Play("MudRise");
             animator.SetBool("Awake", true);
             
@@ -68,7 +67,7 @@ public class MudMan : MonoBehaviour
             }
         }
         else{
-             collider.SetActive(false);
+             Collider2D.SetActive(false);
              animator.SetBool("Awake", false);
         }
         finalDetected = null;
@@ -110,7 +109,10 @@ public class MudMan : MonoBehaviour
         RaycastHit2D sightTest = Physics2D.Raycast(start, direction, sightDistance, layerMask);
         if (sightTest.collider != null)
         {
-            if (sightTest.collider.gameObject != gameObject)
+            if (sightTest.Collider2D.gameObject == gameObject)
+            {
+            }
+            else
             {
                 finalDetected = null;
                 //Debug.Log("Rigidbody collider is: " + sightTest.collider);

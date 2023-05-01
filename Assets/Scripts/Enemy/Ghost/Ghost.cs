@@ -22,8 +22,6 @@ public class Ghost : MonoBehaviour
     public float playerAwarenessDistance;
     private GameObject playertarget;
 
-    /////////////////////////////////////////////
-
 
     ////////////////////////////////////////////
     ///GoopMovement values                   ///
@@ -33,8 +31,9 @@ public class Ghost : MonoBehaviour
     [SerializeField]
     private float speed;
     [SerializeField]
+
     //private float rotationSpeed = 100;
-    public Rigidbody2D rigidbody;
+    public Rigidbody2D OnTriggerEnter2D;
     //private PlayerAware ThisPlayerAware;
     private Vector2 targetdirection;
     public GameObject sprite;

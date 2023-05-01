@@ -39,7 +39,7 @@ public class Tutorial : MonoBehaviour
             //animator.Play("DuckTalk");
             
         }
-        if(move=true)
+        if(move == true)
         {
           transform.Translate(userDirection * movespeed * Time.deltaTime);
         }
@@ -49,11 +49,11 @@ public class Tutorial : MonoBehaviour
             animator.Play("DuckTalk");
         }
 
-        if(allowinput=true)
+        if(allowinput == true)
         {
             if( Input.GetButtonDown("Fire2"))
             {
-                tutorialNum+=1;
+                tutorialNum += 1;
             }
 
              if( Input.GetButtonDown("M2"))

@@ -18,15 +18,15 @@ public class Player : MonoBehaviour
     public Rigidbody2D rb;
     public Rigidbody2D rb2;
     //public GameObject fireBallPrefab;
-    public GameObject damage;
-    public Camera camera;
+    public GameObject Damage;
+    public Camera Camera;
     public Animator animator;
     public GameObject Shooter;
 
     //public Animation lightningAttack;
     private Vector3 flashback;
-   public int element;
-   private bool Playing;
+    public int element;
+    private bool Playing1;
     
     public GameObject gameUI;
 
@@ -50,12 +50,22 @@ public class Player : MonoBehaviour
     public float Deadtimer;
     public bool isDead;
     public float countdown;
-    public GameObject Reset;
+    private GameObject reset;
+
+    public GameObject GetReset()
+    {
+        return reset;
+    }
+
+    public void SetReset(GameObject value)
+    {
+        reset = value;
+    }
 
     // Start is called before the first frame update
     void Start()
     {
-        Playing=true;
+        Playing1=true;
         element = 1;
         animator.SetInteger("element", element);
 
@@ -66,13 +76,13 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Playing==true)
+        if(Playing1==true)
         {
         //input
         movement.x = Input.GetAxisRaw("Horizontal");
         movement.y = Input.GetAxisRaw("Vertical");
 
-        mousePos = camera.ScreenToWorldPoint(Input.mousePosition);
+        mousePos = GetComponent<Camera>().ScreenToWorldPoint(Input.mousePosition);
 
         animator.SetFloat("Horizontal", movement.x);
         animator.SetFloat("Vertical", movement.y);
@@ -165,7 +175,7 @@ public class Player : MonoBehaviour
 
         if(Deadtimer>=countdown)
         {
-            Reset.SendMessage("LoadScene", "Menu");
+            GetReset().SendMessage("LoadScene", "Menu");
         }
 
         
@@ -188,7 +198,7 @@ public class Player : MonoBehaviour
 
     void FixedUpdate()
     {
-        if(Playing==true)
+        if(Playing1==true)
         {
         //movement
         rb.MovePosition(rb.position + movement * speed *Time.fixedDeltaTime);
@@ -258,7 +268,7 @@ public class Player : MonoBehaviour
         health -= damage;
         if (health <= 0)
         {
-            Playing = false;
+            Playing1 = false;
             isDead = true;
             Shooter.gameObject.SendMessage("Death");
             animator.Play("DEATH");
@@ -320,7 +330,7 @@ public class Player : MonoBehaviour
 
     public void Win()
     {
-        Playing = false;
+        Playing1 = false;
         Shooter.gameObject.SendMessage("Win");
 
         if(element == 1)
