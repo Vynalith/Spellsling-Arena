@@ -9,6 +9,7 @@ public class Ghost : MonoBehaviour
     public GameObject CurrentRoom;
     public Animator animator;
     public GameObject heart;
+    public GameObject damageEffect;
 
 
     ////////////////////////////////////////////
@@ -98,6 +99,8 @@ public class Ghost : MonoBehaviour
 
     public void HurtMe(int damage)
     {
+        Instantiate(damageEffect, this.transform.position, this.transform.rotation);
+
         health -= damage;
         if (health <= 0)
         {
@@ -120,6 +123,7 @@ public class Ghost : MonoBehaviour
     public void LightningHurtMe(int ouchie)
     {
         health -= ouchie + 1;
+        Instantiate(damageEffect, this.transform.position, this.transform.rotation);
 
         if (health <= 0)
         {
@@ -141,6 +145,7 @@ public class Ghost : MonoBehaviour
     public void FireHurtMe(int ouchie)
     {
         health -= ouchie;
+        Instantiate(damageEffect, this.transform.position, this.transform.rotation);
 
         if (health <= 0)
         {
@@ -162,6 +167,7 @@ public class Ghost : MonoBehaviour
     public void IceHurtMe(int ouchie)
     {
         health -= ouchie;
+        Instantiate(damageEffect, this.transform.position, this.transform.rotation);
 
         if (health <= 0)
         {

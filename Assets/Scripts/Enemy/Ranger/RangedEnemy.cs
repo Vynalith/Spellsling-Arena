@@ -33,6 +33,7 @@ public class RangedEnemy : MonoBehaviour
     public float Vertical;
 
     private float stupidspeed;
+    public GameObject damageEffect;
 
     // Start is called before the first frame update
     void Start()
@@ -115,6 +116,7 @@ public class RangedEnemy : MonoBehaviour
 
     public void HurtMe(int damage)
     {
+        Instantiate(damageEffect, this.transform.position, this.transform.rotation);
         health -= damage;
         if (health <= 0)
         {
@@ -136,6 +138,7 @@ public class RangedEnemy : MonoBehaviour
 
     public void LightningHurtMe(int ouchie)
     {
+        Instantiate(damageEffect, this.transform.position, this.transform.rotation);
         health -= ouchie;
 
         if (health <= 0)
@@ -158,6 +161,7 @@ public class RangedEnemy : MonoBehaviour
     public void FireHurtMe(int ouchie)
     {
         health -= ouchie;
+        Instantiate(damageEffect, this.transform.position, this.transform.rotation);
 
         if (health <= 0)
         {
@@ -179,6 +183,7 @@ public class RangedEnemy : MonoBehaviour
     public void IceHurtMe(int ouchie)
     {
         health -= ouchie;
+        Instantiate(damageEffect, this.transform.position, this.transform.rotation);
 
         if (health <= 0)
         {
@@ -200,6 +205,7 @@ public class RangedEnemy : MonoBehaviour
     public void EarthHurtMe(int ouchie)
     {
         health -= ouchie;
+        Instantiate(damageEffect, this.transform.position, this.transform.rotation);
 
         if (health <= 0)
         {

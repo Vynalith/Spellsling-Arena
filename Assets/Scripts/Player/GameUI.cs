@@ -47,8 +47,8 @@ public class GameUI : MonoBehaviour
         fireSelect.gameObject.SetActive(false);
         iceSelect.gameObject.SetActive(false);
         earthSelect.gameObject.SetActive(false);
-
         Shooter = GameObject.Find("Shooter");
+        health = 3;
     }
 
     // Update is called once per frame
