@@ -99,7 +99,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 10
   CurrentRoom: {fileID: 0}
-  cooldown: 100
+  cooldown: 200
   Projectile:
   - {fileID: 7717531246457936126, guid: c04b705ba74b181478b0f90972175907, type: 3}
   - {fileID: 4238966175713179051, guid: e57aa92abb0f23247894043be6f1c36d, type: 3}
@@ -111,7 +111,6 @@ MonoBehaviour:
   animator: {fileID: 8200437591980419255}
   anchor: {fileID: 0}
   WIN: {fileID: 5281848734733506458, guid: 0e0194ceb75a90841a2c4447a3097862, type: 3}
-  damageEffect: {fileID: 2260554970745162690, guid: 573194a35637bd54ebc5d2223fe235b9, type: 3}
 --- !u!95 &8200437591980419255
 Animator:
   serializedVersion: 4

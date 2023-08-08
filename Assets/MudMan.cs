@@ -25,7 +25,6 @@ public class MudMan : MonoBehaviour
 
     public Animator animator;
 
-    public GameObject damageEffect;
 
     public int heartOrNo;
     public GameObject heart;
@@ -130,7 +129,6 @@ public class MudMan : MonoBehaviour
 
     public void HurtMe(int damage)
     {
-        Instantiate(damageEffect, this.transform.position, this.transform.rotation);
         health -= damage;
         if (health <= 0)
         {
@@ -153,7 +151,6 @@ public class MudMan : MonoBehaviour
     public void LightningHurtMe(int ouchie)
     {
         health -= ouchie - 1;
-        Instantiate(damageEffect, this.transform.position, this.transform.rotation);
 
         if (health <= 0)
         {
@@ -175,7 +172,6 @@ public class MudMan : MonoBehaviour
     public void FireHurtMe(int ouchie)
     {
         health -= ouchie;
-        Instantiate(damageEffect, this.transform.position, this.transform.rotation);
 
         if (health <= 0)
         {
@@ -197,7 +193,6 @@ public class MudMan : MonoBehaviour
     public void IceHurtMe(int ouchie)
     {
         health -= ouchie;
-        Instantiate(damageEffect, this.transform.position, this.transform.rotation);
 
         if (health <= 0)
         {
@@ -219,7 +214,6 @@ public class MudMan : MonoBehaviour
     public void EarthHurtMe(int ouchie)
     {
         health -= ouchie;
-        Instantiate(damageEffect, this.transform.position, this.transform.rotation);
 
         if (health <= 0)
         {

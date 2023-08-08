@@ -24,7 +24,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3896307558406374088}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 2.322, z: 0}
+  m_LocalPosition: {x: 0, y: -2.322, z: 0}
   m_LocalScale: {x: 0.4, y: 0.4, z: 0.4}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -44,9 +44,8 @@ GameObject:
   - component: {fileID: 727327039819847106}
   - component: {fileID: 7933244116091125278}
   - component: {fileID: 5528584689672397729}
-  - component: {fileID: 2665666513518645193}
   m_Layer: 0
-  m_Name: StatueUp
+  m_Name: Statue
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -133,12 +132,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cooldown: 5
-  cooldownCount: 0
-  Projectile: {fileID: 2973646001600191778, guid: 79ba8a27158e6c046a8382a4ac698c3f, type: 3}
+  Projectile: {fileID: 0}
   shotForce: 20
   playerInRange: 0
   aimer: {fileID: 3896307558406374088}
-  animator: {fileID: 2665666513518645193}
+  direction: 0
 --- !u!61 &7933244116091125278
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -191,23 +189,3 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.59, y: 2.5}
   m_EdgeRadius: 0
---- !u!95 &2665666513518645193
-Animator:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4953360847668526624}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: e130d40fe2473184d907f82bff4e6ce9, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0

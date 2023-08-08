@@ -59,18 +59,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2070622889743740726, guid: 97905fd01aea8e94bbe288ba7bd9af53, type: 3}
-      propertyPath: m_SortingOrder
-      value: 12
-      objectReference: {fileID: 0}
     - target: {fileID: 4401286057854046240, guid: 97905fd01aea8e94bbe288ba7bd9af53, type: 3}
       propertyPath: health
       value: 3
       objectReference: {fileID: 0}
-    - target: {fileID: 4401286057854046240, guid: 97905fd01aea8e94bbe288ba7bd9af53, type: 3}
-      propertyPath: damageEffect
-      value: 
-      objectReference: {fileID: 2260554970745162690, guid: 573194a35637bd54ebc5d2223fe235b9, type: 3}
     - target: {fileID: 4401286057854046242, guid: 97905fd01aea8e94bbe288ba7bd9af53, type: 3}
       propertyPath: playerAwarenessDistance
       value: 20

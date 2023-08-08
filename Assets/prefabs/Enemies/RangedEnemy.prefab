@@ -183,7 +183,7 @@ MonoBehaviour:
   health: 2
   damage: {fileID: 8132685761496276164, guid: eba20271973d5164cbc490afcdb27fa1, type: 3}
   CurrentRoom: {fileID: 0}
-  cooldown: 50
+  cooldown: 100
   Projectile: {fileID: 7717531246457936126, guid: 0c0394cfaf22c81458ff7aac8bcb0580, type: 3}
   shotForce: 20
   sightDistance: 7
@@ -193,7 +193,6 @@ MonoBehaviour:
   heart: {fileID: 818842114129691388, guid: 9c0c6f3e70182d44d9c070d32c1213f5, type: 3}
   Horizontal: 0
   Vertical: 0
-  damageEffect: {fileID: 2260554970745162690, guid: 573194a35637bd54ebc5d2223fe235b9, type: 3}
 --- !u!95 &4287943340580815684
 Animator:
   serializedVersion: 4

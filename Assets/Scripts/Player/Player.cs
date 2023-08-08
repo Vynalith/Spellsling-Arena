@@ -11,7 +11,6 @@ public class Player : MonoBehaviour
     //private Rigidbody2D r2d;
     public float speed;
     public int health;
-    public int maxHealth;
 
     Vector2 movement;
     Vector2 mousePos;
@@ -45,7 +44,7 @@ public class Player : MonoBehaviour
     private bool bossSongStarted;
     public AudioSource winSong;
 
-    //public GameObject UI;
+    public GameObject UI;
 
     
     public float Deadtimer;
@@ -69,8 +68,8 @@ public class Player : MonoBehaviour
         Playing1=true;
         element = 1;
         animator.SetInteger("element", element);
-        health = maxHealth - 2;
-        //UI = GameObject.Find("PlayerUI");
+
+        UI = GameObject.Find("PlayerUI");
         isDead = false;
     }
 
@@ -193,9 +192,6 @@ public class Player : MonoBehaviour
 
     void PlayWinSong()
     {
-        song1Intro.Stop();
-        song1Loop.Stop();
-        bossSongIntro.Stop();
         bossSongLoop.Stop();
         winSong.Play();
     }
@@ -262,7 +258,7 @@ public class Player : MonoBehaviour
         if(health < 5)
         {
             health = health+1;
-            gameUI.SendMessage("Heal", SendMessageOptions.DontRequireReceiver);
+            UI.SendMessage("Heal", SendMessageOptions.DontRequireReceiver);
 
         }
     }
@@ -276,7 +272,7 @@ public class Player : MonoBehaviour
             isDead = true;
             Shooter.gameObject.SendMessage("Death");
             animator.Play("DEATH");
-            gameUI.SendMessage("Hurt", damage);
+            UI.SendMessage("Hurt", damage);
     
         }
         else if (health >= 1)
@@ -284,22 +280,22 @@ public class Player : MonoBehaviour
             if (element == 1)
             {
                 animator.Play("LightningDamage");
-                 gameUI.SendMessage("Hurt",damage);
+                 UI.SendMessage("Hurt",damage);
             }
             if (element == 2)
             {
                 animator.Play("FireDamage");
-                 gameUI.SendMessage("Hurt",damage);
+                 UI.SendMessage("Hurt",damage);
             }
             if (element == 3)
             {
                 animator.Play("IceDamage");
-                 gameUI.SendMessage("Hurt",damage);
+                 UI.SendMessage("Hurt",damage);
             }
             if (element == 4)
             {
                 animator.Play("EarthDamage");
-                 gameUI.SendMessage("Hurt",damage);
+                 UI.SendMessage("Hurt",damage);
             }
         }
     }

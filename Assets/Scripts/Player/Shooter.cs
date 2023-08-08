@@ -87,9 +87,6 @@ public class Shooter : MonoBehaviour
         fireReady = true;
         earthReady = true;
 
-
-        gameUI.SendMessage("LightningCooldown", 3f); //cause you shot the duck
-
     }
 
     public void Death()

@@ -33,9 +33,6 @@ public class Hydra : MonoBehaviour
 
     private int Hydradamage;
 
-    public GameObject damageEffect;
-     
-
 
     // Start is called before the first frame update
     void Start()
@@ -173,8 +170,6 @@ public class Hydra : MonoBehaviour
 
     public void HurtMe(int damage)
     {
-        Instantiate(damageEffect, this.transform.position, this.transform.rotation);
-
         health -= damage;
         if (health <= 0)
         {
@@ -188,7 +183,6 @@ public class Hydra : MonoBehaviour
     public void LightningHurtMe(int ouchie)
     {
         health -= ouchie;
-        Instantiate(damageEffect, this.transform.position, this.transform.rotation);
 
         if (health <= 0)
         {
@@ -201,7 +195,6 @@ public class Hydra : MonoBehaviour
     public void FireHurtMe(int ouchie)
     {
         health -= ouchie;
-        Instantiate(damageEffect, this.transform.position, this.transform.rotation);
 
         if (health <= 0)
         {
@@ -214,7 +207,6 @@ public class Hydra : MonoBehaviour
     public void IceHurtMe(int ouchie)
     {
         health -= ouchie;
-        Instantiate(damageEffect, this.transform.position, this.transform.rotation);
 
         if (health <= 0)
         {
@@ -227,7 +219,6 @@ public class Hydra : MonoBehaviour
     public void EarthHurtMe(int ouchie)
     {
         health -= ouchie;
-        Instantiate(damageEffect, this.transform.position, this.transform.rotation);
 
         if (health <= 0)
         {

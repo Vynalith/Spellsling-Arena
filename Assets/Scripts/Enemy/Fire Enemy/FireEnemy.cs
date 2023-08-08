@@ -34,8 +34,6 @@ public class FireEnemy : MonoBehaviour
     //Movement stuff
     public Vector3 looking;
     public bool isMoving;
-    public bool readyToMove;
-    public Vector3 movement;
 
 
     //fireball for damage/healing
@@ -46,8 +44,8 @@ public class FireEnemy : MonoBehaviour
     public GameObject CurrentRoom;
     public GameObject heart;
 
-    //private Transform Death = (0f,0f,0f);
-    public Transform currentScale;
+
+
 
     /////////////////////////////
     //End of Variable Declaration
@@ -60,47 +58,23 @@ public class FireEnemy : MonoBehaviour
     {
         maxhealth = 4;
         health = maxhealth;
-        readyToMove = true;
-        flaring = false;
     }
 
     // Update is called once per frame
     void Update()
     {
+        transform.Translate(userDirection * movespeed * Time.deltaTime);
+        
+       
 
-
-        if (readyToMove)
+        if(health <= 0)
         {
-            movespeed = 1;
-            movement = userDirection;
-            movement.x = (movement.x/1);
-            movement.y = ( movement.y/1);
-
-            //transform.Translate(userDirection * movespeed * Time.deltaTime);
-            transform.Translate(movement * movespeed * Time.deltaTime);
-            isMoving = true;
-             animator.SetBool("IsMoving", true);
-
-             if(Mathf.Abs(RandomX)>Mathf.Abs(RandomY))
-             {
-                animator.SetInteger("Direction", 1);
-                print("move X");
-             }
-             if(Mathf.Abs(RandomY)>Mathf.Abs(RandomX))
-             {
-                animator.SetInteger("Direction", 2);
-                print("move Y");
-             }
-
-
-            MoveTimer += Time.deltaTime;
+            Destroy(this.gameObject);
         }
+        MoveTimer += Time.deltaTime;
 
-        if(MoveTimer >= 1f)
+        if(MoveTimer >= 3)
         {
-            readyToMove = false;
-            isMoving = false;
-            animator.SetBool("IsMoving", false);
             MoveTimer = 0;
             movespeed = 0;
             
@@ -112,67 +86,37 @@ public class FireEnemy : MonoBehaviour
             animator.Play("Flare up");
         }
 
-        if(flaring)
+        if(flaring == true)
         {
-            print("Flaring");
-            
             flaretime += Time.deltaTime;
-            if(flaretime >= 1f)
+            if(flaretime >=1)
             {
-                flaretime = 0f;
+                flaretime = 0;
                 //int RandomX = Random.Range(-1,1);
                 //int RandomY = Random.Range(-1,1);
                 randomize();
                 userDirection.x= RandomX;
                 userDirection.y= RandomY;
-                //movespeed = 1;
+                movespeed = 1;
                 flaring = false;
-                print("Flaring is " + flaring);
-                readyToMove = true;
-                //MoveTimer = 0f;
             }
         }
 
 
-        //this.transform.localscale.x <= 0
-        currentScale = this.transform;
-        print(currentScale.localScale.x);
-        if (health <= 0 || currentScale.localScale.x <= 0)
-        {
-            Destroy(this.gameObject);
-        }
-
-        ResetZ();
-
-
+        
+        
     }
-
-    public void ResetZ()
-    {
-        if (this.transform.position.z > 10 || this.transform.position.z < -10)
-        {
-            Transform getbackstupid = this.transform;
-            Vector3 unityisdumb = new Vector3(getbackstupid.position.x, getbackstupid.position.y, 0f);
-            getbackstupid.position = unityisdumb;
-            this.transform.position = getbackstupid.position;
-        }
-    }
-
     public void randomize()
     {
-        
-        RandomX = Random.Range(-2,2);
-        RandomY = Random.Range(-2,2);
-
-        //these two cause it to stop moving for some reason
+         RandomX = Random.Range(-1,1);
+         RandomY = Random.Range(-1,1);
         animator.SetInteger("movementX", RandomX);
         animator.SetInteger("movementY", RandomY);
          
-        if(RandomX == 0 && RandomY == 0)
+        if(RandomX ==0 && RandomY == 0)
         {
             randomize();
         }
-        
     }
 
 
@@ -246,7 +190,7 @@ public class FireEnemy : MonoBehaviour
 
         if (health > maxhealth)
         {
-            if (this.gameObject.transform.localScale.x <= (3f))
+            if (this.gameObject.transform.localScale.x <= (2f))
             {
                 this.gameObject.transform.localScale += new Vector3((float)((health - maxhealth) * .05), (float)((health - maxhealth) * .05), 0f);
 
@@ -275,7 +219,7 @@ public class FireEnemy : MonoBehaviour
     {
         health -= ouchie;
 
-        if (health <= 0 || currentScale.localScale.x <= .5f)
+        if (health <= 0)
         {
             int heartOrNo = Random.Range(0, 4);
 
@@ -296,7 +240,7 @@ public class FireEnemy : MonoBehaviour
     {
         health -= ouchie;
 
-        if (health <= 0 || currentScale.localScale.x <= .5f)
+        if (health <= 0)
         {
             int heartOrNo = Random.Range(0, 4);
 
@@ -315,14 +259,7 @@ public class FireEnemy : MonoBehaviour
 
 
 
-    public void OnCollisionEnter2D (Collision2D other)
-    {
-        if (other.gameObject.CompareTag("Wall") || other.gameObject.CompareTag("EarthWall"))
-        {
-            movement.x *= -1;
-            movement.y *= -1;
-        }
-    }
+
 
 
     public void OnTriggerEnter2D(Collider2D other)
@@ -331,7 +268,6 @@ public class FireEnemy : MonoBehaviour
         {
             isLooking = true;
             isMoving = false;
-            animator.SetBool("IsMoving", false);
         }
 
         if (other.gameObject.CompareTag("IceWall"))
@@ -348,14 +284,6 @@ public class FireEnemy : MonoBehaviour
             Instantiate(steam, other.transform.position, steam.transform.rotation);
             Destroy(other.gameObject);
             HurtMe(1);
-            this.gameObject.transform.localScale -= new Vector3(.15f, .15f, 0f);
-        }
-        
-        if (other.gameObject.CompareTag("Puddle"))
-        {
-            Instantiate(steam, other.transform.position, steam.transform.rotation);
-            Destroy(other.gameObject);
-            HurtMe(2);
             this.gameObject.transform.localScale -= new Vector3(.15f, .15f, 0f);
         }
 

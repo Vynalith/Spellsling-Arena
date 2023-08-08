@@ -8,8 +8,6 @@ public class Enemy : MonoBehaviour
     public GameObject damage;
     public GameObject CurrentRoom;
     public GameObject heart;
-    public SpriteRenderer renderer;
-
    
     // Start is called before the first frame update
     void Start()
@@ -23,11 +21,6 @@ public class Enemy : MonoBehaviour
         
     }
 
-    public void FixedUpdate()
-    {
-        renderer.color = new Color(0f, 0f, 0f, 1f);
-    }
-
     ///////////////////////////////////////////////
     ///Damage check
     ///////////////////////////////////////////////
@@ -35,7 +28,6 @@ public class Enemy : MonoBehaviour
     public void HurtMe(int damage)
     {
         health -= damage;
-        renderer.color = new Color(0f, 28f, 0f, 1f);
         if (health <= 0)
         {
             int heartOrNo = Random.Range(0, 4);

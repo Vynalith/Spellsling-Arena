@@ -168,4 +168,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shatter: {fileID: 2260554970745162690, guid: e2f1e460a4cd0df47b2678872bcc9233, type: 3}
-  lifeTime: 999
+  lifeTime: 25

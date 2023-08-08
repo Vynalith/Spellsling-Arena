@@ -128,7 +128,6 @@ MonoBehaviour:
   sightDistance: 5
   shootAngle: {x: 0, y: 0, z: 0}
   animator: {fileID: 3546851166890705762}
-  damageEffect: {fileID: 2260554970745162690, guid: 573194a35637bd54ebc5d2223fe235b9, type: 3}
   heartOrNo: 0
   heart: {fileID: 818842114129691388, guid: 9c0c6f3e70182d44d9c070d32c1213f5, type: 3}
   Horizontal: 0
