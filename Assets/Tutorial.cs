@@ -3,50 +3,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.MonoBehavior;
-using UnityEngine.SceneLoader;
+using UnityEngine.SceneManagement;
 
 public class Tutorial : MonoBehavior
-{
-    public float timer;
-    public float textTimer;
-    public float skipTimer;
-    private int movespeed = Vector3.one;
-
-    private userDirection = Vector3.one;
-    public bool tutorial.move >= tutorial.move;
-    public bool allowing;
-    public GameObject inputTUT;
-
-    public Animator animator;
-    public int tutorialNum;
-    public GameObject tutscreen1;
-    public GameObject tutscreen2;
-    public GameObject tutscreen3;
-    public GameObject tutscreen4;
-
-    public int randomQuack;
-    public bool firstQuack;
-    public bool nextQuack;
-    public bool isScreaming;
-    public AudioSource[] quacks;
-    public AudioSource quackDie;
-    public AudioSource quackSong;
-
-    public GameObject SceneLoader;
-    public GameObject zap;
-    private GameObject duckHunt;
-
-    public global::System.Int32 movespeed { get => movespeed; set => movespeed = value; }
-    public global::System.Int32 movespeed { get => movespeed; set => movespeed = value; }
-
-    public GameObject Tutscreen1 { get => Tutscreen1; set => Tutscreen1 = value; }
-    public Vector3 UserDirection { get => UserDirection1; set => UserDirection1 = value; }
-    public global::System.Int32 Movespeed { get => this.movespeed; set => this.movespeed = value; }
-    public Vector3 UserDirection1 { get => UserDirection3; set => UserDirection3 = value; }
-    public Vector3 UserDirection2 { get => UserDirection3; set => UserDirection3 = value; }
-    public Vector3 UserDirection3 { get => userDirection; set => userDirection = value; }
-    public GameObject DuckHunt { get => duckHunt; set => duckHunt = value; }
-
+{   
     //public Transform duckHuntDog;
 
     // Start is called before the first frame update

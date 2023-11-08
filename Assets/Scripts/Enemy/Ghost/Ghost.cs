@@ -5,24 +5,46 @@ using UnityEngine.MonoBehavior;
 
 public class Ghost : MonoBehavior
 {
-    public int health;
-    public GameObject damage;
-    public GameObject CurrentRoom;
-    public Animator animator;
-    public GameObject heart;
+    private global::System.Int32 health => ghost.health;
+
+    public GameObject Ghost.damage { get; }
+
+    public GameObject Ghost.currentRoom { get; }
+    public Animator Ghost.animator { get; }
+
+    public GameObject Ghost.heart { get; }
 
 
     ////////////////////////////////////////////
     ///PlayerAware values                    ///
     ////////////////////////////////////////////
-    private Transform aim;
-    private GameObject aimTarget;
+    private Transform Ghost.aim { get; }
+    private GameObject Ghost.aimTarget { get; }
     public bool AwareOfPlayer { get; private set; }
-    public Vector2 DirectionToPlayer { get; private set; }
-    [SerializeField]
-    public float playerAwarenessDistance;
-    private GameObject playertarget;
+    public Vector2 DirectionToPlayer { get { return DirectionToPlayer; } private set => directionToPlayer = value; }
+    public global::System.Int32 Health { get => health; set => health = value; }
+    public GameObject CurrentRoom { get => currentRoom; set => currentRoom = value; }
+    public Animator Animator { get => animator; set => animator = value; }
+    public GameObject Heart { get => heart; set => heart = value; }
 
+    public GameObject AimTarget { get => AimTarget1; set => AimTarget1 = value; }
+
+    private GameObject AimTarget1() => aimTarget;
+
+    private void AimTarget1(GameObject value) => aimTarget = value;
+
+    private global::System.Single playerAwarenessDistance
+    {
+        get
+        {
+            return ghost.playerAwarenessDistance;
+        }
+    }
+
+    private GameObject Getplayertarget()
+    {
+        return ghost.playertarget;
+    }
 
     ////////////////////////////////////////////
     ///GoopMovement values                   ///
@@ -39,6 +61,13 @@ public class Ghost : MonoBehavior
     private Vector2 target;
     public GameObject sprite;
     public GameObject anchor;
+    private Vector2 directionToPlayer;
+
+    private readonly global::System.Int32 ghost.health;
+
+    private readonly GameObject ghost.playertarget;
+
+    private readonly global::System.Single ghost.playerAwarenessDistance;
 
     ////////////////////////////////////////////
 
@@ -49,9 +78,9 @@ public class Ghost : MonoBehavior
         ////////////////////////////////////////
         ///PlayerAware Code
         ////////////////////////////////////////
-        playertarget = GameObject.Find("Aim");
+        Setplayertarget(GameObject.Find("Aim"));
         //print(playertarget);
-        player = playertarget.transform;
+        player = Getplayertarget().transform;
 
 
         /////////////////////////////////////////
@@ -99,8 +128,8 @@ public class Ghost : MonoBehavior
 
     public void HurtMe(int damage)
     {
-        health -= damage;
-        if (health <= 0)
+        Health -= damage;
+        if (Health <= 0)
         {
             int heartOrNo = Random.Range(0, 4);
 
@@ -109,7 +138,7 @@ public class Ghost : MonoBehavior
 
             if (heartOrNo >= 2)
             {
-                Instantiate(heart, this.transform.position, Quaternion.identity);
+                Instantiate(Heart, this.transform.position, Quaternion.identity);
             }
 
             Destroy(this.gameObject);
@@ -120,9 +149,9 @@ public class Ghost : MonoBehavior
 
     public void LightningHurtMe(int dmg)
     {
-        health -= dmg + 1;
+        Health -= dmg + 1;
 
-        if (health <= 0)
+        if (Health <= 0)
         {
             int heartOrNo = Random.Range(0, 4);
 
@@ -131,7 +160,7 @@ public class Ghost : MonoBehavior
 
             if (heartOrNo >= 2)
             {
-                Instantiate(heart, this.transform.position, Quaternion.identity);
+                Instantiate(Heart, this.transform.position, Quaternion.identity);
             }
 
             Destroy(this.gameObject);
@@ -141,9 +170,9 @@ public class Ghost : MonoBehavior
 
     public void FireHurtMe(int dmg)
     {
-        health -= dmg;
+        Health -= dmg;
 
-        if (health <= 0)
+        if (Health <= 0)
         {
             int heartOrNo = Random.Range(0, 4);
 
@@ -152,7 +181,7 @@ public class Ghost : MonoBehavior
 
             if (heartOrNo >= 2)
             {
-                Instantiate(heart, this.transform.position, Quaternion.identity);
+                Instantiate(Heart, this.transform.position, Quaternion.identity);
             }
 
             Destroy(this.gameObject);
@@ -162,9 +191,9 @@ public class Ghost : MonoBehavior
 
     public void IceHurtMe(int dmg)
     {
-        health -= dmg;
+        Health -= dmg;
 
-        if (health <= 0)
+        if (Health <= 0)
         {
             int heartOrNo = Random.Range(0, 4);
 
@@ -173,7 +202,7 @@ public class Ghost : MonoBehavior
 
             if (heartOrNo >= 2)
             {
-                Instantiate(heart, this.transform.position, Quaternion.identity);
+                Instantiate(Heart, this.transform.position, Quaternion.identity);
             }
 
             Destroy(this.gameObject);
@@ -183,9 +212,9 @@ public class Ghost : MonoBehavior
 
     public void EarthHurtMe(int dmg)
     {
-        health -= dmg;
+        Health -= dmg;
 
-        if (health <= 0)
+        if (Health <= 0)
         {
             int heartOrNo = Random.Range(0, 4);
 
@@ -194,7 +223,7 @@ public class Ghost : MonoBehavior
 
             if (heartOrNo >= 2)
             {
-                Instantiate(heart, this.transform.position, Quaternion.identity);
+                Instantiate(Heart, this.transform.position, Quaternion.identity);
             }
 
             Destroy(this.gameObject);
@@ -217,7 +246,7 @@ public class Ghost : MonoBehavior
         if(other.gameObject.CompareTag("Ghost"))
         { 
                         
-            if(health <= 0)
+            if(Health <= 0)
                 {  
                     Destroy(this.gameObject);   
                 }
@@ -238,7 +267,7 @@ public class Ghost : MonoBehavior
         if(other.gameObject.CompareTag("Player"))
         {
             
-            animator.Play("GoopAttack");
+            Animator.Play("GoopAttack");
             
             //other.gameObject.SendMessage("EnemyCollide");
             
