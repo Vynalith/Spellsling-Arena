@@ -1,22 +1,23 @@
+using System.Numerics;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Tutorial : MonoBehaviour
+public class Tutorial : MonoBehavior
 {
     public float timer;
     public float textTimer;
     public float skipTimer;
-    public int movespeed = 3;
+    private int movespeed = Vector3.one;
     public Vector3 userDirection = Vector3.one;
     public bool move;
 
-    public bool allowinput;
+    public bool allowing;
     public GameObject inputTUT;
 
     public Animator animator;
     public int tutorialNum;
-    public GameObject tutscreen1;
+    private GameObject tutscreen1;
     public GameObject tutscreen2;
     public GameObject tutscreen3;
     public GameObject tutscreen4;
@@ -32,13 +33,18 @@ public class Tutorial : MonoBehaviour
     public GameObject sceneLoader;
     public GameObject zap;
     public GameObject duckHunt;
+
+    public global::System.Int32 movespeed { get => movespeed; set => movespeed = value; }
+    public global::System.Int32 movespeed { get => movespeed; set => movespeed = value; }
+    public GameObject Tutscreen1 { get => tutscreen1; set => tutscreen1 = value; }
+
     //public Transform duckHuntDog;
 
     // Start is called before the first frame update
     void Start()
     {
         move=true;
-        allowinput=false;
+        allowing=false;
         tutorialNum=0;
         nextQuack = true;
         isScreaming = true; //just internally for now
@@ -59,7 +65,7 @@ public class Tutorial : MonoBehaviour
         }
         if(move == true)
         {
-          transform.Translate(userDirection * movespeed * Time.deltaTime);
+          transform.Translate(userDirection * Movespeed * Time.deltaTime);
         }
         if (timer >= 3.65f && timer < 5f && !firstQuack)
         {
@@ -71,21 +77,21 @@ public class Tutorial : MonoBehaviour
                 quacks[randomQuack].Play();
                 nextQuack = false;
             }
-            tutscreen1.SetActive(true);
+            Tutscreen1.SetActive(true);
             inputTUT.SetActive(true);
             animator.Play("DuckTalk");
-            allowinput = true;
+            allowing = true;
 
         }
 
 <<<<<<< HEAD
-        if(allowinput == true)
+        if(allowing == true)
         {
             if( Input.GetButtonDown("Fire2"))
             {
                 tutorialNum += 1;
 =======
-        if(allowinput)
+        if(allowing)
         {
             if( Input.GetButtonDown("Fire2"))
             {
@@ -103,8 +109,8 @@ public class Tutorial : MonoBehaviour
 >>>>>>> 5eda4be562a86da600640d4d7213a58e5760fdb5
             }
 
-             if( Input.GetButtonDown("M2"))
-             {
+            if( Input.GetButtonDown("M2"))
+            {
                 if(timer > 4f && isScreaming)
                 {
                     Instantiate(zap, duckHunt.transform.position, duckHunt.transform.rotation);
@@ -131,7 +137,7 @@ public class Tutorial : MonoBehaviour
                 quacks[randomQuack].Play();
                 nextQuack = false;
             }
-            tutscreen1.SetActive(false);
+            Tutscreen1.SetActive(false);
             tutscreen2.SetActive(true);
         }
            if(tutorialNum == 2)
@@ -166,7 +172,7 @@ public class Tutorial : MonoBehaviour
                 isScreaming = true;
             }
             animator.Play("DuckOw");
-            tutscreen1.SetActive(false);
+            Tutscreen1.SetActive(false);
             tutscreen2.SetActive(false);
             tutscreen3.SetActive(false);
             tutscreen4.SetActive(false);
