@@ -2,6 +2,7 @@ using System.Numerics;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.MonoBehavior;
 
 public class Tutorial : MonoBehavior
 {
@@ -17,7 +18,7 @@ public class Tutorial : MonoBehavior
 
     public Animator animator;
     public int tutorialNum;
-    private GameObject tutscreen1;
+    public GameObject tutscreen1;
     public GameObject tutscreen2;
     public GameObject tutscreen3;
     public GameObject tutscreen4;
@@ -36,7 +37,8 @@ public class Tutorial : MonoBehavior
 
     public global::System.Int32 movespeed { get => movespeed; set => movespeed = value; }
     public global::System.Int32 movespeed { get => movespeed; set => movespeed = value; }
-    public GameObject Tutscreen1 { get => tutscreen1; set => tutscreen1 = value; }
+    public GameObject Tutscreen1 { get => Tutscreen11; set => Tutscreen11 = value; }
+    public GameObject Tutscreen11 { get => tutscreen1; set => tutscreen1 = value; }
 
     //public Transform duckHuntDog;
 
@@ -61,7 +63,6 @@ public class Tutorial : MonoBehavior
             //print("yay");
             userDirection.x=0;
             //animator.Play("DuckTalk");
-            
         }
         if(move == true)
         {
@@ -84,29 +85,11 @@ public class Tutorial : MonoBehavior
 
         }
 
-<<<<<<< HEAD
         if(allowing == true)
         {
             if( Input.GetButtonDown("Fire2"))
             {
                 tutorialNum += 1;
-=======
-        if(allowing)
-        {
-            if( Input.GetButtonDown("Fire2"))
-            {
-                tutorialNum+=1;
-                nextQuack = true;
-                if(tutorialNum > 3)
-                {
-                    Instantiate(zap, duckHunt.transform.position, duckHunt.transform.rotation);
-                    tutorialNum = 20;
-                    isScreaming = false;
-                    skipTimer = timer + 1.25f;
-                    quackSong.Stop();
-
-                }
->>>>>>> 5eda4be562a86da600640d4d7213a58e5760fdb5
             }
 
             if( Input.GetButtonDown("M2"))
@@ -116,11 +99,11 @@ public class Tutorial : MonoBehavior
                     Instantiate(zap, duckHunt.transform.position, duckHunt.transform.rotation);
                     skipTimer = timer + 1.25f;
                     isScreaming = false;
-                   tutorialNum = 20;
+                    tutorialNum = 20;
                     quackSong.Stop();
                 }
                 
-             }
+            }
 
         }
 
@@ -140,7 +123,7 @@ public class Tutorial : MonoBehavior
             Tutscreen1.SetActive(false);
             tutscreen2.SetActive(true);
         }
-           if(tutorialNum == 2)
+        if(tutorialNum == 2)
         {
             if (nextQuack)
             {
@@ -152,7 +135,10 @@ public class Tutorial : MonoBehavior
             tutscreen3.SetActive(true);
         }
 
-          if(tutorialNum == 3)
+        if (tutorialNum != 3)
+        {
+        }
+        else
         {
             if (nextQuack)
             {
@@ -164,7 +150,7 @@ public class Tutorial : MonoBehavior
             tutscreen4.SetActive(true);
         }
 
-        if(tutorialNum == 20)
+        if (tutorialNum == 20)
         {
             if (!isScreaming)
             {
