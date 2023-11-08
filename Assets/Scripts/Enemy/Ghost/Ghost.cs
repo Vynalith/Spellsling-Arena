@@ -1,80 +1,47 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.MonoBehavior;
-
-public class Ghost : MonoBehavior
+public class Ghost
 {
-    private global::System.Int32 health => ghost.health;
+    public GameObject health { get; }
 
-    public GameObject Ghost.damage { get; }
+    public GameObject damage { get; }
 
-    public GameObject Ghost.currentRoom { get; }
-    public Animator Ghost.animator { get; }
+    public GameObject currentRoom { get; }
+    public Animator animator { get; }
+    public GameObject heart { get; }
 
-    public GameObject Ghost.heart { get; }
+    private readonly Transform aim1;
 
-
-    ////////////////////////////////////////////
     ///PlayerAware values                    ///
-    ////////////////////////////////////////////
-    private Transform Ghost.aim { get; }
-    private GameObject Ghost.aimTarget { get; }
-    public bool AwareOfPlayer { get; private set; }
-    public Vector2 DirectionToPlayer { get { return DirectionToPlayer; } private set => directionToPlayer = value; }
-    public global::System.Int32 Health { get => health; set => health = value; }
+    public GameObject aimTarget { get; }
     public GameObject CurrentRoom { get => currentRoom; set => currentRoom = value; }
     public Animator Animator { get => animator; set => animator = value; }
     public GameObject Heart { get => heart; set => heart = value; }
+    public System.Single GetplayerAwarenessDistance() => ghost.playerAwarenessDistance;
+    public Vector2 DirectionToPlayer1 { get => directionToPlayer; set => directionToPlayer = value; }
+    public GameObject Health1 { get => health1; set => health1 = value; }
+    public global::System.Single Rotationspeed { get => rotationspeed; set => rotationspeed = value; }
 
-    public GameObject AimTarget { get => AimTarget1; set => AimTarget1 = value; }
+    public GameObject Getplayertarget() => ghost.playertarget;
 
-    private GameObject AimTarget1() => aimTarget;
-
-    private void AimTarget1(GameObject value) => aimTarget = value;
-
-    private global::System.Single playerAwarenessDistance
-    {
-        get
-        {
-            return ghost.playerAwarenessDistance;
-        }
-    }
-
-    private GameObject Getplayertarget()
-    {
-        return ghost.playertarget;
-    }
-
-    ////////////////////////////////////////////
-    ///GoopMovement values                   ///
-    ////////////////////////////////////////////
+    ///GoopMovement values///
     public Transform player;
     public GameObject dumbplayer;
     [SerializeField]
     private float speed;
     [SerializeField]
 
-    //private float rotationSpeed = 100;
-    public RigidBody2D OnTriggerEnter2D;
+    private float RigidBody2D OnTriggerEnter2D;
     //private PlayerAware ThisPlayerAware;
     private Vector2 target;
     public GameObject sprite;
     public GameObject anchor;
     private Vector2 directionToPlayer;
 
-    private readonly global::System.Int32 ghost.health;
-
-    private readonly GameObject ghost.playertarget;
-
-    private readonly global::System.Single ghost.playerAwarenessDistance;
-
-    ////////////////////////////////////////////
-
     // Start is called before the first frame update
     void Start()
     {
-
         ////////////////////////////////////////
         ///PlayerAware Code
         ////////////////////////////////////////
@@ -101,15 +68,12 @@ public class Ghost : MonoBehavior
     // Update is called once per frame
     void Update()
     {
-        Vector2 enemyToPlayerVector = player.position - transform.position;
-        DirectionToPlayer = enemyToPlayerVector;
-
         //print(enemyToPlayerVector);
         //print(enemyToPlayerVector.magnitude);
+         Vector2 enemyToPlayerVector = player.position - transform.position;
+        DirectionToPlayer = enemyToPlayerVector; 
         
-        
-
-        if (enemyToPlayerVector.magnitude <= playerAwarenessDistance)
+        if (enemyToPlayerVector.magnitude <= GetplayerAwarenessDistance())
         {
             //print("Found player");
             AwareOfPlayer = true;
