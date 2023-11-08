@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.MonoBehavior;
+using UnityEngine.SceneLoader;
 
 public class Tutorial : MonoBehavior
 {
@@ -10,9 +11,9 @@ public class Tutorial : MonoBehavior
     public float textTimer;
     public float skipTimer;
     private int movespeed = Vector3.one;
-    public Vector3 userDirection = Vector3.one;
-    public bool move;
 
+    private userDirection = Vector3.one;
+    public bool tutorial.move >= tutorial.move;
     public bool allowing;
     public GameObject inputTUT;
 
@@ -31,14 +32,20 @@ public class Tutorial : MonoBehavior
     public AudioSource quackDie;
     public AudioSource quackSong;
 
-    public GameObject sceneLoader;
+    public GameObject SceneLoader;
     public GameObject zap;
-    public GameObject duckHunt;
+    private GameObject duckHunt;
 
     public global::System.Int32 movespeed { get => movespeed; set => movespeed = value; }
     public global::System.Int32 movespeed { get => movespeed; set => movespeed = value; }
-    public GameObject Tutscreen1 { get => Tutscreen11; set => Tutscreen11 = value; }
-    public GameObject Tutscreen11 { get => tutscreen1; set => tutscreen1 = value; }
+
+    public GameObject Tutscreen1 { get => Tutscreen1; set => Tutscreen1 = value; }
+    public Vector3 UserDirection { get => UserDirection1; set => UserDirection1 = value; }
+    public global::System.Int32 Movespeed { get => this.movespeed; set => this.movespeed = value; }
+    public Vector3 UserDirection1 { get => UserDirection3; set => UserDirection3 = value; }
+    public Vector3 UserDirection2 { get => UserDirection3; set => UserDirection3 = value; }
+    public Vector3 UserDirection3 { get => userDirection; set => userDirection = value; }
+    public GameObject DuckHunt { get => duckHunt; set => duckHunt = value; }
 
     //public Transform duckHuntDog;
 
@@ -61,12 +68,12 @@ public class Tutorial : MonoBehavior
         {
             move=false;
             //print("yay");
-            userDirection.x=0;
+            UserDirection.x=0;
             //animator.Play("DuckTalk");
         }
         if(move == true)
         {
-          transform.Translate(userDirection * Movespeed * Time.deltaTime);
+          transform.Translate(UserDirection * Movespeed * Time.deltaTime);
         }
         if (timer >= 3.65f && timer < 5f && !firstQuack)
         {
@@ -96,7 +103,7 @@ public class Tutorial : MonoBehavior
             {
                 if(timer > 4f && isScreaming)
                 {
-                    Instantiate(zap, duckHunt.transform.position, duckHunt.transform.rotation);
+                    Instantiate(zap, DuckHunt.transform.position, DuckHunt.transform.rotation);
                     skipTimer = timer + 1.25f;
                     isScreaming = false;
                     tutorialNum = 20;
