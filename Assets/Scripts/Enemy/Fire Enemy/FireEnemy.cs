@@ -34,8 +34,6 @@ public class FireEnemy : MonoBehaviour
     //Movement stuff
     public Vector3 looking;
     public bool isMoving;
-    public bool readyToMove;
-    public Vector3 movement;
 
 
     //fireball for damage/healing
@@ -46,7 +44,7 @@ public class FireEnemy : MonoBehaviour
     public GameObject CurrentRoom;
     public GameObject heart;
 
-    //private Transform Death = (0f,0f,0f);
+
 
 
     /////////////////////////////
@@ -60,32 +58,25 @@ public class FireEnemy : MonoBehaviour
     {
         maxhealth = 4;
         health = maxhealth;
-        readyToMove = true;
-        flaring = false;
     }
 
     // Update is called once per frame
     void Update()
     {
+        transform.Translate(userDirection * movespeed * Time.deltaTime);
+        
+       
 
-        if (readyToMove)
+        if(health <= 0)
         {
-            movement = userDirection;
-            movement.x = (1 / movement.x);
-            movement.y = (1 / movement.y);
-
-            //transform.Translate(userDirection * movespeed * Time.deltaTime);
-            transform.Translate(movement * movespeed * Time.deltaTime);
-            isMoving = true;
-            MoveTimer += Time.deltaTime;
+            Destroy(this.gameObject);
         }
+        MoveTimer += Time.deltaTime;
 
-        if(MoveTimer >= 1.5f)
+        if(MoveTimer >= 3)
         {
-            readyToMove = false;
-            isMoving = false;
             MoveTimer = 0;
-            //movespeed = 0;
+            movespeed = 0;
             
             userDirection.x = 0;
             userDirection.y = 0;
@@ -95,50 +86,37 @@ public class FireEnemy : MonoBehaviour
             animator.Play("Flare up");
         }
 
-        if(flaring)
+        if(flaring == true)
         {
             flaretime += Time.deltaTime;
-            if(flaretime >= .5f)
+            if(flaretime >=1)
             {
-                flaretime = 0f;
+                flaretime = 0;
                 //int RandomX = Random.Range(-1,1);
                 //int RandomY = Random.Range(-1,1);
                 randomize();
                 userDirection.x= RandomX;
                 userDirection.y= RandomY;
-                //movespeed = 1;
+                movespeed = 1;
                 flaring = false;
-                print("Flaring is " + flaring);
-                readyToMove = true;
-                //MoveTimer = 0f;
             }
         }
 
 
-        //this.transform.localscale.x <= 0
-
-        if (health <= 0)
-        {
-            Destroy(this.gameObject);
-        }
-
+        
+        
     }
-
     public void randomize()
     {
-        
-        RandomX = Random.Range(-10,10);
-        RandomY = Random.Range(-10,10);
-
-        //these two cause it to stop moving for some reason
-        //animator.SetInteger("movementX", RandomX);
-        //animator.SetInteger("movementY", RandomY);
+         RandomX = Random.Range(-1,1);
+         RandomY = Random.Range(-1,1);
+        animator.SetInteger("movementX", RandomX);
+        animator.SetInteger("movementY", RandomY);
          
-        if(RandomX == 0 && RandomY == 0)
+        if(RandomX ==0 && RandomY == 0)
         {
             randomize();
         }
-        
     }
 
 
@@ -212,7 +190,7 @@ public class FireEnemy : MonoBehaviour
 
         if (health > maxhealth)
         {
-            if (this.gameObject.transform.localScale.x <= (3f))
+            if (this.gameObject.transform.localScale.x <= (2f))
             {
                 this.gameObject.transform.localScale += new Vector3((float)((health - maxhealth) * .05), (float)((health - maxhealth) * .05), 0f);
 
@@ -281,14 +259,7 @@ public class FireEnemy : MonoBehaviour
 
 
 
-    public void OnCollisionEnter2D (Collision2D other)
-    {
-        if (other.gameObject.CompareTag("Wall") || other.gameObject.CompareTag("EarthWall"))
-        {
-            movement.x *= -1;
-            movement.y *= -1;
-        }
-    }
+
 
 
     public void OnTriggerEnter2D(Collider2D other)
@@ -313,14 +284,6 @@ public class FireEnemy : MonoBehaviour
             Instantiate(steam, other.transform.position, steam.transform.rotation);
             Destroy(other.gameObject);
             HurtMe(1);
-            this.gameObject.transform.localScale -= new Vector3(.15f, .15f, 0f);
-        }
-        
-        if (other.gameObject.CompareTag("Puddle"))
-        {
-            Instantiate(steam, other.transform.position, steam.transform.rotation);
-            Destroy(other.gameObject);
-            HurtMe(2);
             this.gameObject.transform.localScale -= new Vector3(.15f, .15f, 0f);
         }
 

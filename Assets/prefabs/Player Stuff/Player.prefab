@@ -58,7 +58,7 @@ MonoBehaviour:
   animator: {fileID: 7206089271398854939}
   Shooter: {fileID: 7888857158418860944, guid: e3706d6d8267c3644821eb8d2c61a4a4, type: 3}
   element: 0
-  gameUI: {fileID: 8001152008552254305}
+  gameUI: {fileID: 0}
   song1Intro: {fileID: 0}
   song1Loop: {fileID: 0}
   bossSongIntro: {fileID: 0}
