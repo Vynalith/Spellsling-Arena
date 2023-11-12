@@ -6477,6 +6477,7 @@ MonoBehaviour:
   Entrance: {fileID: 5899307707642376505}
   Exit: {fileID: 3687640434009632700}
   Enemies: []
+  Statues: []
   enter: 0
 --- !u!1 &2938835156552280946
 GameObject:
