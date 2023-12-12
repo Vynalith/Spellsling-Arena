@@ -33,8 +33,6 @@ public class MudMan : MonoBehaviour
 
     private float stupidspeed;
 
-    public GameObject collider;
-
     // Start is called before the first frame update
     void Start()
     {
