@@ -5,11 +5,11 @@ using UnityEngine;
 public class MudMan : MonoBehaviour
 {
     int health;
-    public GameManager CurrentRoom;
-    private float cooldown;
-    private float cooldownDuration = 2f;
-    public GameObject Projectile;
-    public float shotForce = 20f;
+    GameManager CurrentRoom;
+    float cooldown;
+    float cooldownDuration = 2f;
+    GameObject Projectile;
+    float shotForce = 20f;
 
     private Vector3 start;
     private Vector3 direction;
@@ -29,18 +29,18 @@ public class MudMan : MonoBehaviour
     private float vertical;
     private float stupidspeed;
 
-    public Vector3 Start { get => start; set => start = value; }
-    public Vector3 Direction { get => direction; set => direction = value; }
-    public GameObject Target { get => target; set => target = value; }
-    public global::System.Single SightDistance { get => sightDistance; set => sightDistance = value; }
-    public Collider2D FinalDetected { get => finalDetected; set => finalDetected = value; }
-    public RaycastHit Hit { get => hit; set => hit = value; }
-    public global::System.Int32 LayerMask { get => LayerMask1; set => LayerMask1 = value; }
-    public global::System.Int32 LayerMask1 { get => layerMask; set => layerMask = value; }
-    public Vector3 ShootAngle { get => shootAngle; set => shootAngle = value; }
-    public Animator Animator { get => animator; set => animator = value; }
-    public global::System.Int32 HeartOrNo { get => heartOrNo; set => heartOrNo = value; }
-    public global::System.Boolean GameObject { get => gameObject; set => gameObject = value; }
+    Vector3 Start { get => start; set => start = value; }
+    Vector3 Direction { get => direction; set => direction = value; }
+    GameObject Target { get => target; set => target = value; }
+    global::System.Single SightDistance { get => sightDistance; set => sightDistance = value; }
+    Collider2D FinalDetected { get => finalDetected; set => finalDetected = value; }
+    RaycastHit Hit { get => hit; set => hit = value; }
+    global::System.Int32 LayerMask { get => LayerMask1; set => LayerMask1 = value; }
+    global::System.Int32 LayerMask1 { get => layerMask; set => layerMask = value; }
+    Vector3 ShootAngle { get => shootAngle; set => shootAngle = value; }
+    Animator Animator { get => animator; set => animator = value; }
+    global::System.Int32 HeartOrNo { get => heartOrNo; set => heartOrNo = value; }
+    global::System.Boolean GameObject { get => gameObject; set => gameObject = value; }
 }
 // Start is called before the first frame update
 void Start()
