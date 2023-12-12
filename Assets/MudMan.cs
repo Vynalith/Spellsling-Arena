@@ -42,10 +42,28 @@ void Start()
 private float sightDistance = 10f;
 private int damage = 10;
 
-public GameObject heartPickup;
+    private GameObject heartPickup;
 
-    public global::System.Int32 Health { get => Health1; set => Health1 = value; }
-    public global::System.Int32 Health1 { get => health; set => health = value; }
+    public System.Int32 GetHealth()
+    {
+        return GetHealth1();
+    }
+
+    public void SetHealth(System.Int32 value)
+    {
+        SetHealth1(value);
+    }
+
+    public System.Int32 GetHealth1()
+    {
+        return health;
+    }
+
+    public void SetHealth1(System.Int32 value)
+    {
+        health = value;
+    }
+
     public Animator Animator { get => animator; set => animator = value; }
     public global::System.Int32 HeartOrNo { get => heartOrNo; set => heartOrNo = value; }
     public Vector3 ShootAngle { get => shootAngle; set => shootAngle = value; }
@@ -58,6 +76,8 @@ public GameObject heartPickup;
     public global::System.Single Horizontal { get => horizontal; set => horizontal = value; }
     public global::System.Single Vertical { get => vertical; set => vertical = value; }
     public global::System.Single Stupidspeed { get => stupidspeed; set => stupidspeed = value; }
+    public global::System.Int32 Damage { get => damage; set => damage = value; }
+    public GameObject HeartPickup { get => heartPickup; set => heartPickup = value; }
 
     private void Start()
 {
