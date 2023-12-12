@@ -6,7 +6,8 @@ public class MudMan : MonoBehaviour
 {
     int health;
     public GameManager CurrentRoom;
-    public float cooldown;
+    private float cooldown;
+    private float cooldownDuration = 2f;
     public GameObject Projectile;
     public float shotForce = 20f;
 
@@ -18,21 +19,21 @@ public class MudMan : MonoBehaviour
     private RaycastHit hit;
     private int layerMask = 1 << 3 | 1 << 7 | 1 << 11 | 1 << 12 | 1 << 13;
 
-    public Vector3 shootAngle;
+    private Vector3 shootAngle;
 
-    public Animator animator;
+    private Animator animator;
 
-    public int heartOrNo;
-    public GameObject heart;
+    private int heartOrNo;
+    public bool GameObject heart;
 
-    public float Horizontal;
-    public float Vertical;
+    private float horizontal;
+    private float vertical;
 
     private float stupidspeed;
 
     // Start is called before the first frame update
-    void Start()
-    {
+void Start()
+{
         cooldownCount = 0;
         target = GameObject.Find("Player");
         target2 = GameObject.Find("Shooter");
@@ -40,14 +41,23 @@ public class MudMan : MonoBehaviour
 }
 private float sightDistance = 10f;
 private int damage = 10;
-private float cooldownCount;
-private float cooldownDuration = 2f;
 
-public GameObject target;
 public GameObject heartPickup;
 
     public global::System.Int32 Health { get => Health1; set => Health1 = value; }
     public global::System.Int32 Health1 { get => health; set => health = value; }
+    public Animator Animator { get => animator; set => animator = value; }
+    public global::System.Int32 HeartOrNo { get => heartOrNo; set => heartOrNo = value; }
+    public Vector3 ShootAngle { get => shootAngle; set => shootAngle = value; }
+    public RaycastHit Hit { get => hit; set => hit = value; }
+    public Collider2D FinalDetected { get => finalDetected; set => finalDetected = value; }
+    public Vector3 Direction { get => direction; set => direction = value; }
+    public Vector3 Start1 { get => start; set => start = value; }
+    public global::System.Single CooldownDuration { get => cooldownDuration; set => cooldownDuration = value; }
+    public global::System.Single Cooldown { get => cooldown; set => cooldown = value; }
+    public global::System.Single Horizontal { get => horizontal; set => horizontal = value; }
+    public global::System.Single Vertical { get => vertical; set => vertical = value; }
+    public global::System.Single Stupidspeed { get => stupidspeed; set => stupidspeed = value; }
 
     private void Start()
 {
@@ -79,7 +89,7 @@ public GameObject heartPickup;
     {
         if (cooldownCount <= 0)
         {
-            cooldownCount = cooldown;
+            cooldownCount = Cooldown;
 
             // Create a projectile at the shooter's position
             GameObject projectile = Instantiate(Projectile, transform.position, Quaternion.identity);
