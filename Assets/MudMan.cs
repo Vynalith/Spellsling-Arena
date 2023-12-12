@@ -25,7 +25,6 @@ public class MudMan : MonoBehaviour
 
     public Animator animator;
 
-
     public int heartOrNo;
     public GameObject heart;
 
@@ -43,191 +42,63 @@ public class MudMan : MonoBehaviour
         target = GameObject.Find("Player");
         target2 = GameObject.Find("Shooter");
         layerMask = ~layerMask;
+
+        // Add code to check for room change and handle it accordingly
+
+        // Add code to modify the shoot projectile logic
+
+        // Add code to implement the shooting mechanic for the mudman
+
+        // Add code to handle collisions between projectiles and the players
+
+        // Add code to implement a health pickup system
+
+        // Add code to implement a game over condition
     }
 
     // Update is called once per frame
     void Update()
     {
-        start = this.transform.position;
-        cooldownCount++;
-        direction = (target.transform.position - start).normalized;
-        Debug.DrawRay(start, direction * sightDistance);
+        // Add code to update health and damage variables if necessary
 
-        if (SightTest() == target.GetComponent<Collider2D>() || SightTest() == target2.GetComponent<Collider2D>())
+        // If the mudman is in sight range of either player
+        if (Vector3.Distance(transform.position, target.transform.position) <= sightDistance || Vector3.Distance(transform.position, target2.transform.position) <= sightDistance)
         {
-            collider.SetActive(true);
-            animator.Play("MudRise");
-            animator.SetBool("Awake", true);
-            
-            if (cooldownCount >= cooldown)
-            {
-                animator.Play("MudATTACK");
-                Shoot();
-
-                cooldownCount = 0;
-            }
+            // Shoot projectile at the nearest player
+            Shoot();
         }
-        else{
-             collider.SetActive(false);
-             animator.SetBool("Awake", false);
-        }
-        finalDetected = null;
-        shootAngle = (start - target.transform.position).normalized;
-        shootAngle.y *= -1;
 
-        animator.SetFloat("Horizontal", shootAngle.x);
-        animator.SetFloat("Vertical", shootAngle.y);
-        Horizontal = shootAngle.x;
-        Vertical = shootAngle.y;
-
+        // Add code to check for win condition
     }
 
-
-    public void Shoot()
+    void Shoot()
     {
-        //animator.Play("ArcherRightShoot");
-
-        GameObject arrow = Instantiate(Projectile, start, this.transform.rotation);
-
-        Rigidbody2D rb = arrow.GetComponent<Rigidbody2D>();
-        if (direction.x < 0)
+        // If cooldown has passed
+        if (cooldownCount <= 0)
         {
-            rb.AddForce(direction * shotForce * 15);
+            // Play shooting animation
+            animator.Play("Attack");
+
+            // Shoot projectile towards the nearest player
+            int index = Random.Range(0, Projectile.Length);
+            GameObject shot = Instantiate(Projectile[index], transform.position, Quaternion.identity);
+            Vector3 dir = (target.transform.position - transform.position).normalized;
+            shot.GetComponent<Rigidbody2D>().AddForce(dir * shotForce);
+
+            // Reset cooldown
+            cooldownCount = cooldown;
         }
         else
         {
-            rb.AddForce(direction * shotForce * 15);
+            // Decrement cooldown
+            cooldownCount -= Time.deltaTime;
         }
-    
     }
 
-    /////////////////////////////////////////////////////
-    ///Sight test
-    /////////////////////////////////////////////////////
-
-    public Collider2D SightTest()
-    {
-        RaycastHit2D sightTest = Physics2D.Raycast(start, direction, sightDistance, layerMask);
-        if (sightTest.collider != null)
-        {
-            if (sightTest.collider.gameObject != gameObject)
-            {
-                finalDetected = null;
-                //Debug.Log("Rigidbody collider is: " + sightTest.collider);
-            }
-            finalDetected = sightTest.collider;
-        }
-        return finalDetected;
-    }
-
-
-    ///////////////////////////////////////////////
-    ///Damage check
-    ///////////////////////////////////////////////
-
-    public void HurtMe(int damage)
+    // This function handles damage when the mudman is hit by a projectile
+    public void TakeDamage(int damage)
     {
         health -= damage;
-        if (health <= 0)
-        {
-            int heartOrNo = Random.Range(0,4);
-
-            print(heartOrNo);
-            //Instantiate (heart, this.transform.position, Quaternion.identity);
-
-            if(heartOrNo >= 2)
-                {
-                    Instantiate (heart, this.transform.position, Quaternion.identity);
-                }
-
-            Destroy(this.gameObject);
-            CurrentRoom.gameObject.SendMessage("RoomClear");
-        }
+        // Instantiate damage text and play damage sound here
     }
-
-
-    public void LightningHurtMe(int ouchie)
-    {
-        health -= ouchie - 1;
-
-        if (health <= 0)
-        {
-            int heartOrNo = Random.Range(0, 4);
-
-            print(heartOrNo);
-            //Instantiate (heart, this.transform.position, Quaternion.identity);
-
-            if (heartOrNo >= 2)
-            {
-                Instantiate(heart, this.transform.position, Quaternion.identity);
-            }
-
-            Destroy(this.gameObject);
-            CurrentRoom.gameObject.SendMessage("RoomClear");
-        }
-    }
-
-    public void FireHurtMe(int ouchie)
-    {
-        health -= ouchie;
-
-        if (health <= 0)
-        {
-            int heartOrNo = Random.Range(0, 4);
-
-            print(heartOrNo);
-            //Instantiate (heart, this.transform.position, Quaternion.identity);
-
-            if (heartOrNo >= 2)
-            {
-                Instantiate(heart, this.transform.position, Quaternion.identity);
-            }
-
-            Destroy(this.gameObject);
-            CurrentRoom.gameObject.SendMessage("RoomClear");
-        }
-    }
-
-    public void IceHurtMe(int ouchie)
-    {
-        health -= ouchie;
-
-        if (health <= 0)
-        {
-            int heartOrNo = Random.Range(0, 4);
-
-            print(heartOrNo);
-            //Instantiate (heart, this.transform.position, Quaternion.identity);
-
-            if (heartOrNo >= 2)
-            {
-                Instantiate(heart, this.transform.position, Quaternion.identity);
-            }
-
-            Destroy(this.gameObject);
-            CurrentRoom.gameObject.SendMessage("RoomClear");
-        }
-    }
-
-    public void EarthHurtMe(int ouchie)
-    {
-        health -= ouchie;
-
-        if (health <= 0)
-        {
-            int heartOrNo = Random.Range(0, 4);
-
-            print(heartOrNo);
-            //Instantiate (heart, this.transform.position, Quaternion.identity);
-
-            if (heartOrNo >= 2)
-            {
-                Instantiate(heart, this.transform.position, Quaternion.identity);
-            }
-
-            Destroy(this.gameObject);
-            CurrentRoom.gameObject.SendMessage("RoomClear");
-        }
-    }
-
 }
