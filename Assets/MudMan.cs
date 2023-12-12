@@ -42,15 +42,7 @@ private int damage = 10;
 
     private GameObject heartPickup;
 
-    public System.Int32 GetHealth()
-    {
-        return GetHealth1();
-    }
-
-    public void SetHealth(System.Int32 value)
-    {
-        SetHealth1(value);
-    }
+    public System.Int32 Health { get => GetHealth1(); set => SetHealth1(value); }
 
     public System.Int32 GetHealth1()
     {
