@@ -28,7 +28,7 @@ public class MudMan : MonoBehaviour
     private float horizontal;
     private float vertical;
     private float stupidspeed;
-
+};
 // Start is called before the first frame update
 void Start()
 {
