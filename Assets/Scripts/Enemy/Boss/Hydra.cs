@@ -5,7 +5,7 @@ using UnityEngine;
 public class Hydra : MonoBehaviour
 {
     public int health;
-    public GameObject Hydradamage;
+    public GameObject damage;
     public GameObject CurrentRoom;
     public float cooldown;
     private float cooldownCount;
@@ -41,7 +41,7 @@ public class Hydra : MonoBehaviour
         layerMask = ~layerMask;
         GameObject anchorObject = GameObject.Find("EnemyAnchor");
         anchor = anchorObject.transform;
-        damage = 1;
+
     }
 
     // Update is called once per frame

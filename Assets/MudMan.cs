@@ -26,187 +26,10 @@ public class MudMan : MonoBehaviour
     private int heartOrNo;
     private GameObject heart;
     private float horizontal;
-    private float vertical;
-    private float stupidspeed;
-    Vector3 Direction { get => direction; set => direction = value; }
-    GameObject Target { get => target; set => target = value; }
-    global::System.Single SightDistance { get => sightDistance; set => sightDistance = value; }
-    Collider2D FinalDetected { get => finalDetected; set => finalDetected = value; }
-    RaycastHit Hit { get => hit; set => hit = value; }
-    global::System.Int32 LayerMask { get => LayerMask1; set => LayerMask1 = value; }
-    global::System.Int32 LayerMask1 { get => layerMask; set => layerMask = value; }
-    Vector3 ShootAngle { get => shootAngle; set => shootAngle = value; }
-    Animator Animator { get => animator; set => animator = value; }
-    global::System.Int32 HeartOrNo { get => heartOrNo; set => heartOrNo = value; }
-    global::System.Boolean GameObject { get => gameObject; set => gameObject = value; }
 
-private int damage = 10;
-
-    private GameObject heartPickup;
-
-    public System.Int32 Health { get => GetHealth1(); set => SetHealth1(value); }
-
-    public System.Int32 GetHealth1()
+public void Update()
     {
-        return health;
-    }
-
-    public void SetHealth1(System.Int32 value)
-    {
-        health = value;
-    }
-
-public Animator GetAnimator()
-{
-    return animator;
-}
-
-public void SetAnimator(Animator value)
-{
-    animator = value;
-}
-
-public System.Int32 GetHeartOrNo()
-{
-    return heartOrNo;
-}
-
-public void SetHeartOrNo(System.Int32 value)
-{
-    heartOrNo = value;
-}
-
-public Vector3 GetShootAngle()
-{
-    return shootAngle;
-}
-
-public void SetShootAngle(Vector3 value)
-{
-    shootAngle = value;
-}
-
-public RaycastHit GetHit()
-{
-    return hit;
-}
-
-public void SetHit(RaycastHit value)
-{
-    hit = value;
-}
-
-public Collider2D GetFinalDetected()
-{
-    return finalDetected;
-}
-
-public void SetFinalDetected(Collider2D value)
-{
-    finalDetected = value;
-}
-
-public Vector3 GetDirection()
-{
-    return direction;
-}
-
-public void SetDirection(Vector3 value)
-{
-    direction = value;
-}
-
-public Vector3 GetStart1()
-{
-    return start;
-}
-
-public void SetStart1(Vector3 value)
-{
-    start = value;
-}
-
-public System.Single GetCooldownDuration()
-{
-    return cooldownDuration;
-}
-
-public void SetCooldownDuration(System.Single value)
-{
-    cooldownDuration = value;
-}
-
-public System.Single GetCooldown()
-{
-    return cooldown;
-}
-
-public void SetCooldown(System.Single value)
-{
-    cooldown = value;
-}
-
-public System.Single GetHorizontal()
-{
-    return horizontal;
-}
-
-public void SetHorizontal(System.Single value)
-{
-    horizontal = value;
-}
-
-public System.Single GetVertical()
-{
-    return vertical;
-}
-
-public void SetVertical(System.Single value)
-{
-    vertical = value;
-}
-
-public System.Single GetStupidspeed()
-{
-    return stupidspeed;
-}
-
-public void SetStupidspeed(System.Single value)
-{
-    stupidspeed = value;
-}
-
-public System.Int32 GetDamage()
-{
-    return damage;
-}
-
-public void SetDamage(System.Int32 value)
-{
-    damage = value;
-}
-
-public GameObject GetHeartPickup()
-{
-    return heartPickup;
-}
-
-public void SetHeartPickup(GameObject value)
-{
-    heartPickup = value;
-}
-
-private void Start()
-{
-    cooldownCount = 0;
-    target = GameObject.Find("Player");
-    target2 = GameObject.Find("Shooter");
-    layerMask = ~layerMask;
-}
-
-private void Update()
-    {
-        cooldownCount -= Time.deltaTime;
+        cooldownDuration -= Time.deltaTime;
 
         // Calculate the angle between the shooter and the player
         float angle = CalculateAngle(transform.position, target.transform.position);
@@ -235,21 +58,20 @@ private void Shoot(float angle)
         global::System.Object value = projectile.GetComponent<Rigidbody2D>()
             .AddForce(direction * shotForce);
     }
-}
 
-private void OnTriggerEnter2D(Collider2D collision)
+void OnTriggerEnter2D(Collider2D collision)
 {
-    if (!collision.gameObject.CompareTag("PlayerProjectile"))
+    if (!collision.gameObject.CompareTag("PlayerSpell"))
     {
         return;
     }
     TakeDamage(10);
 
     // Destroy the projectile
-    global::System.Object value = Destroy(collision.gameObject);
+    global::System.Object value = Destroy(collision.GameObject);
 }
 
-public void TakeDamage(int damage)
+void TakeDamage(int damage)
     {
         health -= damage;
 
@@ -262,5 +84,5 @@ public void TakeDamage(int damage)
         global::System.Object value = CurrentRoom.ChangeRoom();
         }
 }
-
+}
 }
