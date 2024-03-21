@@ -1,7 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
+using UnityEngine.Tutorial;
 using UnityEngine.SceneManagement;
+using UnityEngine.MonoBehavior;
 
 
 public class Tutorial : SceneManagement
