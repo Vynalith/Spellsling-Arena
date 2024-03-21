@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 using UnityEngine.MonoBehavior;
 
 
-public class Tutorial : SceneManagement
+public class Tutorial : MonoBehavior
 {
     public float time;
     public int movespeed = 3;
