@@ -141,4 +141,6 @@ public class Tutorial
     {
         //duckHunt.transform.position = duckHunt.transform.position.down();
     }
+
+
 }

@@ -7,25 +7,30 @@ public class Ghost : MonoBehaviour
     public GameObject health;
     public GameObject damage;
     public GameObject currentRoom;
-    private Animator animator;
+    public Animator animator;
     public GameObject heart;
 
-    private Transform aim1;
-    private GameObject aimTarget1;
-    private void SetaimTarget(GameObject value)
-    {
-        aimTarget1 = value;
-    }
-    public GameObject Heart { get => heart; set => heart = value; }
+    private readonly Transform aim1;
 
-    public void SetPlayertarget(GameObject target) => SetaimTarget(target);
+    public GameObject aimTarget { get; private set; }
+    public GameObject CurrentRoom { get => currentRoom; set => currentRoom = value; }
+    public Animator Animator { get => animator; set => animator = value; }
+    public GameObject Heart { get => heart; set => heart = value; }
+    public float GetPlayerAwarenessDistance() => ghost.playerAwarenessDistance;
+    public Vector2 DirectionToPlayer1 { get; set; }
+    public GameObject Health1 { get; set; }
+    public float Rotationspeed { get; set; }
+
+    public GameObject GetPlayerTarget() => ghost.playertarget;
+
+    public void SetPlayertarget(GameObject target) => aimTarget = target;
 
     void Start()
     {
         // Set the initial values
         health.GetComponent<Health>().Health = 100;
         damage.GetComponent<Damage>().Damage = 10;
-        heart.GetComponent<Heart>().Heart = 100;
+        heart.GetComponent<Heart>().Health = 100;
         SetPlayertarget(GameObject.Find("Aim"));
     }
 
@@ -37,8 +42,7 @@ public class Ghost : MonoBehaviour
             if (Vector3.Distance(transform.position, GetPlayerTarget().transform.position) <= ghost.playerAwarenessDistance)
             {
                 // Calculate the direction to the player
-                DirectionToPlayer1 = (GetPlayerTarget().transform.position
-                    - transform.position).normalized;
+                DirectionToPlayer1 = (GetPlayerTarget().transform.position - transform.position).normalized;
 
                 // Rotate the ghost towards the player
                 float rotationSpeed = ghost.rotationSpeed * Time.deltaTime;
