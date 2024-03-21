@@ -25,11 +25,13 @@ public class MudMan : MonoBehaviour
 
     private int heartOrNo;
     public bool GameObject heart;
+
     private float horizontal;
     private float vertical;
+
     private float stupidspeed;
 
-// Start is called before the first frame update
+    // Start is called before the first frame update
 void Start()
 {
         cooldownCount = 0;
