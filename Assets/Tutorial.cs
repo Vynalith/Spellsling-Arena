@@ -1,10 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.MonoBehavior;
 using UnityEngine.SceneManagement;
 
-public class Tutorial : MonoBehavior
+
+public class Tutorial : SceneManagement
 {
     public float time;
     public int movespeed = 3;
