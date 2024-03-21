@@ -5,13 +5,15 @@ using UnityEngine;
 public class Hydra : MonoBehaviour
 {
     public int health;
-    public GameObject Hydradamage;
+    public GameObject damage;
     public GameObject CurrentRoom;
     public float cooldown;
     private float cooldownCount;
     public GameObject[] Projectile;
-    public Animation[] HydraAnim;
-    private float shotForce = 20f;
+    public Animation[] attack;
+    public float shotForce = 20f;
+
+    private Vector3 start;
     private Vector3 direction;
     private GameObject target;
     private GameObject target2;
@@ -28,9 +30,7 @@ public class Hydra : MonoBehaviour
 
     public GameObject WIN;
 
-    private int HydraBreath;
-
-    public global::System.Single ShotForce { get => shotForce; set => shotForce = value; }
+    private int Hydradamage;
 
     // Start is called before the first frame update
     void Start()
@@ -39,8 +39,7 @@ public class Hydra : MonoBehaviour
         target = GameObject.Find("Player");
         target2 = GameObject.Find("Shooter");
         layerMask = ~layerMask;
-        GameObject anchorObject = GameObject.Find("EnemyAnchor");
-        anchor = anchorObject.transform;
+        anchor = GameObject.Find("EnemyAnchor");
         damage = 1;
     }
 
@@ -74,7 +73,7 @@ public class Hydra : MonoBehaviour
             // Shoot projectile towards the player
             int index = Random.Range(0, Projectile.Length);
             GameObject shot = Instantiate(Projectile[index], anchor.position, Quaternion.identity);
-            shot.GetComponent<Rigidbody2D>().AddForce(direction * ShotForce);
+            shot.GetComponent<Rigidbody2D>().AddForce(direction * shotForce);
 
             // Reset cooldown
             cooldownCount = cooldown;

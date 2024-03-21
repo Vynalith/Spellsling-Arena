@@ -24,10 +24,12 @@ public class MudMan : MonoBehaviour
     private Animator animator;
 
     private int heartOrNo;
-    private GameObject heart;
+    private bool gameObject heart;
     private float horizontal;
     private float vertical;
     private float stupidspeed;
+
+    Vector3 Start { get => start; set => start = value; }
     Vector3 Direction { get => direction; set => direction = value; }
     GameObject Target { get => target; set => target = value; }
     global::System.Single SightDistance { get => sightDistance; set => sightDistance = value; }
@@ -39,7 +41,16 @@ public class MudMan : MonoBehaviour
     Animator Animator { get => animator; set => animator = value; }
     global::System.Int32 HeartOrNo { get => heartOrNo; set => heartOrNo = value; }
     global::System.Boolean GameObject { get => gameObject; set => gameObject = value; }
-
+}
+// Start is called before the first frame update
+void Start()
+{
+        cooldownCount = 0;
+        target = GameObject.Find("Player");
+        target2 = GameObject.Find("Shooter");
+        layerMask = ~layerMask;
+}
+private float sightDistance = 10f;
 private int damage = 10;
 
     private GameObject heartPickup;
@@ -261,6 +272,4 @@ public void TakeDamage(int damage)
         // Change the current room
         global::System.Object value = CurrentRoom.ChangeRoom();
         }
-}
-
 }
