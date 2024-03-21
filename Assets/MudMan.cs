@@ -42,7 +42,7 @@ public class MudMan : MonoBehaviour
         target = GameObject.Find("Player");
         target2 = GameObject.Find("Shooter");
         layerMask = ~layerMask;
-}
+
 private float sightDistance = 10f;
 private int damage = 10;
 private float cooldownCount;
@@ -137,8 +137,9 @@ private void Shoot()
     }
 
     // This function handles damage when the mudman is hit by a projectile
-    void TakeDamage(int damage)
+    public void TakeDamage(int damage)
     {
         health -= damage;
         // Instantiate damage text and play damage sound here
+    }
 }
