@@ -27,6 +27,7 @@ public class Hydra : MonoBehaviour
     public Animator animator;
 
     public Transform anchor;
+    public GameObject anchor;
 
     public GameObject WIN;
 
