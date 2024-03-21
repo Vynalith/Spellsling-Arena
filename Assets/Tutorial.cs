@@ -18,6 +18,12 @@ public class Tutorial : MonoBehaviour
     public GameObject tutscreen2;
     public GameObject tutscreen3;
     public GameObject tutscreen4;
+using UnityEngine.MonoBehavior;
+using UnityEngine.SceneManagement;
+
+public class Tutorial : MonoBehavior
+{   
+    //public Transform duckHuntDog;
 
     // Start is called before the first frame update
     void Start()
@@ -101,4 +107,7 @@ public class Tutorial : MonoBehaviour
         }
 
     }
+}
+
+
 }
