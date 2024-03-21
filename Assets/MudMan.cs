@@ -11,13 +11,13 @@ public class MudMan : MonoBehaviour
     GameObject Projectile;
     float shotForce = 20f;
 
-    Vector3 start;
-    Vector3 direction;
+    private Vector3 start;
+    private Vector3 direction;
     private GameObject target;
     private float sightDistance = 10;
-    Collider2D finalDetected;
-    RaycastHit hit;
-    int layerMask = 1 << 3 | 1 << 7 | 1 << 11 | 1 << 12 | 1 << 13;
+    private Collider2D finalDetected;
+    private RaycastHit hit;
+    private int layerMask = 1 << 3 | 1 << 7 | 1 << 11 | 1 << 12 | 1 << 13;
 
     private Vector3 shootAngle;
 
@@ -27,25 +27,22 @@ public class MudMan : MonoBehaviour
     private GameObject heart;
     private float horizontal;
 
-    public global::System.Single SightDistance { get => sightDistance; set => sightDistance = value; }
-    public global::System.Single Cooldown { get => cooldown; set => cooldown = value; }
-    public global::System.Int32 HeartOrNo { get => heartOrNo; set => heartOrNo = value; }
-    public GameObject Heart { get => heart; set => heart = value; }
-    public global::System.Single Horizontal { get => horizontal; set => horizontal = value; }
-void Update()
+public void Update()
     {
         cooldownDuration -= Time.deltaTime;
 
         // Calculate the angle between the shooter and the player
         float angle = CalculateAngle(transform.position, target.transform.position);
 
-        if (Vector3.Distance(transform.position, target.transform.position) <= SightDistance || Vector3.Distance(transform.position, target2.transform.position) <= SightDistance)
+        if (Vector3.Distance(transform.position, target.transform.position) <= sightDistance || Vector3.Distance(transform.position, target2.transform.position) <= sightDistance)
         {
             Shoot(angle);
-        float CalculateAngle(Vector3 from, Vector3 to) => Mathf.Atan2(to.y - from.y, to.x - from.x) * Mathf.Rad2Deg;
         }
     }
-void Shoot(float angle)
+
+private float CalculateAngle(Vector3 from, Vector3 to) => Mathf.Atan2(to.y - from.y, to.x - from.x) * Mathf.Rad2Deg;
+
+private void Shoot(float angle)
 {
     if (cooldownCount <= 0)
     {
@@ -61,7 +58,6 @@ void Shoot(float angle)
         global::System.Object value = projectile.GetComponent<Rigidbody2D>()
             .AddForce(direction * shotForce);
     }
-}
 
 void OnTriggerEnter2D(Collider2D collision)
 {
@@ -87,5 +83,6 @@ void TakeDamage(int damage)
         // Change the current room
         global::System.Object value = CurrentRoom.ChangeRoom();
         }
+}
 }
 }

@@ -4,14 +4,19 @@ using UnityEngine.UI;
 
 public class Ghost : MonoBehaviour
 {
-    GameObject health;
-    GameObject damage;
-    GameObject currentRoom;
-    Animator animator;
-    GameObject heart;
-    GameObject aimTarget1;
-    void SetaimTarget(GameObject value) => aimTarget1 = value;
-    public GameObject Heart { get => Heart; set => Heart = value; }
+    public GameObject health;
+    public GameObject damage;
+    public GameObject currentRoom;
+    private Animator animator;
+    public GameObject heart;
+
+    private Transform aim1;
+    private GameObject aimTarget1;
+    private void SetaimTarget(GameObject value)
+    {
+        aimTarget1 = value;
+    }
+    public GameObject Heart { get => heart; set => heart = value; }
 
     public void SetPlayertarget(GameObject target) => SetaimTarget(target);
 
