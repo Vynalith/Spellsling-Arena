@@ -13,6 +13,7 @@ public class MudMan : MonoBehaviour
     private Vector3 start;
     private Vector3 direction;
     private GameObject target;
+    private GameObject target2;
     public float sightDistance = 10;
     private Collider2D finalDetected;
     private RaycastHit hit;
@@ -44,6 +45,7 @@ private float cooldownCount;
 private float cooldownDuration = 2f;
 
 public GameObject target;
+public GameObject target2;
 public GameObject heartPickup;
 
     public global::System.Int32 Health { get => Health1; set => Health1 = value; }
