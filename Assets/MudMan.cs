@@ -5,8 +5,8 @@ using UnityEngine;
 public class MudMan : MonoBehaviour
 {
     int health;
-    public bool Damage;
-    public GameManager CurrentRoom;
+    ref public GameObject Damage;
+    public GameObject CurrentRoom;
     public float cooldown;
     private float cooldownCount;
     public GameObject Projectile;
@@ -63,63 +63,85 @@ public GameObject heartPickup;
     layerMask = ~layerMask;
 }
 
-    private void Update()
+private void Update()
+{
+    cooldownCount -= Time.deltaTime;
+
+    if (Vector3.Distance(transform.position, target.transform.position) <= sightDistance || Vector3.Distance(transform.position, target2.transform.position) <= sightDistance)
     {
-        cooldownCount -= Time.deltaTime;
+        Shoot();
+    }
+}
 
-        // Calculate the angle between the shooter and the player
-        float angle = CalculateAngle(transform.position, target.transform.position);
+private void Shoot()
+{
+    if (cooldownCount <= 0)
+    {
+        cooldownCount = cooldownDuration;
 
+        // Shoot projectile at the nearest player
+        RaycastHit2D hit = Physics2D.Raycast(transform.position, shootAngle, sightDistance, layerMask);
+
+        if (hit.collider != null)
+        {
+            if (hit.collider.CompareTag("Player"))
+            {
+                hit.collider.GetComponent<PlayerController>().TakeDamage(damage);
+            }
+            else if (hit.collider.CompareTag("Shooter"))
+            {
+                hit.collider.GetComponent<ShooterController>().TakeDamage(damage);
+            }
+        }
+
+        // Spawn heart pickup at the collision point
+        Instantiate(heartPickup, hit.point, Quaternion.identity);
+    }
+}
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        // Add code to update health and damage variables if necessary
+
+        // If the mudman is in sight range of either player
         if (Vector3.Distance(transform.position, target.transform.position) <= sightDistance || Vector3.Distance(transform.position, target2.transform.position) <= sightDistance)
         {
-            Shoot(angle);
+            // Shoot projectile at the nearest player
+            Shoot();
         }
-    }
 
-    private float CalculateAngle(Vector3 from, Vector3 to)
-    {
-        return Mathf.Atan2(to.y - from.y, to.x - from.x) * Mathf.Rad2Deg;
-    }
+        // Add code to check for win condition
 
-    private void Shoot(float angle)
+    void Shoot()
     {
+        // If cooldown has passed
         if (cooldownCount <= 0)
         {
+            // Play shooting animation
+            animator.Play("Attack");
+
+            // Shoot projectile towards the nearest player
+            int index = Random.Range(0, Projectile.Length);
+            GameObject shot = Instantiate(Projectile[index], transform.position, Quaternion.identity);
+            Vector3 dir = (target.transform.position - transform.position).normalized;
+            shot.GetComponent<Rigidbody2D>().AddForce(dir * shotForce);
+
+            // Reset cooldown
             cooldownCount = cooldown;
-
-            // Create a projectile at the shooter's position
-            GameObject projectile = Instantiate(Projectile, transform.position, Quaternion.identity);
-
-            // Calculate the direction vector
-            Vector3 direction = Quaternion.AngleAxis(angle, Vector3.forward) * Vector3.right;
-
-            // Shoot the projectile in the direction vector
-            projectile.GetComponent<Rigidbody2D>().AddForce(direction * shotForce);
         }
-    }
-
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.gameObject.CompareTag("PlayerProjectile"))
+        else
         {
-            TakeDamage(10);
-
-            // Destroy the projectile
-            Destroy(collision.gameObject);
+            // Decrement cooldown
+            cooldownCount -= Time.deltaTime;
         }
     }
 
-    public void TakeDamage(int damage)
+    // This function handles damage when the mudman is hit by a projectile
+    void TakeDamage(int damage)
     {
         health -= damage;
-
-        if (health <= 0)
-        {
-            // Trigger the game over condition
-            CurrentRoom.GameOver();
-
-            // Change the current room
-            CurrentRoom.ChangeRoom();
-        }
-    }
+        // Instantiate damage text and play damage sound here
+}
 }
