@@ -1,53 +1,57 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-public class Ghost
+
+public class Ghost : MonoBehaviour
 {
-    public GameObject health { get; }
+    public int health;
+    public GameObject damage;
+    public GameObject CurrentRoom;
+    public Animator animator;
+    public GameObject heart;
 
-    public GameObject damage { get; }
 
-    public GameObject currentRoom { get; }
-    public Animator animator { get; }
-    public GameObject heart { get; }
-
-    private readonly Transform aim1;
-
+    ////////////////////////////////////////////
     ///PlayerAware values                    ///
-    public GameObject aimTarget { get; }
-    public GameObject CurrentRoom { get => currentRoom; set => currentRoom = value; }
-    public Animator Animator { get => animator; set => animator = value; }
-    public GameObject Heart { get => heart; set => heart = value; }
-    public System.Single GetplayerAwarenessDistance() => ghost.playerAwarenessDistance;
-    public Vector2 DirectionToPlayer1 { get => directionToPlayer; set => directionToPlayer = value; }
-    public GameObject Health1 { get => health1; set => health1 = value; }
-    public global::System.Single Rotationspeed { get => rotationspeed; set => rotationspeed = value; }
+    ////////////////////////////////////////////
+    private Transform aim;
+    private GameObject aimTarget;
+    public bool AwareOfPlayer { get; private set; }
+    public Vector2 DirectionToPlayer { get; private set; }
+    [SerializeField]
+    public float playerAwarenessDistance;
+    private GameObject playertarget;
 
-    public GameObject Getplayertarget() => ghost.playertarget;
+    /////////////////////////////////////////////
 
-    ///GoopMovement values///
+
+    ////////////////////////////////////////////
+    ///GoopMovement values                   ///
+    ////////////////////////////////////////////
     public Transform player;
     public GameObject dumbplayer;
     [SerializeField]
     private float speed;
     [SerializeField]
-
-    private float RigidBody2D OnTriggerEnter2D;
+    //private float rotationSpeed = 100;
+    public Rigidbody2D rigidbody;
     //private PlayerAware ThisPlayerAware;
-    private Vector2 target;
+    private Vector2 targetdirection;
     public GameObject sprite;
     public GameObject anchor;
-    private Vector2 directionToPlayer;
+
+    ////////////////////////////////////////////
 
     // Start is called before the first frame update
     void Start()
     {
+
         ////////////////////////////////////////
         ///PlayerAware Code
         ////////////////////////////////////////
-        Setplayertarget(GameObject.Find("Aim"));
+        playertarget = GameObject.Find("Aim");
         //print(playertarget);
-        player = Getplayertarget().transform;
+        player = playertarget.transform;
 
 
         /////////////////////////////////////////
@@ -57,7 +61,7 @@ public class Ghost
         dumbplayer = GameObject.Find("Player");
         player = dumbplayer.transform;
         anchor = GameObject.Find("EnemyAnchor");
-        RigidBody = GetComponent<RigidBody2D>();
+        rigidbody = GetComponent<Rigidbody2D>();
         //ThisPlayerAware = GetComponent<PlayerAware>();
 
 
@@ -68,12 +72,15 @@ public class Ghost
     // Update is called once per frame
     void Update()
     {
+        Vector2 enemyToPlayerVector = player.position - transform.position;
+        DirectionToPlayer = enemyToPlayerVector;
+
         //print(enemyToPlayerVector);
         //print(enemyToPlayerVector.magnitude);
-         Vector2 enemyToPlayerVector = player.position - transform.position;
-        DirectionToPlayer = enemyToPlayerVector; 
         
-        if (enemyToPlayerVector.magnitude <= GetplayerAwarenessDistance())
+        
+
+        if (enemyToPlayerVector.magnitude <= playerAwarenessDistance)
         {
             //print("Found player");
             AwareOfPlayer = true;
@@ -92,8 +99,8 @@ public class Ghost
 
     public void HurtMe(int damage)
     {
-        Health -= damage;
-        if (Health <= 0)
+        health -= damage;
+        if (health <= 0)
         {
             int heartOrNo = Random.Range(0, 4);
 
@@ -102,7 +109,7 @@ public class Ghost
 
             if (heartOrNo >= 2)
             {
-                Instantiate(Heart, this.transform.position, Quaternion.identity);
+                Instantiate(heart, this.transform.position, Quaternion.identity);
             }
 
             Destroy(this.gameObject);
@@ -111,11 +118,11 @@ public class Ghost
     }
 
 
-    public void LightningHurtMe(int dmg)
+    public void LightningHurtMe(int ouchie)
     {
-        Health -= dmg + 1;
+        health -= ouchie + 1;
 
-        if (Health <= 0)
+        if (health <= 0)
         {
             int heartOrNo = Random.Range(0, 4);
 
@@ -124,7 +131,7 @@ public class Ghost
 
             if (heartOrNo >= 2)
             {
-                Instantiate(Heart, this.transform.position, Quaternion.identity);
+                Instantiate(heart, this.transform.position, Quaternion.identity);
             }
 
             Destroy(this.gameObject);
@@ -132,11 +139,11 @@ public class Ghost
         }
     }
 
-    public void FireHurtMe(int dmg)
+    public void FireHurtMe(int ouchie)
     {
-        Health -= dmg;
+        health -= ouchie;
 
-        if (Health <= 0)
+        if (health <= 0)
         {
             int heartOrNo = Random.Range(0, 4);
 
@@ -145,7 +152,7 @@ public class Ghost
 
             if (heartOrNo >= 2)
             {
-                Instantiate(Heart, this.transform.position, Quaternion.identity);
+                Instantiate(heart, this.transform.position, Quaternion.identity);
             }
 
             Destroy(this.gameObject);
@@ -153,11 +160,11 @@ public class Ghost
         }
     }
 
-    public void IceHurtMe(int dmg)
+    public void IceHurtMe(int ouchie)
     {
-        Health -= dmg;
+        health -= ouchie;
 
-        if (Health <= 0)
+        if (health <= 0)
         {
             int heartOrNo = Random.Range(0, 4);
 
@@ -166,7 +173,7 @@ public class Ghost
 
             if (heartOrNo >= 2)
             {
-                Instantiate(Heart, this.transform.position, Quaternion.identity);
+                Instantiate(heart, this.transform.position, Quaternion.identity);
             }
 
             Destroy(this.gameObject);
@@ -174,11 +181,10 @@ public class Ghost
         }
     }
 
-    public void EarthHurtMe(int dmg)
+    public void EarthHurtMe(int ouchie)
     {
-        Health -= dmg;
 
-        if (Health <= 0)
+        if (health <= 0)
         {
             int heartOrNo = Random.Range(0, 4);
 
@@ -187,7 +193,7 @@ public class Ghost
 
             if (heartOrNo >= 2)
             {
-                Instantiate(Heart, this.transform.position, Quaternion.identity);
+                Instantiate(heart, this.transform.position, Quaternion.identity);
             }
 
             Destroy(this.gameObject);
@@ -202,15 +208,15 @@ public class Ghost
         { 
             Destroy(other.gameObject);
             HurtMe(1);
-            GameObject explore = Instantiate(damage, this.transform.position, Quaternion.identity);
-            Destroy(explore, 1f);
+            GameObject explo = Instantiate(damage, this.transform.position, Quaternion.identity);
+            Destroy(explo, 1f);
             
             
         }
-        if(other.gameObject.CompareTag("Ghost"))
+        if(other.gameObject.CompareTag("FILLERTEXT"))
         { 
                         
-            if(Health <= 0)
+            if(health <= 0)
                 {  
                     Destroy(this.gameObject);   
                 }
@@ -230,8 +236,9 @@ public class Ghost
 
         if(other.gameObject.CompareTag("Player"))
         {
+           
             
-            Animator.Play("GoopAttack");
+            animator.Play("GoopAttack");
             
             //other.gameObject.SendMessage("EnemyCollide");
             
@@ -253,49 +260,49 @@ public class Ghost
         //print("UpdateTargetDirection");
         if (AwareOfPlayer)
         {
-            TargetDirection = DirectionToPlayer;
+            targetdirection = DirectionToPlayer;
         }
         else
         {
-            TargetDirection = Vector2.zero;
+            targetdirection = Vector2.zero;
         }
-        //print("TargetDirection = " + TargetDirection);
+        //print("target direction = " + targetdirection);
 
     }
 
     private void RotateTowardsTarget()
     {
         //print("RotateTowardsTarget");
-        if (TargetDirection == Vector2.zero)
+        if (targetdirection == Vector2.zero)
         {
-            //print("TargetDirection == Vector2.zero");
+            //print("targetdirection == Vector2.zero");
             return;
         }
 
-        // Quaternion targetRotation = Quaternion.LookRotation(transform.player, TargetDirection);
-        //Quaternion rotation = Quaternion.RotateTowards(player.transform.rotation, TargetDirection, rotationSpeed* Time.deltaTime);
-        //RigidBody.transform.rotation = player.transform.rotation;
-        //RigidBody.transform.rotation = sprite.transform.rotation;
+        // Quaternion targetRotation = Quaternion.LookRotation(transform.foward, targetdirection);
+        //Quaternion rotation = Quaternion.RotateTowards(player.transform.rotation, targetdirection, rotationSpeed* Time.deltaTime);
+        //rigidbody.transform.rotation = player.transform.rotation;
+        rigidbody.transform.rotation = sprite.transform.rotation;
     }
 
     private void SetVelocity()
     {
         //print("SetVelocity");
-        if (TargetDirection == Vector2.zero)
+        if (targetdirection == Vector2.zero)
         {
             //print("no direction");
-            this.GetComponent<RigidBody2D>().velocity = Vector2.zero;
+            this.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
             
         }
         else
         {
-            this.GetComponent<RigidBody2D>().velocity = transform.up * speed;
-            //this.GetComponent<RigidBody2D>().AddForce(transform.up * speed);
+            this.GetComponent<Rigidbody2D>().velocity = transform.up * speed;
+            //this.GetComponent<Rigidbody2D>().AddForce(transform.up * speed);
             //print("transform.up = " + this.transform.up);
             //print("transform.up = " + transform.up);
             //print("speed = " + speed);
-           // print("velocity = " + this.GetComponent<RigidBody2D>().velocity);
-            //print("velocity should be = " + transform.up * speed);
+           // print("velocty = " + this.GetComponent<Rigidbody2D>().velocity);
+            //print("velocty should be = " + transform.up * speed);
         }
     }
 }

@@ -30,6 +30,9 @@ TagManager:
   - EnemyIce
   - EnemyEarth
   - EnemyLightning
+  - LightningEnemy
+  - VirtualCamera
+  - Tutorial
   layers:
   - Default
   - TransparentFX

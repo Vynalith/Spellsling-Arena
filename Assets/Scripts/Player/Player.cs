@@ -18,15 +18,15 @@ public class Player : MonoBehaviour
     public Rigidbody2D rb;
     public Rigidbody2D rb2;
     //public GameObject fireBallPrefab;
-    public GameObject Damage;
-    public Camera Camera;
+    public GameObject damage;
+    public Camera camera;
     public Animator animator;
     public GameObject Shooter;
 
     //public Animation lightningAttack;
     private Vector3 flashback;
-    public int element;
-    private bool Playing1;
+   public int element;
+   private bool Playing;
     
     public GameObject gameUI;
 
@@ -44,45 +44,35 @@ public class Player : MonoBehaviour
     private bool bossSongStarted;
     public AudioSource winSong;
 
-    public GameObject UI;
+    //public GameObject UI;
 
     
     public float Deadtimer;
     public bool isDead;
     public float countdown;
-    private GameObject reset;
-
-    public GameObject GetReset()
-    {
-        return reset;
-    }
-
-    public void SetReset(GameObject value)
-    {
-        reset = value;
-    }
+    public GameObject Reset;
 
     // Start is called before the first frame update
     void Start()
     {
-        Playing1=true;
+        Playing=true;
         element = 1;
         animator.SetInteger("element", element);
 
-        UI = GameObject.Find("PlayerUI");
+        //UI = GameObject.Find("PlayerUI");
         isDead = false;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(Playing1==true)
+        if(Playing==true)
         {
         //input
         movement.x = Input.GetAxisRaw("Horizontal");
         movement.y = Input.GetAxisRaw("Vertical");
 
-        mousePos = GetComponent<Camera>().ScreenToWorldPoint(Input.mousePosition);
+        mousePos = camera.ScreenToWorldPoint(Input.mousePosition);
 
         animator.SetFloat("Horizontal", movement.x);
         animator.SetFloat("Vertical", movement.y);
@@ -175,7 +165,7 @@ public class Player : MonoBehaviour
 
         if(Deadtimer>=countdown)
         {
-            GetReset().SendMessage("LoadScene", "Menu");
+            Reset.SendMessage("LoadScene", "Menu");
         }
 
         
@@ -192,13 +182,16 @@ public class Player : MonoBehaviour
 
     void PlayWinSong()
     {
+        song1Intro.Stop();
+        song1Loop.Stop();
+        bossSongIntro.Stop();
         bossSongLoop.Stop();
         winSong.Play();
     }
 
     void FixedUpdate()
     {
-        if(Playing1==true)
+        if(Playing==true)
         {
         //movement
         rb.MovePosition(rb.position + movement * speed *Time.fixedDeltaTime);
@@ -258,7 +251,7 @@ public class Player : MonoBehaviour
         if(health < 5)
         {
             health = health+1;
-            UI.SendMessage("Heal", SendMessageOptions.DontRequireReceiver);
+            gameUI.SendMessage("Heal", SendMessageOptions.DontRequireReceiver);
 
         }
     }
@@ -268,11 +261,11 @@ public class Player : MonoBehaviour
         health -= damage;
         if (health <= 0)
         {
-            Playing1 = false;
+            Playing = false;
             isDead = true;
             Shooter.gameObject.SendMessage("Death");
             animator.Play("DEATH");
-            UI.SendMessage("Hurt", damage);
+            gameUI.SendMessage("Hurt", damage);
     
         }
         else if (health >= 1)
@@ -280,22 +273,22 @@ public class Player : MonoBehaviour
             if (element == 1)
             {
                 animator.Play("LightningDamage");
-                 UI.SendMessage("Hurt",damage);
+                 gameUI.SendMessage("Hurt",damage);
             }
             if (element == 2)
             {
                 animator.Play("FireDamage");
-                 UI.SendMessage("Hurt",damage);
+                 gameUI.SendMessage("Hurt",damage);
             }
             if (element == 3)
             {
                 animator.Play("IceDamage");
-                 UI.SendMessage("Hurt",damage);
+                 gameUI.SendMessage("Hurt",damage);
             }
             if (element == 4)
             {
                 animator.Play("EarthDamage");
-                 UI.SendMessage("Hurt",damage);
+                 gameUI.SendMessage("Hurt",damage);
             }
         }
     }
@@ -330,7 +323,7 @@ public class Player : MonoBehaviour
 
     public void Win()
     {
-        Playing1 = false;
+        Playing = false;
         Shooter.gameObject.SendMessage("Win");
 
         if(element == 1)

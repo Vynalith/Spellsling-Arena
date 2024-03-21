@@ -31,7 +31,7 @@ public class Hydra : MonoBehaviour
 
     public GameObject WIN;
 
-    private int Hydradamage;
+    private int damage;
 
 
     // Start is called before the first frame update
@@ -75,7 +75,7 @@ public class Hydra : MonoBehaviour
 
         if(RandomNum == 0)
         {
-        animator.Play("HydraLightning");
+        animator.Play("HydraLightningTest");
         }
         if(RandomNum == 1)
         {
