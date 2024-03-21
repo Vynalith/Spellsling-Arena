@@ -1,8 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.MonoBehavior;
+using UnityEngine.SceneManagement;
 
-public class Tutorial : MonoBehaviour
+public class Tutorial : MonoBehavior
 {
     public float time;
     public int movespeed = 3;
@@ -17,12 +19,7 @@ public class Tutorial : MonoBehaviour
     public GameObject tutscreen1;
     public GameObject tutscreen2;
     public GameObject tutscreen3;
-    public GameObject tutscreen4;
-using UnityEngine.MonoBehavior;
-using UnityEngine.SceneManagement;
-
-public class Tutorial : MonoBehavior
-{   
+    public GameObject tutscreen4; 
     //public Transform duckHuntDog;
 
     // Start is called before the first frame update
@@ -107,7 +104,4 @@ public class Tutorial : MonoBehavior
         }
 
     }
-}
-
-
 }

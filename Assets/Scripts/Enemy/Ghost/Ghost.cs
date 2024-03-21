@@ -1,46 +1,21 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.MonoBehavior;
 
 public class Ghost : MonoBehavior
-{
-    private global::System.Int32 health => ghost.health;
-
-    public GameObject Ghost.damage { get; }
-
-    public GameObject Ghost.currentRoom { get; }
-    public Animator Ghost.animator { get; }
-
-    public GameObject Ghost.heart { get; }
-
-    ////////////////////////////////////////////
-
-    ////////////////////////////////////////////
-    ///PlayerAware values                    ///
-    ////////////////////////////////////////////
-    private Transform Ghost.aim { get; }
-    private GameObject Ghost.aimTarget { get; }
-    public bool AwareOfPlayer { get; private set; }
-    public Vector2 DirectionToPlayer { get { return DirectionToPlayer; } private set => directionToPlayer = value; }
-    public global::System.Int32 Health { get => health; set => health = value; }
-    public GameObject CurrentRoom { get => currentRoom; set => currentRoom = value; }
-    public Animator Animator { get => animator; set => animator = value; }
-    public GameObject Heart { get => heart; set => heart = value; }
-
-    public GameObject AimTarget { get => AimTarget1; set => AimTarget1 = value; }
-
-    private GameObject AimTarget1() => aimTarget;
-
-    private void AimTarget1(GameObject value) => aimTarget = value;
-
-    private global::System.Single playerAwarenessDistance
-    {
-        get
-        {
-            return ghost.playerAwarenessDistance;
-        }
-    }
+   {
+    GameObject damage;
+    GameObject currentRoom;
+    Animator animator;
+    Transform aim;
+    Transform aimTarget;
+    Vector2 AwareOfPlayer;
+    Vector2 DirectionToPlayer;
+    GameObject Heart;
+    public GameObject PlayerTarget { get => PlayerTarget; set => PlayerTarget = value; }
+    private GameObject Player() => Player;
+    private void AimTarget(GameObject value) => aimTarget = value;
+    private global::System.Single playerAwarenessDistance;
 
     private GameObject Getplayertarget()
     {
@@ -57,33 +32,19 @@ public class Ghost : MonoBehavior
     [SerializeField]
 
     //private float rotationSpeed = 100;
-    public RigidBody2D OnTriggerEnter2D;
     //private PlayerAware ThisPlayerAware;
     private Vector2 targetdirection;
     public GameObject sprite;
     public GameObject anchor;
-
-    ////////////////////////////////////////////
-
-    private readonly global::System.Int32 ghost.health;
-
-    private readonly GameObject ghost.playertarget;
-
-    private readonly global::System.Single ghost.playerAwarenessDistance;
-
-    ////////////////////////////////////////////
-
     // Start is called before the first frame update
     void Start()
     {
-
         ////////////////////////////////////////
         ///PlayerAware Code
         ////////////////////////////////////////
         playertarget = GameObject.Find("Aim");
         //print(playertarget);
         player = playertarget.transform;
-
 
         /////////////////////////////////////////
         ///GoopMovement Code
