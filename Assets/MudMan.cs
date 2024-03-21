@@ -7,6 +7,7 @@ public class MudMan : MonoBehaviour
     int health;
     public GameManager CurrentRoom;
     public float cooldown;
+    private float cooldownCount;
     public GameObject Projectile;
     public float shotForce = 20f;
 
