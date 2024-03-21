@@ -28,9 +28,9 @@ public class Ghost
     ///GoopMovement values///
     public Transform player;
     public GameObject dumbplayer;
-    [SerializeField];
+    [SerializeField]
     private float speed;
-    [SerializeField];
+    [SerializeField]
 
     private float RigidBody2D OnTriggerEnter2D;
     //private PlayerAware ThisPlayerAware;
