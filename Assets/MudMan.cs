@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class MudMan : MonoBehaviour
 {
-    ref public int health;
-    ref public GameObject Damage;
+    public int health;
+    public GameObject damage;
     public GameObject CurrentRoom;
     public float cooldown;
     private float cooldownCount;
