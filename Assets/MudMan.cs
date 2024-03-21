@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class MudMan : MonoBehaviour
 {
-    int health;
+    ref public int health;
     ref public GameObject Damage;
     public GameObject CurrentRoom;
     public float cooldown;
@@ -52,10 +52,7 @@ public GameObject target;
 public GameObject target2;
 public GameObject heartPickup;
 
-    public global::System.Int32 Health { get => Health1; set => Health1 = value; }
-    public global::System.Int32 Health1 { get => health; set => health = value; }
-
-    private void Start()
+private void Start()
 {
     cooldownCount = 0;
     target = GameObject.Find("Player");
