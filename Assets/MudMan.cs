@@ -43,58 +43,17 @@ public class MudMan : MonoBehaviour
         target2 = GameObject.Find("Shooter");
         layerMask = ~layerMask;
 
-private float sightDistance = 10f;
-private int damage = 10;
-private float cooldownCount;
-private float cooldownDuration = 2f;
+        // Add code to check for room change and handle it accordingly
 
-public GameObject target;
-public GameObject target2;
-public GameObject heartPickup;
+        // Add code to modify the shoot projectile logic
 
-private void Start()
-{
-    cooldownCount = 0;
-    target = GameObject.Find("Player");
-    target2 = GameObject.Find("Shooter");
-    layerMask = ~layerMask;
-}
+        // Add code to implement the shooting mechanic for the mudman
 
-private void Update()
-{
-    cooldownCount -= Time.deltaTime;
+        // Add code to handle collisions between projectiles and the players
 
-    if (Vector3.Distance(transform.position, target.transform.position) <= sightDistance || Vector3.Distance(transform.position, target2.transform.position) <= sightDistance)
-    {
-        Shoot();
-    }
-}
+        // Add code to implement a health pickup system
 
-private void Shoot()
-{
-    if (cooldownCount <= 0)
-    {
-        cooldownCount = cooldownDuration;
-
-        // Shoot projectile at the nearest player
-        RaycastHit2D hit = Physics2D.Raycast(transform.position, shootAngle, sightDistance, layerMask);
-
-        if (hit.collider != null)
-        {
-            if (hit.collider.CompareTag("Player"))
-            {
-                hit.collider.GetComponent<PlayerController>().TakeDamage(damage);
-            }
-            else if (hit.collider.CompareTag("Shooter"))
-            {
-                hit.collider.GetComponent<ShooterController>().TakeDamage(damage);
-            }
-        }
-
-        // Spawn heart pickup at the collision point
-        Instantiate(heartPickup, hit.point, Quaternion.identity);
-    }
-}
+        // Add code to implement a game over condition
     }
 
     // Update is called once per frame
