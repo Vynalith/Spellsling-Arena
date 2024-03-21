@@ -5,7 +5,7 @@ using UnityEngine;
 public class Hydra : MonoBehaviour
 {
     public int health;
-    public GameObject damage;
+    //public GameObject damage;
     public GameObject CurrentRoom;
     public float cooldown;
     private float cooldownCount;
@@ -19,19 +19,20 @@ public class Hydra : MonoBehaviour
     private GameObject target2;
     public float sightDistance = 10;
     private Collider2D finalDetected;
-    private RaycastHit2D hit;
+    private RaycastHit hit;
     private int layerMask = 1 << 3;
 
     private Vector3 shootAngle;
 
     public Animator animator;
 
-    public Transform anchor;
+    //public Transform anchor;
     public GameObject anchor;
 
     public GameObject WIN;
 
     private int Hydradamage;
+
 
     // Start is called before the first frame update
     void Start()
@@ -47,49 +48,184 @@ public class Hydra : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // Update health and damage variables if necessary
+        start = this.transform.position;
+        cooldownCount++;
+        direction = (target.transform.position - start).normalized;
+        Debug.DrawRay(start, direction * sightDistance);
 
-        // If the hydra is in sight range of the player
-        if (Vector3.Distance(transform.position, target.transform.position) <= sightDistance)
+        if (SightTest() == target.GetComponent<Collider2D>() || SightTest() == target2.GetComponent<Collider2D>())
         {
-            // Shoot projectile
-            Shoot();
+            if (cooldownCount >= cooldown)
+            {
+                
+                Shoot();
+                cooldownCount = 0;
+            }
         }
+        finalDetected = null;
+        shootAngle = (start - target.transform.position).normalized;
+        shootAngle.y *= -1;
 
-        // Check for win condition
-        if (health <= 0)
-        {
-            WIN.SetActive(true);
-        }
     }
 
-    void Shoot()
+
+    public void Shoot()
     {
-        // If cooldown has passed
-        if (cooldownCount <= 0)
+        int RandomNum = Random.Range(0,4);
+
+        if(RandomNum == 0)
         {
-            // Play shooting animation
-            animator.Play("Attack");
+        animator.Play("HydraLightning");
+        }
+        if(RandomNum == 1)
+        {
+        animator.Play("HydraFire");
+        }
+        if(RandomNum == 2)
+        {
+        animator.Play("HydraIce");
+        }
+        if(RandomNum == 3)
+        {
+        animator.Play("HydraEarth");
+        }
 
-            // Shoot projectile towards the player
-            int index = Random.Range(0, Projectile.Length);
-            GameObject shot = Instantiate(Projectile[index], anchor.position, Quaternion.identity);
-            shot.GetComponent<Rigidbody2D>().AddForce(direction * shotForce);
 
-            // Reset cooldown
-            cooldownCount = cooldown;
+        GameObject arrow = Instantiate(Projectile[RandomNum], start, this.transform.rotation);
+
+        arrow.transform.rotation = anchor.transform.rotation;
+        print("Hydra firing at " + direction);
+
+        Rigidbody2D rb = arrow.GetComponent<Rigidbody2D>();
+        if (direction.x < 0)
+        {
+            rb.AddForce(direction * shotForce * 25);
         }
         else
         {
-            // Decrement cooldown
-            cooldownCount -= Time.deltaTime;
+            rb.AddForce(direction * shotForce * 15);
+        }
+
+    }
+
+
+
+    public Collider2D SightTest()
+    {
+        RaycastHit2D sightTest = Physics2D.Raycast(start, direction, sightDistance, layerMask);
+        if (sightTest.collider != null)
+        {
+            if (sightTest.collider.gameObject != gameObject)
+            {
+                finalDetected = null;
+                //Debug.Log("Rigidbody collider is: " + sightTest.collider);
+            }
+            finalDetected = sightTest.collider;
+        }
+        return finalDetected;
+    }
+
+
+
+
+
+    public void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.gameObject.CompareTag("Fire") || other.gameObject.CompareTag("BigFire"))
+        {
+            Destroy(other.gameObject);
+
+            //damage = 1;
+            //HurtMe();
+            //GameObject explo = Instantiate(damage, this.transform.position, Quaternion.identity);
+            //Destroy(explo, 1f);
+
+         
+        }
+        if (other.gameObject.CompareTag("Earth"))
+        {
+
+            Destroy(other.gameObject);
+            //damage = 3;
+            //HurtMe();
+
+        }
+        if (other.gameObject.CompareTag("Lightning"))
+        {
+            Destroy(other.gameObject);
+            //damage = 1;
+            //HurtMe();
+        }
+        if (other.gameObject.CompareTag("BigLightning"))
+        {
+            //Destroy(other.gameObject);
+            //damage = 3;
+            //HurtMe();
+        }
+    }
+    
+    ///////////////////////////////////////////////
+    ///Damage check
+    ///////////////////////////////////////////////
+
+    public void HurtMe(int damage)
+    {
+        health -= damage;
+        if (health <= 0)
+        {
+            Instantiate(WIN, this.transform.position, Quaternion.identity);
+            Destroy(this.gameObject);
+            CurrentRoom.gameObject.SendMessage("RoomClear");
         }
     }
 
-    // This function handles damage when the hydra is hit by a projectile
-    public void TakeDamage(int damage)
+
+    public void LightningHurtMe(int ouchie)
     {
-        health -= damage;
-        // Instantiate damage text and play damage sound here
+        health -= ouchie;
+
+        if (health <= 0)
+        {
+            Instantiate(WIN, this.transform.position, Quaternion.identity);
+            Destroy(this.gameObject);
+            CurrentRoom.gameObject.SendMessage("RoomClear");
+        }
     }
+
+    public void FireHurtMe(int ouchie)
+    {
+        health -= ouchie;
+
+        if (health <= 0)
+        {
+            Instantiate(WIN, this.transform.position, Quaternion.identity);
+            Destroy(this.gameObject);
+            CurrentRoom.gameObject.SendMessage("RoomClear");
+        }
+    }
+
+    public void IceHurtMe(int ouchie)
+    {
+        health -= ouchie;
+
+        if (health <= 0)
+        {
+            Instantiate(WIN, this.transform.position, Quaternion.identity);
+            Destroy(this.gameObject);
+            CurrentRoom.gameObject.SendMessage("RoomClear");
+        }
+    }
+
+    public void EarthHurtMe(int ouchie)
+    {
+        health -= ouchie;
+
+        if (health <= 0)
+        {
+            Instantiate(WIN, this.transform.position, Quaternion.identity);
+            Destroy(this.gameObject);
+            CurrentRoom.gameObject.SendMessage("RoomClear");
+        }
+    }
+
 }
