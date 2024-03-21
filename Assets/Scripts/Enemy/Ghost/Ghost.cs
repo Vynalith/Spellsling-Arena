@@ -42,7 +42,9 @@ public class Ghost
     // Start is called before the first frame update
     void Start()
     {
+        ////////////////////////////////////////
         ///PlayerAware Code
+        ////////////////////////////////////////
         Setplayertarget(GameObject.Find("Aim"));
         //print(playertarget);
         player = Getplayertarget().transform;
