@@ -110,6 +110,7 @@ private void Shoot()
         }
 
         // Add code to check for win condition
+    }
 
     void Shoot()
     {
@@ -140,5 +141,4 @@ private void Shoot()
     {
         health -= damage;
         // Instantiate damage text and play damage sound here
-}
 }
