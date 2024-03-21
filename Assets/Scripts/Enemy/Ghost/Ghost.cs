@@ -70,7 +70,7 @@ public class Ghost
     {
         //print(enemyToPlayerVector);
         //print(enemyToPlayerVector.magnitude);
-        Vector2 enemyToPlayerVector = player.position - transform.position;
+         Vector2 enemyToPlayerVector = player.position - transform.position;
         DirectionToPlayer = enemyToPlayerVector; 
         
         if (enemyToPlayerVector.magnitude <= GetplayerAwarenessDistance())
