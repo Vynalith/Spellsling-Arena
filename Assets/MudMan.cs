@@ -34,7 +34,7 @@ public class MudMan : MonoBehaviour
 
     private float stupidspeed;
 
-    public GameObject collider;
+    public GameObject Collider2D;
 
     // Start is called before the first frame update
     void Start()
@@ -55,7 +55,7 @@ public class MudMan : MonoBehaviour
 
         if (SightTest() == target.GetComponent<Collider2D>() || SightTest() == target2.GetComponent<Collider2D>())
         {
-            collider.SetActive(true);
+            GetComponent<Collider>().SetActive(true);
             animator.Play("MudRise");
             animator.SetBool("Awake", true);
             
@@ -68,7 +68,7 @@ public class MudMan : MonoBehaviour
             }
         }
         else{
-             collider.SetActive(false);
+             GetComponent<Collider>().SetActive(false);
              animator.SetBool("Awake", false);
         }
         finalDetected = null;

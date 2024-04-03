@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Ghost : MonoBehavior
+public class Ghost
    {
     GameObject damage;
     GameObject currentRoom;
@@ -12,21 +12,15 @@ public class Ghost : MonoBehavior
     Vector2 AwareOfPlayer;
     Vector2 DirectionToPlayer;
     GameObject Heart;
-    public GameObject PlayerTarget { get => PlayerTarget; set => PlayerTarget = value; }
-    private GameObject Player() => Player;
-    private void AimTarget(GameObject value) => aimTarget = value;
-    private global::System.Single playerAwarenessDistance;
-
-    private GameObject Getplayertarget()
-    {
-        return ghost.playertarget;
-    }
+    GameObject playertarget;
+    GameObject PlayerUI;
+    GameObject Getplayertarget;
 
     ////////////////////////////////////////////
     ///GoopMovement values                   ///
     ////////////////////////////////////////////
     public Transform player;
-    public GameObject dumbplayer;
+    public GameObject Player;
     [SerializeField]
     private float speed;
     [SerializeField]
@@ -47,13 +41,13 @@ public class Ghost : MonoBehavior
         player = playertarget.transform;
 
         /////////////////////////////////////////
-        ///GoopMovement Code
+        ///GhostMovement Code
         /////////////////////////////////////////
         ///print("awake");
-        dumbplayer = GameObject.Find("Player");
-        player = dumbplayer.transform;
+        Player = GameObject.Find("Player");
+        player = Player.transform;
         anchor = GameObject.Find("EnemyAnchor");
-        rigidbody = GetComponent<Rigidbody2D>();
+        playerAwarenessDistance = GetComponent<PlayerAware>();
         //ThisPlayerAware = GetComponent<PlayerAware>();
 
 
