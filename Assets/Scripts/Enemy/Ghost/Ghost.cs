@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+<<<<<<< Updated upstream
 public class Ghost
    {
     GameObject damage;
@@ -24,6 +25,30 @@ public class Ghost
     [SerializeField]
     private float speed;
     [SerializeField]
+=======
+public class Ghost : MonoBehaviour
+{
+    GameObject health;
+    GameObject damage;
+    GameObject currentRoom;
+    Animator animator;
+    GameObject heart;
+
+    readonly Transform aim1;
+
+    GameObject aimTarget { get; private set; }
+    GameObject CurrentRoom { get => currentRoom; set => currentRoom = value; }
+    Animator Animator { get => animator; set => animator = value; }
+    GameObject Heart { get => heart; set => heart = value; }
+    float GetPlayerAwarenessDistance() => ghost.playerAwarenessDistance;
+    Vector2 DirectionToPlayer1 { get; set; }
+    GameObject Health1 { get; set; }
+    float Rotationspeed { get; set; }
+
+    GameObject GetPlayerTarget() => ghost.playertarget;
+
+    void SetPlayertarget(GameObject target) => aimTarget = target;
+>>>>>>> Stashed changes
 
     //private float rotationSpeed = 100;
     //private PlayerAware ThisPlayerAware;
@@ -78,6 +103,13 @@ public class Ghost
         }
     }
 
+<<<<<<< Updated upstream
+=======
+    void DamageGhost(int damage)
+    {
+        // Reduce the ghost's health
+        health.GetComponent<Health>().TakeDamage(damage);
+>>>>>>> Stashed changes
 
     ///////////////////////////////////////////////
     ///Damage check
