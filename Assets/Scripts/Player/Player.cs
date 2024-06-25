@@ -1,181 +1,176 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using System;
+using UnityEngine.SceneManagement;
 
-
-
-public class Player : MonoBehaviour
+public class Player
 {
 
-    //Rigidbody2D r2d;
-    float speed;
-    int health;
+    //private Rigidbody2D r2d;
+    public float speed;
+    public int health;
 
     Vector2 movement;
     Vector2 mousePos;
 
-    Rigidbody2D rb;
-    Rigidbody2D rb2;
-    //GameObject fireBallPrefab;
-    GameObject Damage;
-    Camera Camera;
-    Animator animator;
-    GameObject Shooter;
+    public Rigidbody2D rb;
+    public Rigidbody2D rb2;
+    //public GameObject fireBallPrefab;
+    public GameObject damage;
+    public Camera camera;
+    public Animator animator;
+    public GameObject Shooter;
 
     //public Animation lightningAttack;
-    Vector3 flashback;
-    int element;
-    bool Playing1;
-    GameObject GameUI;
+    private Vector3 flashback;
+   public int element;
+   private bool Playing;
+    
+    public GameObject gameUI;
 
     //for SFX timing and looping
-    AudioSource song1Intro;
-    AudioSource song1Loop;
-    AudioSource bossSongIntro;
-    AudioSource bossSongLoop;
-    float timer;
-    float BossTimer;
-    float SongCount = 13.35f;
-    float BossSongCount = 8.15f;
-    int Song1Change = 0;
-    int BossSongChange = 0;
-    bool BossSongStarted;
-    AudioSource WinSong;
+    public AudioSource song1Intro;
+    public AudioSource song1Loop;
+    public AudioSource bossSongIntro;
+    public AudioSource bossSongLoop;
+    public float timer;
+    private float bossTimer;
+    private float songCount = 13.35f;
+    private float bossSongCount = 8.15f;
+    private int song1Change = 0;
+    private int bossSongChange = 0;
+    private bool bossSongStarted;
+    public AudioSource winSong;
 
-    GameObject UI;
+    //public GameObject UI;
 
     
-    float Deadtimer;
-    bool isDead;
-    float countdown;
-    GameObject reset;
-    GameObject GetReset()
-    {
-        return GetReset;
-    }
-
-    void SetReset(GameObject value)
-    {
-        SetReset = value;
-    }
+    public float Deadtimer;
+    public bool isDead;
+    public float countdown;
+    public GameObject Reset;
 
     // Start is called before the first frame update
     void Start()
     {
-        Playing1 = true;
+        Playing=true;
         element = 1;
         animator.SetInteger("element", element);
 
-        UI = GameObject.Find("PlayerUI");
+        //UI = GameObject.Find("PlayerUI");
         isDead = false;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(Playing1 == true)
+        if(Playing==true)
         {
-            //input
-            movement.x = Input.GetAxisRaw("Horizontal");
-            movement.y = Input.GetAxisRaw("Vertical");
+        //input
+        movement.x = Input.GetAxisRaw("Horizontal");
+        movement.y = Input.GetAxisRaw("Vertical");
 
-            mousePos = GetComponent<Camera>().ScreenToWorldPoint(Input.mousePosition);
+        mousePos = camera.ScreenToWorldPoint(Input.mousePosition);
 
-            animator.SetFloat("Horizontal", movement.x);
-            animator.SetFloat("Vertical", movement.y);
-            animator.SetFloat("Speed", movement.sqrMagnitude);
+        animator.SetFloat("Horizontal", movement.x);
+        animator.SetFloat("Vertical", movement.y);
+        animator.SetFloat("Speed", movement.sqrMagnitude);
+         
+        
+        if( Input.GetButtonDown("lightning"))
+        {
+            gameUI.SendMessage("ActiveElement", 1);
+            
+            element = 1;
+            animator.SetInteger("element", element);
+        }
+        
+        if( Input.GetButtonDown("fire"))
+        {
+            gameUI.SendMessage("ActiveElement", 2);
+            element = 2;
+            animator.SetInteger("element", element);
+        }
+        if( Input.GetButtonDown("ice"))
+        {
+            gameUI.SendMessage("ActiveElement", 3);
+            element = 3;
+            animator.SetInteger("element", element);
+        }
+         if( Input.GetButtonDown("earth"))
+        {
+            gameUI.SendMessage("ActiveElement", 4);
+            element = 4;
+            animator.SetInteger("element", element);
+        }
 
+        //attack    Now Done in Shooter
+        //if( Input.GetButtonDown("Fire2"))
+        //{
+            //Instantiate(fireBallPrefab, this.transform.position, Quaternion.identity);
 
-if( Input.GetButtonDown("lightning"))
-{
-    gameUI.SendMessage("ActiveElement", 1);
-
-element = 1;
-animator.SetInteger("element", element);
-}
-
-if( Input.GetButtonDown("fire"))
-{
-    gameUI.SendMessage("ActiveElement", 2);
-    element = 2;
-    animator.SetInteger("element", element);
-}
-if( Input.GetButtonDown("ice"))
-{
-    gameUI.SendMessage("ActiveElement", 3);
-    element = 3;
-    animator.SetInteger("element", element);
-}
-if( Input.GetButtonDown("earth"))
-{
-    gameUI.SendMessage("ActiveElement", 4);
-    element = 4;
-    animator.SetInteger("element", element);
-}
-
-//attack
-//if( Input.GetButtonDown("Fire2"))
-//{
-//Instantiate(fireBallPrefab, this.transform.position, Quaternion.identity);
-
-
-//}
+       
+        //}
         }
         flashback = this.transform.position;
         //print(flashback);
+        
+        
+
+        if (timer >= songCount && song1Change == 0)
+        {
+            
+            song1Change = 1;
+        }
+        else if(song1Change == 0 && timer < songCount)
+        {
+            timer+= Time.deltaTime;
+        }
+
+        if (song1Change == 1)
+        {
+            
+            song1Intro.Stop();
+            song1Loop.Play();
+            song1Change = 2;
+        }
+
+        if (bossSongStarted)
+        {
+            if (bossTimer >= bossSongCount && bossSongChange == 0)
+            {
+
+                bossSongChange = 1;
+            }
+            else if (bossSongChange == 0 && bossTimer < bossSongCount)
+            {
+                bossTimer += Time.deltaTime;
+            }
+
+            if (bossSongChange == 1)
+            {
+
+                bossSongIntro.Stop();
+                bossSongLoop.Play();
+                bossSongChange = 2;
+            }
+        }
+
+        if(isDead == true)
+        {
+            Deadtimer += Time.deltaTime;
+        }
+
+        if(Deadtimer>=countdown)
+        {
+            Reset.SendMessage("LoadScene", "Menu");
+        }
+
+        
 
 
-
-if (timer >= songCount && song1Change == 0)
-{
-
-song1Change = 1;
-}
-else if(song1Change == 0 && timer < songCount)
-{
-    timer+= Time.deltaTime;
-}
-
-if (song1Change == 1)
-{
-
-song1Intro.Stop();
-song1Loop.Play();
-song1Change = 2;
-}
-
-if (bossSongStarted)
-{
-    if (bossTimer >= bossSongCount && bossSongChange == 0)
-    {
-
-        bossSongChange = 1;
     }
-    else if (bossSongChange == 0 && bossTimer < bossSongCount)
-    {
-        bossTimer += Time.deltaTime;
-    }
 
-    if (bossSongChange == 1)
-    {
-
-        bossSongIntro.Stop();
-        bossSongLoop.Play();
-        bossSongChange = 2;
-    }
-}
-
-if(isDead == true)
-{
-    Deadtimer += Time.deltaTime;
-}
-
-if(Deadtimer>=countdown)
-{
-    GetReset().SendMessage("LoadScene", "Menu");
-}
-    }
     void StartBossMusic()
     {
         song1Loop.Stop();
@@ -185,13 +180,16 @@ if(Deadtimer>=countdown)
 
     void PlayWinSong()
     {
+        song1Intro.Stop();
+        song1Loop.Stop();
+        bossSongIntro.Stop();
         bossSongLoop.Stop();
         winSong.Play();
     }
 
     void FixedUpdate()
     {
-        if(Playing1==true)
+        if(Playing==true)
         {
         //movement
         rb.MovePosition(rb.position + movement * speed *Time.fixedDeltaTime);
@@ -205,7 +203,7 @@ if(Deadtimer>=countdown)
         
     }
 
-    void OnTriggerEnter2D(Collider2D other)
+    public void OnTriggerEnter2D(Collider2D other)
 
     {
         if (other.gameObject.CompareTag("Enemy"))
@@ -237,6 +235,8 @@ if(Deadtimer>=countdown)
                     animator.Play("EarthDamage");
                 }
             }
+
+
             //print(health);
             Destroy(other.gameObject);
         }
@@ -244,26 +244,26 @@ if(Deadtimer>=countdown)
     }
 
 
-    void Heal()
+     void Heal()
     {
         if(health < 5)
         {
             health = health+1;
-            UI.SendMessage("Heal", SendMessageOptions.DontRequireReceiver);
+            gameUI.SendMessage("Heal", SendMessageOptions.DontRequireReceiver);
 
         }
     }
 
-    void HurtMe(int damage)
+    private void HurtMe(int damage)
     {
         health -= damage;
         if (health <= 0)
         {
-            Playing1 = false;
+            Playing = false;
             isDead = true;
             Shooter.gameObject.SendMessage("Death");
             animator.Play("DEATH");
-            UI.SendMessage("Hurt", damage);
+            gameUI.SendMessage("Hurt", damage);
     
         }
         else if (health >= 1)
@@ -271,62 +271,62 @@ if(Deadtimer>=countdown)
             if (element == 1)
             {
                 animator.Play("LightningDamage");
-                 UI.SendMessage("Hurt",damage);
+                 gameUI.SendMessage("Hurt",damage);
             }
             if (element == 2)
             {
                 animator.Play("FireDamage");
-                 UI.SendMessage("Hurt",damage);
+                 gameUI.SendMessage("Hurt",damage);
             }
             if (element == 3)
             {
                 animator.Play("IceDamage");
-                 UI.SendMessage("Hurt",damage);
+                 gameUI.SendMessage("Hurt",damage);
             }
             if (element == 4)
             {
                 animator.Play("EarthDamage");
-                 UI.SendMessage("Hurt",damage);
+                 gameUI.SendMessage("Hurt",damage);
             }
         }
     }
 
-    void LightningAttacks()
+    public void LightningAttacks()
     {
         
         animator.Play("Lightning m1");
         
     }
 
-    void FireAttacks()
+    public void FireAttacks()
     {
         
         animator.Play("Fire m1");
         
     }
-    
-    void IceAttacks()
+
+     public void IceAttacks()
     {
         
         animator.Play("Ice m1");
         
     }
-    
-    void EarthAttacks()
+
+    public void EarthAttacks()
     {
         
         animator.Play("Earth m1");
         
     }
 
-    void Win()
+    public void Win()
     {
-        Playing1 = false;
+        Playing = false;
         Shooter.gameObject.SendMessage("Win");
 
         if(element == 1)
         {
-            animator.Play("LightningWIN"); 
+            animator.Play("WIN! Lightning"); 
         }
         if(element == 2)
         {
@@ -343,7 +343,7 @@ if(Deadtimer>=countdown)
        
    }
 
-   void LoadScene(string SceneManager)
+   public void LoadScene(string sceneName)
     {
         SceneManager.LoadScene("Menu");
     }

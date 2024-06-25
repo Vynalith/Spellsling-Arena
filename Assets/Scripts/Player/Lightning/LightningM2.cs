@@ -121,7 +121,7 @@ public class LightningM2 : MonoBehaviour
                 print("adding wall");
                 hitList.Add(other.gameObject);
             }
-            if (other.gameObject.CompareTag("Enemy") && !other.gameObject.CompareTag("FILLERTEXT"))
+            if (other.gameObject.CompareTag("Enemy") && !other.gameObject.CompareTag("FILLERTEXT") || other.gameObject.CompareTag("LightningEnemy") && !other.gameObject.CompareTag("FILLERTEXT"))
             {
                 print("adding " + other.gameObject);
                 hitList.Add(other.gameObject);

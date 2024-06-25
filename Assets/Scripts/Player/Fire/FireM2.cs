@@ -23,7 +23,7 @@ public class FireM2 : MonoBehaviour
 
     public void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject.CompareTag("Enemy"))
+        if (other.gameObject.CompareTag("Enemy") || other.gameObject.CompareTag("LightningEnemy") && !other.gameObject.CompareTag("FILLERTEXT"))
         {
             //calls HurtMe function, second argument is the damage value
             other.gameObject.SendMessage("FireHurtMe", 3);

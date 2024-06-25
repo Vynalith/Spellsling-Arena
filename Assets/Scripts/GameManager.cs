@@ -5,10 +5,19 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
 
-    int roomCount;
-    GameObject currentPlacer;
-    string combination;
-    
+    public int roomCount;
+    public GameObject currentPlacer;
+    public string combination;
+    //public Vector3[] Offsets;
+    public Vector3 offsetTotal;
+    private bool needsOffset;
+    private int whichOffset;
+
+
+    //offsets declared here because unity is stupid
+    //public Vector3 lightningLevel1 = new Vector3(0f, 18.17f, 0f);
+    //public Vector3 lightningLevel1 = new Vector3(0f, 9.55f, 0f);
+    public Vector3 lightningLevel1;
 
     // Start is called before the first frame update
     void Start()
@@ -19,21 +28,49 @@ public class GameManager : MonoBehaviour
         {
             combination = "Placer (" + i + ")";
             currentPlacer = GameObject.Find(combination);
-            print("CurrentPlacer = " + currentPlacer);
+            print("Current Placer = " + currentPlacer);
             //print("Combination = " + combination);
-            int RandomRoom = Random.Range(0, 5);
-
-
-            if(i < 6)
+            int RandomRoom = Random.Range(0, 6);
+            print("Random Room = " + RandomRoom);
+            if(RandomRoom == 5)
             {
+                needsOffset = true;
+                whichOffset = 1;
+                print("Random Room = 5 Bool is true");
+                print("Lightning level offset = " + lightningLevel1);
+                //currentPlacer.SendMessage("GetOffset", offsetTotal);
+                print("Offset total = " + offsetTotal);
+
+            }
+            if (i < 6)
+            {
+                //currentPlacer.SendMessage("GetOffset", offsetTotal);
+                currentPlacer.SendMessage("SetPosition", offsetTotal);
                 currentPlacer.SendMessage("CreateRoom", RandomRoom);
+
             }
             else
             {
+                currentPlacer.SendMessage("SetPosition", offsetTotal);
                 currentPlacer.SendMessage("CreateBossRoom", SendMessageOptions.DontRequireReceiver);
             }
 
-        }
+            if (needsOffset)
+            {
+                switch (whichOffset)
+                {
+                    case 1:
+                        offsetTotal += lightningLevel1;
+                        needsOffset = false;
+                        whichOffset = 0;
+                        break;
+                }
+
+                }
+            }
+
+
+
     }
 
     // Update is called once per frame
@@ -42,7 +79,7 @@ public class GameManager : MonoBehaviour
         //print("Game Manager Room Count is " + roomCount);
     }
 
-    void IncreaseRoomCount()
+    public void IncreaseRoomCount()
     {
         roomCount++;
         //print("Room count increased to " + roomCount);
@@ -50,10 +87,14 @@ public class GameManager : MonoBehaviour
     }
 
 
-    void SendRoomCount(GameObject other)
+    public void SendRoomCount(GameObject other)
     {
         //print("Recieved room count from " + other);
         //print("Sending roomcount " + roomCount + " to " + other);
         other.SendMessage("GetRoomCount", roomCount);
     }
+
+
+
+
 }
