@@ -16,21 +16,11 @@ public class Ghost: MonoBehaviour
     GameObject PlayerUI;
     GameObject Getplayertarget;
     Transform Player;
-    GameObject Player;
     [SerializeField]
     float speed;
     [SerializeField]
 
     readonly Transform aim1;
-
-    GameObject aimTarget { get; private set; }
-    GameObject CurrentRoom { get => currentRoom; set => currentRoom = value; }
-    Animator Animator { get => animator; set => animator = value; }
-    GameObject Heart { get => heart; set => heart = value; }
-    float GetPlayerAwarenessDistance() => ghost.playerAwarenessDistance;
-    Vector2 DirectionToPlayer1 { get; set; }
-    GameObject Health1 { get; set; }
-    float Rotationspeed { get; set; }
 
     GameObject GetPlayerTarget() => ghost.playertarget;
 
