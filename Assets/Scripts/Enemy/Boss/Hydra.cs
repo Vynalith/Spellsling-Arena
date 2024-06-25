@@ -4,33 +4,33 @@ using UnityEngine;
 
 public class Hydra : MonoBehaviour
 {
-    public int health;
-    public GameObject damage;
-    public GameObject CurrentRoom;
-    public float cooldown;
-    private float cooldownCount;
-    public GameObject[] Projectile;
-    public Animation[] attack;
-    public float shotForce = 20f;
+    int health;
+    GameObject damage;
+    GameObject CurrentRoom;
+    float cooldown;
+    float cooldownCount;
+    GameObject[] Projectile;
+    Animation[] attack;
+    float shotForce = 20f;
 
-    private Vector3 start;
-    private Vector3 direction;
-    private GameObject target;
-    private GameObject target2;
-    public float sightDistance = 10;
-    private Collider2D finalDetected;
-    private RaycastHit2D hit;
-    private int layerMask = 1 << 3;
+    Vector3 start;
+    Vector3 direction;
+    GameObject target;
+    GameObject target2;
+    float sightDistance = 10;
+    Collider2D finalDetected;
+    RaycastHit2D hit;
+    int layerMask = 1 << 3;
 
-    private Vector3 shootAngle;
+    Vector3 shootAngle;
+    
+    Animator animator;
 
-    public Animator animator;
+    Transform anchor;
+    
+    GameObject WIN;
 
-    public Transform anchor;
-
-    public GameObject WIN;
-
-    private int Hydradamage;
+    int Hydradamage;
 
     // Start is called before the first frame update
     void Start()
@@ -47,7 +47,12 @@ public class Hydra : MonoBehaviour
     void Update()
     {
         // Update health and damage variables if necessary
-
+        // This function handles damage when the hydra is hit by a projectile
+        void TakeDamage(int damage)
+        {
+            health -= damage;
+            // Instantiate damage text and play damage sound here
+        }
         // If the hydra is in sight range of the player
         if (Vector3.Distance(transform.position, target.transform.position) <= sightDistance)
         {
@@ -83,12 +88,5 @@ public class Hydra : MonoBehaviour
             // Decrement cooldown
             cooldownCount -= Time.deltaTime;
         }
-    }
-
-    // This function handles damage when the hydra is hit by a projectile
-    public void TakeDamage(int damage)
-    {
-        health -= damage;
-        // Instantiate damage text and play damage sound here
     }
 }

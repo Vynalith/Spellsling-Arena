@@ -1,67 +1,65 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class Shooter : MonoBehaviour
 {
-    public float speed;
+    float speed;
 
-    Vector2 movement;
-    public Rigidbody2D rb;
-    public GameObject player;
+    Vector2 Movement;
+    Rigidbody2D rb;
+    GameObject Player;
 
-    public Transform ShooterThing;
-    private GameObject Projectile;
-    private GameObject Projectile2;
-    public GameObject firemagic;
-    public GameObject lightningmagic;
-    public GameObject icemagic;
-    public GameObject earthmagic;
+    Transform Shooter;
+    GameObject Projectile;
+    GameObject Projectile2;
+    GameObject firemagic;
+    GameObject lightningmagic;
+    GameObject icemagic;
+    GameObject earthmagic;
 
-
-    public GameObject firemagic2;
-    public GameObject lightningmagic2;
-    public GameObject icemagic2;
-    public GameObject earthmagic2;
-
-
-    public GameObject Aim;
-    
-
-    private bool lightning;
-    private bool fire;
-    private bool ice;
-    private bool earth;
+    GameObject firemagic2;
+    GameObject lightningmagic2;
+    GameObject icemagic2;
+    GameObject earthmagic2;
 
 
-    public bool Playing;
+    GameObject Aim;
+    bool lightning;
+    bool fire;
+    bool ice;
+    bool earth;
 
-    public float shotForce = 20f;
-    public float shotForce2 = 20f;
+
+    bool Playing;
+
+    float shotForce = 20f;
+    float shotForce2 = 20f;
 
 
-    //magic SFX
-    public AudioSource IceM1;
-    //public AudioSource IceM2;
-    public AudioSource FireM1;
-    public AudioSource FireM2;
-    public AudioSource LightningM1;
-    //public AudioSource LightningM2;
-    public AudioSource EarthM1;
-    //public AudioSource EarthM2;
+    magic SFX;
+    AudioSource IceM1;
+    AudioSource IceM2;
+    AudioSource FireM1;
+    AudioSource FireM2;
+    AudioSource LightningM1;
+    AudioSource LightningM2;
+    AudioSource EarthM1;
+    AudioSource EarthM2;
 
 
 
     //cooldowns
-    private float iceCooldown;
-    private float fireCooldown;
-    private float earthCooldown;
-    private float lightningCooldown;
-    private bool iceReady;
-    private bool fireReady;
-    private bool earthReady;
-    private bool lightningReady;
-    public GameObject gameUI;
+    float iceCooldown;
+    float fireCooldown;
+    float earthCooldown;
+    float lightningCooldown;
+    bool iceReady;
+    bool fireReady;
+    bool earthReady;
+    bool lightningReady;
+    GameObject GameUI;
 
 
 
@@ -75,12 +73,12 @@ public class Shooter : MonoBehaviour
     {
         Playing=true;
 
-       Projectile = lightningmagic;
-       Projectile2 = lightningmagic2;
-       lightning = true;
-       fire = false;
-       ice = false;
-       earth = false;
+        Projectile = lightningmagic;
+        Projectile2 = lightningmagic2;
+        lightning = true;
+        fire = false;
+        ice = false;
+        earth = false;
 
         lightningReady = true;
         iceReady = true;
@@ -89,15 +87,15 @@ public class Shooter : MonoBehaviour
 
     }
 
-    public void Death()
+    void Death()
     {
         Playing=false;
     }
 
-    
-    public void Win()
+
+    void Win()
     {
-        Playing=false;
+        Playing = false;
         Aim.gameObject.SetActive(false);
     }
     // Update is called once per frame
@@ -106,52 +104,47 @@ public class Shooter : MonoBehaviour
         movement.x = Input.GetAxisRaw("Horizontal");
         movement.y = Input.GetAxisRaw("Vertical");
 
-          if( Input.GetButtonDown("lightning"))
+        if( Input.GetButtonDown("lightning"))
         {
-           Projectile = lightningmagic;
-           lightning = true;
-            
+            Projectile = lightningmagic;
+            Projectile2 = lightningmagic2;
+            lightning = true;
             fire = false;
             ice = false;
             earth = false;
 
-            Projectile2 = lightningmagic2;
-
             shotForce = 20f;
-           
+
         }
         if( Input.GetButtonDown("fire"))
         {
             Projectile = firemagic;
             Projectile2 = firemagic2;
             fire = true;
-            
             lightning = false;
             ice = false;
             earth = false;
 
-             shotForce = 20f;
+            shotForce = 20f;
         }
-         if( Input.GetButtonDown("ice"))
+        if( Input.GetButtonDown("ice"))
         {
             Projectile = icemagic;
             Projectile2 = icemagic2;
             ice = true;
-
             fire = false;
             lightning = false;
             earth = false;
 
             shotForce = 20f;
             shotForce2 = 0f;
-            
+
         }
-         if( Input.GetButtonDown("earth"))
+        if( Input.GetButtonDown("earth"))
         {
             Projectile = earthmagic;
             Projectile2 = earthmagic2;
             earth = true;
-            
             fire = false;
             lightning = false;
             ice = false;
@@ -161,110 +154,91 @@ public class Shooter : MonoBehaviour
 
 
         //attack
-        if( Input.GetButtonDown("Fire2"))
+        if( Input.GetButtonDown("M1"))
         {
             //print ("M1");
-             if(Playing==true)
+            if(Playing==true)
             {
                 Shoot();
             }
         }
 
-            if( Input.GetButtonDown("M2"))
+        if( Input.GetButtonDown("M2"))
         {
             //print ("M2");
-             if(Playing==true)
+            if(Playing==true)
             {
                 Shoot2();
             }
         }
-
-
-
-
-        //still in update()
-
-
-        //figure out each cooldown
-        //assign in shoot or shoot2 in each if statement
-        //send message to player.cs
-        //have player.cs have the variables and change UI in update()
-        //in each shoot statement here, send message to player called "cooldown checker" with the element as an argument
-        //have if statement in player.cs cooldown checker, where if selected element isn't off cooldown, send message to shooter.cs cooldown confirm()
-        //saying no if it isn't ready, saying yes if it is
-        //if its yes, have shoot and add cooldown method in an if statement
-        //or maybe have player keep track of each cooldown and send a message saying an element is ready to a shooter.cs boolean
-
     }
 
 
-    public void LightningEnable()
+    void LightningEnable()
     {
         lightningReady = true;
         print("lightning enable");
         print(lightningReady);
     }
-    public void IceEnable()
+    void IceEnable()
     {
         iceReady = true;
+        print("ice enable");
+        print(iceReady);
     }
-    public void FireEnable()
+    void FireEnable()
     {
         fireReady = true;
+        print("fire enable");
+        print(fireReady);
     }
-    public void EarthEnable()
+    void EarthEnable()
     {
         earthReady = true;
+        print("earth enable");
+        print(earthReady);
     }
 
     /*
-    public void GetAim(GameObject other)
+    void GetAim(GameObject other)
     {
-        other.SendMessage("GetAim", ShooterThing.up);
+        other.SendMessage("GetAim", Shooter.up);
     }
     */
 
-    public void GetAim(GameObject other)
+    void GetAim(GameObject other)
     {
-        shooterthingpos = ShooterThing.up;
+        shooterpos = Shooter.up;
         //print("get aim");
-        //print("shooter" + ShooterThing.up);
-        //print("shooter" + shooterthingpos);
+        //print("shooter" + Shooter.up);
+        //print("shooter" + shooterpos);
         //needsAimed = GameObject.Find("Fireball");
         //print(needsAimed);
-        other.SendMessage("GetAim", shooterthingpos);
-        //needsAimed.SendMessage("fuckme", SendMessageOptions.DontRequireReceiver);
+        other.SendMessage("GetAim", shooterpos);
+        //needsAimed.SendMessage("GetAim", SendMessageOptions.DontRequireReceiver);
     }
-
-
-
-
-
-
     void Shoot()
     {
-        
-        
         if (lightning == true)
         {
             if (lightningReady)
             {
                 shotForce = 20f;
-            lightningCooldown = 1f;
-            GameObject bullet = Instantiate(Projectile, Aim.transform.position, ShooterThing.rotation);
-            LightningM1.Play();
-            player.gameObject.SendMessage("LightningAttacks");
-            Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
-            rb.AddForce(ShooterThing.up * shotForce, ForceMode2D.Impulse);
-            lightningReady = false;
-            gameUI.SendMessage("LightningCooldown", lightningCooldown);
-            
+                lightningCooldown = 1f;
+                GameObject bullet = Instantiate(Projectile, Aim.transform.position, Shooter.rotation);
+                LightningM1.Play();
+                player.GameObject.SendMessage("LightningAttacks");
+                Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
+                rb.AddForce(ShooterThing.up * shotForce, ForceMode2D.Impulse);
+                lightningReady = false;
+                gameUI.SendMessage("LightningCooldown", lightningCooldown);
+
             }
             else
             {
                 print(lightningReady);
             }
-            
+
         }
 
         if(fire == true)
@@ -272,17 +246,17 @@ public class Shooter : MonoBehaviour
             if (fireReady)
             {
                 shotForce = 5f;
-                GameObject bullet = Instantiate(Projectile, Aim.transform.position, ShooterThing.rotation);
+                GameObject bullet = Instantiate(Projectile, Aim.transform.position, Shooter.rotation);
                 fireReady = false;
                 fireCooldown = 1.5f;
                 gameUI.SendMessage("FireCooldown", fireCooldown);
                 FireM1.Play();
-                player.gameObject.SendMessage("FireAttacks");
+                player.GameObject.SendMessage("FireAttacks");
                 Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
                 rb.AddForce(ShooterThing.up * shotForce, ForceMode2D.Impulse);
 
             }
-            
+
         }
 
         if(ice == true)
@@ -290,17 +264,17 @@ public class Shooter : MonoBehaviour
             if (iceReady)
             {
                 shotForce = 15f;
-                GameObject bullet = Instantiate(Projectile, Aim.transform.position, ShooterThing.rotation);
+                GameObject bullet = Instantiate(Projectile, Aim.transform.position, Shooter.rotation);
                 iceReady = false;
                 iceCooldown = .5f;
                 gameUI.SendMessage("IceCooldown", iceCooldown);
                 IceM1.Play();
-                player.gameObject.SendMessage("IceAttacks");
+                player.GameObject.SendMessage("IceAttacks");
                 Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
                 rb.AddForce(ShooterThing.up * shotForce, ForceMode2D.Impulse);
 
             }
-            
+
         }
 
         if(earth == true)
@@ -308,41 +282,37 @@ public class Shooter : MonoBehaviour
             if (earthReady)
             {
                 shotForce = 10f;
-                GameObject bullet = Instantiate(Projectile, Aim.transform.position, ShooterThing.rotation);
+                GameObject bullet = Instantiate(Projectile, Aim.transform.position, Shooter.rotation);
                 earthReady = false;
                 earthCooldown = 1.5f;
                 gameUI.SendMessage("EarthCooldown", earthCooldown);
                 EarthM1.Play();
-                player.gameObject.SendMessage("EarthAttacks");
+                player.GameObject.SendMessage("EarthAttacks");
                 Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
                 rb.AddForce(ShooterThing.up * shotForce, ForceMode2D.Impulse);
 
             }
-            
-        }
-        
 
-        
-        
+        }
     }
 
     void Shoot2()
     {
-        
+        //LightningAttack2
         if(lightning == true)
         {
             if (lightningReady)
             {
                 lightningReady = false;
                 lightningCooldown = 3f;
-                gameUI.SendMessage("LightningCooldown", lightningCooldown);
+                GameUI.SendMessage("LightningCooldown", lightningCooldown);
                 //LightningM2.Play();
-                GameObject bullet2 = Instantiate(Projectile2, Aim.transform.position, ShooterThing.rotation);
-                player.gameObject.SendMessage("LightningAttacks");
+                GameObject bullet2 = Instantiate(Projectile2, Aim.transform.position, Shooter.rotation);
+                player.GameObject.SendMessage("LightningAttacks");
             }
-            
-        }
 
+        }
+        //FireAttack2
         if(fire == true)
         {
             if (fireReady)
@@ -350,54 +320,47 @@ public class Shooter : MonoBehaviour
                 shotForce = 5f;
                 fireReady = false;
                 fireCooldown = 3f;
-                gameUI.SendMessage("FireCooldown", fireCooldown);
+                GameUI.SendMessage("FireCooldown", fireCooldown);
                 FireM2.Play();
-                GameObject bullet2 = Instantiate(Projectile2, Aim.transform.position, ShooterThing.rotation);
-                player.gameObject.SendMessage("FireAttacks");
+                GameObject bullet2 = Instantiate(Projectile2, Aim.transform.position, Shooter.rotation);
+                player.GameObject.SendMessage("FireAttacks");
                 Rigidbody2D rb = bullet2.GetComponent<Rigidbody2D>();
                 rb.AddForce(ShooterThing.up * shotForce, ForceMode2D.Impulse);
             }
-            
-        }
 
+        }
+        //IceAttack2
         if(ice == true)
         {
             if (iceReady)
             {
                 iceReady = false;
                 iceCooldown = 4f;
-                gameUI.SendMessage("IceCooldown", iceCooldown);
+                GameUI.SendMessage("IceCooldown", iceCooldown);
                 //IceM2.Play();
-                GameObject bullet2 = Instantiate(Projectile2, Aim.transform.position, ShooterThing.rotation);
-                player.gameObject.SendMessage("IceAttacks");
+                GameObject bullet2 = Instantiate(Projectile2, Aim.transform.position, Shooter.rotation);
+                player.GameObject.SendMessage("IceAttacks");
             }
-            
-        }
 
+        }
+        //EarthAttack2
         if(earth == true)
         {
             if (earthReady)
             {
                 earthReady = false;
                 earthCooldown = 5f;
-                gameUI.SendMessage("EarthCooldown", earthCooldown);
+                GameUI.SendMessage("EarthCooldown", earthCooldown);
                 //EarthM2.Play();
-                GameObject bullet2 = Instantiate(Projectile2, Aim.transform.position, ShooterThing.rotation);
+                GameObject bullet2 = Instantiate(Projectile2, Aim.transform.position, Shooter.rotation);
                 player.gameObject.SendMessage("EarthAttacks");
             }
-            
+
         }
-        
-
-        
-        
-    }
-
-
-    public void PuddleHurtMe(int damage)
-    {
-        //stupid puddle sends to this instead of player
-        player.SendMessage("HurtMe", 1);
+        void HurtMe(int damage)
+        {
+            //stupid puddle sends to this instead of player
+            player.SendMessage("HurtMe", 1);
+        }
     }
 }
-

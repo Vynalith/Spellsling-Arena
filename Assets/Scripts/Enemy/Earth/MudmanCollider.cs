@@ -47,8 +47,5 @@ public class MudmanCollider : MonoBehaviour
             this.gameObject.SendMessageUpwards("LightningHurtMe", 1);
             Destroy(other.gameObject);
         }
-
-
-
     }
 }

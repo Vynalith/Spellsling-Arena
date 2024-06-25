@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class Tutorial
 {   
-    //public Transform duckHuntDog;
+    //Transform duckHuntDog;
 
     // Start is called before the first frame update
     void Start()
@@ -15,7 +15,7 @@ public class Tutorial
         allowing=false;
         tutorialNum=0;
         nextQuack = true;
-        isScreaming = true; //just internally for now
+        isScreaming = true;
     }
 
     // Update is called once per frame
@@ -72,8 +72,6 @@ public class Tutorial
             }
 
         }
-
-        
         /*if(tutorialNum == 1)
         {
             tutscreen1.SetActive(true);
@@ -137,7 +135,7 @@ public class Tutorial
     }
 
 
-    public void MoveAim()
+    void MoveAim()
     {
         //duckHunt.transform.position = duckHunt.transform.position.down();
     }

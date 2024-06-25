@@ -6,10 +6,10 @@ public class EnemyNav : MonoBehaviour
 {
     /*
     NavMeshAgent agent;
-    public Transform Nav1;
-    public Transform Nav2;
-    public Transform Nav3;
-    public Transform Nav4;
+    Transform Nav1;
+    Transform Nav2;
+    Transform Nav3;
+    Transform Nav4;
     int RandomValue;
 
 

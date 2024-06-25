@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class EnemyEarth : MonoBehaviour
 {
-    public float shootSpeed = 100f;
-    public GameObject shatter;
-    public GameObject iceshatter;
-    public GameObject fss;
-    public GameObject zappy;
+    float shootSpeed = 100f;
+    GameObject Pummel;
+    GameObject iceshatter;
+    GameObject fire;
+    GameObject zappy;
 
     void Start()
     {
@@ -28,7 +28,7 @@ public class EnemyEarth : MonoBehaviour
         if (other.gameObject.CompareTag("Fire"))
         {
             Destroy(other.gameObject);
-            GameObject firepart = Instantiate(fss, this.transform.position, Quaternion.identity);
+            GameObject fire = Instantiate(fire, this.transform.position, Quaternion.identity);
         }
 
         if (other.gameObject.CompareTag("Lightning"))
@@ -40,14 +40,14 @@ public class EnemyEarth : MonoBehaviour
         if (other.gameObject.CompareTag("Ice"))
         {
             Destroy(other.gameObject);
-            GameObject icy = Instantiate(iceshatter, this.transform.position, Quaternion.identity);
+            GameObject ice = Instantiate(iceshatter, this.transform.position, Quaternion.identity);
         }
 
 
         if (other.gameObject.CompareTag("Earth") || other.gameObject.CompareTag("BigFire") || other.gameObject.CompareTag("BigLightning"))
         {
             print("boom");
-            GameObject explo = Instantiate(shatter, this.transform.position, Quaternion.identity);
+            GameObject explo = Instantiate(Pummel, this.transform.position, Quaternion.identity);
             Destroy(this.gameObject);
         }
     }
