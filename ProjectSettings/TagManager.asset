@@ -33,6 +33,8 @@ TagManager:
   - LightningEnemy
   - VirtualCamera
   - Tutorial
+  - Tutorial
+  - Lvldsgns
   layers:
   - Default
   - TransparentFX

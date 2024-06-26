@@ -1860,12 +1860,32 @@ TilemapCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   m_MaximumTileChangeCount: 1000
   m_ExtrusionFactor: 0
+  m_UseDelaunayMesh: 0
 --- !u!1 &1030076236988656113
 GameObject:
   m_ObjectHideFlags: 0
@@ -6047,7 +6067,7 @@ Tilemap:
     m_Data: {r: 1, g: 1, b: 1, a: 1}
   m_TileObjectToInstantiateArray: []
   m_AnimationFrameRate: 1
-  m_Color: {r: 0.6981132, g: 0.6981132, b: 0.6981132, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Origin: {x: -21, y: -81, z: 0}
   m_Size: {x: 48, y: 81, z: 1}
   m_TileAnchor: {x: 0.5, y: 0.5, z: 0}
@@ -6218,6 +6238,25 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -6334,35 +6373,16 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
+    serializedVersion: 3
     m_TransformParent: {fileID: 7347893471158000853}
     m_Modifications:
-    - target: {fileID: 2239148033757502920, guid: 4c784a38295625f458a50617c0798ecb, type: 3}
-      propertyPath: iceLifetime
-      value: 9999
-      objectReference: {fileID: 0}
     - target: {fileID: 2239148033757502921, guid: 4c784a38295625f458a50617c0798ecb, type: 3}
       propertyPath: m_Name
       value: Ice Column Obstacle (6)
       objectReference: {fileID: 0}
-    - target: {fileID: 2239148033757502921, guid: 4c784a38295625f458a50617c0798ecb, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 5134609443883747942, guid: 4c784a38295625f458a50617c0798ecb, type: 3}
       propertyPath: m_RootOrder
       value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 5134609443883747942, guid: 4c784a38295625f458a50617c0798ecb, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.88
-      objectReference: {fileID: 0}
-    - target: {fileID: 5134609443883747942, guid: 4c784a38295625f458a50617c0798ecb, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.88
-      objectReference: {fileID: 0}
-    - target: {fileID: 5134609443883747942, guid: 4c784a38295625f458a50617c0798ecb, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0.44
       objectReference: {fileID: 0}
     - target: {fileID: 5134609443883747942, guid: 4c784a38295625f458a50617c0798ecb, type: 3}
       propertyPath: m_LocalPosition.x
@@ -6404,11 +6424,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5134609443883747942, guid: 4c784a38295625f458a50617c0798ecb, type: 3}
-      propertyPath: m_ConstrainProportionsScale
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4c784a38295625f458a50617c0798ecb, type: 3}
 --- !u!4 &5122222524481145425 stripped
 Transform:
@@ -6420,12 +6439,9 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
+    serializedVersion: 3
     m_TransformParent: {fileID: 3561546144940287400}
     m_Modifications:
-    - target: {fileID: 2096459743786500905, guid: 9bae60dfeae7a334e8dd16ea5a5bec9c, type: 3}
-      propertyPath: lifeTime
-      value: 9999
-      objectReference: {fileID: 0}
     - target: {fileID: 7514194266979678846, guid: 9bae60dfeae7a334e8dd16ea5a5bec9c, type: 3}
       propertyPath: m_Name
       value: Earth Column Obstacle (5)
@@ -6475,6 +6491,9 @@ PrefabInstance:
       value: 90
       objectReference: {fileID: 0}
     m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9bae60dfeae7a334e8dd16ea5a5bec9c, type: 3}
 --- !u!4 &9176172780018393673 stripped
 Transform:
@@ -6486,12 +6505,9 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
+    serializedVersion: 3
     m_TransformParent: {fileID: 3561546144940287400}
     m_Modifications:
-    - target: {fileID: 2096459743786500905, guid: 9bae60dfeae7a334e8dd16ea5a5bec9c, type: 3}
-      propertyPath: lifeTime
-      value: 9999
-      objectReference: {fileID: 0}
     - target: {fileID: 7514194266979678846, guid: 9bae60dfeae7a334e8dd16ea5a5bec9c, type: 3}
       propertyPath: m_Name
       value: Earth Column Obstacle (8)
@@ -6541,6 +6557,9 @@ PrefabInstance:
       value: 90
       objectReference: {fileID: 0}
     m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9bae60dfeae7a334e8dd16ea5a5bec9c, type: 3}
 --- !u!4 &9041903092515242921 stripped
 Transform:
@@ -6552,35 +6571,16 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
+    serializedVersion: 3
     m_TransformParent: {fileID: 7347893471158000853}
     m_Modifications:
-    - target: {fileID: 2239148033757502920, guid: 4c784a38295625f458a50617c0798ecb, type: 3}
-      propertyPath: iceLifetime
-      value: 9999
-      objectReference: {fileID: 0}
     - target: {fileID: 2239148033757502921, guid: 4c784a38295625f458a50617c0798ecb, type: 3}
       propertyPath: m_Name
       value: Ice Column Obstacle (9)
       objectReference: {fileID: 0}
-    - target: {fileID: 2239148033757502921, guid: 4c784a38295625f458a50617c0798ecb, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 5134609443883747942, guid: 4c784a38295625f458a50617c0798ecb, type: 3}
       propertyPath: m_RootOrder
       value: 9
-      objectReference: {fileID: 0}
-    - target: {fileID: 5134609443883747942, guid: 4c784a38295625f458a50617c0798ecb, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.88
-      objectReference: {fileID: 0}
-    - target: {fileID: 5134609443883747942, guid: 4c784a38295625f458a50617c0798ecb, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.88
-      objectReference: {fileID: 0}
-    - target: {fileID: 5134609443883747942, guid: 4c784a38295625f458a50617c0798ecb, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0.44
       objectReference: {fileID: 0}
     - target: {fileID: 5134609443883747942, guid: 4c784a38295625f458a50617c0798ecb, type: 3}
       propertyPath: m_LocalPosition.x
@@ -6622,11 +6622,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 180
       objectReference: {fileID: 0}
-    - target: {fileID: 5134609443883747942, guid: 4c784a38295625f458a50617c0798ecb, type: 3}
-      propertyPath: m_ConstrainProportionsScale
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4c784a38295625f458a50617c0798ecb, type: 3}
 --- !u!4 &7457736289476786261 stripped
 Transform:
@@ -6638,12 +6637,9 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
+    serializedVersion: 3
     m_TransformParent: {fileID: 7347893471158000853}
     m_Modifications:
-    - target: {fileID: 2239148033757502920, guid: 4c784a38295625f458a50617c0798ecb, type: 3}
-      propertyPath: iceLifetime
-      value: 9999
-      objectReference: {fileID: 0}
     - target: {fileID: 2239148033757502921, guid: 4c784a38295625f458a50617c0798ecb, type: 3}
       propertyPath: m_Name
       value: Ice Column Obstacle (2)
@@ -6651,18 +6647,6 @@ PrefabInstance:
     - target: {fileID: 5134609443883747942, guid: 4c784a38295625f458a50617c0798ecb, type: 3}
       propertyPath: m_RootOrder
       value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 5134609443883747942, guid: 4c784a38295625f458a50617c0798ecb, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.88
-      objectReference: {fileID: 0}
-    - target: {fileID: 5134609443883747942, guid: 4c784a38295625f458a50617c0798ecb, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.88
-      objectReference: {fileID: 0}
-    - target: {fileID: 5134609443883747942, guid: 4c784a38295625f458a50617c0798ecb, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0.44
       objectReference: {fileID: 0}
     - target: {fileID: 5134609443883747942, guid: 4c784a38295625f458a50617c0798ecb, type: 3}
       propertyPath: m_LocalPosition.x
@@ -6704,11 +6688,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5134609443883747942, guid: 4c784a38295625f458a50617c0798ecb, type: 3}
-      propertyPath: m_ConstrainProportionsScale
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4c784a38295625f458a50617c0798ecb, type: 3}
 --- !u!4 &8018207987438993006 stripped
 Transform:
@@ -6720,12 +6703,9 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
+    serializedVersion: 3
     m_TransformParent: {fileID: 3561546144940287400}
     m_Modifications:
-    - target: {fileID: 2096459743786500905, guid: 9bae60dfeae7a334e8dd16ea5a5bec9c, type: 3}
-      propertyPath: lifeTime
-      value: 9999
-      objectReference: {fileID: 0}
     - target: {fileID: 7514194266979678846, guid: 9bae60dfeae7a334e8dd16ea5a5bec9c, type: 3}
       propertyPath: m_Name
       value: Earth Column Obstacle (6)
@@ -6775,6 +6755,9 @@ PrefabInstance:
       value: 90
       objectReference: {fileID: 0}
     m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9bae60dfeae7a334e8dd16ea5a5bec9c, type: 3}
 --- !u!4 &6755426087198978896 stripped
 Transform:
@@ -6786,35 +6769,16 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
+    serializedVersion: 3
     m_TransformParent: {fileID: 7347893471158000853}
     m_Modifications:
-    - target: {fileID: 2239148033757502920, guid: 4c784a38295625f458a50617c0798ecb, type: 3}
-      propertyPath: iceLifetime
-      value: 9999
-      objectReference: {fileID: 0}
     - target: {fileID: 2239148033757502921, guid: 4c784a38295625f458a50617c0798ecb, type: 3}
       propertyPath: m_Name
       value: Ice Column Obstacle (4)
       objectReference: {fileID: 0}
-    - target: {fileID: 2239148033757502921, guid: 4c784a38295625f458a50617c0798ecb, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 5134609443883747942, guid: 4c784a38295625f458a50617c0798ecb, type: 3}
       propertyPath: m_RootOrder
       value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 5134609443883747942, guid: 4c784a38295625f458a50617c0798ecb, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.88
-      objectReference: {fileID: 0}
-    - target: {fileID: 5134609443883747942, guid: 4c784a38295625f458a50617c0798ecb, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.88
-      objectReference: {fileID: 0}
-    - target: {fileID: 5134609443883747942, guid: 4c784a38295625f458a50617c0798ecb, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0.44
       objectReference: {fileID: 0}
     - target: {fileID: 5134609443883747942, guid: 4c784a38295625f458a50617c0798ecb, type: 3}
       propertyPath: m_LocalPosition.x
@@ -6856,11 +6820,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 180
       objectReference: {fileID: 0}
-    - target: {fileID: 5134609443883747942, guid: 4c784a38295625f458a50617c0798ecb, type: 3}
-      propertyPath: m_ConstrainProportionsScale
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4c784a38295625f458a50617c0798ecb, type: 3}
 --- !u!4 &8535348971231805245 stripped
 Transform:
@@ -6872,12 +6835,9 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
+    serializedVersion: 3
     m_TransformParent: {fileID: 7347893471158000853}
     m_Modifications:
-    - target: {fileID: 2239148033757502920, guid: 4c784a38295625f458a50617c0798ecb, type: 3}
-      propertyPath: iceLifetime
-      value: 9999
-      objectReference: {fileID: 0}
     - target: {fileID: 2239148033757502921, guid: 4c784a38295625f458a50617c0798ecb, type: 3}
       propertyPath: m_Name
       value: Ice Column Obstacle (1)
@@ -6885,18 +6845,6 @@ PrefabInstance:
     - target: {fileID: 5134609443883747942, guid: 4c784a38295625f458a50617c0798ecb, type: 3}
       propertyPath: m_RootOrder
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5134609443883747942, guid: 4c784a38295625f458a50617c0798ecb, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.88
-      objectReference: {fileID: 0}
-    - target: {fileID: 5134609443883747942, guid: 4c784a38295625f458a50617c0798ecb, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.88
-      objectReference: {fileID: 0}
-    - target: {fileID: 5134609443883747942, guid: 4c784a38295625f458a50617c0798ecb, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0.44
       objectReference: {fileID: 0}
     - target: {fileID: 5134609443883747942, guid: 4c784a38295625f458a50617c0798ecb, type: 3}
       propertyPath: m_LocalPosition.x
@@ -6938,11 +6886,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5134609443883747942, guid: 4c784a38295625f458a50617c0798ecb, type: 3}
-      propertyPath: m_ConstrainProportionsScale
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4c784a38295625f458a50617c0798ecb, type: 3}
 --- !u!4 &8900995501598208457 stripped
 Transform:
@@ -6954,12 +6901,9 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
+    serializedVersion: 3
     m_TransformParent: {fileID: 3561546144940287400}
     m_Modifications:
-    - target: {fileID: 2096459743786500905, guid: 9bae60dfeae7a334e8dd16ea5a5bec9c, type: 3}
-      propertyPath: lifeTime
-      value: 9999
-      objectReference: {fileID: 0}
     - target: {fileID: 7514194266979678846, guid: 9bae60dfeae7a334e8dd16ea5a5bec9c, type: 3}
       propertyPath: m_Name
       value: Earth Column Obstacle (10)
@@ -7009,6 +6953,9 @@ PrefabInstance:
       value: 90
       objectReference: {fileID: 0}
     m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9bae60dfeae7a334e8dd16ea5a5bec9c, type: 3}
 --- !u!4 &3739201195784147426 stripped
 Transform:
@@ -7020,35 +6967,16 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
+    serializedVersion: 3
     m_TransformParent: {fileID: 7347893471158000853}
     m_Modifications:
-    - target: {fileID: 2239148033757502920, guid: 4c784a38295625f458a50617c0798ecb, type: 3}
-      propertyPath: iceLifetime
-      value: 9999
-      objectReference: {fileID: 0}
     - target: {fileID: 2239148033757502921, guid: 4c784a38295625f458a50617c0798ecb, type: 3}
       propertyPath: m_Name
       value: Ice Column Obstacle (7)
       objectReference: {fileID: 0}
-    - target: {fileID: 2239148033757502921, guid: 4c784a38295625f458a50617c0798ecb, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 5134609443883747942, guid: 4c784a38295625f458a50617c0798ecb, type: 3}
       propertyPath: m_RootOrder
       value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 5134609443883747942, guid: 4c784a38295625f458a50617c0798ecb, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.88
-      objectReference: {fileID: 0}
-    - target: {fileID: 5134609443883747942, guid: 4c784a38295625f458a50617c0798ecb, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.88
-      objectReference: {fileID: 0}
-    - target: {fileID: 5134609443883747942, guid: 4c784a38295625f458a50617c0798ecb, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0.44
       objectReference: {fileID: 0}
     - target: {fileID: 5134609443883747942, guid: 4c784a38295625f458a50617c0798ecb, type: 3}
       propertyPath: m_LocalPosition.x
@@ -7090,11 +7018,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5134609443883747942, guid: 4c784a38295625f458a50617c0798ecb, type: 3}
-      propertyPath: m_ConstrainProportionsScale
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4c784a38295625f458a50617c0798ecb, type: 3}
 --- !u!4 &1149911195998281526 stripped
 Transform:
@@ -7106,35 +7033,16 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
+    serializedVersion: 3
     m_TransformParent: {fileID: 7347893471158000853}
     m_Modifications:
-    - target: {fileID: 2239148033757502920, guid: 4c784a38295625f458a50617c0798ecb, type: 3}
-      propertyPath: iceLifetime
-      value: 9999
-      objectReference: {fileID: 0}
     - target: {fileID: 2239148033757502921, guid: 4c784a38295625f458a50617c0798ecb, type: 3}
       propertyPath: m_Name
       value: Ice Column Obstacle (3)
       objectReference: {fileID: 0}
-    - target: {fileID: 2239148033757502921, guid: 4c784a38295625f458a50617c0798ecb, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 5134609443883747942, guid: 4c784a38295625f458a50617c0798ecb, type: 3}
       propertyPath: m_RootOrder
       value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 5134609443883747942, guid: 4c784a38295625f458a50617c0798ecb, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.88
-      objectReference: {fileID: 0}
-    - target: {fileID: 5134609443883747942, guid: 4c784a38295625f458a50617c0798ecb, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.88
-      objectReference: {fileID: 0}
-    - target: {fileID: 5134609443883747942, guid: 4c784a38295625f458a50617c0798ecb, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0.44
       objectReference: {fileID: 0}
     - target: {fileID: 5134609443883747942, guid: 4c784a38295625f458a50617c0798ecb, type: 3}
       propertyPath: m_LocalPosition.x
@@ -7176,11 +7084,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 180
       objectReference: {fileID: 0}
-    - target: {fileID: 5134609443883747942, guid: 4c784a38295625f458a50617c0798ecb, type: 3}
-      propertyPath: m_ConstrainProportionsScale
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4c784a38295625f458a50617c0798ecb, type: 3}
 --- !u!4 &1657601134756905862 stripped
 Transform:
@@ -7192,12 +7099,9 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
+    serializedVersion: 3
     m_TransformParent: {fileID: 3561546144940287400}
     m_Modifications:
-    - target: {fileID: 2096459743786500905, guid: 9bae60dfeae7a334e8dd16ea5a5bec9c, type: 3}
-      propertyPath: lifeTime
-      value: 9999
-      objectReference: {fileID: 0}
     - target: {fileID: 7514194266979678846, guid: 9bae60dfeae7a334e8dd16ea5a5bec9c, type: 3}
       propertyPath: m_Name
       value: Earth Column Obstacle (9)
@@ -7247,6 +7151,9 @@ PrefabInstance:
       value: 90
       objectReference: {fileID: 0}
     m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9bae60dfeae7a334e8dd16ea5a5bec9c, type: 3}
 --- !u!4 &2685235677096123277 stripped
 Transform:
@@ -7258,12 +7165,9 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
+    serializedVersion: 3
     m_TransformParent: {fileID: 3561546144940287400}
     m_Modifications:
-    - target: {fileID: 2096459743786500905, guid: 9bae60dfeae7a334e8dd16ea5a5bec9c, type: 3}
-      propertyPath: lifeTime
-      value: 9999
-      objectReference: {fileID: 0}
     - target: {fileID: 7514194266979678846, guid: 9bae60dfeae7a334e8dd16ea5a5bec9c, type: 3}
       propertyPath: m_Name
       value: Earth Column Obstacle (7)
@@ -7313,6 +7217,9 @@ PrefabInstance:
       value: 90
       objectReference: {fileID: 0}
     m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9bae60dfeae7a334e8dd16ea5a5bec9c, type: 3}
 --- !u!4 &3453659773952951307 stripped
 Transform:
@@ -7324,12 +7231,9 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
+    serializedVersion: 3
     m_TransformParent: {fileID: 3561546144940287400}
     m_Modifications:
-    - target: {fileID: 2096459743786500905, guid: 9bae60dfeae7a334e8dd16ea5a5bec9c, type: 3}
-      propertyPath: lifeTime
-      value: 9999
-      objectReference: {fileID: 0}
     - target: {fileID: 7514194266979678846, guid: 9bae60dfeae7a334e8dd16ea5a5bec9c, type: 3}
       propertyPath: m_Name
       value: Earth Column Obstacle (12)
@@ -7379,6 +7283,9 @@ PrefabInstance:
       value: 90
       objectReference: {fileID: 0}
     m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9bae60dfeae7a334e8dd16ea5a5bec9c, type: 3}
 --- !u!4 &2968609798226575633 stripped
 Transform:
@@ -7390,12 +7297,9 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
+    serializedVersion: 3
     m_TransformParent: {fileID: 3561546144940287400}
     m_Modifications:
-    - target: {fileID: 2096459743786500905, guid: 9bae60dfeae7a334e8dd16ea5a5bec9c, type: 3}
-      propertyPath: lifeTime
-      value: 9999
-      objectReference: {fileID: 0}
     - target: {fileID: 7514194266979678846, guid: 9bae60dfeae7a334e8dd16ea5a5bec9c, type: 3}
       propertyPath: m_Name
       value: Earth Column Obstacle (4)
@@ -7445,6 +7349,9 @@ PrefabInstance:
       value: 90
       objectReference: {fileID: 0}
     m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9bae60dfeae7a334e8dd16ea5a5bec9c, type: 3}
 --- !u!4 &1512793609392106007 stripped
 Transform:
@@ -7456,12 +7363,9 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
+    serializedVersion: 3
     m_TransformParent: {fileID: 7347893471158000853}
     m_Modifications:
-    - target: {fileID: 2239148033757502920, guid: 4c784a38295625f458a50617c0798ecb, type: 3}
-      propertyPath: iceLifetime
-      value: 9999
-      objectReference: {fileID: 0}
     - target: {fileID: 2239148033757502921, guid: 4c784a38295625f458a50617c0798ecb, type: 3}
       propertyPath: m_Name
       value: Ice Column Obstacle
@@ -7469,18 +7373,6 @@ PrefabInstance:
     - target: {fileID: 5134609443883747942, guid: 4c784a38295625f458a50617c0798ecb, type: 3}
       propertyPath: m_RootOrder
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5134609443883747942, guid: 4c784a38295625f458a50617c0798ecb, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.88
-      objectReference: {fileID: 0}
-    - target: {fileID: 5134609443883747942, guid: 4c784a38295625f458a50617c0798ecb, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.88
-      objectReference: {fileID: 0}
-    - target: {fileID: 5134609443883747942, guid: 4c784a38295625f458a50617c0798ecb, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0.44
       objectReference: {fileID: 0}
     - target: {fileID: 5134609443883747942, guid: 4c784a38295625f458a50617c0798ecb, type: 3}
       propertyPath: m_LocalPosition.x
@@ -7522,11 +7414,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5134609443883747942, guid: 4c784a38295625f458a50617c0798ecb, type: 3}
-      propertyPath: m_ConstrainProportionsScale
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4c784a38295625f458a50617c0798ecb, type: 3}
 --- !u!4 &2377128890794918927 stripped
 Transform:
@@ -7538,16 +7429,9 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
+    serializedVersion: 3
     m_TransformParent: {fileID: 8052682835513376465}
     m_Modifications:
-    - target: {fileID: 537465379495977986, guid: d1553d8c37a3ff146bab505e54041860, type: 3}
-      propertyPath: m_Layer
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 6284083940040710608, guid: d1553d8c37a3ff146bab505e54041860, type: 3}
-      propertyPath: m_Layer
-      value: 6
-      objectReference: {fileID: 0}
     - target: {fileID: 6284083940895516632, guid: d1553d8c37a3ff146bab505e54041860, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -7596,15 +7480,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Door
       objectReference: {fileID: 0}
-    - target: {fileID: 6284083940895516633, guid: d1553d8c37a3ff146bab505e54041860, type: 3}
-      propertyPath: m_Layer
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 6284083940895516633, guid: d1553d8c37a3ff146bab505e54041860, type: 3}
-      propertyPath: m_TagString
-      value: Wall
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d1553d8c37a3ff146bab505e54041860, type: 3}
 --- !u!4 &4345210811579095362 stripped
 Transform:
@@ -7621,35 +7500,16 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
+    serializedVersion: 3
     m_TransformParent: {fileID: 7347893471158000853}
     m_Modifications:
-    - target: {fileID: 2239148033757502920, guid: 4c784a38295625f458a50617c0798ecb, type: 3}
-      propertyPath: iceLifetime
-      value: 9999
-      objectReference: {fileID: 0}
     - target: {fileID: 2239148033757502921, guid: 4c784a38295625f458a50617c0798ecb, type: 3}
       propertyPath: m_Name
       value: Ice Column Obstacle (8)
       objectReference: {fileID: 0}
-    - target: {fileID: 2239148033757502921, guid: 4c784a38295625f458a50617c0798ecb, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 5134609443883747942, guid: 4c784a38295625f458a50617c0798ecb, type: 3}
       propertyPath: m_RootOrder
       value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 5134609443883747942, guid: 4c784a38295625f458a50617c0798ecb, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.88
-      objectReference: {fileID: 0}
-    - target: {fileID: 5134609443883747942, guid: 4c784a38295625f458a50617c0798ecb, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.88
-      objectReference: {fileID: 0}
-    - target: {fileID: 5134609443883747942, guid: 4c784a38295625f458a50617c0798ecb, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0.44
       objectReference: {fileID: 0}
     - target: {fileID: 5134609443883747942, guid: 4c784a38295625f458a50617c0798ecb, type: 3}
       propertyPath: m_LocalPosition.x
@@ -7691,11 +7551,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 180
       objectReference: {fileID: 0}
-    - target: {fileID: 5134609443883747942, guid: 4c784a38295625f458a50617c0798ecb, type: 3}
-      propertyPath: m_ConstrainProportionsScale
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4c784a38295625f458a50617c0798ecb, type: 3}
 --- !u!4 &3797273701149961037 stripped
 Transform:
@@ -7707,35 +7566,16 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
+    serializedVersion: 3
     m_TransformParent: {fileID: 7347893471158000853}
     m_Modifications:
-    - target: {fileID: 2239148033757502920, guid: 4c784a38295625f458a50617c0798ecb, type: 3}
-      propertyPath: iceLifetime
-      value: 9999
-      objectReference: {fileID: 0}
     - target: {fileID: 2239148033757502921, guid: 4c784a38295625f458a50617c0798ecb, type: 3}
       propertyPath: m_Name
       value: Ice Column Obstacle (5)
       objectReference: {fileID: 0}
-    - target: {fileID: 2239148033757502921, guid: 4c784a38295625f458a50617c0798ecb, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 5134609443883747942, guid: 4c784a38295625f458a50617c0798ecb, type: 3}
       propertyPath: m_RootOrder
       value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 5134609443883747942, guid: 4c784a38295625f458a50617c0798ecb, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.88
-      objectReference: {fileID: 0}
-    - target: {fileID: 5134609443883747942, guid: 4c784a38295625f458a50617c0798ecb, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.88
-      objectReference: {fileID: 0}
-    - target: {fileID: 5134609443883747942, guid: 4c784a38295625f458a50617c0798ecb, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0.44
       objectReference: {fileID: 0}
     - target: {fileID: 5134609443883747942, guid: 4c784a38295625f458a50617c0798ecb, type: 3}
       propertyPath: m_LocalPosition.x
@@ -7777,11 +7617,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5134609443883747942, guid: 4c784a38295625f458a50617c0798ecb, type: 3}
-      propertyPath: m_ConstrainProportionsScale
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4c784a38295625f458a50617c0798ecb, type: 3}
 --- !u!4 &4358040510547289409 stripped
 Transform:
@@ -7793,12 +7632,9 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
+    serializedVersion: 3
     m_TransformParent: {fileID: 3561546144940287400}
     m_Modifications:
-    - target: {fileID: 2096459743786500905, guid: 9bae60dfeae7a334e8dd16ea5a5bec9c, type: 3}
-      propertyPath: lifeTime
-      value: 9999
-      objectReference: {fileID: 0}
     - target: {fileID: 7514194266979678846, guid: 9bae60dfeae7a334e8dd16ea5a5bec9c, type: 3}
       propertyPath: m_Name
       value: Earth Column Obstacle (11)
@@ -7848,6 +7684,9 @@ PrefabInstance:
       value: 90
       objectReference: {fileID: 0}
     m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9bae60dfeae7a334e8dd16ea5a5bec9c, type: 3}
 --- !u!4 &720610958639057462 stripped
 Transform:

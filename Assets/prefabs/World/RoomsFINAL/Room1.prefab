@@ -46,6 +46,7 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
+    serializedVersion: 3
     m_TransformParent: {fileID: 5000015075264746937}
     m_Modifications:
     - target: {fileID: 1662747029934039832, guid: 1e522d5d46ef84042a3a8753f03e87af, type: 3}
@@ -100,11 +101,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: RangedEnemy (7)
       objectReference: {fileID: 0}
-    - target: {fileID: 4781366548102336881, guid: 1e522d5d46ef84042a3a8753f03e87af, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1e522d5d46ef84042a3a8753f03e87af, type: 3}
 --- !u!1 &1766984478517106662 stripped
 GameObject:
@@ -121,6 +121,7 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
+    serializedVersion: 3
     m_TransformParent: {fileID: 5000015075264746937}
     m_Modifications:
     - target: {fileID: 1662747029934039832, guid: 1e522d5d46ef84042a3a8753f03e87af, type: 3}
@@ -175,11 +176,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: RangedEnemy (3)
       objectReference: {fileID: 0}
-    - target: {fileID: 4781366548102336881, guid: 1e522d5d46ef84042a3a8753f03e87af, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1e522d5d46ef84042a3a8753f03e87af, type: 3}
 --- !u!1 &1766984478611164110 stripped
 GameObject:
@@ -196,6 +196,7 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
+    serializedVersion: 3
     m_TransformParent: {fileID: 5000015075264746937}
     m_Modifications:
     - target: {fileID: 84437787914014470, guid: 40d2c21b65ebb884687e3586004b7f44, type: 3}
@@ -6883,6 +6884,9 @@ PrefabInstance:
       value: -0.81488
       objectReference: {fileID: 0}
     m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 40d2c21b65ebb884687e3586004b7f44, type: 3}
 --- !u!4 &4673998384917781783 stripped
 Transform:
@@ -6899,6 +6903,7 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
+    serializedVersion: 3
     m_TransformParent: {fileID: 5000015075264746937}
     m_Modifications:
     - target: {fileID: 1411162528100142274, guid: 97905fd01aea8e94bbe288ba7bd9af53, type: 3}
@@ -6949,23 +6954,14 @@ PrefabInstance:
       propertyPath: CurrentRoom
       value: 
       objectReference: {fileID: 4735846694169761515}
-    - target: {fileID: 4401286057854046242, guid: 97905fd01aea8e94bbe288ba7bd9af53, type: 3}
-      propertyPath: player
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 4401286057854046243, guid: 97905fd01aea8e94bbe288ba7bd9af53, type: 3}
-      propertyPath: player
-      value: 
-      objectReference: {fileID: 0}
     - target: {fileID: 7520187080668527628, guid: 97905fd01aea8e94bbe288ba7bd9af53, type: 3}
       propertyPath: m_Name
       value: Ghost (1)
       objectReference: {fileID: 0}
-    - target: {fileID: 7520187080668527628, guid: 97905fd01aea8e94bbe288ba7bd9af53, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 97905fd01aea8e94bbe288ba7bd9af53, type: 3}
 --- !u!1 &3639566839131973426 stripped
 GameObject:
@@ -6982,6 +6978,7 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
+    serializedVersion: 3
     m_TransformParent: {fileID: 5000015075264746937}
     m_Modifications:
     - target: {fileID: 1662747029934039832, guid: 1e522d5d46ef84042a3a8753f03e87af, type: 3}
@@ -7036,11 +7033,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: RangedEnemy (1)
       objectReference: {fileID: 0}
-    - target: {fileID: 4781366548102336881, guid: 1e522d5d46ef84042a3a8753f03e87af, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1e522d5d46ef84042a3a8753f03e87af, type: 3}
 --- !u!1 &1766984478074063317 stripped
 GameObject:
@@ -7057,6 +7053,7 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
+    serializedVersion: 3
     m_TransformParent: {fileID: 5000015075264746937}
     m_Modifications:
     - target: {fileID: 1662747029934039832, guid: 1e522d5d46ef84042a3a8753f03e87af, type: 3}
@@ -7111,11 +7108,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: RangedEnemy (4)
       objectReference: {fileID: 0}
-    - target: {fileID: 4781366548102336881, guid: 1e522d5d46ef84042a3a8753f03e87af, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1e522d5d46ef84042a3a8753f03e87af, type: 3}
 --- !u!1 &1766984477659430289 stripped
 GameObject:
@@ -7132,6 +7128,7 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
+    serializedVersion: 3
     m_TransformParent: {fileID: 5000015075264746937}
     m_Modifications:
     - target: {fileID: 1662747029934039832, guid: 1e522d5d46ef84042a3a8753f03e87af, type: 3}
@@ -7186,11 +7183,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: RangedEnemy (2)
       objectReference: {fileID: 0}
-    - target: {fileID: 4781366548102336881, guid: 1e522d5d46ef84042a3a8753f03e87af, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1e522d5d46ef84042a3a8753f03e87af, type: 3}
 --- !u!1 &1766984477748640283 stripped
 GameObject:
@@ -7207,6 +7203,7 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
+    serializedVersion: 3
     m_TransformParent: {fileID: 5000015075264746937}
     m_Modifications:
     - target: {fileID: 1662747029934039832, guid: 1e522d5d46ef84042a3a8753f03e87af, type: 3}
@@ -7261,11 +7258,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: RangedEnemy (6)
       objectReference: {fileID: 0}
-    - target: {fileID: 4781366548102336881, guid: 1e522d5d46ef84042a3a8753f03e87af, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1e522d5d46ef84042a3a8753f03e87af, type: 3}
 --- !u!1 &1766984477365769674 stripped
 GameObject:
@@ -7282,6 +7278,7 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
+    serializedVersion: 3
     m_TransformParent: {fileID: 5000015075264746937}
     m_Modifications:
     - target: {fileID: 1411162528100142274, guid: 97905fd01aea8e94bbe288ba7bd9af53, type: 3}
@@ -7332,23 +7329,14 @@ PrefabInstance:
       propertyPath: CurrentRoom
       value: 
       objectReference: {fileID: 4735846694169761515}
-    - target: {fileID: 4401286057854046242, guid: 97905fd01aea8e94bbe288ba7bd9af53, type: 3}
-      propertyPath: player
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 4401286057854046243, guid: 97905fd01aea8e94bbe288ba7bd9af53, type: 3}
-      propertyPath: player
-      value: 
-      objectReference: {fileID: 0}
     - target: {fileID: 7520187080668527628, guid: 97905fd01aea8e94bbe288ba7bd9af53, type: 3}
       propertyPath: m_Name
       value: Ghost (2)
       objectReference: {fileID: 0}
-    - target: {fileID: 7520187080668527628, guid: 97905fd01aea8e94bbe288ba7bd9af53, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 97905fd01aea8e94bbe288ba7bd9af53, type: 3}
 --- !u!1 &3639566838564611125 stripped
 GameObject:
@@ -7365,6 +7353,7 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
+    serializedVersion: 3
     m_TransformParent: {fileID: 5000015075264746937}
     m_Modifications:
     - target: {fileID: 1662747029934039832, guid: 1e522d5d46ef84042a3a8753f03e87af, type: 3}
@@ -7419,11 +7408,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: RangedEnemy (5)
       objectReference: {fileID: 0}
-    - target: {fileID: 4781366548102336881, guid: 1e522d5d46ef84042a3a8753f03e87af, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1e522d5d46ef84042a3a8753f03e87af, type: 3}
 --- !u!1 &1766984476580425612 stripped
 GameObject:

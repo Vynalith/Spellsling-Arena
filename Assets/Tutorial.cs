@@ -57,7 +57,7 @@ public class Tutorial : MonoBehaviour
             //animator.Play("DuckTalk");
             
         }
-        if(move=true)
+        if(move==true)
         {
           transform.Translate(userDirection * movespeed * Time.deltaTime);
         }
