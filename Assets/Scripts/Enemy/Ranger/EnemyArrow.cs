@@ -15,13 +15,11 @@ public class EnemyArrow : MonoBehaviour
     }
     public void OnTriggerEnter2D(Collider2D other)
     {
-        //print(other.GetComponent<Collider2D>());
+        //print(other.GetComponent<Collider2D>();
         //make if statement to delete this if other is a wall
         if(other.gameObject.CompareTag("IceWall") || other.gameObject.CompareTag("EarthWall") || other.gameObject.CompareTag("Wall"))
         {
             Destroy(this.gameObject);
         }
-
-        
     }
-    }
+}

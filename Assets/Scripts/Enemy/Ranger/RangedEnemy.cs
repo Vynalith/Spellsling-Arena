@@ -12,28 +12,21 @@ public class RangedEnemy : MonoBehaviour
     public GameObject Projectile;
     public float shotForce = 20f;
 
+    public Vector3 shootAngle;
     private Vector3 start;
     private Vector3 direction;
     private GameObject target;
     private GameObject target2;
-    public float sightDistance = 10;
+    public float sightDistance = 10f;
     private Collider2D finalDetected;
-    private RaycastHit hit;
     private int layerMask = 1 << 3;
 
-    public Vector3 shootAngle;
-
     public Animator animator;
-
-
-    public int heartOrNo;
     public GameObject heart;
+    public GameObject damageEffect;
 
     public float Horizontal;
     public float Vertical;
-
-    private float stupidspeed;
-    public GameObject damageEffect;
 
     // Start is called before the first frame update
     void Start()
@@ -47,10 +40,10 @@ public class RangedEnemy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        start = this.transform.position;
-        cooldownCount++;
+        start = transform.position;
+        cooldownCount += Time.deltaTime;
         direction = (target.transform.position - start).normalized;
-        Debug.DrawRay(start, direction * sightDistance);
+        Debug.DrawRay(start, direction * sightDistance, Color.red);
 
         if (SightTest() == target.GetComponent<Collider2D>() || SightTest() == target2.GetComponent<Collider2D>())
         {
@@ -60,6 +53,7 @@ public class RangedEnemy : MonoBehaviour
                 cooldownCount = 0;
             }
         }
+
         finalDetected = null;
         shootAngle = (start - target.transform.position).normalized;
         shootAngle.y *= -1;
@@ -68,215 +62,61 @@ public class RangedEnemy : MonoBehaviour
         animator.SetFloat("Vertical", shootAngle.y);
         Horizontal = shootAngle.x;
         Vertical = shootAngle.y;
-
     }
-
 
     public void Shoot()
     {
-        //animator.Play("ArcherRightShoot");
-
-        GameObject arrow = Instantiate(Projectile, start, this.transform.rotation);
-
+        GameObject arrow = Instantiate(Projectile, start, transform.rotation);
         Rigidbody2D rb = arrow.GetComponent<Rigidbody2D>();
-        if (direction.x < 0)
-        {
-            rb.AddForce(direction * shotForce * 25);
-        }
-        else
-        {
-            rb.AddForce(direction * shotForce * 15);
-        }
-    
+        rb.AddForce(direction * shotForce);
     }
-
-    /////////////////////////////////////////////////////
-    ///Sight test
-    /////////////////////////////////////////////////////
 
     public Collider2D SightTest()
     {
         RaycastHit2D sightTest = Physics2D.Raycast(start, direction, sightDistance, layerMask);
-        if (sightTest.collider != null)
+        if (sightTest.collider != null && sightTest.collider.gameObject != gameObject)
         {
-            if (sightTest.collider.gameObject != gameObject)
-            {
-                finalDetected = null;
-                //Debug.Log("Rigidbody collider is: " + sightTest.collider);
-            }
             finalDetected = sightTest.collider;
         }
         return finalDetected;
     }
 
-
-    ///////////////////////////////////////////////
-    ///Damage check
-    ///////////////////////////////////////////////
-
     public void HurtMe(int damage)
     {
-        Instantiate(damageEffect, this.transform.position, this.transform.rotation);
+        Instantiate(damageEffect, transform.position, transform.rotation);
         health -= damage;
         if (health <= 0)
         {
-            int heartOrNo = Random.Range(0,4);
-
-            print(heartOrNo);
-            //Instantiate (heart, this.transform.position, Quaternion.identity);
-
-            if(heartOrNo >= 2)
-                {
-                    Instantiate (heart, this.transform.position, Quaternion.identity);
-                }
-
-            Destroy(this.gameObject);
-            CurrentRoom.gameObject.SendMessage("RoomClear");
+            HandleDeath();
         }
     }
 
+    public void LightningHurtMe(int ouchie) => HurtMe(ouchie);
+    public void FireHurtMe(int ouchie) => HurtMe(ouchie);
+    public void IceHurtMe(int ouchie) => HurtMe(ouchie);
+    public void EarthHurtMe(int ouchie) => HurtMe(ouchie);
 
-    public void LightningHurtMe(int ouchie)
+    private void HandleDeath()
     {
-        Instantiate(damageEffect, this.transform.position, this.transform.rotation);
-        health -= ouchie;
-
-        if (health <= 0)
+        int heartOrNo = Random.Range(0, 4);
+        if (heartOrNo >= 2)
         {
-            int heartOrNo = Random.Range(0, 4);
-
-            print(heartOrNo);
-            //Instantiate (heart, this.transform.position, Quaternion.identity);
-
-            if (heartOrNo >= 2)
-            {
-                Instantiate(heart, this.transform.position, Quaternion.identity);
-            }
-
-            Destroy(this.gameObject);
-            CurrentRoom.gameObject.SendMessage("RoomClear");
+            Instantiate(heart, transform.position, Quaternion.identity);
         }
+        Destroy(gameObject);
+        CurrentRoom.SendMessage("RoomClear");
     }
 
-    public void FireHurtMe(int ouchie)
-    {
-        health -= ouchie;
-        Instantiate(damageEffect, this.transform.position, this.transform.rotation);
-
-        if (health <= 0)
-        {
-            int heartOrNo = Random.Range(0, 4);
-
-            print(heartOrNo);
-            //Instantiate (heart, this.transform.position, Quaternion.identity);
-
-            if (heartOrNo >= 2)
-            {
-                Instantiate(heart, this.transform.position, Quaternion.identity);
-            }
-
-            Destroy(this.gameObject);
-            CurrentRoom.gameObject.SendMessage("RoomClear");
-        }
-    }
-
-    public void IceHurtMe(int ouchie)
-    {
-        health -= ouchie;
-        Instantiate(damageEffect, this.transform.position, this.transform.rotation);
-
-        if (health <= 0)
-        {
-            int heartOrNo = Random.Range(0, 4);
-
-            print(heartOrNo);
-            //Instantiate (heart, this.transform.position, Quaternion.identity);
-
-            if (heartOrNo >= 2)
-            {
-                Instantiate(heart, this.transform.position, Quaternion.identity);
-            }
-
-            Destroy(this.gameObject);
-            CurrentRoom.gameObject.SendMessage("RoomClear");
-        }
-    }
-
-    public void EarthHurtMe(int ouchie)
-    {
-        health -= ouchie;
-        Instantiate(damageEffect, this.transform.position, this.transform.rotation);
-
-        if (health <= 0)
-        {
-            int heartOrNo = Random.Range(0, 4);
-
-            print(heartOrNo);
-            //Instantiate (heart, this.transform.position, Quaternion.identity);
-
-            if (heartOrNo >= 2)
-            {
-                Instantiate(heart, this.transform.position, Quaternion.identity);
-            }
-
-            Destroy(this.gameObject);
-            CurrentRoom.gameObject.SendMessage("RoomClear");
-        }
-    }
-
-
-
-
-
-    ///////////////////////////////
-    ///Collider stuff
-    ///////////////////////////////
     public void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject.CompareTag("Fire"))
+        if (other.CompareTag("Fire") || other.CompareTag("Earth") || other.CompareTag("Lightning") || other.CompareTag("Ice"))
         {
             Destroy(other.gameObject);
-            GameObject explo = Instantiate(damage, this.transform.position, Quaternion.identity);
-            Destroy(explo, 1f);
-        }
-        if (other.gameObject.CompareTag("Earth"))
-        {
-            Destroy(other.gameObject);
-        }
-        if (other.gameObject.CompareTag("Lightning"))
-        {
-            Destroy(other.gameObject);
-        }
-        if (other.gameObject.CompareTag("Ice"))
-        {
-
-        }
-        
-    }
-    /*
-    public void RecieveSpeed(float speed)
-    {
-        //why do I have to do this weird roundabout way of getting speed?
-        //this is dumb
-        stupidspeed = speed;
-    }
-    
-    public void OnCollisionEnter(Collision other)
-    {
-        
-
-        if (other.gameObject.CompareTag("IceWall"))
-        {
-            other.gameObject.SendMessage("GetSpeed");
-            if(stupidspeed > 3)
+            if (other.CompareTag("Fire"))
             {
-                HurtMe(3);
-            }
-            else if(stupidspeed >= 1)
-            {
-                HurtMe(1);
+                GameObject explo = Instantiate(damage, transform.position, Quaternion.identity);
+                Destroy(explo, 1f);
             }
         }
     }
-    */
 }

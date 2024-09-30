@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class Room : MonoBehaviour
 {
-
     public int enemies;
     public GameObject Entrance;
     public GameObject Exit;
@@ -24,7 +23,6 @@ public class Room : MonoBehaviour
         enemies = Enemies.Length;
     }
 
-
     public void RoomLock()
     {
         if(enter < 1)
@@ -40,8 +38,6 @@ public class Room : MonoBehaviour
         }
     }
     
-    
-    
     public void RoomClear()
     {
         //print ("enemy down");
@@ -53,16 +49,12 @@ public class Room : MonoBehaviour
                 Statues[i].gameObject.SendMessage("RoomClear", SendMessageOptions.DontRequireReceiver);
             }
 
-
-
             Entrance.gameObject.SetActive(false);
             Exit.gameObject.SetActive(false);
         }
     }
-
       void Update()
     {
         
     } 
-
 }

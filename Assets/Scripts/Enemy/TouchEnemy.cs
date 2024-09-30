@@ -4,28 +4,12 @@ using UnityEngine;
 
 public class TouchEnemy : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    // Called when the collider other enters the trigger
+    void OnTriggerEnter2D(Collider2D other)
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
-    public void OnTriggerEnter2D( Collider2D other)
-    {
-          if(other.gameObject.CompareTag("Player"))
+        if (other.gameObject.CompareTag("Player"))
         {
-           
-            
-           
-            other.gameObject.SendMessage("EnemyCollide");
-            
-
+            other.gameObject.SendMessage("EnemyCollide", SendMessageOptions.DontRequireReceiver);
         }
     }
 }

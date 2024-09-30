@@ -1,50 +1,57 @@
 using UnityEngine;
-//using UnityEngine.Collections;
 using UnityEngine.AI;
 
 public class EnemyNav : MonoBehaviour
 {
-    /*
     NavMeshAgent agent;
     public Transform Nav1;
     public Transform Nav2;
     public Transform Nav3;
     public Transform Nav4;
-    int RandomValue;
+    int randomValue;
+    public float changeDestinationInterval = 5f; // Time interval to change destination
+    private float timeSinceLastChange;
 
-
-    // Use EnemyNav for initialization
+    // Use this for initialization
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
+        SetRandomDestination();
+        timeSinceLastChange = 0f;
     }
 
     // Update is called once per frame
     void Update()
     {
-        RandomValue = Random.Range(1, 5);
-        Debug.Log(RandomValue);
-        if (RandomValue == 1)
-        {
-            
-            //Ray ray = Camera.main.ScreenPointToRay (Input.mousePosition);
+        timeSinceLastChange += Time.deltaTime;
 
-            Ray Position1 = new Ray(Nav1.position, Input.mousePosition);
-            RaycastHit Player, hit;
-            if (Physics.Raycast(Position1, 1000))
-            {
-                agent.SetDestination(EnemyNav.point);
-            }
-        }
-        if (RandomValue == 2)
+        if (timeSinceLastChange >= changeDestinationInterval)
         {
-            Ray Position2 = new Ray(Nav2.position, Input.mousePosition);
-            RaycastHit EnemyNav2;
-            if (Physics.Raycast(Position2, out EnemyNav2, 1000))
-            {
-                agent.SetDestination(EnemyNav2.point);
-            }
+            SetRandomDestination();
+            timeSinceLastChange = 0f;
         }
     }
-    */
+
+    void SetRandomDestination()
+    {
+        randomValue = Random.Range(1, 5);
+
+        switch (randomValue)
+        {
+            case 1:
+                agent.SetDestination(Nav1.position);
+                break;
+            case 2:
+                agent.SetDestination(Nav2.position);
+                break;
+            case 3:
+                agent.SetDestination(Nav3.position);
+                break;
+            case 4:
+                agent.SetDestination(Nav4.position);
+                break;
+            default:
+                break;
+        }
+    }
 }

@@ -42,7 +42,6 @@ public class EnemyShooter : MonoBehaviour
         }
         */
     }
-
     void FixedUpdate()
     {
         //movement
@@ -55,5 +54,4 @@ public class EnemyShooter : MonoBehaviour
         Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
         rb.AddForce(ShooterThing.up * shotForce, ForceMode2D.Impulse);
     }
-    
 }

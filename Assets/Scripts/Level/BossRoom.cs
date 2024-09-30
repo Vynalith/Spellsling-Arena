@@ -1,66 +1,59 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class BossRoom : MonoBehaviour
 {
-
     public int enemies;
     public GameObject Entrance;
     public GameObject Exit;
-    private int count;
-    private int countdown;
     public GameObject[] Enemies;
     private GameObject player;
-     public int enter;
+    public int enter;
+    public float delayBeforeReset = 3f; // Adjustable delay before resetting the level
 
     void Start()
     {
-        Entrance.gameObject.SetActive(false);
-        Exit.gameObject.SetActive(false);
-        enter= 0;
+        Entrance.SetActive(false);
+        Exit.SetActive(false);
+        enter = 0;
         player = GameObject.Find("Player");
+        enemies = Enemies.Length; // Initialize enemies count
     }
-
 
     public void RoomLock()
     {
-        if(enter < 1)
+        if (enter < 1)
         {
-        Entrance.gameObject.SetActive(true);
-        Exit.gameObject.SetActive(true);
-        enter = enter+1;
+            Entrance.SetActive(true);
+            Exit.SetActive(true);
+            enter++;
 
-            for(int i = 0; i < Enemies.Length; i++)
+            foreach (GameObject enemy in Enemies)
             {
-                Enemies[i].SetActive(true);
+                enemy.SetActive(true);
             }
 
             player.SendMessage("StartBossMusic", SendMessageOptions.DontRequireReceiver);
-
         }
     }
-    
-    
-    
+
     public void RoomClear()
     {
-        //print ("enemy down");
-        enemies= enemies-1;
-        if(enemies<=0)
+        enemies--;
+
+        if (enemies <= 0)
         {
-            
-
-
-
-            Entrance.gameObject.SetActive(false);
-            Exit.gameObject.SetActive(false);
+            Entrance.SetActive(false);
+            Exit.SetActive(false);
+            StartCoroutine(ReturnToMenu());
         }
     }
 
-      void Update()
+    private IEnumerator ReturnToMenu()
     {
-        
-    } 
-
+        yield return new WaitForSeconds(delayBeforeReset); // Use adjustable delay
+        SceneManager.LoadScene("Menu"); // Load the menu scene (replace "MenuScene" with your menu scene name)
+    }
 }

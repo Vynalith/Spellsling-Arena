@@ -20,7 +20,6 @@ public class HydraFire : MonoBehaviour
         
     }
 
-
     public void OnTriggerEnter2D (Collider2D other)
     {
         if (other.gameObject.CompareTag("Player"))
@@ -28,7 +27,4 @@ public class HydraFire : MonoBehaviour
             other.gameObject.SendMessage("HurtMe", 2);
         }
     }
-
-
-
 }

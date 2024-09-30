@@ -4,59 +4,36 @@ using UnityEngine;
 
 public class PlayerAware : MonoBehaviour
 {
-
-    /*
-    public bool AwareOfPlayer {get; private set;}
-    public Vector2 DirectionToPlayer {get; private set;}
+    public bool AwareOfPlayer { get; private set; }
+    public Vector2 DirectionToPlayer { get; private set; }
 
     [SerializeField]
-    private float playerAwarenessDistance;
+    private float playerAwarenessDistance = 10f; // Adjust the awareness distance as needed
 
     private Transform player;
-    private GameObject playertarget;
-    private Vector3 stupid;
-    // Start is called before the first frame update
-
-        //doesn't run start for some reason
-        /*
-    void start()
-    {
-        playertarget = GameObject.Find("Aim");
-        print(playertarget);
-        player = playertarget.transform;
-        print(player);
-        print(player.transform.position);
-    }
-    /
+    private GameObject playerTarget;
 
     private void Awake()
     {
-        playertarget = GameObject.Find("Aim");
-        //print(playertarget);
-        player = playertarget.transform;
-        
-        //print(player);
-        //print(player.transform.position);
-        //player = FindObjectOfType<GameObject>().Transform;
+        playerTarget = GameObject.Find("Aim");
+        if (playerTarget != null)
+        {
+            player = playerTarget.transform;
+        }
+        else
+        {
+            Debug.LogError("Player target not found. Ensure there is a GameObject named 'Aim' in the scene.");
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
-        
-        Vector2 enemyToPlayerVector = player.position - transform.position;
-        DirectionToPlayer = enemyToPlayerVector;
-        //print(DirectionToPlayer);
+        if (player == null) return;
 
-        if (enemyToPlayerVector.magnitude <= playerAwarenessDistance)
-        {
-            AwareOfPlayer = true;
-        }
-        else
-        {
-            AwareOfPlayer = false;
-        }
-        
+        Vector2 enemyToPlayerVector = player.position - transform.position;
+        DirectionToPlayer = enemyToPlayerVector.normalized;
+
+        AwareOfPlayer = enemyToPlayerVector.magnitude <= playerAwarenessDistance;
     }
-    */
 }

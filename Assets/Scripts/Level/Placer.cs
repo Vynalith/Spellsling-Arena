@@ -8,102 +8,46 @@ public class Placer : MonoBehaviour
     public GameObject bossRoom;
     public Vector3 original;
     public Vector3 offset;
-    public Transform finalposition;
     public int roomCount;
     public GameObject ui;
 
-    // Start is called before the first frame update
     void Start()
     {
-        
-
-        /*
-        ui = GameObject.Find("GameManager");
-
-        roomCount = 0;
-        //print("Sending room count to Game Manager from " + this.gameObject);
-        //this is the receiver error
-        ui.SendMessage("SendRoomCount", this.gameObject);
-        //print("Room count is " + roomCount);
-        if(roomCount < 5)
-        {  
-            //print("Creating regular room...");
-
-            original = this.transform.position;
-            int RandomRoom = Random.Range(0, 5);
-
-
-
-            if (RandomRoom == 6)
-            {
-                offset = new Vector3(10f, 4f, 0f);
-                //original = this.transform.position;
-            }
-
-
-
-
-
-            Instantiate(rooms[RandomRoom], (original + offset), Quaternion.identity);
-        }
-        else if(roomCount > 5)
-        {
-            //offset = new Vector3(10f, 4f, 0f);
-            //print("Room Count is " + roomCount);
-            //print("Creating boss room...");
-
-            Instantiate(bossRoom, original + offset, Quaternion.identity); 
-        }
-
-
-
-        
-        
-        //ui.SendMessage("IncreaseRoomCount", SendMessageOptions.DontRequireReceiver);
-        //print("Sending increase room count to Game Manager");
-        */
+        // Initialization if needed
     }
-
 
     public void GetRoomCount(int count)
     {
-        //print("Setting placer roomCount to Game Manager");
         roomCount = count;
         ui.SendMessage("IncreaseRoomCount", SendMessageOptions.DontRequireReceiver);
     }
 
-
     public void CreateRoom(int randomRoom)
     {
-        original = this.transform.position + offset;
-        print(this.gameObject + "Placing Room at " + original);
-        Instantiate(rooms[randomRoom], (original), Quaternion.identity);
+        Vector3 roomPosition = transform.position + offset;
+        Debug.Log(gameObject + " Placing Room at " + roomPosition);
+        Instantiate(rooms[randomRoom], roomPosition, Quaternion.identity);
     }
-
 
     public void CreateBossRoom()
     {
-        original = this.transform.position + offset;
-        Instantiate(bossRoom, original, Quaternion.identity);
+        Vector3 roomPosition = transform.position + offset;
+        Instantiate(bossRoom, roomPosition, Quaternion.identity);
     }
-
 
     public void GetOffset(Vector3 newOffset)
     {
         offset += newOffset;
     }
 
-    public void SetPosition(Vector3 Offset)
+    public void SetPosition(Vector3 newPosition)
     {
-        this.transform.position += Offset;
-        print(this.gameObject + "Setting Position to " + this.transform.position);
-
+        transform.position += newPosition;
+        Debug.Log(gameObject + " Setting Position to " + transform.position);
     }
 
-
-    // Update is called once per frame
     void Update()
     {
-        
+        // Update logic if needed
     }
 }

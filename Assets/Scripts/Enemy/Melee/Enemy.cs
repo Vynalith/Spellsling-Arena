@@ -53,7 +53,6 @@ public class Enemy : MonoBehaviour
         }
     }
 
-
     public void LightningHurtMe(int ouchie)
     {
         health -= ouchie;
@@ -161,7 +160,5 @@ public class Enemy : MonoBehaviour
 
             Destroy(other.gameObject);
         }
-
-        
     }
 }
