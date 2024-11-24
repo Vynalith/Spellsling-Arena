@@ -7965,15 +7965,14 @@ GameObject:
   m_Component:
   - component: {fileID: 1874100303743661271}
   - component: {fileID: 2917532862661531965}
-  - component: {fileID: 1256328371}
-  - component: {fileID: 8796679194257874828}
+  - component: {fileID: 6936541842969811034}
   m_Layer: 0
   m_Name: Boss Room
   m_TagString: Finish
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1874100303743661271
 Transform:
   m_ObjectHideFlags: 0
@@ -8005,11 +8004,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4904609b173596e4c8653814258a708a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  entrance: {fileID: 0}
+  entrance: {fileID: 5899307707642376505}
   exit: {fileID: 0}
-  enemies: []
+  enemies:
+  - {fileID: 6592469179739823481}
   player: {fileID: 0}
---- !u!114 &1256328371
+--- !u!114 &6936541842969811034
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8018,29 +8018,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1974370995060080427}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4904609b173596e4c8653814258a708a, type: 3}
+  m_Script: {fileID: 11500000, guid: 04d1846b1f89dd04cb0fa6e025ac30c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  entrance: {fileID: 0}
-  exit: {fileID: 0}
-  enemies: []
-  player: {fileID: 0}
---- !u!114 &8796679194257874828
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1974370995060080427}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4904609b173596e4c8653814258a708a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  entrance: {fileID: 0}
-  exit: {fileID: 0}
-  enemies: []
-  player: {fileID: 0}
+  Room: {fileID: 1974370995060080427}
+  enter: 0
 --- !u!1 &2938835156552280946
 GameObject:
   m_ObjectHideFlags: 0
@@ -8121,6 +8103,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6962717883838351406}
     m_Modifications:
+    - target: {fileID: 6284083940040710608, guid: d1553d8c37a3ff146bab505e54041860,
+        type: 3}
+      propertyPath: m_TagString
+      value: BossLvl
+      objectReference: {fileID: 0}
     - target: {fileID: 6284083940040710611, guid: d1553d8c37a3ff146bab505e54041860,
         type: 3}
       propertyPath: m_FlipY
@@ -8196,6 +8183,12 @@ PrefabInstance:
 --- !u!4 &5899307707642376504 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6284083940895516632, guid: d1553d8c37a3ff146bab505e54041860,
+    type: 3}
+  m_PrefabInstance: {fileID: 498492278603454176}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &5899307707642376505 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6284083940895516633, guid: d1553d8c37a3ff146bab505e54041860,
     type: 3}
   m_PrefabInstance: {fileID: 498492278603454176}
   m_PrefabAsset: {fileID: 0}
