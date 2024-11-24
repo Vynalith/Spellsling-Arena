@@ -1,53 +1,58 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
+    [Header("Room Settings")]
+    public int roomCount = 0; // Tracks the number of rooms
+    public GameObject currentPlacer; // Reference to the current placer object
+    public string combination; // String to locate room placers
+    public Vector3 offsetTotal; // Tracks the cumulative offset for room placement
+    private bool needsOffset; // Flag to determine if an offset is required
+    private int whichOffset; // Specifies which offset to apply
 
-    public int roomCount;
-    public GameObject currentPlacer;
-    public string combination;
-    //public Vector3[] Offsets;
-    public Vector3 offsetTotal;
-    private bool needsOffset;
-    private int whichOffset;
+    [Header("Room Offsets")]
+    public Vector3 lightningLevel1 = new Vector3(0f, 18.17f, 0f); // Example offset for Lightning Level 1
 
-
-    //offsets declared here because unity is stupid
-    //public Vector3 lightningLevel1 = new Vector3(0f, 18.17f, 0f);
-    //public Vector3 lightningLevel1 = new Vector3(0f, 9.55f, 0f);
-    public Vector3 lightningLevel1;
-
-    // Start is called before the first frame update
     void Start()
     {
-        roomCount = 0;
+        GenerateRooms();
+    }
 
-        for(int i = 1; i < 7; i++)
+    /// <summary>
+    /// Generates rooms based on random logic.
+    /// </summary>
+    private void GenerateRooms()
+    {
+        for (int i = 1; i <= 6; i++)
         {
-            combination = "Placer (" + i + ")";
+            // Find the current room placer
+            combination = $"Placer ({i})";
             currentPlacer = GameObject.Find(combination);
-            print("Current Placer = " + currentPlacer);
-            //print("Combination = " + combination);
-            int RandomRoom = Random.Range(0, 6);
-            print("Random Room = " + RandomRoom);
-            if(RandomRoom == 5)
+
+            if (currentPlacer == null)
+            {
+                Debug.LogWarning($"Placer object '{combination}' not found!");
+                continue;
+            }
+
+            // Determine the random room type
+            int randomRoom = Random.Range(0, 6);
+            Debug.Log($"Placer {i}: Random Room = {randomRoom}");
+
+            // If the room requires an offset
+            if (randomRoom == 5)
             {
                 needsOffset = true;
                 whichOffset = 1;
-                print("Random Room = 5 Bool is true");
-                print("Lightning level offset = " + lightningLevel1);
-                //currentPlacer.SendMessage("GetOffset", offsetTotal);
-                print("Offset total = " + offsetTotal);
-
+                Debug.Log($"Room {i} needs offset. Offset: {lightningLevel1}");
             }
+
+            // Create a normal room or boss room
             if (i < 6)
             {
-                //currentPlacer.SendMessage("GetOffset", offsetTotal);
                 currentPlacer.SendMessage("SetPosition", offsetTotal);
-                currentPlacer.SendMessage("CreateRoom", RandomRoom);
-
+                currentPlacer.SendMessage("CreateRoom", randomRoom);
             }
             else
             {
@@ -55,46 +60,55 @@ public class GameManager : MonoBehaviour
                 currentPlacer.SendMessage("CreateBossRoom", SendMessageOptions.DontRequireReceiver);
             }
 
+            // Apply the offset if required
             if (needsOffset)
             {
-                switch (whichOffset)
-                {
-                    case 1:
-                        offsetTotal += lightningLevel1;
-                        needsOffset = false;
-                        whichOffset = 0;
-                        break;
-                }
-
-                }
+                ApplyOffset();
             }
-
-
-
+        }
     }
 
-    // Update is called once per frame
-    void Update()
+    /// <summary>
+    /// Applies the required offset based on the current offset type.
+    /// </summary>
+    private void ApplyOffset()
     {
-        //print("Game Manager Room Count is " + roomCount);
+        switch (whichOffset)
+        {
+            case 1:
+                offsetTotal += lightningLevel1;
+                break;
+            default:
+                Debug.LogWarning("Unknown offset type. No offset applied.");
+                break;
+        }
+
+        needsOffset = false; // Reset the flag
+        whichOffset = 0; // Reset the offset type
     }
 
+    /// <summary>
+    /// Increments the room count.
+    /// </summary>
     public void IncreaseRoomCount()
     {
         roomCount++;
-        //print("Room count increased to " + roomCount);
-
+        Debug.Log($"Room count increased to {roomCount}");
     }
 
-
+    /// <summary>
+    /// Sends the current room count to the specified GameObject.
+    /// </summary>
     public void SendRoomCount(GameObject other)
     {
-        //print("Recieved room count from " + other);
-        //print("Sending roomcount " + roomCount + " to " + other);
-        other.SendMessage("GetRoomCount", roomCount);
+        if (other != null)
+        {
+            Debug.Log($"Sending room count {roomCount} to {other.name}");
+            other.SendMessage("GetRoomCount", roomCount, SendMessageOptions.DontRequireReceiver);
+        }
+        else
+        {
+            Debug.LogWarning("SendRoomCount called with a null GameObject.");
+        }
     }
-
-
-
-
 }

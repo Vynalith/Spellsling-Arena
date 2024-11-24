@@ -1,107 +1,149 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEngine.SceneManagement;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
-
-public class Tutorial
+public class Tutorial : MonoBehaviour
 {
-    public float time;
-    public int movespeed = 3;
+    [Header("Movement Settings")]
+    public float moveSpeed = 3f;
     public Vector3 userDirection = Vector3.one;
-    public bool move;
+    private bool move = true;
 
-    public bool allowinput;
+    [Header("Tutorial Flow")]
+    public bool allowInput = false;
     public GameObject inputTUT;
-
     public Animator animator;
-    public int tutorialNum;
-    public GameObject tutscreen1;
-    public GameObject tutscreen2;
-    public GameObject tutscreen3;
-    public GameObject tutscreen4; 
-    //public Transform duckHuntDog;
+    public int tutorialNum = 0;
+    public GameObject[] tutorialScreens; // Array to hold tutorial screens
+    public float time = 0f;
 
-    // Start is called before the first frame update
     void Start()
     {
-        move=true;
-        allowinput=false;
-        tutorialNum=0;
+        // Initialize settings
+        move = true;
+        allowInput = false;
+        tutorialNum = 0;
+
+        // Deactivate all tutorial screens
+        foreach (GameObject screen in tutorialScreens)
+        {
+            screen.SetActive(false);
+        }
+
+        // Deactivate input tutorial UI
+        if (inputTUT != null)
+        {
+            inputTUT.SetActive(false);
+        }
     }
 
-    // Update is called once per frame
     void Update()
-    { 
-        time+=Time.deltaTime;
+    {
+        // Increment time
+        time += Time.deltaTime;
 
-        if(this.transform.position.x >= 0)
+        // Handle movement
+        if (move)
         {
-            move=false;
-            //print("yay");
-            userDirection.x=0;
-            //animator.Play("DuckTalk");
-            
-        }
-        if(move=true)
-        {
-          transform.Translate(userDirection * movespeed * Time.deltaTime);
-        }
-        if(time >= 4f && time < 5f)
-        {
-            tutscreen1.SetActive(true);
-            inputTUT.SetActive(true);
-            animator.Play("DuckTalk");
-        }
+            transform.Translate(userDirection * moveSpeed * Time.deltaTime);
 
-        if(allowinput=true)
-        {
-            if( Input.GetButtonDown("Fire2"))
+            if (transform.position.x >= 0)
             {
-                tutorialNum+=1;
+                move = false;
+                userDirection = Vector3.zero; // Stop movement
+            }
+        }
+
+        // Trigger tutorial screen and input tutorial after 4 seconds
+        if (time >= 4f && time < 5f)
+        {
+            ShowTutorialScreen(0);
+            if (inputTUT != null)
+            {
+                inputTUT.SetActive(true);
+            }
+            if (animator != null)
+            {
+                animator.Play("DuckTalk");
+            }
+            allowInput = true; // Allow input for progression
+        }
+
+        // Handle input progression
+        if (allowInput)
+        {
+            // Advance tutorial on "Fire2" input
+            if (Input.GetButtonDown("Fire2"))
+            {
+                AdvanceTutorial();
             }
 
-             if( Input.GetButtonDown("M2"))
-             {
-                if(time> 4f)
-                {
-                   tutorialNum = 20; 
-                }
-                
-             }
+            // Skip tutorial on "M2" input
+            if (Input.GetButtonDown("M2") && time > 4f)
+            {
+                SkipTutorial();
+            }
+        }
+    }
 
+    private void ShowTutorialScreen(int screenIndex)
+    {
+        // Deactivate all screens first
+        foreach (GameObject screen in tutorialScreens)
+        {
+            screen.SetActive(false);
         }
 
-        
-        /*if(tutorialNum == 1)
+        // Activate the desired screen
+        if (screenIndex >= 0 && screenIndex < tutorialScreens.Length)
         {
-            tutscreen1.SetActive(true);
-        }*/
-        if(tutorialNum == 1)
-        {
-            tutscreen1.SetActive(false);
-            tutscreen2.SetActive(true);
+            tutorialScreens[screenIndex].SetActive(true);
         }
-           if(tutorialNum == 2)
-        {
-            tutscreen2.SetActive(false);
-            tutscreen3.SetActive(true);
-        }
+    }
 
-          if(tutorialNum == 3)
-        {
-            tutscreen3.SetActive(false);
-            tutscreen4.SetActive(true);
-        }
+    private void AdvanceTutorial()
+    {
+        tutorialNum++;
 
-        if(tutorialNum ==20)
+        if (tutorialNum < tutorialScreens.Length)
+        {
+            ShowTutorialScreen(tutorialNum);
+        }
+        else
+        {
+            EndTutorial();
+        }
+    }
+
+    private void SkipTutorial()
+    {
+        tutorialNum = 20; // Special skip case
+        if (animator != null)
         {
             animator.Play("DuckOw");
-            tutscreen1.SetActive(false);
-            tutscreen2.SetActive(false);
-            tutscreen3.SetActive(false);
-            tutscreen4.SetActive(false);
         }
 
+        // Deactivate all screens
+        foreach (GameObject screen in tutorialScreens)
+        {
+            screen.SetActive(false);
+        }
+    }
+
+    private void EndTutorial()
+    {
+        // Deactivate all tutorial elements
+        foreach (GameObject screen in tutorialScreens)
+        {
+            screen.SetActive(false);
+        }
+
+        if (inputTUT != null)
+        {
+            inputTUT.SetActive(false);
+        }
+
+        Debug.Log("Tutorial Ended");
     }
 }
