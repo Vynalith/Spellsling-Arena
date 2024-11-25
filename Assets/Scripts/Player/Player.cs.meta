@@ -3,17 +3,7 @@ guid: 0299a0b89c066dc4db2e2dc4a6646ac7
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences:
-  - animator: {instanceID: 0}
-  - gameUI: {instanceID: 0}
-  - shooter: {fileID: 6298780189008791904, guid: c6944a13abd29d343a11a14d3217bc69,
-      type: 3}
-  - gameOverUI: {instanceID: 0}
-  - songIntro: {instanceID: 0}
-  - songLoop: {instanceID: 0}
-  - bossIntro: {instanceID: 0}
-  - bossLoop: {instanceID: 0}
-  - winMusic: {instanceID: 0}
+  defaultReferences: []
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
