@@ -97,15 +97,15 @@ GameObject:
   - component: {fileID: 1640729226255648631}
   - component: {fileID: 9186461495464329703}
   - component: {fileID: 4401286057854046242}
-  - component: {fileID: 4401286057854046243}
   - component: {fileID: 4401286057854046240}
+  - component: {fileID: 4401286057854046243}
   m_Layer: 0
   m_Name: Ghost
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1411162528100142274
 Transform:
   m_ObjectHideFlags: 0
@@ -115,12 +115,12 @@ Transform:
   m_GameObject: {fileID: 7520187080668527628}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 7.6, y: -25.25, z: -0.45018935}
-  m_LocalScale: {x: 2, y: 2, z: 1}
+  m_LocalScale: {x: 3, y: 3, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6713122634046858444}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!50 &8237691214348740215
 Rigidbody2D:
@@ -139,6 +139,12 @@ Rigidbody2D:
   m_AngularDrag: 0.05
   m_GravityScale: 0
   m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
@@ -153,6 +159,25 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -171,7 +196,7 @@ BoxCollider2D:
   m_EdgeRadius: 0
 --- !u!95 &9186461495464329703
 Animator:
-  serializedVersion: 4
+  serializedVersion: 5
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -188,7 +213,8 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!114 &4401286057854046242
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -201,6 +227,32 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b026fa31229b6348a5000376856b838, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerAwarenessDistance: 20
+--- !u!114 &4401286057854046240
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7520187080668527628}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f46e7415b3bd6f468a8c82567afdd96, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 3
+  damage: {fileID: 8132685761496276164, guid: eba20271973d5164cbc490afcdb27fa1, type: 3}
+  CurrentRoom: {fileID: 0}
+  animator: {fileID: 9186461495464329703}
+  heart: {fileID: 818842114129691388, guid: 9c0c6f3e70182d44d9c070d32c1213f5, type: 3}
+  damageEffect: {fileID: 2260554970745162690, guid: 573194a35637bd54ebc5d2223fe235b9, type: 3}
+  playerAwarenessDistance: 6
+  player: {fileID: 0}
+  dumbPlayer: {fileID: 0}
+  speed: 0
+  rigidbody: {fileID: 8237691214348740215}
+  sprite: {fileID: 420259783094343584}
+  anchor: {fileID: 7520187080668527628}
 --- !u!114 &4401286057854046243
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -214,28 +266,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
---- !u!114 &4401286057854046240
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7520187080668527628}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9f46e7415b3bd6f468a8c82567afdd96, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  health: 1
-  damage: {fileID: 8132685761496276164, guid: eba20271973d5164cbc490afcdb27fa1, type: 3}
-  CurrentRoom: {fileID: 0}
-  animator: {fileID: 9186461495464329703}
-  heart: {fileID: 818842114129691388, guid: 9c0c6f3e70182d44d9c070d32c1213f5, type: 3}
-  damageEffect: {fileID: 2260554970745162690, guid: 573194a35637bd54ebc5d2223fe235b9, type: 3}
-  playerAwarenessDistance: 6
-  player: {fileID: 0}
-  dumbplayer: {fileID: 0}
-  speed: 0
-  rigidbody: {fileID: 0}
+  speed: 6
+  rotationSpeed: 150
   sprite: {fileID: 420259783094343584}
   anchor: {fileID: 0}
