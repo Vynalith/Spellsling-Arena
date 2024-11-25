@@ -1,220 +1,364 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class Shooter : MonoBehaviour
 {
-    // Movement and Components
-    private Rigidbody2D rb;
-    private Vector2 movement;
+    float speed;
 
-    [SerializeField] private GameObject player;
-    [SerializeField] private Transform spellShooter;
+    Vector2 Movement;
+    Rigidbody2D rb;
+    GameObject Player;
+    Transform SpellShooter;
+    
+    GameObject Projectile;
+    GameObject Projectile2;
+    GameObject firemagic;
+    GameObject lightningmagic;
+    GameObject icemagic;
+    GameObject earthmagic;
 
-    // Projectile Prefabs
-    [SerializeField] private GameObject firemagic;
-    [SerializeField] private GameObject lightningmagic;
-    [SerializeField] private GameObject icemagic;
-    [SerializeField] private GameObject earthmagic;
+    GameObject firemagic2;
+    GameObject lightningmagic2;
+    GameObject icemagic2;
+    GameObject earthmagic2;
 
-    [SerializeField] private GameObject firemagic2;
-    [SerializeField] private GameObject lightningmagic2;
-    [SerializeField] private GameObject icemagic2;
-    [SerializeField] private GameObject earthmagic2;
 
-    private GameObject currentProjectile;
-    private GameObject currentProjectile2;
+    GameObject Aim;
+    bool lightning;
+    bool fire;
+    bool ice;
+    bool earth;
 
-    // Aiming
-    [SerializeField] private GameObject aim;
 
-    // Audio
-    [SerializeField] private AudioSource iceM1;
-    [SerializeField] private AudioSource fireM1;
-    [SerializeField] private AudioSource lightningM1;
-    [SerializeField] private AudioSource earthM1;
+    bool Playing;
 
-    // Cooldowns
-    private bool fireReady = true;
-    private bool iceReady = true;
-    private bool lightningReady = true;
-    private bool earthReady = true;
+    float shotForce = 20f;
+    float shotForce2 = 20f;
+   
+    AudioSource IceM1;
+    AudioSource IceM2;
+    AudioSource FireM1;
+    AudioSource FireM2;
+    AudioSource LightningM1;
+    AudioSource LightningM2;
+    AudioSource EarthM1;
+    AudioSource EarthM2;
 
-    [SerializeField] private GameObject gameUI;
 
-    // Current Element
-    private enum Element { Lightning, Fire, Ice, Earth }
-    private Element currentElement;
 
-    // Shooting Force
-    private float shotForce = 20f;
+    //cooldowns
+    float iceCooldown;
+    float fireCooldown;
+    float earthCooldown;
+    float lightningCooldown;
+    bool iceReady;
+    bool fireReady;
+    bool earthReady;
+    bool lightningReady;
+    GameObject GameUI;
 
-    private bool isPlaying = true;
 
+
+
+    public GameObject needsAimed;
+    private Vector2 shooterpos;
+
+
+    // Start is called before the first frame update
     void Start()
     {
-        // Initialize to lightning by default
-        currentProjectile = lightningmagic;
-        currentProjectile2 = lightningmagic2;
-        currentElement = Element.Lightning;
+        Playing=true;
+
+        Projectile = lightningmagic;
+        Projectile2 = lightningmagic2;
+        lightning = true;
+        fire = false;
+        ice = false;
+        earth = false;
+
+        lightningReady = true;
+        iceReady = true;
+        fireReady = true;
+        earthReady = true;
+
     }
 
+    void Death()
+    {
+        Playing=false;
+    }
+
+
+    void Win()
+    {
+        Playing = false;
+        Aim.gameObject.SetActive(false);
+    }
+    // Update is called once per frame
     void Update()
     {
-        if (!isPlaying) return;
-
-        // Handle movement input
         movement.x = Input.GetAxisRaw("Horizontal");
         movement.y = Input.GetAxisRaw("Vertical");
 
-        // Handle element switching
-        if (Input.GetButtonDown("lightning"))
-            SwitchElement(Element.Lightning);
-        if (Input.GetButtonDown("fire"))
-            SwitchElement(Element.Fire);
-        if (Input.GetButtonDown("ice"))
-            SwitchElement(Element.Ice);
-        if (Input.GetButtonDown("earth"))
-            SwitchElement(Element.Earth);
-
-        // Handle shooting input
-        if (Input.GetButtonDown("M1"))
-            Shoot();
-        if (Input.GetButtonDown("M2"))
-            Shoot2();
-    }
-
-    void SwitchElement(Element element)
-    {
-        currentElement = element;
-
-        switch (element)
+        if( Input.GetButtonDown("lightning"))
         {
-            case Element.Lightning:
-                currentProjectile = lightningmagic;
-                currentProjectile2 = lightningmagic2;
-                shotForce = 20f;
-                break;
+            Projectile = lightningmagic;
+            Projectile2 = lightningmagic2;
+            lightning = true;
+            fire = false;
+            ice = false;
+            earth = false;
 
-            case Element.Fire:
-                currentProjectile = firemagic;
-                currentProjectile2 = firemagic2;
-                shotForce = 15f;
-                break;
+            shotForce = 20f;
 
-            case Element.Ice:
-                currentProjectile = icemagic;
-                currentProjectile2 = icemagic2;
-                shotForce = 10f;
-                break;
+        }
+        if( Input.GetButtonDown("fire"))
+        {
+            Projectile = firemagic;
+            Projectile2 = firemagic2;
+            fire = true;
+            lightning = false;
+            ice = false;
+            earth = false;
 
-            case Element.Earth:
-                currentProjectile = earthmagic;
-                currentProjectile2 = earthmagic2;
-                shotForce = 10f;
-                break;
+            shotForce = 20f;
+        }
+        if( Input.GetButtonDown("ice"))
+        {
+            Projectile = icemagic;
+            Projectile2 = icemagic2;
+            ice = true;
+            fire = false;
+            lightning = false;
+            earth = false;
+
+            shotForce = 20f;
+            shotForce2 = 0f;
+
+        }
+        if( Input.GetButtonDown("earth"))
+        {
+            Projectile = earthmagic;
+            Projectile2 = earthmagic2;
+            earth = true;
+            fire = false;
+            lightning = false;
+            ice = false;
+
+            shotForce = 10f;
+        }
+
+
+        //attack
+        if( Input.GetButtonDown("M1"))
+        {
+            //print ("M1");
+            if(Playing==true)
+            {
+                Shoot();
+            }
+        }
+
+        if( Input.GetButtonDown("M2"))
+        {
+            //print ("M2");
+            if(Playing==true)
+            {
+                Shoot2();
+            }
         }
     }
 
+
+    void LightningEnable()
+    {
+        lightningReady = true;
+        print("lightning enable");
+        print(lightningReady);
+    }
+    void IceEnable()
+    {
+        iceReady = true;
+        print("ice enable");
+        print(iceReady);
+    }
+    void FireEnable()
+    {
+        fireReady = true;
+        print("fire enable");
+        print(fireReady);
+    }
+    void EarthEnable()
+    {
+        earthReady = true;
+        print("earth enable");
+        print(earthReady);
+    }
+
+    /*
+    void GetAim(GameObject other)
+    {
+        other.SendMessage("GetAim", Shooter.up);
+    }
+    */
+
+    void GetAim(GameObject other)
+    {
+        shooterpos = Shooter.up;
+        //print("get aim");
+        //print("SpellShooter" + SpellShooter.up);
+        //print("SpellShooter" + Shooterpos);
+        //needsAimed = GameObject.Find("Fireball");
+        //print(needsAimed);
+        other.SendMessage("GetAim", shooterpos);
+        //needsAimed.SendMessage("GetAim", SendMessageOptions.DontRequireReceiver);
+    }
     void Shoot()
     {
-        if (!CanShoot(currentElement)) return;
+        if (lightning == true)
+        {
+            if (lightningReady)
+            {
+                shotForce = 20f;
+                lightningCooldown = 1f;
+                GameObject bullet = Instantiate(Projectile, Aim.transform.position, Shooter.rotation);
+                LightningM1.Play();
+                player.GameObject.SendMessage("LightningAttacks");
+                Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
+                rb.AddForce(ShooterThing.up * shotForce, ForceMode2D.Impulse);
+                lightningReady = false;
+                gameUI.SendMessage("LightningCooldown", lightningCooldown);
 
-        GameObject bullet = Instantiate(currentProjectile, aim.transform.position, spellShooter.rotation);
-        Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
-        rb.AddForce(spellShooter.up * shotForce, ForceMode2D.Impulse);
+            }
+            else
+            {
+                print(lightningReady);
+            }
 
-        PlaySound(currentElement, true);
-        StartCooldown(currentElement);
+        }
+
+        if(fire == true)
+        {
+            if (fireReady)
+            {
+                shotForce = 5f;
+                GameObject bullet = Instantiate(Projectile, Aim.transform.position, Shooter.rotation);
+                fireReady = false;
+                fireCooldown = 1.5f;
+                gameUI.SendMessage("FireCooldown", fireCooldown);
+                FireM1.Play();
+                player.GameObject.SendMessage("FireAttacks");
+                Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
+                rb.AddForce(ShooterThing.up * shotForce, ForceMode2D.Impulse);
+
+            }
+
+        }
+
+        if(ice == true)
+        {
+            if (iceReady)
+            {
+                shotForce = 15f;
+                GameObject bullet = Instantiate(Projectile, Aim.transform.position, Shooter.rotation);
+                iceReady = false;
+                iceCooldown = .5f;
+                gameUI.SendMessage("IceCooldown", iceCooldown);
+                IceM1.Play();
+                player.GameObject.SendMessage("IceAttacks");
+                Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
+                rb.AddForce(ShooterThing.up * shotForce, ForceMode2D.Impulse);
+
+            }
+
+        }
+
+        if(earth == true)
+        {
+            if (earthReady)
+            {
+                shotForce = 10f;
+                GameObject bullet = Instantiate(Projectile, Aim.transform.position, Shooter.rotation);
+                earthReady = false;
+                earthCooldown = 1.5f;
+                gameUI.SendMessage("EarthCooldown", earthCooldown);
+                EarthM1.Play();
+                player.GameObject.SendMessage("EarthAttacks");
+                Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
+                rb.AddForce(ShooterThing.up * shotForce, ForceMode2D.Impulse);
+
+            }
+
+        }
     }
 
     void Shoot2()
     {
-        if (!CanShoot(currentElement)) return;
-
-        GameObject bullet2 = Instantiate(currentProjectile2, aim.transform.position, spellShooter.rotation);
-        Rigidbody2D rb = bullet2.GetComponent<Rigidbody2D>();
-        rb.AddForce(spellShooter.up * shotForce, ForceMode2D.Impulse);
-
-        PlaySound(currentElement, false);
-        StartCooldown(currentElement);
-    }
-
-    bool CanShoot(Element element)
-    {
-        switch (element)
+        //LightningAttack2
+        if(lightning == true)
         {
-            case Element.Lightning: return lightningReady;
-            case Element.Fire: return fireReady;
-            case Element.Ice: return iceReady;
-            case Element.Earth: return earthReady;
-            default: return false;
-        }
-    }
-
-    void StartCooldown(Element element)
-    {
-        switch (element)
-        {
-            case Element.Lightning:
+            if (lightningReady)
+            {
                 lightningReady = false;
-                StartCoroutine(CooldownTimer(1f, () => lightningReady = true));
-                gameUI.SendMessage("LightningCooldown", 1f);
-                break;
+                lightningCooldown = 3f;
+                GameUI.SendMessage("LightningCooldown", lightningCooldown);
+                //LightningM2.Play();
+                GameObject bullet2 = Instantiate(Projectile2, Aim.transform.position, Shooter.rotation);
+                player.GameObject.SendMessage("LightningAttacks");
+            }
 
-            case Element.Fire:
-                fireReady = false;
-                StartCoroutine(CooldownTimer(1.5f, () => fireReady = true));
-                gameUI.SendMessage("FireCooldown", 1.5f);
-                break;
-
-            case Element.Ice:
-                iceReady = false;
-                StartCoroutine(CooldownTimer(0.5f, () => iceReady = true));
-                gameUI.SendMessage("IceCooldown", 0.5f);
-                break;
-
-            case Element.Earth:
-                earthReady = false;
-                StartCoroutine(CooldownTimer(1.5f, () => earthReady = true));
-                gameUI.SendMessage("EarthCooldown", 1.5f);
-                break;
         }
-    }
-
-    private IEnumerator CooldownTimer(float cooldownTime, System.Action resetAction)
-    {
-        yield return new WaitForSeconds(cooldownTime);
-        resetAction();
-    }
-
-    void PlaySound(Element element, bool isPrimary)
-    {
-        switch (element)
+        //FireAttack2
+        if(fire == true)
         {
-            case Element.Lightning:
-                if (isPrimary) lightningM1.Play();
-                break;
-            case Element.Fire:
-                if (isPrimary) fireM1.Play();
-                break;
-            case Element.Ice:
-                if (isPrimary) iceM1.Play();
-                break;
-            case Element.Earth:
-                if (isPrimary) earthM1.Play();
-                break;
+            if (fireReady)
+            {
+                shotForce = 5f;
+                fireReady = false;
+                fireCooldown = 3f;
+                GameUI.SendMessage("FireCooldown", fireCooldown);
+                FireM2.Play();
+                GameObject bullet2 = Instantiate(Projectile2, Aim.transform.position, Shooter.rotation);
+                player.GameObject.SendMessage("FireAttacks");
+                Rigidbody2D rb = bullet2.GetComponent<Rigidbody2D>();
+                rb.AddForce(ShooterThing.up * shotForce, ForceMode2D.Impulse);
+            }
+
         }
-    }
+        //IceAttack2
+        if(ice == true)
+        {
+            if (iceReady)
+            {
+                iceReady = false;
+                iceCooldown = 4f;
+                GameUI.SendMessage("IceCooldown", iceCooldown);
+                //IceM2.Play();
+                GameObject bullet2 = Instantiate(Projectile2, Aim.transform.position, Shooter.rotation);
+                player.GameObject.SendMessage("IceAttacks");
+            }
 
-    public void Death()
-    {
-        isPlaying = false;
-    }
+        }
+        //EarthAttack2
+        if(earth == true)
+        {
+            if (earthReady)
+            {
+                earthReady = false;
+                earthCooldown = 5f;
+                GameUI.SendMessage("EarthCooldown", earthCooldown);
+                //EarthM2.Play();
+                GameObject bullet2 = Instantiate(Projectile2, Aim.transform.position, Shooter.rotation);
+                player.gameObject.SendMessage("EarthAttacks");
+            }
 
-    public void Win()
-    {
-        isPlaying = false;
-        aim.SetActive(false);
+        }
+        void HurtMe(int damage)
+        {
+            //stupid puddle sends to this instead of player
+            player.SendMessage("HurtMe", 1);
+        }
     }
 }
