@@ -7966,14 +7966,13 @@ GameObject:
   - component: {fileID: 1874100303743661271}
   - component: {fileID: 2917532862661531965}
   - component: {fileID: 1256328371}
-  - component: {fileID: 8796679194257874828}
   m_Layer: 0
   m_Name: Boss Room
   m_TagString: Finish
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1874100303743661271
 Transform:
   m_ObjectHideFlags: 0
@@ -8010,22 +8009,6 @@ MonoBehaviour:
   enemies: []
   player: {fileID: 0}
 --- !u!114 &1256328371
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1974370995060080427}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4904609b173596e4c8653814258a708a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  entrance: {fileID: 0}
-  exit: {fileID: 0}
-  enemies: []
-  player: {fileID: 0}
---- !u!114 &8796679194257874828
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8237,17 +8220,6 @@ PrefabInstance:
       value: Hydra
       objectReference: {fileID: 0}
     - target: {fileID: 871037897855673761, guid: 62e4af580c8083d4cbc3795f8910f72b,
-        type: 3}
-      propertyPath: m_TagString
-      value: HydraBoss
-      objectReference: {fileID: 0}
-    - target: {fileID: 3504986710099716261, guid: 62e4af580c8083d4cbc3795f8910f72b,
-        type: 3}
-      propertyPath: m_Icon
-      value: 
-      objectReference: {fileID: 1206586993520771344, guid: 0000000000000000d000000000000000,
-        type: 0}
-    - target: {fileID: 3504986710099716261, guid: 62e4af580c8083d4cbc3795f8910f72b,
         type: 3}
       propertyPath: m_TagString
       value: HydraBoss
