@@ -1,11 +1,35 @@
 using System.Numerics;
 using System.Collections;
 using System.Collections.Generic;
+<<<<<<< HEAD
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class Tutorial
 {   
+=======
+using UnityEngine.Tutorial;
+using UnityEngine.SceneManagement;
+using UnityEngine.MonoBehavior;
+
+
+public class Tutorial : MonoBehavior
+{
+    public float time;
+    public int movespeed = 3;
+    public Vector3 userDirection = Vector3.one;
+    public bool move;
+
+    public bool allowinput;
+    public GameObject inputTUT;
+
+    public Animator animator;
+    public int tutorialNum;
+    public GameObject tutscreen1;
+    public GameObject tutscreen2;
+    public GameObject tutscreen3;
+    public GameObject tutscreen4; 
+>>>>>>> parent of b932fd7 (AJ commit)
     //public Transform duckHuntDog;
 
     // Start is called before the first frame update

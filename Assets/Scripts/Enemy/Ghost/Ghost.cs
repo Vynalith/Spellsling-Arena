@@ -2,6 +2,7 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 
+<<<<<<< HEAD
 public class Ghost : MonoBehaviour
 {
     public GameObject health;
@@ -24,14 +25,67 @@ public class Ghost : MonoBehaviour
     public GameObject GetPlayerTarget() => ghost.playertarget;
 
     public void SetPlayertarget(GameObject target) => aimTarget = target;
+=======
+public class Ghost : MonoBehavior
+   {
+    GameObject damage;
+    GameObject currentRoom;
+    Animator animator;
+    Transform aim;
+    Transform aimTarget;
+    Vector2 AwareOfPlayer;
+    Vector2 DirectionToPlayer;
+    GameObject Heart;
+    public GameObject PlayerTarget { get => PlayerTarget; set => PlayerTarget = value; }
+    private GameObject Player() => Player;
+    private void AimTarget(GameObject value) => aimTarget = value;
+    private global::System.Single playerAwarenessDistance;
+
+    private GameObject Getplayertarget()
+    {
+        return ghost.playertarget;
+    }
+
+    ////////////////////////////////////////////
+    ///GoopMovement values                   ///
+    ////////////////////////////////////////////
+    public Transform player;
+    public GameObject dumbplayer;
+    [SerializeField]
+    private float speed;
+    [SerializeField]
+>>>>>>> parent of b932fd7 (AJ commit)
 
     void Start()
     {
+<<<<<<< HEAD
         // Set the initial values
         health.GetComponent<Health>().Health = 100;
         damage.GetComponent<Damage>().Damage = 10;
         heart.GetComponent<Heart>().Health = 100;
         SetPlayertarget(GameObject.Find("Aim"));
+=======
+        ////////////////////////////////////////
+        ///PlayerAware Code
+        ////////////////////////////////////////
+        playertarget = GameObject.Find("Aim");
+        //print(playertarget);
+        player = playertarget.transform;
+
+        /////////////////////////////////////////
+        ///GoopMovement Code
+        /////////////////////////////////////////
+        ///print("awake");
+        dumbplayer = GameObject.Find("Player");
+        player = dumbplayer.transform;
+        anchor = GameObject.Find("EnemyAnchor");
+        rigidbody = GetComponent<Rigidbody2D>();
+        //ThisPlayerAware = GetComponent<PlayerAware>();
+
+
+
+        speed = 4f;
+>>>>>>> parent of b932fd7 (AJ commit)
     }
 
     void Update()

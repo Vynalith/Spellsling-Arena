@@ -29,6 +29,7 @@ public class MudMan : MonoBehaviour
     private float vertical;
     private float stupidspeed;
 
+<<<<<<< HEAD
     Vector3 Start { get => start; set => start = value; }
     Vector3 Direction { get => direction; set => direction = value; }
     GameObject Target { get => target; set => target = value; }
@@ -45,6 +46,13 @@ public class MudMan : MonoBehaviour
 // Start is called before the first frame update
 void Start()
 {
+=======
+    public GameObject collider;
+
+    // Start is called before the first frame update
+    void Start()
+    {
+>>>>>>> parent of b932fd7 (AJ commit)
         cooldownCount = 0;
         target = GameObject.Find("Player");
         target2 = GameObject.Find("Shooter");
@@ -59,7 +67,42 @@ private int damage = 10;
 
     public System.Int32 GetHealth1()
     {
+<<<<<<< HEAD
         return health;
+=======
+        start = this.transform.position;
+        cooldownCount++;
+        direction = (target.transform.position - start).normalized;
+        Debug.DrawRay(start, direction * sightDistance);
+
+        if (SightTest() == target.GetComponent<Collider2D>() || SightTest() == target2.GetComponent<Collider2D>())
+        {
+            collider.SetActive(true);
+            animator.Play("MudRise");
+            animator.SetBool("Awake", true);
+            
+            if (cooldownCount >= cooldown)
+            {
+                animator.Play("MudATTACK");
+                Shoot();
+
+                cooldownCount = 0;
+            }
+        }
+        else{
+             collider.SetActive(false);
+             animator.SetBool("Awake", false);
+        }
+        finalDetected = null;
+        shootAngle = (start - target.transform.position).normalized;
+        shootAngle.y *= -1;
+
+        animator.SetFloat("Horizontal", shootAngle.x);
+        animator.SetFloat("Vertical", shootAngle.y);
+        Horizontal = shootAngle.x;
+        Vertical = shootAngle.y;
+
+>>>>>>> parent of b932fd7 (AJ commit)
     }
 
     public void SetHealth1(System.Int32 value)
