@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Collections;
 using UnityEngine.AI;
 using System;
 

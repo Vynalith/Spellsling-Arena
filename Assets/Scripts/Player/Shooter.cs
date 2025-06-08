@@ -10,8 +10,8 @@ public class Shooter : MonoBehaviour
     Vector2 Movement;
     Rigidbody2D rb;
     GameObject Player;
-    Transform SpellShooter;
-    
+
+    Transform Shooter;
     GameObject Projectile;
     GameObject Projectile2;
     GameObject firemagic;
@@ -36,7 +36,9 @@ public class Shooter : MonoBehaviour
 
     float shotForce = 20f;
     float shotForce2 = 20f;
-   
+
+
+    magic SFX;
     AudioSource IceM1;
     AudioSource IceM2;
     AudioSource FireM1;
@@ -63,7 +65,7 @@ public class Shooter : MonoBehaviour
 
 
     public GameObject needsAimed;
-    private Vector2 shooterpos;
+    private Vector2 shooterthingpos;
 
 
     // Start is called before the first frame update
@@ -208,8 +210,8 @@ public class Shooter : MonoBehaviour
     {
         shooterpos = Shooter.up;
         //print("get aim");
-        //print("SpellShooter" + SpellShooter.up);
-        //print("SpellShooter" + Shooterpos);
+        //print("shooter" + Shooter.up);
+        //print("shooter" + shooterpos);
         //needsAimed = GameObject.Find("Fireball");
         //print(needsAimed);
         other.SendMessage("GetAim", shooterpos);
