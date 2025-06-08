@@ -26,7 +26,7 @@ public class EarthM1 : MonoBehaviour
         {
             //Destroy(this.gameObject);
         }
-        if (other.gameObject.CompareTag("Enemy") && !other.gameObject.CompareTag("FILLERTEXT") || other.gameObject.CompareTag("LightningEnemy") && !other.gameObject.CompareTag("FILLERTEXT"))
+        if (other.gameObject.CompareTag("Enemy") && !other.gameObject.CompareTag("FILLERTEXT"))
         {
                             //calls HurtMe function, second argument is the damage value
             if(other.gameObject != spook || other.gameObject != spoop)
