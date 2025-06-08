@@ -98,21 +98,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 10
-  damage: {fileID: 3504986710099716261}
-  CurrentRoom: {fileID: 1974370995060080427, guid: edad4f7f3630b36438caf1db142c2787,
-    type: 3}
-  WIN: {fileID: 5281848734733506458, guid: 0e0194ceb75a90841a2c4447a3097862, type: 3}
+  CurrentRoom: {fileID: 0}
+  cooldown: 200
   Projectile:
   - {fileID: 7717531246457936126, guid: c04b705ba74b181478b0f90972175907, type: 3}
   - {fileID: 4238966175713179051, guid: e57aa92abb0f23247894043be6f1c36d, type: 3}
   - {fileID: 7717531246457936126, guid: 2f8f56e7a7bd04547a1d4783e3e9d1bf, type: 3}
   - {fileID: 7717531246457936126, guid: 50b7c040c18acc342ac574f694dbc97a, type: 3}
   attack: []
-  cooldown: 200
   shotForce: 20
+  sightDistance: 12
   animator: {fileID: 8200437591980419255}
-  Anchor: {fileID: 0}
-  EnemyAnchor: {fileID: 0}
+  anchor: {fileID: 0}
+  WIN: {fileID: 5281848734733506458, guid: 0e0194ceb75a90841a2c4447a3097862, type: 3}
 --- !u!95 &8200437591980419255
 Animator:
   serializedVersion: 4
@@ -197,7 +195,7 @@ GameObject:
   - component: {fileID: 8716658358701684379}
   - component: {fileID: 7521505494005615588}
   m_Layer: 3
-  m_Name: HydraSprite
+  m_Name: Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -278,7 +276,7 @@ Animator:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7034215935159635469}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: cbce3f3e5f1699b4c80d0a219d3c32f5, type: 2}
   m_CullingMode: 0
@@ -297,68 +295,59 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8637599261601420655}
     m_Modifications:
-    - target: {fileID: -8443636935715992018, guid: ae5858ca106a3c84e97354c1b08e3d26,
-        type: 3}
+    - target: {fileID: -8443636935715992018, guid: ae5858ca106a3c84e97354c1b08e3d26, type: 3}
       propertyPath: re
       value: 
       objectReference: {fileID: 871037897855673761}
-    - target: {fileID: 6298780189008791904, guid: ae5858ca106a3c84e97354c1b08e3d26,
-        type: 3}
+    - target: {fileID: 6298780189008791904, guid: ae5858ca106a3c84e97354c1b08e3d26, type: 3}
       propertyPath: m_Name
-      value: HydraShooter
+      value: EnemyShooter
       objectReference: {fileID: 0}
-    - target: {fileID: 7071107082077862991, guid: ae5858ca106a3c84e97354c1b08e3d26,
-        type: 3}
+    - target: {fileID: 6298780189008791904, guid: ae5858ca106a3c84e97354c1b08e3d26, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7071107082077862991, guid: ae5858ca106a3c84e97354c1b08e3d26, type: 3}
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 7071107082077862991, guid: ae5858ca106a3c84e97354c1b08e3d26,
-        type: 3}
+    - target: {fileID: 7071107082077862991, guid: ae5858ca106a3c84e97354c1b08e3d26, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7071107082077862991, guid: ae5858ca106a3c84e97354c1b08e3d26,
-        type: 3}
+    - target: {fileID: 7071107082077862991, guid: ae5858ca106a3c84e97354c1b08e3d26, type: 3}
       propertyPath: m_LocalPosition.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7071107082077862991, guid: ae5858ca106a3c84e97354c1b08e3d26,
-        type: 3}
+    - target: {fileID: 7071107082077862991, guid: ae5858ca106a3c84e97354c1b08e3d26, type: 3}
       propertyPath: m_LocalPosition.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7071107082077862991, guid: ae5858ca106a3c84e97354c1b08e3d26,
-        type: 3}
+    - target: {fileID: 7071107082077862991, guid: ae5858ca106a3c84e97354c1b08e3d26, type: 3}
       propertyPath: m_LocalRotation.w
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 7071107082077862991, guid: ae5858ca106a3c84e97354c1b08e3d26,
-        type: 3}
+    - target: {fileID: 7071107082077862991, guid: ae5858ca106a3c84e97354c1b08e3d26, type: 3}
       propertyPath: m_LocalRotation.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7071107082077862991, guid: ae5858ca106a3c84e97354c1b08e3d26,
-        type: 3}
+    - target: {fileID: 7071107082077862991, guid: ae5858ca106a3c84e97354c1b08e3d26, type: 3}
       propertyPath: m_LocalRotation.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7071107082077862991, guid: ae5858ca106a3c84e97354c1b08e3d26,
-        type: 3}
+    - target: {fileID: 7071107082077862991, guid: ae5858ca106a3c84e97354c1b08e3d26, type: 3}
       propertyPath: m_LocalRotation.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7071107082077862991, guid: ae5858ca106a3c84e97354c1b08e3d26,
-        type: 3}
+    - target: {fileID: 7071107082077862991, guid: ae5858ca106a3c84e97354c1b08e3d26, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7071107082077862991, guid: ae5858ca106a3c84e97354c1b08e3d26,
-        type: 3}
+    - target: {fileID: 7071107082077862991, guid: ae5858ca106a3c84e97354c1b08e3d26, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7071107082077862991, guid: ae5858ca106a3c84e97354c1b08e3d26,
-        type: 3}
+    - target: {fileID: 7071107082077862991, guid: ae5858ca106a3c84e97354c1b08e3d26, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
@@ -366,13 +355,6 @@ PrefabInstance:
   m_SourcePrefab: {fileID: 100100000, guid: ae5858ca106a3c84e97354c1b08e3d26, type: 3}
 --- !u!4 &426834327996308874 stripped
 Transform:
-  m_CorrespondingSourceObject: {fileID: 7071107082077862991, guid: ae5858ca106a3c84e97354c1b08e3d26,
-    type: 3}
-  m_PrefabInstance: {fileID: 7479904907442938309}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &3504986710099716261 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6298780189008791904, guid: ae5858ca106a3c84e97354c1b08e3d26,
-    type: 3}
+  m_CorrespondingSourceObject: {fileID: 7071107082077862991, guid: ae5858ca106a3c84e97354c1b08e3d26, type: 3}
   m_PrefabInstance: {fileID: 7479904907442938309}
   m_PrefabAsset: {fileID: 0}

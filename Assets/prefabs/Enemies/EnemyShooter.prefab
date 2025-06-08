@@ -98,11 +98,11 @@ GameObject:
   - component: {fileID: 1276628979712531455}
   m_Layer: 0
   m_Name: EnemyShooter
-  m_TagString: HydraBoss
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &7071107082077862991
 Transform:
   m_ObjectHideFlags: 0
@@ -134,10 +134,9 @@ MonoBehaviour:
   speed: 0
   rb: {fileID: 5675359736586977518}
   ShooterThing: {fileID: 7071107082077862991}
-  Projectile: {fileID: 7717531246457936126, guid: 0c0394cfaf22c81458ff7aac8bcb0580,
-    type: 3}
+  Projectile: {fileID: 7717531246457936126, guid: 0c0394cfaf22c81458ff7aac8bcb0580, type: 3}
   Aim: {fileID: 3198307404456752476}
-  re: {fileID: 0}
+  re: {fileID: 4781366548102336881, guid: 1e522d5d46ef84042a3a8753f03e87af, type: 3}
   shotForce: 20
 --- !u!50 &5675359736586977518
 Rigidbody2D:
