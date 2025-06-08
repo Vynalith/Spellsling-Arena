@@ -5,40 +5,40 @@ using UnityEngine.UI;
 
 public class GameUI : MonoBehaviour
 {
-    int health;
+    public int health;
 
-    GameObject health1of5;
-    GameObject health2of5;
-    GameObject health3of5;
-    GameObject health4of5;
-    GameObject health5of5;
+    public GameObject health1of5;
+    public GameObject health2of5;
+    public GameObject health3of5;
+    public GameObject health4of5;
+    public GameObject health5of5;
 
-    Image Lightning;
-    Image Fire;
-    Image Ice;
-    Image Earth;
-    Image lightningSelect;
-    Image fireSelect;
-    Image iceSelect;
-    Image earthSelect;
+    public Image Lightning;
+    public Image Fire;
+    public Image Ice;
+    public Image Earth;
+    public Image lightningSelect;
+    public Image fireSelect;
+    public Image iceSelect;
+    public Image earthSelect;
 
-    float iceCooldown;
-    float fireCooldown;
-    float earthCooldown;
-    float lightningCooldown;
+    private float iceCooldown;
+    private float fireCooldown;
+    private float earthCooldown;
+    private float lightningCooldown;
 
-    float iceTime;
-    float fireTime;
-    float earthTime;
-    float lightningTime;
+    private float iceTime;
+    private float fireTime;
+    private float earthTime;
+    private float lightningTime;
 
-    bool iceSent;
-    bool fireSent;
-    bool earthSent;
-    bool lightningSent;
+    private bool iceSent;
+    private bool fireSent;
+    private bool earthSent;
+    private bool lightningSent;
 
-    GameObject Shooter;
-    bool BossStart = true;
+    private GameObject Shooter;
+    private bool stupidStart = true;
 
     // Start is called before the first frame update
     void Start()
@@ -167,19 +167,19 @@ public class GameUI : MonoBehaviour
 
 
 
-        if (BossStart)
+        if (stupidStart)
         {
             Shooter.SendMessage("LightningReady", SendMessageOptions.DontRequireReceiver);
             Shooter.SendMessage("EarthReady", SendMessageOptions.DontRequireReceiver);
             Shooter.SendMessage("FireReady", SendMessageOptions.DontRequireReceiver);
             Shooter.SendMessage("IceReady", SendMessageOptions.DontRequireReceiver);
-            BossStart = false;
+            stupidStart = false;
         }
 
 
     }
 
-    void ActiveElement(int index)
+    public void ActiveElement(int index)
     {
         if(index == 1)
         {
@@ -216,7 +216,7 @@ public class GameUI : MonoBehaviour
         print("taking damage");
         health -= damage;
     }
-    void Health()
+    void Heal()
     {
         health = health + 1;
     }
@@ -244,4 +244,6 @@ public class GameUI : MonoBehaviour
         lightningCooldown = Time.deltaTime + cooldown;
         lightningTime = Time.deltaTime;
     }
+
+
 }

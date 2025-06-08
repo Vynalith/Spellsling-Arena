@@ -5,9 +5,9 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
 
-    int roomCount;
-    GameObject currentPlacer;
-    string combination;
+    public int roomCount;
+    public GameObject currentPlacer;
+    public string combination;
     
 
     // Start is called before the first frame update
@@ -19,7 +19,7 @@ public class GameManager : MonoBehaviour
         {
             combination = "Placer (" + i + ")";
             currentPlacer = GameObject.Find(combination);
-            print("CurrentPlacer = " + currentPlacer);
+            print("Current Placer = " + currentPlacer);
             //print("Combination = " + combination);
             int RandomRoom = Random.Range(0, 5);
 
@@ -34,6 +34,9 @@ public class GameManager : MonoBehaviour
             }
 
         }
+
+
+
     }
 
     // Update is called once per frame
@@ -42,7 +45,7 @@ public class GameManager : MonoBehaviour
         //print("Game Manager Room Count is " + roomCount);
     }
 
-    void IncreaseRoomCount()
+    public void IncreaseRoomCount()
     {
         roomCount++;
         //print("Room count increased to " + roomCount);
@@ -50,10 +53,14 @@ public class GameManager : MonoBehaviour
     }
 
 
-    void SendRoomCount(GameObject other)
+    public void SendRoomCount(GameObject other)
     {
         //print("Recieved room count from " + other);
         //print("Sending roomcount " + roomCount + " to " + other);
         other.SendMessage("GetRoomCount", roomCount);
     }
+
+
+
+
 }

@@ -4,45 +4,54 @@ using UnityEngine;
 
 public class FireEnemy : MonoBehaviour
 {
-    Vector3 userDirection = Vector3.one;
-    float movespeed = 1;
-    float MoveTimer;
-    bool flaring = false;
-    Animator animator;
-    float flaretime;
-    int RandomX;
-    int RandomY;
+    public Vector3 userDirection = Vector3.one;
+    public float movespeed = 1;
+    public float MoveTimer;
+    public bool flaring = false;
+    public Animator animator;
+    public float flaretime;
+    public int RandomX;
+    public int RandomY;
 
 
     SpriteRenderer SpriteRenderer;
     //Instantiated stuff
-    GameObject puddle;
-    GameObject steam;
+    public GameObject puddle;
+    public GameObject steam;
 
     //HP stuff
-    int health;
-    int maxhealth;
+    public int health;
+    public int maxhealth;
 
     //used when hitting a wall
-    bool isLooking;
-    float lookingTimer;
-    float lookingTimeTotal;
+    public bool isLooking;
+    public float lookingTimer;
+    public float lookingTimeTotal;
 
     //universal timer
-    float timer;
+    public float timer;
 
     //Movement stuff
-    Vector3 looking;
-    bool isMoving;
+    public Vector3 looking;
+    public bool isMoving;
 
 
     //fireball for damage/healing
-    GameObject fire;
-    bool isFireballBig;
+    public GameObject fire;
+    public bool isFireballBig;
 
     //Room
-    GameObject CurrentRoom;
-    GameObject heart;
+    public GameObject CurrentRoom;
+    public GameObject heart;
+
+
+
+
+    /////////////////////////////
+    //End of Variable Declaration
+    /////////////////////////////
+    
+
 
     // Start is called before the first frame update
     void Start()
@@ -56,6 +65,8 @@ public class FireEnemy : MonoBehaviour
     {
         transform.Translate(userDirection * movespeed * Time.deltaTime);
         
+       
+
         if(health <= 0)
         {
             Destroy(this.gameObject);
@@ -90,8 +101,12 @@ public class FireEnemy : MonoBehaviour
                 flaring = false;
             }
         }
+
+
+        
+        
     }
-    void randomize()
+    public void randomize()
     {
          RandomX = Random.Range(-1,1);
          RandomY = Random.Range(-1,1);
@@ -106,22 +121,27 @@ public class FireEnemy : MonoBehaviour
 
 
     //stupid method to get whether fireball is big or not
-    void GetFireSize()
+    public void GetFireSize()
     {
         //print("Fire size called");
         fire.SendMessage("FireEnemyGetSize", this.gameObject);
     }
 
     //part 2 of stupid method
-    void SetFireballSize(bool othersize)
+    public void SetFireballSize(bool othersize)
     {
         //print("Fire size set");
         isFireballBig = othersize;
     }
+
+
+    
+           
+
     ////////////////////////////////////
     ///Damage Methods
     ////////////////////////////////////
-    void HurtMe(int damage)
+    public void HurtMe(int damage)
     {
         health -= damage;
         if (health <= 0)
@@ -142,7 +162,7 @@ public class FireEnemy : MonoBehaviour
     }
 
 
-    void LightningHurtMe(int ouchie)
+    public void LightningHurtMe(int ouchie)
     {
         health -= ouchie;
 
@@ -162,7 +182,8 @@ public class FireEnemy : MonoBehaviour
             CurrentRoom.gameObject.SendMessage("RoomClear");
         }
     }
-    void FireHurtMe(int ouchie)
+
+    public void FireHurtMe(int ouchie)
     {
         health += ouchie;
 
@@ -194,27 +215,7 @@ public class FireEnemy : MonoBehaviour
         }
     }
 
-    void IceHurtMe(int ouchie)
-    {
-        health -= ouchie;
-
-        if (health <= 0)
-        {
-            int heartOrNo = Random.Range(0, 4);
-
-            print(heartOrNo);
-            //Instantiate (heart, this.transform.position, Quaternion.identity);
-
-            if (heartOrNo >= 2)
-            {
-                Instantiate(heart, this.transform.position, Quaternion.identity);
-            }
-
-            Destroy(this.gameObject);
-            CurrentRoom.gameObject.SendMessage("RoomClear");
-        }
-    }
-    void EarthHurtMe(int ouchie)
+    public void IceHurtMe(int ouchie)
     {
         health -= ouchie;
 
@@ -235,7 +236,33 @@ public class FireEnemy : MonoBehaviour
         }
     }
 
-    void OnTriggerEnter2D(Collider2D other)
+    public void EarthHurtMe(int ouchie)
+    {
+        health -= ouchie;
+
+        if (health <= 0)
+        {
+            int heartOrNo = Random.Range(0, 4);
+
+            print(heartOrNo);
+            //Instantiate (heart, this.transform.position, Quaternion.identity);
+
+            if (heartOrNo >= 2)
+            {
+                Instantiate(heart, this.transform.position, Quaternion.identity);
+            }
+
+            Destroy(this.gameObject);
+            CurrentRoom.gameObject.SendMessage("RoomClear");
+        }
+    }
+
+
+
+
+
+
+    public void OnTriggerEnter2D(Collider2D other)
     {
         if(other.gameObject.CompareTag("EarthWall") || other.gameObject.CompareTag("Wall"))
         {
@@ -286,6 +313,12 @@ public class FireEnemy : MonoBehaviour
             //LightningHurtMe(1);
         }
         
+        if (other.gameObject.CompareTag("Lightning"))
+        {
+            Destroy(other.gameObject);
+            //LightningHurtMe(1);
+        }
+
         if (other.gameObject.CompareTag("Earth"))
         {
             print("hurt");
@@ -293,4 +326,6 @@ public class FireEnemy : MonoBehaviour
             this.gameObject.transform.localScale -= new Vector3(.35f, .35f, 0f);
         }
     }
+
+
 }

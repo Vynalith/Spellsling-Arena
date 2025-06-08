@@ -5,11 +5,11 @@ using UnityEngine;
 public class TitleMusic : MonoBehaviour
 {
 
-    AudioSource song1Intro;
-    AudioSource song1Loop;
-    float timer;
-    float songCount = 9.4f;
-    int song1Change = 0;
+    public AudioSource song1Intro;
+    public AudioSource song1Loop;
+    private float timer;
+    private float songCount = 9.4f;
+    private int song1Change = 0;
     // Start is called before the first frame update
     void Start()
     {

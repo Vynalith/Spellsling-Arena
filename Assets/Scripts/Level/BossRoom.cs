@@ -5,14 +5,14 @@ using UnityEngine;
 public class BossRoom : MonoBehaviour
 {
 
-    int enemies;
-    GameObject Entrance;
-    GameObject Exit;
-    int count;
-    int countdown;
-    GameObject[] Enemies;
-    GameObject player;
-    int enter;
+    public int enemies;
+    public GameObject Entrance;
+    public GameObject Exit;
+    private int count;
+    private int countdown;
+    public GameObject[] Enemies;
+    private GameObject player;
+     public int enter;
 
     void Start()
     {
@@ -22,15 +22,14 @@ public class BossRoom : MonoBehaviour
         player = GameObject.Find("Player");
     }
 
-    void Update()
-    {
-    void RoomLock()
+
+    public void RoomLock()
     {
         if(enter < 1)
         {
-            Entrance.gameObject.SetActive(true);
-            Exit.gameObject.SetActive(true);
-            enter = enter+1;
+        Entrance.gameObject.SetActive(true);
+        Exit.gameObject.SetActive(true);
+        enter = enter+1;
 
             for(int i = 0; i < Enemies.Length; i++)
             {
@@ -38,17 +37,30 @@ public class BossRoom : MonoBehaviour
             }
 
             player.SendMessage("StartBossMusic", SendMessageOptions.DontRequireReceiver);
-        }
+
         }
     }
-    void RoomClear()
+    
+    
+    
+    public void RoomClear()
     {
         //print ("enemy down");
         enemies= enemies-1;
         if(enemies<=0)
         {
+            
+
+
+
             Entrance.gameObject.SetActive(false);
             Exit.gameObject.SetActive(false);
         }
     }
+
+      void Update()
+    {
+        
+    } 
+
 }

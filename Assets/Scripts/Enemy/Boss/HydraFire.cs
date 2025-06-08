@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class HydraFire : MonoBehaviour
 {
-    float shootSpeed = 100f;
+    public float shootSpeed = 100f;
     // Start is called before the first frame update
     void Start()
     {
@@ -19,6 +19,8 @@ public class HydraFire : MonoBehaviour
     {
         
     }
+
+
     public void OnTriggerEnter2D (Collider2D other)
     {
         if (other.gameObject.CompareTag("Player"))
@@ -26,4 +28,7 @@ public class HydraFire : MonoBehaviour
             other.gameObject.SendMessage("HurtMe", 2);
         }
     }
+
+
+
 }
