@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 9143264374473475254}
   - component: {fileID: 5444631525747349313}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Square
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -73,7 +73,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6,
+    type: 3}
   m_Color: {r: 0.09019608, g: 0.12156863, b: 0.16862746, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -97,8 +98,8 @@ GameObject:
   - component: {fileID: 1280773080325915727}
   - component: {fileID: 2865568587828135110}
   - component: {fileID: 1269722762865360039}
-  m_Layer: 0
-  m_Name: sprite
+  m_Layer: 6
+  m_Name: BossDoor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -160,7 +161,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 2f2667539d707e8428aada09cfcb7f57, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -188,7 +189,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
+    oldSize: {x: 3.84, y: 0.96}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -248,9 +249,9 @@ GameObject:
   m_Component:
   - component: {fileID: 6284083940895516632}
   - component: {fileID: 7361161878933377103}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Door
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
