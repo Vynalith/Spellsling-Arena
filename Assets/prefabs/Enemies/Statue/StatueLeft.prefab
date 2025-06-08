@@ -51,7 +51,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &4953360847668526627
 Transform:
   m_ObjectHideFlags: 0
@@ -206,13 +206,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cooldown: 3
   cooldownCount: 0
-  Projectile: {fileID: 2973646001600191778, guid: 79ba8a27158e6c046a8382a4ac698c3f,
-    type: 3}
+  Projectile: {fileID: 2973646001600191778, guid: 79ba8a27158e6c046a8382a4ac698c3f, type: 3}
   shotForce: 20
   playerInRange: 0
   aimer: {fileID: 3896307558406374088}
   animator: {fileID: 2665666513518645193}
-  animTimer: 0
-  startAnim: 0
-  currentRoom: {fileID: 0}
-  roomClear: 0
