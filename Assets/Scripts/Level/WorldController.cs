@@ -1,34 +1,46 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class WorldController : MonoBehaviour
 {
-    public GameObject destroy;
-    public GameObject player;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    [Header("References")]
+    public GameObject destroy; // Object to destroy
+    public GameObject player; // Reference to the player
 
-    // Update is called once per frame
+    [Header("Input Settings")]
+    public string destroyInput = "Fire1"; // Input to destroy the object
+    public string damageInput = "Ouch"; // Input to simulate damage to the player
+    public string winInput = "Win"; // Input to trigger a win state
+
     void Update()
     {
-        if( Input.GetButtonDown("Fire1"))
+        HandleInputs();
+    }
+
+    /// <summary>
+    /// Processes user inputs and triggers corresponding actions.
+    /// </summary>
+    private void HandleInputs()
+    {
+        // Destroy object when the specified input is pressed
+        if (Input.GetButtonDown(destroyInput) && destroy != null)
         {
             Destroy(destroy);
+            Debug.Log($"Destroyed object: {destroy.name}");
         }
 
-        if( Input.GetButtonDown("Ouch"))
+        // Simulate player taking damage
+        if (Input.GetButtonDown(damageInput) && player != null)
         {
-            player.gameObject.SendMessage("EnemyCollide");
+            player.SendMessage("EnemyCollide", SendMessageOptions.DontRequireReceiver);
+            Debug.Log("Triggered EnemyCollide on the player.");
         }
 
-         if( Input.GetButtonDown("Win"))
+        // Trigger a win state
+        if (Input.GetButtonDown(winInput) && player != null)
         {
-            player.gameObject.SendMessage("Win");
+            player.SendMessage("Win", SendMessageOptions.DontRequireReceiver);
+            Debug.Log("Triggered Win on the player.");
         }
-
     }
 }

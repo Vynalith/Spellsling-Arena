@@ -5,227 +5,177 @@ using UnityEngine;
 public class Hydra : MonoBehaviour
 {
     public int health;
-    //public GameObject damage;
+    public GameObject damage; // Visual effects for damage
     public GameObject CurrentRoom;
-    public float cooldown;
-    private float cooldownCount;
-    public GameObject[] Projectile;
-    public Animation[] attack;
-    public float shotForce = 20f;
+    public GameObject WIN; // Object to spawn on Hydra defeat
+    public GameObject[] Projectile; // Array of projectiles for different elements
+    public Animation[] attack; // Elemental attack animations
+    public float cooldown; // Time between attacks
+    public float shotForce = 20f; // Force applied to projectiles
 
-    private Vector3 start;
-    private Vector3 direction;
-    private GameObject target;
-    private GameObject target2;
-    public float sightDistance = 10;
-    private Collider2D finalDetected;
-    private RaycastHit hit;
-    private int layerMask = 1 << 3;
+    private float cooldownCount; // Tracks cooldown time
+    private Vector3 start; // Hydra's position
+    private Vector3 direction; // Direction to target
+    private float sightDistance; // Sight toward player
+    private GameObject target; // Main player target
+    private GameObject target2; // Secondary target (e.g., Shooter)
+    private Collider2D finalDetected; // Last detected collider
+    private int layerMask = 1 << 3; // Layermask for raycasting
+    private Vector3 shootAngle; // Angle for projectiles
 
-    private Vector3 shootAngle;
+    public Animator animator; // Animator for Hydra animations
+    public Transform Anchor; // Rotation anchor for projectiles
+    public Transform EnemyAnchor;
 
-    public Animator animator;
+    private bool isSlowed = false; // Tracks if Hydra is affected by ice
+    private float slowDuration = 3f; // Duration of slow effect
+    private float slowEffectEndTime = 0f; // Time when slow effect ends
 
-    //public Transform anchor;
-    public GameObject anchor;
-
-    public GameObject WIN;
-
-    private int damage;
-
-
-    // Start is called before the first frame update
     void Start()
     {
         cooldownCount = 0;
         target = GameObject.Find("Player");
         target2 = GameObject.Find("Shooter");
-        layerMask = ~layerMask;
-        anchor = GameObject.Find("EnemyAnchor");
-        damage = 1;
+        layerMask = ~layerMask; // Invert layermask for raycast
     }
 
-    // Update is called once per frame
     void Update()
     {
-        start = this.transform.position;
-        cooldownCount++;
-        direction = (target.transform.position - start).normalized;
-        Debug.DrawRay(start, direction * sightDistance);
+        start = this.transform.position; // Update Hydra's position
+        cooldownCount += Time.deltaTime; // Increment cooldown timer
+        direction = (target.transform.position - start).normalized; // Calculate direction to the target
+
+        Debug.DrawRay(start, direction * sightDistance); // Visualize ray for debugging
 
         if (SightTest() == target.GetComponent<Collider2D>() || SightTest() == target2.GetComponent<Collider2D>())
         {
+            // Shoot if cooldown is complete
             if (cooldownCount >= cooldown)
             {
-                
                 Shoot();
                 cooldownCount = 0;
             }
         }
-        finalDetected = null;
-        shootAngle = (start - target.transform.position).normalized;
-        shootAngle.y *= -1;
 
+        // Reset slow effect if time has passed
+        if (isSlowed && Time.time >= slowEffectEndTime)
+        {
+            ResetSpeed();
+        }
+
+        finalDetected = null; // Reset detection for next frame
     }
 
-
+    /// <summary>
+    /// Shoots a random elemental projectile.
+    /// </summary>
     public void Shoot()
     {
-        int RandomNum = Random.Range(0,4);
+        int RandomNum = Random.Range(0, 4); // Randomize attack type
 
-        if(RandomNum == 0)
+        // Play corresponding attack animation
+        switch (RandomNum)
         {
-        animator.Play("HydraLightningTest");
-        }
-        if(RandomNum == 1)
-        {
-        animator.Play("HydraFire");
-        }
-        if(RandomNum == 2)
-        {
-        animator.Play("HydraIce");
-        }
-        if(RandomNum == 3)
-        {
-        animator.Play("HydraEarth");
+            case 0:
+                animator.Play("HydraLightning");
+                break;
+            case 1:
+                animator.Play("HydraFire");
+                break;
+            case 2:
+                animator.Play("HydraIce");
+                break;
+            case 3:
+                animator.Play("HydraEarth");
+                break;
         }
 
-
+        // Instantiate and fire projectile
         GameObject arrow = Instantiate(Projectile[RandomNum], start, this.transform.rotation);
-
-        arrow.transform.rotation = anchor.transform.rotation;
-        print("Hydra firing at " + direction);
+        arrow.transform.rotation = Anchor.transform.rotation;
 
         Rigidbody2D rb = arrow.GetComponent<Rigidbody2D>();
-        if (direction.x < 0)
-        {
-            rb.AddForce(direction * shotForce * 25);
-        }
-        else
-        {
-            rb.AddForce(direction * shotForce * 15);
-        }
-
+        rb.AddForce(direction * shotForce, ForceMode2D.Impulse);
     }
 
-
-
+    /// <summary>
+    /// Tests if the Hydra has a clear line of sight to the target.
+    /// </summary>
     public Collider2D SightTest()
     {
         RaycastHit2D sightTest = Physics2D.Raycast(start, direction, sightDistance, layerMask);
-        if (sightTest.collider != null)
+
+        if (sightTest.collider != null && sightTest.collider.gameObject != gameObject)
         {
-            if (sightTest.collider.gameObject != gameObject)
-            {
-                finalDetected = null;
-                //Debug.Log("Rigidbody collider is: " + sightTest.collider);
-            }
             finalDetected = sightTest.collider;
         }
+
         return finalDetected;
     }
 
-
-
-
-
+    /// <summary>
+    /// Handles collisions with magic projectiles.
+    /// </summary>
     public void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.CompareTag("Fire") || other.gameObject.CompareTag("BigFire"))
         {
             Destroy(other.gameObject);
-
-            //damage = 1;
-            //HurtMe();
-            //GameObject explo = Instantiate(damage, this.transform.position, Quaternion.identity);
-            //Destroy(explo, 1f);
-
-         
+            TakeDamage(2); // Fire damage
         }
-        if (other.gameObject.CompareTag("Earth"))
-        {
-
-            Destroy(other.gameObject);
-            //damage = 3;
-            //HurtMe();
-
-        }
-        if (other.gameObject.CompareTag("Lightning"))
+        else if (other.gameObject.CompareTag("Earth"))
         {
             Destroy(other.gameObject);
-            //damage = 1;
-            //HurtMe();
+            TakeDamage(3); // Earth damage
         }
-        if (other.gameObject.CompareTag("BigLightning"))
+        else if (other.gameObject.CompareTag("Lightning") || other.gameObject.CompareTag("BigLightning"))
         {
-            //Destroy(other.gameObject);
-            //damage = 3;
-            //HurtMe();
+            Destroy(other.gameObject);
+            TakeDamage(1); // Lightning damage
+        }
+        else if (other.gameObject.CompareTag("Ice"))
+        {
+            Destroy(other.gameObject);
+            TakeDamage(1); // Ice damage
+            IceSlowEffect(); // Apply ice slow effect
         }
     }
-    
-    ///////////////////////////////////////////////
-    ///Damage check
-    ///////////////////////////////////////////////
 
-    public void HurtMe(int damage)
+    /// <summary>
+    /// Reduces Hydra's health and checks for death.
+    /// </summary>
+    public void TakeDamage(int damage)
     {
         health -= damage;
+
         if (health <= 0)
         {
             Instantiate(WIN, this.transform.position, Quaternion.identity);
-            Destroy(this.gameObject);
-            CurrentRoom.gameObject.SendMessage("RoomClear");
+            Destroy(this.gameObject); // Destroy Hydra on death
+            CurrentRoom?.SendMessage("RoomClear"); // Notify the room manager
         }
     }
 
-
-    public void LightningHurtMe(int ouchie)
+    /// <summary>
+    /// Applies a slow effect when hit by ice magic.
+    /// </summary>
+    public void IceSlowEffect()
     {
-        health -= ouchie;
-
-        if (health <= 0)
+        if (!isSlowed) // Only apply slow if not already slowed
         {
-            Instantiate(WIN, this.transform.position, Quaternion.identity);
-            Destroy(this.gameObject);
-            CurrentRoom.gameObject.SendMessage("RoomClear");
+            isSlowed = true;
+            cooldown *= 1.5f; // Increase cooldown time (slow attack rate)
         }
+
+        slowEffectEndTime = Time.time + slowDuration; // Set time to end slow effect
     }
 
-    public void FireHurtMe(int ouchie)
+    /// <summary>
+    /// Resets Hydra's speed after slow effect ends.
+    /// </summary>
+    public void ResetSpeed()
     {
-        health -= ouchie;
-
-        if (health <= 0)
-        {
-            Instantiate(WIN, this.transform.position, Quaternion.identity);
-            Destroy(this.gameObject);
-            CurrentRoom.gameObject.SendMessage("RoomClear");
-        }
+        isSlowed = false;
+        cooldown /= 1.5f; // Restore original cooldown
     }
-
-    public void IceHurtMe(int ouchie)
-    {
-        health -= ouchie;
-
-        if (health <= 0)
-        {
-            Instantiate(WIN, this.transform.position, Quaternion.identity);
-            Destroy(this.gameObject);
-            CurrentRoom.gameObject.SendMessage("RoomClear");
-        }
-    }
-
-    public void EarthHurtMe(int ouchie)
-    {
-        health -= ouchie;
-
-        if (health <= 0)
-        {
-            Instantiate(WIN, this.transform.position, Quaternion.identity);
-            Destroy(this.gameObject);
-            CurrentRoom.gameObject.SendMessage("RoomClear");
-        }
-    }
-
 }
