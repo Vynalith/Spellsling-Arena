@@ -1,7 +1,6 @@
 using UnityEngine;
-using UnityEngine.Collections;
+//using UnityEngine.Collections;
 using UnityEngine.AI;
-using System;
 
 public class EnemyNav : MonoBehaviour
 {
