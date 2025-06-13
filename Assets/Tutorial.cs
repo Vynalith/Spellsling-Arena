@@ -54,7 +54,7 @@ public class Tutorial
             animator.Play("DuckTalk");
         }
 
-        if(allowinput=true)
+        if(allowinput==true)
         {
             if( Input.GetButtonDown("Fire2"))
             {
