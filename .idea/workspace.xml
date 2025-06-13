@@ -4,9 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1e713950-8288-4fb3-aebc-d2e902ff88d6" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/Assets/MudMan.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/MudMan.cs" afterDir="false" />
-    </list>
+    <list default="true" id="1e713950-8288-4fb3-aebc-d2e902ff88d6" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -395,7 +393,23 @@
       <option name="project" value="LOCAL" />
       <updated>1749831297778</updated>
     </task>
-    <option name="localTasksCounter" value="34" />
+    <task id="LOCAL-00034" summary="commit">
+      <option name="closed" value="true" />
+      <created>1749831481570</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1749831481570</updated>
+    </task>
+    <task id="LOCAL-00035" summary="commit">
+      <option name="closed" value="true" />
+      <created>1749831596151</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1749831596151</updated>
+    </task>
+    <option name="localTasksCounter" value="36" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
