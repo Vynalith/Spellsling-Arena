@@ -220,30 +220,15 @@ public class GameUI : MonoBehaviour
     {
         health = health + 1;
     }
-    
-    void IceCooldown(float cooldown)
+    public void SetCooldowns(float cooldown)
     {
-        iceCooldown = Time.deltaTime + cooldown;
-        iceTime = Time.deltaTime;
+        iceCooldown = cooldown;
+        iceTime = 0f;
+        fireCooldown = cooldown;
+        fireTime = 0f;
+        earthCooldown = cooldown;
+        earthTime = 0f;
+        lightningCooldown = cooldown;
+        lightningTime = 0f;
     }
-    
-    void FireCooldown(float cooldown)
-    {
-        fireCooldown = Time.deltaTime + cooldown;
-        fireTime = Time.deltaTime;
-    }
-    
-    void EarthCooldown(float cooldown)
-    {
-        earthCooldown = Time.deltaTime + cooldown;
-        earthTime = Time.deltaTime;
-    }
-    
-    void LightningCooldown(float cooldown)
-    {
-        lightningCooldown = Time.deltaTime + cooldown;
-        lightningTime = Time.deltaTime;
-    }
-
-
 }
