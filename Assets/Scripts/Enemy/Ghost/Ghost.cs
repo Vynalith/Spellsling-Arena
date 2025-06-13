@@ -8,7 +8,6 @@ public class Ghost : MonoBehaviour
     GameObject currentRoom;
     Animator animator;
     Transform aim;
-    Transform aimTarget;
     Vector2 AwareOfPlayer;
     Vector2 DirectionToPlayer;
     GameObject Heart;
