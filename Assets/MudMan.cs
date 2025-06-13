@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class MudMan : MonoBehaviour
 {
-    int health;
-    GameManager CurrentRoom;
+    public int health;
+    public GameManager CurrentRoom;
     float cooldown;
     float cooldownDuration = 2f;
-    GameObject Projectile;
+    GameObject PlayerProjectile;
     float shotForce = 20f;
 
     private Vector3 start;
@@ -52,7 +52,6 @@ void Start()
     // Start is called before the first frame update
     void Start()
     {
->>>>>>> parent of b932fd7 (AJ commit)
         cooldownCount = 0;
         target = GameObject.Find("Player");
         target2 = GameObject.Find("Shooter");
@@ -101,11 +100,9 @@ private int damage = 10;
         animator.SetFloat("Vertical", shootAngle.y);
         Horizontal = shootAngle.x;
         Vertical = shootAngle.y;
-
->>>>>>> parent of b932fd7 (AJ commit)
     }
 
-    public void SetHealth1(System.Int32 value)
+public void SetHealth1(System.Int32 value)
     {
         health = value;
     }
