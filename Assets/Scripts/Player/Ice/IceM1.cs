@@ -35,7 +35,7 @@ public class IceM1 : MonoBehaviour
             other.gameObject.SendMessage("HurtMe",2);
         }
         */
-        if(other.gameObject.CompareTag("IceWall") || other.gameObject.CompareTag("Enemy") || other.gameObject.CompareTag("EnemyProjectile") && !other.gameObject.CompareTag("LightningRigid"))
+        if(other.gameObject.CompareTag("IceWall") || other.gameObject.CompareTag("Enemy") || other.gameObject.CompareTag("EnemyProjectile"))
         {
             //print("applying force in direction " + aim * 100 + "to object " + other.gameObject);
             Rigidbody2D nerd = other.GetComponent<Rigidbody2D>();

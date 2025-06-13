@@ -4,50 +4,72 @@ using UnityEngine;
 
 public class MudMan : MonoBehaviour
 {
-    public int health;
-    public GameObject damage;
-    public GameObject CurrentRoom;
-    public float cooldown;
-    private float cooldownCount;
-    public GameObject Projectile;
-    public float shotForce = 20f;
+    int health;
+    GameManager CurrentRoom;
+    float cooldown;
+    float cooldownDuration = 2f;
+    GameObject Projectile;
+    float shotForce = 20f;
 
     private Vector3 start;
     private Vector3 direction;
     private GameObject target;
-    private GameObject target2;
-    public float sightDistance = 10;
+    private float sightDistance = 10;
     private Collider2D finalDetected;
     private RaycastHit hit;
     private int layerMask = 1 << 3 | 1 << 7 | 1 << 11 | 1 << 12 | 1 << 13;
 
-    public Vector3 shootAngle;
+    private Vector3 shootAngle;
 
-    public Animator animator;
+    private Animator animator;
 
-
-    public int heartOrNo;
-    public GameObject heart;
-
-    public float Horizontal;
-    public float Vertical;
-
+    private int heartOrNo;
+    private bool gameObject heart;
+    private float horizontal;
+    private float vertical;
     private float stupidspeed;
 
-    public GameObject Collider2D;
+<<<<<<< HEAD
+    Vector3 Start { get => start; set => start = value; }
+    Vector3 Direction { get => direction; set => direction = value; }
+    GameObject Target { get => target; set => target = value; }
+    global::System.Single SightDistance { get => sightDistance; set => sightDistance = value; }
+    Collider2D FinalDetected { get => finalDetected; set => finalDetected = value; }
+    RaycastHit Hit { get => hit; set => hit = value; }
+    global::System.Int32 LayerMask { get => LayerMask1; set => LayerMask1 = value; }
+    global::System.Int32 LayerMask1 { get => layerMask; set => layerMask = value; }
+    Vector3 ShootAngle { get => shootAngle; set => shootAngle = value; }
+    Animator Animator { get => animator; set => animator = value; }
+    global::System.Int32 HeartOrNo { get => heartOrNo; set => heartOrNo = value; }
+    global::System.Boolean GameObject { get => gameObject; set => gameObject = value; }
+}
+// Start is called before the first frame update
+void Start()
+{
+=======
+    public GameObject collider;
 
     // Start is called before the first frame update
     void Start()
     {
+>>>>>>> parent of b932fd7 (AJ commit)
         cooldownCount = 0;
         target = GameObject.Find("Player");
         target2 = GameObject.Find("Shooter");
         layerMask = ~layerMask;
-    }
+}
+private float sightDistance = 10f;
+private int damage = 10;
 
-    // Update is called once per frame
-    void Update()
+    private GameObject heartPickup;
+
+    public System.Int32 Health { get => GetHealth1(); set => SetHealth1(value); }
+
+    public System.Int32 GetHealth1()
     {
+<<<<<<< HEAD
+        return health;
+=======
         start = this.transform.position;
         cooldownCount++;
         direction = (target.transform.position - start).normalized;
@@ -55,7 +77,7 @@ public class MudMan : MonoBehaviour
 
         if (SightTest() == target.GetComponent<Collider2D>() || SightTest() == target2.GetComponent<Collider2D>())
         {
-            GetComponent<Collider>().SetActive(true);
+            collider.SetActive(true);
             animator.Play("MudRise");
             animator.SetBool("Awake", true);
             
@@ -68,7 +90,7 @@ public class MudMan : MonoBehaviour
             }
         }
         else{
-             GetComponent<Collider>().SetActive(false);
+             collider.SetActive(false);
              animator.SetBool("Awake", false);
         }
         finalDetected = null;
@@ -80,154 +102,217 @@ public class MudMan : MonoBehaviour
         Horizontal = shootAngle.x;
         Vertical = shootAngle.y;
 
+>>>>>>> parent of b932fd7 (AJ commit)
     }
 
-
-    public void Shoot()
+    public void SetHealth1(System.Int32 value)
     {
-        //animator.Play("ArcherRightShoot");
-
-        GameObject arrow = Instantiate(Projectile, start, this.transform.rotation);
-
-        Rigidbody2D rb = arrow.GetComponent<Rigidbody2D>();
-        if (direction.x < 0)
-        {
-            rb.AddForce(direction * shotForce * 15);
-        }
-        else
-        {
-            rb.AddForce(direction * shotForce * 15);
-        }
-    
+        health = value;
     }
 
-    /////////////////////////////////////////////////////
-    ///Sight test
-    /////////////////////////////////////////////////////
+public Animator GetAnimator()
+{
+    return animator;
+}
 
-    public Collider2D SightTest()
+public void SetAnimator(Animator value)
+{
+    animator = value;
+}
+
+public System.Int32 GetHeartOrNo()
+{
+    return heartOrNo;
+}
+
+public void SetHeartOrNo(System.Int32 value)
+{
+    heartOrNo = value;
+}
+
+public Vector3 GetShootAngle()
+{
+    return shootAngle;
+}
+
+public void SetShootAngle(Vector3 value)
+{
+    shootAngle = value;
+}
+
+public RaycastHit GetHit()
+{
+    return hit;
+}
+
+public void SetHit(RaycastHit value)
+{
+    hit = value;
+}
+
+public Collider2D GetFinalDetected()
+{
+    return finalDetected;
+}
+
+public void SetFinalDetected(Collider2D value)
+{
+    finalDetected = value;
+}
+
+public Vector3 GetDirection()
+{
+    return direction;
+}
+
+public void SetDirection(Vector3 value)
+{
+    direction = value;
+}
+
+public Vector3 GetStart1()
+{
+    return start;
+}
+
+public void SetStart1(Vector3 value)
+{
+    start = value;
+}
+
+public System.Single GetCooldownDuration()
+{
+    return cooldownDuration;
+}
+
+public void SetCooldownDuration(System.Single value)
+{
+    cooldownDuration = value;
+}
+
+public System.Single GetCooldown()
+{
+    return cooldown;
+}
+
+public void SetCooldown(System.Single value)
+{
+    cooldown = value;
+}
+
+public System.Single GetHorizontal()
+{
+    return horizontal;
+}
+
+public void SetHorizontal(System.Single value)
+{
+    horizontal = value;
+}
+
+public System.Single GetVertical()
+{
+    return vertical;
+}
+
+public void SetVertical(System.Single value)
+{
+    vertical = value;
+}
+
+public System.Single GetStupidspeed()
+{
+    return stupidspeed;
+}
+
+public void SetStupidspeed(System.Single value)
+{
+    stupidspeed = value;
+}
+
+public System.Int32 GetDamage()
+{
+    return damage;
+}
+
+public void SetDamage(System.Int32 value)
+{
+    damage = value;
+}
+
+public GameObject GetHeartPickup()
+{
+    return heartPickup;
+}
+
+public void SetHeartPickup(GameObject value)
+{
+    heartPickup = value;
+}
+
+private void Start()
+{
+    cooldownCount = 0;
+    target = GameObject.Find("Player");
+    target2 = GameObject.Find("Shooter");
+    layerMask = ~layerMask;
+}
+
+private void Update()
     {
-        RaycastHit2D sightTest = Physics2D.Raycast(start, direction, sightDistance, layerMask);
-        if (sightTest.collider != null)
+        cooldownCount -= Time.deltaTime;
+
+        // Calculate the angle between the shooter and the player
+        float angle = CalculateAngle(transform.position, target.transform.position);
+
+        if (Vector3.Distance(transform.position, target.transform.position) <= sightDistance || Vector3.Distance(transform.position, target2.transform.position) <= sightDistance)
         {
-            if (sightTest.collider.gameObject != gameObject)
-            {
-                finalDetected = null;
-                //Debug.Log("Rigidbody collider is: " + sightTest.collider);
-            }
-            finalDetected = sightTest.collider;
+            Shoot(angle);
         }
-        return finalDetected;
     }
 
+private float CalculateAngle(Vector3 from, Vector3 to) => Mathf.Atan2(to.y - from.y, to.x - from.x) * Mathf.Rad2Deg;
 
-    ///////////////////////////////////////////////
-    ///Damage check
-    ///////////////////////////////////////////////
+private void Shoot(float angle)
+{
+    if (cooldownCount <= 0)
+    {
+        cooldownCount = Cooldown;
 
-    public void HurtMe(int damage)
+        // Create a projectile at the shooter's position
+        GameObject projectile = Instantiate(Projectile, transform.position, Quaternion.identity);
+
+        // Calculate the direction vector
+        Vector3 direction = Quaternion.AngleAxis(angle, Vector3.forward) * Vector3.right;
+
+        // Shoot the projectile in the direction vector
+        global::System.Object value = projectile.GetComponent<Rigidbody2D>()
+            .AddForce(direction * shotForce);
+    }
+}
+
+private void OnTriggerEnter2D(Collider2D collision)
+{
+    if (!collision.gameObject.CompareTag("PlayerProjectile"))
+    {
+        return;
+    }
+    TakeDamage(10);
+
+    // Destroy the projectile
+    global::System.Object value = Destroy(collision.gameObject);
+}
+
+public void TakeDamage(int damage)
     {
         health -= damage;
-        if (health <= 0)
-        {
-            int heartOrNo = Random.Range(0,4);
-
-            print(heartOrNo);
-            //Instantiate (heart, this.transform.position, Quaternion.identity);
-
-            if(heartOrNo >= 2)
-                {
-                    Instantiate (heart, this.transform.position, Quaternion.identity);
-                }
-
-            Destroy(this.gameObject);
-            CurrentRoom.gameObject.SendMessage("RoomClear");
-        }
-    }
-
-
-    public void LightningHurtMe(int ouchie)
-    {
-        health -= ouchie - 1;
 
         if (health <= 0)
         {
-            int heartOrNo = Random.Range(0, 4);
+        // Trigger the game over condition
+        global::System.Object value1 = CurrentRoom.GameOver();
 
-            print(heartOrNo);
-            //Instantiate (heart, this.transform.position, Quaternion.identity);
-
-            if (heartOrNo >= 2)
-            {
-                Instantiate(heart, this.transform.position, Quaternion.identity);
-            }
-
-            Destroy(this.gameObject);
-            CurrentRoom.gameObject.SendMessage("RoomClear");
+        // Change the current room
+        global::System.Object value = CurrentRoom.ChangeRoom();
         }
-    }
-
-    public void FireHurtMe(int ouchie)
-    {
-        health -= ouchie;
-
-        if (health <= 0)
-        {
-            int heartOrNo = Random.Range(0, 4);
-
-            print(heartOrNo);
-            //Instantiate (heart, this.transform.position, Quaternion.identity);
-
-            if (heartOrNo >= 2)
-            {
-                Instantiate(heart, this.transform.position, Quaternion.identity);
-            }
-
-            Destroy(this.gameObject);
-            CurrentRoom.gameObject.SendMessage("RoomClear");
-        }
-    }
-
-    public void IceHurtMe(int ouchie)
-    {
-        health -= ouchie;
-
-        if (health <= 0)
-        {
-            int heartOrNo = Random.Range(0, 4);
-
-            print(heartOrNo);
-            //Instantiate (heart, this.transform.position, Quaternion.identity);
-
-            if (heartOrNo >= 2)
-            {
-                Instantiate(heart, this.transform.position, Quaternion.identity);
-            }
-
-            Destroy(this.gameObject);
-            CurrentRoom.gameObject.SendMessage("RoomClear");
-        }
-    }
-
-    public void EarthHurtMe(int ouchie)
-    {
-        health -= ouchie;
-
-        if (health <= 0)
-        {
-            int heartOrNo = Random.Range(0, 4);
-
-            print(heartOrNo);
-            //Instantiate (heart, this.transform.position, Quaternion.identity);
-
-            if (heartOrNo >= 2)
-            {
-                Instantiate(heart, this.transform.position, Quaternion.identity);
-            }
-
-            Destroy(this.gameObject);
-            CurrentRoom.gameObject.SendMessage("RoomClear");
-        }
-    }
-
 }

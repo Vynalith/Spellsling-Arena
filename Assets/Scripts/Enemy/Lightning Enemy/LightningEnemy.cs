@@ -21,14 +21,6 @@ public class LightningEnemy : MonoBehaviour
     public GameObject CurrentRoom;
     public GameObject heart;
 
-    //movement stuff
-    public bool isMoving;
-    public float moveSpeed;
-    public Vector3 newDirection;
-    public Rigidbody2D rb;
-    public string nextwaypointstring;
-    public bool waypointReached;
-
 
 
 
@@ -40,7 +32,7 @@ public class LightningEnemy : MonoBehaviour
         this.transform.position = Waypoints[currentWaypoint].transform.position;
         maxhealth = 4;
         health = maxhealth;
-        
+
     }
 
 
@@ -64,8 +56,7 @@ public class LightningEnemy : MonoBehaviour
             {
                 currentWaypoint++;
             }
-            //Start moving here
-            //this.transform.position = Waypoints[currentWaypoint].transform.position;
+            this.transform.position = Waypoints[currentWaypoint].transform.position;
             movementTimer = 0f;
 
             ///////////////////////////////////
@@ -80,26 +71,12 @@ public class LightningEnemy : MonoBehaviour
                 lastWaypoint = Waypoints[currentWaypoint - 1];
             }
             nextWaypoint = Waypoints[currentWaypoint];
-            nextwaypointstring = "" + nextWaypoint;
-            //print(nextwaypointstring);
 
             //Vector3 targetDirection = (nextWaypoint.transform.position - lastWaypoint.transform.position).normalized;
             //Vector3 newDirection = Vector3.RotateTowards()
             //(target.transform.position - start).normalized;
             //Quaternion target = Quaternion.Euler(targetDirection);
-            //GameObject zap = Instantiate(laserBeam, (lastWaypoint.transform.position + (nextWaypoint.transform.position - lastWaypoint.transform.position)/2), Quaternion.identity);
-
-            if (!isMoving)
-            {
-                //print("Now moving towards " + (nextWaypoint.transform.position - lastWaypoint.transform.position));
-                isMoving = true;
-                newDirection = (nextWaypoint.transform.position - lastWaypoint.transform.position);
-                //newDirection = (nextWaypoint.transform.position - lastWaypoint.transform.position);
-                //Vector3 Extreme = (newDirection * 10);
-                //rb.AddForce(Extreme, ForceMode2D.Impulse);
-                rb.AddForce(newDirection * moveSpeed, ForceMode2D.Impulse);
-            }
-
+            GameObject zap = Instantiate(laserBeam, (lastWaypoint.transform.position + (nextWaypoint.transform.position - lastWaypoint.transform.position)/2), Quaternion.identity);
 
             //print(targetDirection);
             //the
@@ -114,24 +91,10 @@ public class LightningEnemy : MonoBehaviour
         {
             Destroy(this.gameObject);
         }
-
-
     }
 
 
-    public void CoilChecker(GameObject other)
-    {
-       // print(other);
-       // print(nextwaypointstring);
-        if (other == nextWaypoint)
-        {
-            //print("Next waypoint confirmed");
-            isMoving = false;
-            rb.AddForce(-newDirection * moveSpeed, ForceMode2D.Impulse);
-            this.transform.position = nextWaypoint.transform.position;
 
-        }
-    }
 
 
     public void HurtMe(int damage)
@@ -141,7 +104,7 @@ public class LightningEnemy : MonoBehaviour
         {
             int heartOrNo = Random.Range(0, 4);
 
-            //print(heartOrNo);
+            print(heartOrNo);
             //Instantiate (heart, this.transform.position, Quaternion.identity);
 
             if (heartOrNo >= 2)
@@ -157,22 +120,13 @@ public class LightningEnemy : MonoBehaviour
 
     public void LightningHurtMe(int ouchie)
     {
-        if (health < maxhealth)
-        {
-            health += ouchie;
-            if(health < maxhealth)
-            {
-                health = maxhealth;
-            }
-        }
-
-        moveSpeed += (float)ouchie / 10;
+        health += ouchie;
 
         if (health <= 0)
         {
             int heartOrNo = Random.Range(0, 4);
 
-            //print(heartOrNo);
+            print(heartOrNo);
             //Instantiate (heart, this.transform.position, Quaternion.identity);
 
             if (heartOrNo >= 2)
@@ -195,7 +149,7 @@ public class LightningEnemy : MonoBehaviour
         {
             int heartOrNo = Random.Range(0, 4);
 
-           //print(heartOrNo);
+            print(heartOrNo);
             //Instantiate (heart, this.transform.position, Quaternion.identity);
 
             if (heartOrNo >= 2)
@@ -216,7 +170,7 @@ public class LightningEnemy : MonoBehaviour
         {
             int heartOrNo = Random.Range(0, 4);
 
-            //print(heartOrNo);
+            print(heartOrNo);
             //Instantiate (heart, this.transform.position, Quaternion.identity);
 
             if (heartOrNo >= 2)
@@ -237,7 +191,7 @@ public class LightningEnemy : MonoBehaviour
         {
             int heartOrNo = Random.Range(0, 4);
 
-            //print(heartOrNo);
+            print(heartOrNo);
             //Instantiate (heart, this.transform.position, Quaternion.identity);
 
             if (heartOrNo >= 2)
@@ -247,20 +201,6 @@ public class LightningEnemy : MonoBehaviour
 
             Destroy(this.gameObject);
             CurrentRoom.gameObject.SendMessage("RoomClear");
-        }
-    }
-
-
-    public void OnTriggerEnter2D (Collider2D other)
-    {
-        if (other.gameObject.CompareTag("Player"))
-        {
-            other.gameObject.SendMessage("HurtMe", 1);
-        }
-
-        if (other.gameObject.CompareTag("FILLERTEXT"))
-        {
-            CoilChecker(other.gameObject);
         }
     }
 
