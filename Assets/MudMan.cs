@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class MudMan : MonoBehaviour
 {   
-// Start is called before the first frame update
-void Start()
     health = 100;
     cooldown = 0f;
     cooldownDuration = 2f;
