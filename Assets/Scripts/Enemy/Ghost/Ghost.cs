@@ -1,18 +1,18 @@
 public class Ghost : MonoBehaviour
    {
-    GameObject damage;
-    GameObject currentRoom;
+    public GameObject damage;
+    public GameObject currentRoom;
 
     private GameObject sprite;
-        
-    GameObject 
-    Animator animator;
-    Transform aim;
-    Vector2 playerawarenessDistance;
-    Vector2 DirectionToPlayer;
-    GameObject Heart;
-    GameObject playertarget;
-    GameObject PlayerUI;
+
+    private GameObject PlayerAware;
+    public Animator animator;
+    public GameObject Enemyaim;
+    public Vector2 layerawarenessDistance;
+    public DirectionToPlayer;
+    public GameObject Heart;
+    public GameObject playertarget;
+    public GameObject PlayerUI;
 
     ////////////////////////////////////////////
     ///GoopMovement values//////////////////////
@@ -35,7 +35,7 @@ public class Ghost : MonoBehaviour
         ///PlayerAware Code
         ////////////////////////////////////////
         playertarget = GameObject.Find("Aim");
-        //print(playertarget);
+        
         player = playertarget.transform;
 
         /////////////////////////////////////////
@@ -46,7 +46,7 @@ public class Ghost : MonoBehaviour
         player = Player.transform;
         anchor = GameObject.Find("EnemyAnchor");
         playerAwarenessDistance = GetComponent<PlayerAware>();
-        //ThisPlayerAware = GetComponent<PlayerAware>();
+        ThisPlayerAware = GetComponent<PlayerAware>();
 
 
 
@@ -111,7 +111,7 @@ public class Ghost : MonoBehaviour
             int heartOrNo = Random.Range(0, 4);
 
             print(heartOrNo);
-            //Instantiate (heart, this.transform.position, Quaternion.identity);
+            Instantiate (heart, this.transform.position, Quaternion.identity);
 
             if (heartOrNo >= 2)
             {
