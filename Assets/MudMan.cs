@@ -10,7 +10,6 @@ public class MudMan : MonoBehaviour
     float cooldownDuration = 2f;
     GameObject PlayerProjectile;
     float shotForce = 20f;
-
     private Vector3 start;
     private Vector3 direction;
     private GameObject target;
@@ -20,17 +19,17 @@ public class MudMan : MonoBehaviour
     private int layerMask = 1 << 3 | 1 << 7 | 1 << 11 | 1 << 12 | 1 << 13;
 
     private Vector3 shootAngle;
-
     private Animator animator;
-
     private int heartOrNo;
-    private bool gameObject heart;
+    private int cooldownCount;
+    private GameObject heart;
     private float horizontal;
     private float vertical;
     private float stupidspeed;
-
-<<<<<<< HEAD
-    Vector3 Start { get => start; set => start = value; }
+}
+// Start is called before the first frame update
+void Start()
+Vector3 Start { get => start; set => start = value; }
     Vector3 Direction { get => direction; set => direction = value; }
     GameObject Target { get => target; set => target = value; }
     global::System.Single SightDistance { get => sightDistance; set => sightDistance = value; }
@@ -43,15 +42,8 @@ public class MudMan : MonoBehaviour
     global::System.Int32 HeartOrNo { get => heartOrNo; set => heartOrNo = value; }
     global::System.Boolean GameObject { get => gameObject; set => gameObject = value; }
 }
-// Start is called before the first frame update
-void Start()
-{
-=======
-    public GameObject collider;
 
-    // Start is called before the first frame update
-    void Start()
-    {
+{
         cooldownCount = 0;
         target = GameObject.Find("Player");
         target2 = GameObject.Find("Shooter");
@@ -66,9 +58,7 @@ private int damage = 10;
 
     public System.Int32 GetHealth1()
     {
-<<<<<<< HEAD
         return health;
-=======
         start = this.transform.position;
         cooldownCount++;
         direction = (target.transform.position - start).normalized;
@@ -101,13 +91,12 @@ private int damage = 10;
         Horizontal = shootAngle.x;
         Vertical = shootAngle.y;
     }
-
 public void SetHealth1(System.Int32 value)
     {
         health = value;
     }
 
-public Animator GetAnimator()
+public Animator GetAnimator();
 {
     return animator;
 }

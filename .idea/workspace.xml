@@ -4,7 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1e713950-8288-4fb3-aebc-d2e902ff88d6" name="Changes" comment="" />
+    <list default="true" id="1e713950-8288-4fb3-aebc-d2e902ff88d6" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/Assets/MudMan.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/MudMan.cs" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -21,6 +23,11 @@
         <option name="title" value="All" />
       </GitPushTagMode>
     </option>
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="AJ-SA-Final" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="RESET_MODE" value="HARD" />
   </component>
@@ -30,12 +37,22 @@
     &quot;assignee&quot;: &quot;Zeta98159&quot;
   }
 }</component>
-  <component name="GithubPullRequestsUISettings">{
-  &quot;selectedUrlAndAccountId&quot;: {
-    &quot;url&quot;: &quot;https://github.com/Vynalith/Spellsling-Arena.git&quot;,
-    &quot;accountId&quot;: &quot;c7ba6648-c982-4d0a-ac84-96e9fa5d1c94&quot;
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/Vynalith/Spellsling-Arena.git",
+    "accountId": "c7ba6648-c982-4d0a-ac84-96e9fa5d1c94"
+  },
+  "recentNewPullRequestHead": {
+    "server": {
+      "useHttp": false,
+      "host": "github.com",
+      "port": null,
+      "suffix": null
+    },
+    "owner": "Vynalith",
+    "repository": "Spellsling-Arena"
   }
-}</component>
+}]]></component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/Assets/MudMan.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Enemy/Ghost/Ghost.cs" root0="FORCE_HIGHLIGHTING" />
@@ -76,7 +93,7 @@
     "ModuleVcsDetector.initialDetectionPerformed": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "AJ-SA-Final",
+    "git-widget-placeholder": "#2 on AJ-SA-Final",
     "ignore.virus.scanning.warn.message": "true",
     "last_opened_file_path": "E:/Unity/Unity Hub/Projects/Spellsling-Arena",
     "node.js.detected.package.eslint": "true",
@@ -338,7 +355,31 @@
       <option name="project" value="LOCAL" />
       <updated>1749830689311</updated>
     </task>
-    <option name="localTasksCounter" value="29" />
+    <task id="LOCAL-00029" summary="commit">
+      <option name="closed" value="true" />
+      <created>1749830764540</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1749830764540</updated>
+    </task>
+    <task id="LOCAL-00030" summary="commit">
+      <option name="closed" value="true" />
+      <created>1749830793698</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1749830793698</updated>
+    </task>
+    <task id="LOCAL-00031" summary="commit">
+      <option name="closed" value="true" />
+      <created>1749830899889</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1749830899889</updated>
+    </task>
+    <option name="localTasksCounter" value="32" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
