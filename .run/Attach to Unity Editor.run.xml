@@ -5,7 +5,9 @@
     <option name="pid" value="6128" />
     <option name="projectPathOnTarget" />
     <option name="runtimes">
-      <list />
+      <list>
+        <MonoRuntime />
+      </list>
     </option>
     <option name="selectedOptions">
       <list />
