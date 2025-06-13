@@ -29,9 +29,7 @@ public class MudMan : MonoBehaviour
     private float horizontal;
     private float vertical;
     private float stupidspeed;
-
-        <<<<<<< HEAD
-        Vector3 Start { get => start; set => start = value; }
+    Vector3 Start { get => start; set => start = value; }
     Vector3 Direction { get => direction; set => direction = value; }
     GameObject Target { get => target; set => target = value; }
     global::System.Single SightDistance { get => sightDistance; set => sightDistance = value; }
