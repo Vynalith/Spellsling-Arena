@@ -220,12 +220,16 @@ public class GameUI : MonoBehaviour
     {
         health = health + 1;
     }
+    ```csharp
+    public void SetCooldowns(float cooldown)
+    {
         iceCooldown = cooldown;
-    iceTime = 0f;
+        iceTime = 0f;
         fireCooldown = cooldown;
-    fireTime = 0f;
+        fireTime = 0f;
         earthCooldown = cooldown;
-    earthTime = 0f;
+        earthTime = 0f;
         lightningCooldown = cooldown;
-    lightningTime = 0f;
+        lightningTime = 0f;
+    }
 }
