@@ -268,7 +268,7 @@ public class Ghost : MonoBehaviour
         // Quaternion targetRotation = Quaternion.LookRotation(transform.foward, targetdirection);
         //Quaternion rotation = Quaternion.RotateTowards(player.transform.rotation, targetdirection, rotationSpeed* Time.deltaTime);
         //rigidbody.transform.rotation = player.transform.rotation;
-        rigidbody.transform.rotation = sprite.transform.rotation;
+        GetComponent<Rigidbody>().transform.rotation = sprite.transform.rotation;
     }
 
     private void SetVelocity()
