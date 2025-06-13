@@ -29,6 +29,7 @@ public class MudMan : MonoBehaviour
 }
 // Start is called before the first frame update
 void Start()
+{
 Vector3 Start { get => start; set => start = value; }
     Vector3 Direction { get => direction; set => direction = value; }
     GameObject Target { get => target; set => target = value; }
@@ -49,47 +50,9 @@ Vector3 Start { get => start; set => start = value; }
         target2 = GameObject.Find("Shooter");
         layerMask = ~layerMask;
 }
-private float sightDistance = 10f;
-private int damage = 10;
-
-    private GameObject heartPickup;
-
-    public System.Int32 Health { get => GetHealth1(); set => SetHealth1(value); }
-
-    public System.Int32 GetHealth1()
+public System.Int32 GetHealth1()
     {
         return health;
-        start = this.transform.position;
-        cooldownCount++;
-        direction = (target.transform.position - start).normalized;
-        Debug.DrawRay(start, direction * sightDistance);
-
-        if (SightTest() == target.GetComponent<Collider2D>() || SightTest() == target2.GetComponent<Collider2D>())
-        {
-            collider.SetActive(true);
-            animator.Play("MudRise");
-            animator.SetBool("Awake", true);
-            
-            if (cooldownCount >= cooldown)
-            {
-                animator.Play("MudATTACK");
-                Shoot();
-
-                cooldownCount = 0;
-            }
-        }
-        else{
-             collider.SetActive(false);
-             animator.SetBool("Awake", false);
-        }
-        finalDetected = null;
-        shootAngle = (start - target.transform.position).normalized;
-        shootAngle.y *= -1;
-
-        animator.SetFloat("Horizontal", shootAngle.x);
-        animator.SetFloat("Vertical", shootAngle.y);
-        Horizontal = shootAngle.x;
-        Vertical = shootAngle.y;
     }
 public void SetHealth1(System.Int32 value)
     {
