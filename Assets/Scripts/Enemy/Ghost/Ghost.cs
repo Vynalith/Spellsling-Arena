@@ -1,5 +1,5 @@
-public class Ghost : MonoBehaviour
-   {
+public class Ghost : MonoBehaviour 
+{
     public GameObject damage;
     public GameObject currentRoom;
 
@@ -8,7 +8,7 @@ public class Ghost : MonoBehaviour
     private GameObject PlayerAware;
     public Animator animator;
     public GameObject Enemyaim;
-    public Vector2 layerawarenessDistance;
+    public GameObject playerawarenessDistance;
     public DirectionToPlayer;
     public GameObject Heart;
     public GameObject playertarget;
@@ -17,14 +17,14 @@ public class Ghost : MonoBehaviour
     ////////////////////////////////////////////
     ///GoopMovement values//////////////////////
     ////////////////////////////////////////////
-    public Transform Player;
+    public Transform PlayerObject;
 
     public GameObject Player; [SerializeField];
 
     private float speed; [SerializeField];
 
-    //private float rotationSpeed = 100;
-    //private PlayerAware==ThisPlayerAware;
+    private float rotationSpeed = 100;
+    private PlayerAware==ThisPlayerAware;
     private Vector2 targetdirection;
     public GameObject sprite;
     public GameObject EnemyAnchor;

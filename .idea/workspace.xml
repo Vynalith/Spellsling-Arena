@@ -5,7 +5,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1e713950-8288-4fb3-aebc-d2e902ff88d6" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Enemy/Ghost/Ghost.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Enemy/Ghost/Ghost.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -41,7 +40,7 @@
 }</component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/Assets/MudMan.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Enemy/Ghost/Ghost.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Enemy/Ghost/Ghost.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="mock://E:/Unity/Unity Hub/Projects/Spellsling-Arena/Assets/Scripts/Enemy/Ghost/Ghost.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/GameManager.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock://E:/Unity/Unity Hub/Projects/Spellsling-Arena/Assets/Scripts/GameManager.cs" root0="SKIP_HIGHLIGHTING" />
@@ -317,7 +316,15 @@
       <option name="project" value="LOCAL" />
       <updated>1749830099362</updated>
     </task>
-    <option name="localTasksCounter" value="26" />
+    <task id="LOCAL-00026" summary="commit">
+      <option name="closed" value="true" />
+      <created>1749830424130</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1749830424130</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -398,10 +405,10 @@
           <line>221</line>
           <properties documentPath="E:\Unity\Unity Hub\Projects\Spellsling-Arena\Assets\Scripts\Enemy\Ghost\Ghost.cs" containingFunctionPresentation="Method 'OnTriggerEnter2D'">
             <startOffsets>
-              <option value="5745" />
+              <option value="5815" />
             </startOffsets>
             <endOffsets>
-              <option value="5746" />
+              <option value="5816" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="4" />
