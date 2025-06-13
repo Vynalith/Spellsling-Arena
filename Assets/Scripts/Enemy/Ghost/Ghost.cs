@@ -3,9 +3,9 @@ public class Ghost : MonoBehaviour
     public GameObject damage;
     public GameObject currentRoom;
 
-    private GameObject sprite;
+    public GameObject sprite;
 
-    private GameObject PlayerAware;
+    public GameObject PlayerAware;
     public Animator animator;
     public GameObject Enemyaim;
     public GameObject playerawarenessDistance;
@@ -25,8 +25,8 @@ public class Ghost : MonoBehaviour
 
     private float rotationSpeed = 100;
     private PlayerAware==ThisPlayerAware;
-    private Vector2 targetdirection;
-    public GameObject sprite;
+    private Vector2 playertargetdirection;
+
     public GameObject EnemyAnchor;
     // Start is called before the first frame update
     void Start()
