@@ -26,7 +26,7 @@ public class Ghost : MonoBehaviour
     [SerializeField]
 
     //private float rotationSpeed = 100;
-    //private PlayerAware ThisPlayerAware;
+    //private PlayerAware==ThisPlayerAware;
     private Vector2 targetdirection;
     public GameObject sprite;
     public GameObject anchor;
