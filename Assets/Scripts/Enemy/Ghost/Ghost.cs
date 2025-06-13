@@ -13,16 +13,15 @@ public class Ghost : MonoBehaviour
     GameObject Heart;
     GameObject playertarget;
     GameObject PlayerUI;
-    GameObject Getplayertarget;
 
     ////////////////////////////////////////////
-    ///GoopMovement values                   ///
+    ///GoopMovement values//////////////////////
     ////////////////////////////////////////////
     public Transform Player;
-    public GameObject Player;
-    [SerializeField]
-    private float speed;
-    [SerializeField]
+
+    public GameObject Player; [SerializeField];
+
+    private float speed; [SerializeField];
 
     //private float rotationSpeed = 100;
     //private PlayerAware==ThisPlayerAware;
@@ -221,13 +220,9 @@ public class Ghost : MonoBehaviour
 
         if(other.gameObject.CompareTag("Player"))
         {
-           
-            
             animator.Play("GoopAttack");
             
             //other.gameObject.SendMessage("EnemyCollide");
-            
-
         }
     }
 
@@ -267,7 +262,7 @@ public class Ghost : MonoBehaviour
         // Quaternion targetRotation = Quaternion.LookRotation(transform.foward, targetdirection);
         //Quaternion rotation = Quaternion.RotateTowards(player.transform.rotation, targetdirection, rotationSpeed* Time.deltaTime);
         //rigidbody.transform.rotation = player.transform.rotation;
-        GetComponent<Rigidbody>().transform.rotation = sprite.transform.rotation;
+        GetComponent<Rigidbody>().
     }
 
     private void SetVelocity()
