@@ -4,44 +4,28 @@ using UnityEngine;
 
 public class MudMan : MonoBehaviour
 {
-    public int health;
-    public GameManager CurrentRoom;
-    float cooldown;
-    float cooldownDuration = 2f;
-    GameObject PlayerProjectile;
-    float shotForce = 20f;
-    private Vector3 start;
-    private Vector3 direction;
-    private GameObject target;
-    private float sightDistance = 10;
-    private Collider2D finalDetected;
-    private RaycastHit hit;
-    private int layerMask = 1 << 3 | 1 << 7 | 1 << 11 | 1 << 12 | 1 << 13;
-
-    private Vector3 shootAngle;
-    private Animator animator;
-    private int heartOrNo;
-    private int cooldownCount;
-    private GameObject heart;
-    private float horizontal;
-    float vertical;
-    float stupidspeed;
-}
 // Start is called before the first frame update
 void Start()
-{
-    Vector3 Start { get => start; set => start = value; }
-    Vector3 Direction { get => direction; set => direction = value; }
-    GameObject Target { get => target; set => target = value; }
-    global::System.Single SightDistance { get => sightDistance; set => sightDistance = value; }
-    Collider2D FinalDetected { get => finalDetected; set => finalDetected = value; }
-    RaycastHit Hit { get => hit; set => hit = value; }
-    global::System.Int32 LayerMask { get => LayerMask1; set => LayerMask1 = value; }
-    global::System.Int32 LayerMask1 { get => layerMask; set => layerMask = value; }
-    Vector3 ShootAngle { get => shootAngle; set => shootAngle = value; }
-    Animator Animator { get => animator; set => animator = value; }
-    global::System.Int32 HeartOrNo { get => heartOrNo; set => heartOrNo = value; }
-    global::System.Boolean GameObject { get => gameObject; set => gameObject = value; }
+    health = 100;
+    cooldown = 0f;
+    cooldownDuration = 2f;
+    PlayerProjectile = GameObject.Find("PlayerProjectile");
+    shotForce = 20f;
+    start = transform.position;
+    direction = Vector3.zero;
+    target = GameObject.Find("Player");
+    sightDistance = 10f;
+    finalDetected = null;
+    hit = new RaycastHit();
+    layerMask = ~layerMask; // Invert the layer mask to ignore specified layers
+    shootAngle = Vector3.zero;
+    animator = GetComponent<Animator>();
+    heartOrNo = 0;
+    cooldownCount = 0;
+    heart = GameObject.Find("HeartPickup");
+    horizontal = 0f;
+    vertical = 0f;
+    stupidspeed = 5f; // Example speed value
 }
 public System.Int32 GetHealth1()
     {
