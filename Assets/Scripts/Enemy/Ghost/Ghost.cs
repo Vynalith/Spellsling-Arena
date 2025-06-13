@@ -1,14 +1,14 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
 public class Ghost : MonoBehaviour
    {
     GameObject damage;
     GameObject currentRoom;
+
+    private GameObject sprite;
+        
+    GameObject 
     Animator animator;
     Transform aim;
-    Vector2 AwareOfPlayer;
+    Vector2 playerawarenessDistance;
     Vector2 DirectionToPlayer;
     GameObject Heart;
     GameObject playertarget;
@@ -18,7 +18,7 @@ public class Ghost : MonoBehaviour
     ////////////////////////////////////////////
     ///GoopMovement values                   ///
     ////////////////////////////////////////////
-    public Transform player;
+    public Transform Player;
     public GameObject Player;
     [SerializeField]
     private float speed;
@@ -28,7 +28,7 @@ public class Ghost : MonoBehaviour
     //private PlayerAware==ThisPlayerAware;
     private Vector2 targetdirection;
     public GameObject sprite;
-    public GameObject anchor;
+    public GameObject EnemyAnchor;
     // Start is called before the first frame update
     void Start()
     {
@@ -103,7 +103,7 @@ public class Ghost : MonoBehaviour
     }
 
 
-    public void LightningHurtMe(int ouchie)
+    public void LightningHurtMe()
     {
         health -= ouchie + 1;
 
