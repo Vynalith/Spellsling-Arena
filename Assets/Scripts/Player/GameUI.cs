@@ -220,7 +220,6 @@ public class GameUI : MonoBehaviour
     {
         health = health + 1;
     }
-    ```csharp
     public void SetCooldowns(float cooldown)
     {
         iceCooldown = cooldown;
