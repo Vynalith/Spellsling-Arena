@@ -3,32 +3,40 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class MudMan : MonoBehaviour
-{   
-    {
-        int health;
-        GameManager CurrentRoom;
-        float cooldown;
-        float cooldownDuration = 2f;
-        GameObject Projectile;
-        float shotForce = 20f;
-
-    private Vector3 start;
-    private Vector3 direction;
-    private GameObject target;
-    private float sightDistance = 10;
-    private Collider2D finalDetected;
-    private RaycastHit hit;
-    private int layerMask = 1 << 3 | 1 << 7 | 1 << 11 | 1 << 12 | 1 << 13;
-
-    private Vector3 shootAngle;
-
-    private Animator animator;
-
+{
+    public int health;
+    public float cooldown;
+    public float cooldownDuration;
+    public GameObject PlayerProjectile;
+    public float shotForce;
+    private Vector3 start; 
+    private Vector3 direction; 
+    private GameObject target; 
+    private float sightDistance = 10; 
+    private Collider2D finalDetected; 
+    private RaycastHit hit; 
+    private int layerMask = 1 << 3 | 1 << 7 | 1 << 11 | 1 << 12 | 1 << 13; 
+    private Vector3 shootAngle; private Animator animator; 
     private int heartOrNo;
-    private bool gameObject heart;
-    private float horizontal;
+    private GameObject heartPickup;
+    private float cooldownCount;
+    private GameObject target2;
+    
+    private bool GameObject heart; 
+    // Variables for movement and shooting
+    private int health = 5; // Mudman health
+    private float horizontal; 
     private float vertical;
+    private GameObject PlayerProjectile1;
     private float stupidspeed;
+    private int damage;
+    public GameObject Projectile;
+    public float Cooldown { get => cooldown; set => cooldown = value; }
+    public float CooldownDuration { get => cooldownDuration; set => cooldownDuration = value; }
+    public GameObject PlayerProjectile1 { get => PlayerProjectile; set => PlayerProjectile = value; }
+    public float ShotForce { get => shotForce; set => shotForce = value; }
+    public GameObject HeartPickup { get => heartPickup; set => heartPickup = value; }
+    
     Vector3 Start { get => start; set => start = value; }
     Vector3 Direction { get => direction; set => direction = value; }
     GameObject Target { get => target; set => target = value; }
