@@ -4,32 +4,39 @@ using UnityEngine;
 
 public class MudMan : MonoBehaviour
 {
-    int health;
-    GameManager CurrentRoom;
-    float cooldown;
-    float cooldownDuration = 2f;
-    GameObject Projectile;
-    float shotForce = 20f;
-
-    private Vector3 start;
-    private Vector3 direction;
-    private GameObject target;
-    private float sightDistance = 10;
-    private Collider2D finalDetected;
-    private RaycastHit hit;
-    private int layerMask = 1 << 3 | 1 << 7 | 1 << 11 | 1 << 12 | 1 << 13;
-
-    private Vector3 shootAngle;
-
-    private Animator animator;
-
+    public int health;
+    public float cooldown;
+    public float cooldownDuration;
+    public GameObject PlayerProjectile;
+    public float shotForce;
+    private Vector3 start; 
+    private Vector3 direction; 
+    private GameObject target; 
+    private float sightDistance = 10; 
+    private Collider2D finalDetected; 
+    private RaycastHit hit; 
+    private int layerMask = 1 << 3 | 1 << 7 | 1 << 11 | 1 << 12 | 1 << 13; 
+    private Vector3 shootAngle; private Animator animator; 
     private int heartOrNo;
-    private bool gameObject heart;
-    private float horizontal;
+    private GameObject heartPickup;
+    private float cooldownCount;
+    private GameObject target2;
+    
+    private bool GameObject heart; 
+    // Variables for movement and shooting
+    private int health = 5; // Mudman health
+    private float horizontal; 
     private float vertical;
+    private GameObject PlayerProjectile1;
     private float stupidspeed;
-
-<<<<<<< HEAD
+    private int damage;
+    public GameObject Projectile;
+    public float Cooldown { get => cooldown; set => cooldown = value; }
+    public float CooldownDuration { get => cooldownDuration; set => cooldownDuration = value; }
+    public GameObject PlayerProjectile1 { get => PlayerProjectile; set => PlayerProjectile = value; }
+    public float ShotForce { get => shotForce; set => shotForce = value; }
+    public GameObject HeartPickup { get => heartPickup; set => heartPickup = value; }
+    
     Vector3 Start { get => start; set => start = value; }
     Vector3 Direction { get => direction; set => direction = value; }
     GameObject Target { get => target; set => target = value; }
@@ -46,71 +53,29 @@ public class MudMan : MonoBehaviour
 // Start is called before the first frame update
 void Start()
 {
-=======
-    public GameObject collider;
+    =======
+public GameObject collider;
 
-    // Start is called before the first frame update
-    void Start()
-    {
->>>>>>> parent of b932fd7 (AJ commit)
-        cooldownCount = 0;
-        target = GameObject.Find("Player");
-        target2 = GameObject.Find("Shooter");
-        layerMask = ~layerMask;
+// Start is called before the first frame update
+void Start()
+{
+    >>>>>>> parent of b932fd7 (AJ commit)
+    cooldownCount = 0;
+    target = GameObject.Find("Player");
+    target2 = GameObject.Find("Shooter");
+    layerMask = ~layerMask;
+
 }
-private float sightDistance = 10f;
-private int damage = 10;
-
-    private GameObject heartPickup;
-
-    public System.Int32 Health { get => GetHealth1(); set => SetHealth1(value); }
-
-    public System.Int32 GetHealth1()
+public System.Int32 GetHealth1()
     {
-<<<<<<< HEAD
         return health;
-=======
-        start = this.transform.position;
-        cooldownCount++;
-        direction = (target.transform.position - start).normalized;
-        Debug.DrawRay(start, direction * sightDistance);
-
-        if (SightTest() == target.GetComponent<Collider2D>() || SightTest() == target2.GetComponent<Collider2D>())
-        {
-            collider.SetActive(true);
-            animator.Play("MudRise");
-            animator.SetBool("Awake", true);
-            
-            if (cooldownCount >= cooldown)
-            {
-                animator.Play("MudATTACK");
-                Shoot();
-
-                cooldownCount = 0;
-            }
-        }
-        else{
-             collider.SetActive(false);
-             animator.SetBool("Awake", false);
-        }
-        finalDetected = null;
-        shootAngle = (start - target.transform.position).normalized;
-        shootAngle.y *= -1;
-
-        animator.SetFloat("Horizontal", shootAngle.x);
-        animator.SetFloat("Vertical", shootAngle.y);
-        Horizontal = shootAngle.x;
-        Vertical = shootAngle.y;
-
->>>>>>> parent of b932fd7 (AJ commit)
     }
-
-    public void SetHealth1(System.Int32 value)
+public void SetHealth1(System.Int32 value)
     {
         health = value;
     }
 
-public Animator GetAnimator()
+public Animator GetAnimator();
 {
     return animator;
 }
