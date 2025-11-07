@@ -27,7 +27,7 @@ public class IceColumnProjectileScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        vel = body.velocity;
+        vel = body.linearVelocity;
         speed = vel.magnitude;
         this.transform.position = transform.parent.transform.position;
 

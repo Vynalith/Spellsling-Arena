@@ -3,7 +3,20 @@ guid: 0299a0b89c066dc4db2e2dc4a6646ac7
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - rb: {instanceID: 0}
+  - rb2: {instanceID: 0}
+  - damage: {instanceID: 0}
+  - camera: {instanceID: 0}
+  - animator: {instanceID: 0}
+  - Shooter: {fileID: 6298780189008791904, guid: 2d8b5e246f7860a409b148aabb7ee686, type: 3}
+  - gameUI: {instanceID: 0}
+  - song1Intro: {instanceID: 0}
+  - song1Loop: {instanceID: 0}
+  - bossSongIntro: {instanceID: 0}
+  - bossSongLoop: {instanceID: 0}
+  - winSong: {instanceID: 0}
+  - Reset: {fileID: 5281848734733506458, guid: 0e0194ceb75a90841a2c4447a3097862, type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

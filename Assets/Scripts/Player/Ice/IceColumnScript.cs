@@ -27,7 +27,7 @@ public class IceColumnScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        vel = body.velocity;
+        vel = body.linearVelocity;
         speed = vel.magnitude;
         //print(speed);
         if(speed > 1)

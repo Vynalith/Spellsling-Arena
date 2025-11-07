@@ -297,12 +297,12 @@ public class Ghost : MonoBehaviour
         if (targetdirection == Vector2.zero)
         {
             //print("no direction");
-            this.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+            this.GetComponent<Rigidbody2D>().linearVelocity = Vector2.zero;
             
         }
         else
         {
-            this.GetComponent<Rigidbody2D>().velocity = transform.up * speed;
+            this.GetComponent<Rigidbody2D>().linearVelocity = transform.up * speed;
             //this.GetComponent<Rigidbody2D>().AddForce(transform.up * speed);
             //print("transform.up = " + this.transform.up);
             //print("transform.up = " + transform.up);
